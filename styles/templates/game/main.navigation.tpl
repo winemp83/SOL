@@ -1,4 +1,4 @@
-﻿<div id="leftmenu">
+﻿<div id="leftmenu-ingame">
 	<ul id="menu">
 		<li class="menu-head"><a href="game.php?page=changelog">{$LNG.lm_changelog}</a></li>
 <li>

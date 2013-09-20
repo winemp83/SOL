@@ -237,6 +237,14 @@ textarea.tinymce{
 	float:left;
 	z-index:1;
 }
+#leftmenu-ingame {
+	position: fixed;
+	top: 5px;
+	left: 0px;
+	width:200px;
+	float:left;
+	z-index:1;
+}
 
 
 #menu {

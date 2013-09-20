@@ -11,8 +11,9 @@
 <table class="table519" style="background: transparent;">
 	<tbody>
 		<tr>
-			<th colspan="6" style="text-align:center"> {$servertime} </th> </tr>
+			<th colspan="6" style="text-align:center" class="servertime"> {$servertime} </th> </tr>
 		{if $messages}
+
 		<tr>
 			<td colspan="6"><a href="?page=messages">{$messages}</a></td>
 		</tr>
