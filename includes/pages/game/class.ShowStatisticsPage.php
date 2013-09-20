@@ -106,37 +106,39 @@ class ShowStatisticsPage extends AbstractPage
 				$timestamp=time();
 
                 $RangeList	= array();
-
+				
                 while ($StatRow = $GLOBALS['DATABASE']->fetch_array($query))
                 {
-                	if($StatRow['ally_id'] == $USER['ally_id']){
-                    	$RangeList[]	= array(
-                        	'id'		=> $StatRow['id'],
-                        	'name'		=> $StatRow['username'],
-                        	'points'	=> pretty_number($StatRow[$Points]),
-                        	'allyid'	=> $StatRow['ally_id'],
-                        	'rank'		=> $StatRow[$Rank],
-                        	'allyname'	=> $StatRow['ally_name'],
-                        	'ranking'	=> $StatRow[$OldRank] - $StatRow[$Rank],
-                        	'online'	=> $StatRow['onlinetime'],
-							'TIMESTAMP' => $timestamp,
-                    	);
-                    }
-					else{
-						$RangeList[]	= array(
-                        	'id'		=> $StatRow['id'],
-                        	'name'		=> $StatRow['username'],
-                        	'points'	=> pretty_number($StatRow[$Points]),
-                        	'allyid'	=> $StatRow['ally_id'],
-                        	'rank'		=> $StatRow[$Rank],
-                        	'allyname'	=> $StatRow['ally_name'],
-                        	'ranking'	=> $StatRow[$OldRank] - $StatRow[$Rank],
-                        	'online'	=> "-",
-							'TIMESTAMP' => $timestamp,
-							);
-					}
-                }
 
+						if($StatRow['ally_id'] == $USER['ally_id']){
+                    		$RangeList[]	= array(
+                        		'id'		=> $StatRow['id'],
+                        		'name'		=> $StatRow['username'],
+                        		'points'	=> pretty_number($StatRow[$Points]),
+                        		'allyid'	=> $StatRow['ally_id'],
+                        		'rank'		=> $StatRow[$Rank],
+                        		'allyname'	=> $StatRow['ally_name'],
+                        		'ranking'	=> $StatRow[$OldRank] - $StatRow[$Rank],
+                        		'online'	=> $StatRow['onlinetime'],
+								'TIMESTAMP' => $timestamp,
+								'authlvl'   => $USER['authlevel'],
+                    		);
+                    	}
+						else{
+							$RangeList[]	= array(
+                        		'id'		=> $StatRow['id'],
+                        		'name'		=> $StatRow['username'],
+                        		'points'	=> pretty_number($StatRow[$Points]),
+                        		'allyid'	=> $StatRow['ally_id'],
+                        		'rank'		=> $StatRow[$Rank],
+                        		'allyname'	=> $StatRow['ally_name'],
+                        		'ranking'	=> $StatRow[$OldRank] - $StatRow[$Rank],
+                        		'online'	=> "-",
+								'TIMESTAMP' => $timestamp,
+								'authlvl'   => $USER['authlevel'],
+							);
+						}
+				}
                 $GLOBALS['DATABASE']->free_result($query);
             break;
             case 2:
