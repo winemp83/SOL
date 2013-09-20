@@ -36,9 +36,9 @@ class ShowConvitePage extends AbstractPage
 
          $From    = "".$USER['username']."";
          $Subject = "Einladung in eine Allianz";
-           $allianceCount = $GLOBALS['DATABASE']->query("SELECT DISTINCT ally_name FROM ".ALLIANCE." WHERE id='".$USER['ally_id']."';");
+           $allianceCount = $GLOBALS['DATABASE']->query("SELECT DISTINCT ally_name FROM ".ALLIANCE.";");
 			while($ally = $GLOBALS['DATABASE']->fetch_array($allianceCount)){
-         $Message = '<center>Der Gründer der Allianz <font color=red>'.$ally['ally_name'].'</font><br><br>Lädt dich ein, seiner Allianz beizutretten<br><a href="game.php?page=alliance&mode=apply&id='.$USER['ally_id'].'"><font color=#00FF00>Klicke Hier um der Allianz bei zutretten </font></a></center>';
+         $Message = '<center>Der Gründer der Allianz <font color=red>'.$ally['ally_name'].'</font><br><br>Lädt dich ein, seiner Allianz beizutretten<br><a href="game.php?page=alliance&mode=apply&allyid='.$USER['ally_id'].'"><font color=#00FF00>Klicke Hier um der Allianz bei zutretten </font></a></center>';
          $summery=0;   
          }
                      

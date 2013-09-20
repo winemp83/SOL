@@ -60,7 +60,7 @@
 <ul class="domtabs">
 <li><a href="#t1">{$LNG.ov_events}</a></li>
 <li><a href="#t2">{$LNG.lm_overview}</a></li>
-<li><a href="#t3">{$LNG.bu_requests}</a></li>
+<li><a href="#t3">{$LNG.bu_partners}</a></li>
 <li><a href="#t4">{$LNG.ov_reflink}</a></li>
 <li><a href="#t5">{$LNG.lm_malli}</a></li>
 
@@ -94,7 +94,7 @@
 <div style="background: transparent;"> <a name="t3" id="t3"></a>
 						<table style="width: 100%;">
 							<tbody><tr>
-								<tr><th colspan="6" style="text-align:center">{$LNG.bu_requests}</th></tr>
+								<tr><th colspan="6" style="text-align:center"> {$LNG.bu_anfrage} </th></tr>
     {foreach $otherRequestList as $otherRequestID => $otherRequestRow}
     <tr>
         <td><a href="#" onclick="return Dialog.PM({$otherRequestRow.id});">{$otherRequestRow.username}</a></td>
@@ -135,42 +135,42 @@
 <th colspan="6" style="text-align:center;">{$LNG.ov_oaktplan}</th> 
 
 
-<tr id='system2'>
-	<th width="10%">{$LNG.ov_ocor}</th>
+<tr id='system3'>
+	<th width="5%">{$LNG.ov_ocor}</th>
 	<th width="20%">{$LNG.ov_oname}</th>
 	<th width="30%">{$LNG.ov_ogeb}</th>
-	<th width="20%">{$LNG.ov_ofors}</th>
+	<th width="25%">{$LNG.ov_ofors}</th>
 	<th width="20%">{$LNG.ov_owerft}</th>
 </tr>
 
-<tr id='system2'>
-	<td width="10%"><a href="game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system}">[{$galaxy}:{$system}:{$planet}]</a></td>
-	<td width="20%">{$planetname}</td>
-	<td  width="30%">{if $buildInfo.buildings}{$LNG.tech[$buildInfo.buildings['id']]} ({$buildInfo.buildings['level']})<br><div class="timer" style="background: transparent; width: 30%; text-align:center;" data-time="{$buildInfo.buildings['timeleft']}"><b>{$buildInfo.buildings['starttime']}</b></div>{else}{$LNG.ov_free}{/if}</td> 
-	<td  width="20%">{if $buildInfo.tech}{$LNG.tech[$buildInfo.tech['id']]} ({$buildInfo.tech['level']})<br><div class="timer" style="background: transparent; width: 20%; text-align:center;" data-time="{$buildInfo.tech['timeleft']}"{$buildInfo.tech['starttime']}</div>{else}{$LNG.ov_free}{/if}</td>			
-	<td  width="20%">{if $buildInfo.fleet}{$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})<br><div class="timer" style="background: transparent; width: 20%; text-align:center;" data-time="{$buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</div>{else}<p>{$LNG.ov_free}{/if}</td>
+<tr id='system3'>
+	<td width="5%" style="background: transparent;" ><a href="game.php?page=galaxy&amp;galaxy={$galaxy}&amp;system={$system}">[{$galaxy}:{$system}:{$planet}]</a></td>
+	<td width="20%" style="background: transparent;">{$planetname}</td>
+	<td  width="30%" style="background: transparent; width: 10%; text-align:left;" >{if $buildInfo.buildings}{$LNG.tech[$buildInfo.buildings['id']]} ({$buildInfo.buildings['level']})<br><div class="timer" style="background: transparent; width: 30%; text-align:left;" data-time="{$buildInfo.buildings['timeleft']}"><b>{$buildInfo.buildings['starttime']}</b></div>{else}{$LNG.ov_free}{/if}</td> 
+	<td  width="25%" style="background: transparent; width: 10%; text-align:left;" >{if $buildInfo.tech}{$LNG.tech[$buildInfo.tech['id']]} ({$buildInfo.tech['level']})<br><div class="timer" style="background: transparent; width: 20%; text-align:left; " data-time="{$buildInfo.tech['timeleft']}"{$buildInfo.tech['starttime']}</div>{else}{$LNG.ov_free}{/if}</td>			
+	<td  width="20%"style="background: transparent; width: 10%; text-align:left;" >{if $buildInfo.fleet}{$LNG.tech[$buildInfo.fleet['id']]} ({$buildInfo.fleet['level']})<br><div class="timer" style="background: transparent; width: 20%; text-align:left;" data-time="{$buildInfo.fleet['timeleft']}">{$buildInfo.fleet['starttime']}</div>{else}<p>{$LNG.ov_free}{/if}</td>
   
 	
 </tr>
 
-<th colspan="6" style="text-align:center;"> Planeten </th> 
+<th colspan="6" style="text-align:center;">{$LNG.ov_oplanetena}</th> 
 
 
-<tr id='system2'>
-	<th width="10%">{$LNG.ov_ocor}</th>
+<tr id='system3'>
+	<th width="5%">{$LNG.ov_ocor}</th>
 	<th width="20%">{$LNG.ov_oname}</th>
 	<th width="30%">{$LNG.ov_ogeb}</th>
-	<th width="20%">{$LNG.ov_owerft}</th>
-        <th width="10%"></th>
+	<th width="25%">{$LNG.ov_owerft}</th>
+        <th width="20%">{$LNG.ov_oauswahl}</th>
 
 </tr>
 {foreach $AllPlanets as $PlanetRow}
-<tr id='system2'>
-	<td width="10%">[{$PlanetRow.coordsa}.{$PlanetRow.coordsb}.{$PlanetRow.coordsc}]</td>
-	<td width="20%"><a href="game.php?page=overview&amp;cp={$PlanetRow.id}">{$PlanetRow.name}</a></td>
-	<td width="30%"> {$PlanetRow.build} </td> 
-	<td width="20%"> </td>
-	<td width="10%"> </td>			
+<tr id='system3'>
+	<td width="5%" style="background: transparent;">[{$PlanetRow.coordsa}.{$PlanetRow.coordsb}.{$PlanetRow.coordsc}]</td>
+	<td width="20%" style="background: transparent;"><a href="game.php?page=overview&amp;cp={$PlanetRow.id}">{$PlanetRow.name}</a></td>
+	<td width="30%" style="background: transparent;"> {$PlanetRow.build} </td> 
+	<td width="25%" style="background: transparent;"> </td>
+	<td width="20%" style="background: transparent;"> <a href="game.php?page=overview&amp;cp={$PlanetRow.id}"><img src='./styles/theme/gow/img/switch.png' width='88px' height='31px' border='0'></a> </td>			
 
        {if $PlanetRow@last && $PlanetRow@total > 1 && ($PlanetRow@iteration % $themeSettings.PLANET_ROWS_ON_OVERVIEW) !== 0} 
        {$to = $themeSettings.PLANET_ROWS_ON_OVERVIEW - ($PlanetRow@iteration % $themeSettings.PLANET_ROWS_ON_OVERVIEW)}
@@ -188,7 +188,7 @@
 <div style="background: transparent;"> <a name="t1" id="t1"></a>
 											<table style="width: 100%; background: transparent;">
 <tr>
-		<th colspan="3">{$LNG.ov_events}</th>
+		<th colspan="3">{$LNG.ov_events}  
 	</tr>
 	{foreach $fleets as $index => $fleet}
 	<tr>
@@ -204,7 +204,7 @@
 <td colspan="6">
 
  <div id='planet_overview' style='background: transparent url({$dpath}planeten/{$planetimage}.jpg); height: 290px; width: 625px;'>
- <div id='planet_overview_header'> <span class="planetname"> {$planetname}</span>
+ <div id='planet_overview_header'> <span class="planetname"> {$planetname} </span>
 </div>
 
 
@@ -212,9 +212,10 @@
 		
 
 		
-
+<a href="game.php?page=galaxyOld&amp;galaxy={$galaxy}&amp;system={$system}"> <img src="./styles/theme/gow/img/gala.png" width='88px' height='27px' border='0'></a>
 <input style="margin:5px 0 0 5px;float:left;" value="<-" onclick="$('#planetSelector > :selected').prev().attr('selected', 'selected');$('#planetSelector').trigger('change')" type="button"/>
 <input style="margin:5px 0;float:left;" value="->" onclick="$('#planetSelector > :selected').next().attr('selected', 'selected');$('#planetSelector').trigger('change')" type="button">
+
 
 <div id="g_bau1">
 <table>
@@ -240,6 +241,7 @@
 </tbody>
 </table>
 <div id='g_moon'>{if $Moon}<a href="game.php?page=overview&amp;cp={$Moon.id}&amp;re=0" title="{$Moon.name}"><img src="{$dpath}planeten/mond.jpg" height="70" width="70" alt="{$Moon.name} ({$LNG.fcm_moon})"></a><br>{else}&nbsp;{/if}
+
 </div>
 </div>
 
@@ -289,6 +291,7 @@
         				</tr>
                 
                 <tr>
+
               		<td id='planet_rename'></td>
                   <td id='planet_rename_dec'>
                     <a href="#" onclick="return Dialog.PlanetAction();" title="{$LNG.ov_planetmenu}"><span class="planetname">{$LNG.ov_oumb}</span></a></td>
@@ -384,11 +387,11 @@
 			<td>{$bo_atk} %</td>
 		</tr>
 		<tr>
-			<th>{$LNG.winemp_alliBonus_4}</th>
+			<th>{$LNG.winemp_alliBonus_3}</th>
 			<td>{$bo_bui} %</td>
 		</tr>
 		<tr>
-			<th>{$LNG.winemp_alliBonus_3}</th>
+			<th>{$LNG.winemp_alliBonus_4}</th>
 			<td>{$bo_res} %</td>
 		</tr>
 		{else}

@@ -434,6 +434,7 @@ $LNG['lm_malli']						= 'Allianz';
 $LNG['lm_mcommunity']					= 'Community';
 $LNG['lm_mhandel']						= 'Handel';
 $LNG['lm_meinstellungen']				= 'Einstellungen';
+$LNG['lm_voteus']				= 'Vote us';
 //unter menu
 $LNG['lm_msimu']						= 'Simulator';
 $LNG['lm_merrung']						= 'Errungenschaften';
@@ -442,18 +443,28 @@ $LNG['lm_mallib']						= 'Allianz-Bank';
 $LNG['lm_mgala2d']						= 'Galaxie 2D';
 $LNG['lm_mgalalist']					= 'Galaxie Liste';
 $LNG['lm_mbank']						= 'Bank';
+$LNG['lm_browser1']				= 'kostenlos-browsergame';
+$LNG['lm_browser2']				= 'top100arena';
+$LNG['lm_browser3']				= 'browsergamelist';
+$LNG['lm_browser4']				= 'browsergames';
+$LNG['lm_browser5']				= 'gtop100';
+
 
 //Overview 
 $LNG['ov_marktp']						= 'Marktplatz:';
+$LNG['bu_anfrage']						= 'Anfrage';
 //overview t1
 $LNG['ov_ogeb']							= 'Gebäude:';
 $LNG['ov_ofors']						= 'Forschung:';
 $LNG['ov_owerft']						= 'Werft:';
+
 $LNG['ov_oumb']							= 'Umbenennen/Aufgeben';
 //overview t2
-$LNG['ov_oaktplan']						= 'Aktueller Planet:';
+$LNG['ov_oaktplan']						= 'Aktueller Planet';
 $LNG['ov_ocor']							= 'Koordinaten';
 $LNG['ov_oname']						= 'Name:';
+$LNG['ov_oauswahl']						= 'Auswahl:';
+$LNG['ov_oplanetena']					= 'Planeten Uebersicht';
 //overview t5
 $LNG['ov_oauber']						= 'Allianz Übersicht';
 $LNG['ov_oaname']						= 'Allianz Name/Kürzel';
@@ -495,3 +506,22 @@ $LNG['winemp_allyBonus_Error_M']		= 'Sie besitzen zu wenig Metall';
 $LNG['winemp_allyBonus_Error_K']		= 'Sie besitzen zu wenig Kristall';
 $LNG['winemp_allyBonus_Error_D']		= 'Sie besitzen zu wenig Deuterium';	
 $LNG['winemp_allyBonus_allOkay']		= 'Sie haben Erfolgreich einen Bonus erworben';
+//Loginpage
+//Menu
+$LNG['icey_menu_news']		= 'News';
+$LNG['icey_menu_forum']		= 'Forum';
+$LNG['icey_menu_pranger']	= 'Pranger';
+$LNG['icey_menu_regeln']	= 'Regeln';
+$LNG['icey_menu_galerie']	= 'Galerie';
+
+//news
+$LNG['icey_news_last']		= 'Letzte News:';
+
+//User Info
+$LNG['icey_user_info']		= 'Userinfos';
+$LNG['icey_user_online']	= 'Spieler Online:';
+$LNG['icey_user_gesamt']	= 'User gesamt:';
+$LNG['icey_user_last']		= 'Neuer Spieler:';
+
+//Bilder Galarie
+$LNG['icey_gala_bilder']	= 'Bilder Galerie';

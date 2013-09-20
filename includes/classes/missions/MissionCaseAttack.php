@@ -110,7 +110,6 @@ HTML;
 			$fleetAttack[$fleetID]['unit']				= fleetAmountToArray($fleetDetail['fleet_array']);
 			
 			$userAttack[$fleetAttack[$fleetID]['player']['id']]	= $fleetAttack[$fleetID]['player']['username'];
-			$userID_a = $fleetAttack[$fleetID]['player']['ally_id'];
 		}
 				
 		$targetFleetsResult = $GLOBALS['DATABASE']->query("SELECT * FROM ".FLEETS." WHERE fleet_mission = '5' AND fleet_end_id = '".$this->_fleet['fleet_end_id']."' AND fleet_start_time <= '".TIMESTAMP."' AND fleet_end_stay >= '".TIMESTAMP."';");
@@ -124,7 +123,6 @@ HTML;
 			$fleetDefend[$fleetID]['unit']				= fleetAmountToArray($fleetDetail['fleet_array']);
 			
 			$userDefend[$fleetDefend[$fleetID]['player']['id']]	= $fleetDefend[$fleetID]['player']['username'];
-			$userID_d = $fleetDefend[$fleetID]['player']['ally_id'];
 		}
 			
 		$GLOBALS['DATABASE']->free_result($targetFleetsResult);

@@ -2,6 +2,7 @@
 html, body { 
    padding                 : 0; 
    margin                  : 0; 
+   text-decoration:none;
   
 }
 
@@ -14,8 +15,9 @@ body {
   color: #FFFFFF;
     font-family: verdana;
      text-align: left;
+ text-decoration: none;
 
-}
+
 
 }
 #login + .fb_login{
@@ -78,6 +80,7 @@ body {
   border-radius: 5px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  text-decoration:none;
 
 }
 
@@ -177,6 +180,7 @@ body {
   border-radius: 5px;
   border-top-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  text-decoration:none;
 }
 
 .mainBody .content .contentBlock.small {
@@ -192,6 +196,7 @@ body {
 .mainBody .content .contentBlock .innerContent {
    background              : #2b323e;
    padding                 : 1px;
+   text-decoration:none;
      
 }
 
@@ -237,6 +242,7 @@ input {
 	width: 360px;
 	height: 205px;
 	margin: 0px;
+	text-decoration:none;
 
 }
 
@@ -654,6 +660,7 @@ table, tr, td, th {
     empty-cells: show;
     margin: 0;
     padding: 0;
+color:#fff; text-decoration:none;
 }
 
 img{

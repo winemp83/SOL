@@ -16,7 +16,7 @@ function EventAttack($targetGalaxy, $targetSystem, $targetPlanet, $targetType, $
 	
 
 
-$attackPlanetData = $GLOBALS['DATABASE']->uniquequery("SELECT id, id_owner, light_hunter, battle_ship, dearth_star, lune_noir , ally_deposit , ev_attack, ev_attval FROM ".PLANETS." WHERE universe = ".$UNI." AND galaxy = ".$targetGalaxy." AND system = ".$targetSystem." AND planet = ".$targetPlanet." AND planet_type = '".($targetType == 2 ? 1 : $targetType)."';");
+$attackPlanetData = $GLOBALS['DATABASE']->uniquequery("SELECT id, id_owner, heavy_hunter, small_ship_cargo, big_ship_cargo, light_hunter, battle_ship, dearth_star, lune_noir , ally_deposit , ev_attack, ev_attval FROM ".PLANETS." WHERE universe = ".$UNI." AND galaxy = ".$targetGalaxy." AND system = ".$targetSystem." AND planet = ".$targetPlanet." AND planet_type = '".($targetType == 2 ? 1 : $targetType)."';");
 
 
 if($attackPlanetData['ev_attack']==1)
@@ -39,11 +39,28 @@ if($attackPlanetData['ev_attack']==0)
 	
 		
 	
-	$ev_attack_ships = $attackPlanetData['light_hunter']+$attackPlanetData['battle_ship']+ $attackPlanetData['dearth_star']+$attackPlanetData['lune_noir'];
+	$ev_attack_ships = $attackPlanetData['light_hunter']+$attackPlanetData['battle_ship']+ $attackPlanetData['dearth_star']+$attackPlanetData['lune_noir']+$attackPlanetData['heavy_hunter']+$attackPlanetData['small_ship_cargo']+$attackPlanetData['big_ship_cargo'];
 		
 	if($ev_attack == 1 and $ev_attack_ships > 0 ) 
 		{
 			$attackArray	= array();
+			if($attackPlanetData['heavy_hunter'] > 0)
+			{
+				$attackArray[ '205' ] = $attackPlanetData['heavy_hunter'];
+			}
+				
+			
+			if($attackPlanetData['small_ship_cargo'] > 0)
+			{
+				$attackArray[ '202' ] = $attackPlanetData['small_ship_cargo'];
+			}
+				
+			
+			if($attackPlanetData['big_ship_cargo'] > 0)
+			{
+				$attackArray[ '203' ] = $attackPlanetData['big_ship_cargo'];
+			}
+			
 			if($attackPlanetData['light_hunter'] > 0)
 				{
 				$attackArray[ '204' ] = $attackPlanetData['light_hunter'];

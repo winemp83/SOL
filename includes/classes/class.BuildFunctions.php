@@ -21,8 +21,8 @@
  * @author Jan Kröpke <info@2moons.cc>
  * @copyright 2012 Jan Kröpke <info@2moons.cc>
  * @license http://www.gnu.org/licenses/gpl.html GNU GPLv3 License
- * @version 1.7.3 (2013-05-19)
- * @info $Id: class.BuildFunctions.php 2641 2013-03-24 13:43:52Z slaver7 $
+ * @version 1.7.1 (2013-01-18)
+ * @info $Id: class.BuildFunctions.php 2615 2013-02-04 19:39:03Z fabio.chimienti $
  * @link http://2moons.cc/
  */
 
@@ -73,7 +73,7 @@ class BuildFunctions
 		return $overflow;
 	}
 	
-	public static function getElementPrice($USER,$PLANET, $Element, $forDestroy = false, $forLevel = NULL) { 
+	public static function getElementPrice($USER, $PLANET, $Element, $forDestroy = false, $forLevel = NULL) { 
 		global $pricelist, $resource, $reslist;
 
        	if (in_array($Element, $reslist['fleet']) || in_array($Element, $reslist['defense']) || in_array($Element, $reslist['missile'])) {
@@ -138,86 +138,59 @@ class BuildFunctions
 	}
 	
 	public static function getBuildingTime($USER, $PLANET, $Element, $elementPrice = NULL, $forDestroy = false, $forLevel = NULL)
-    {
-        global $resource, $reslist, $requeriments;
-        
-        $CONF    = Config::getAll(NULL, $USER['universe']);
+	{
+		global $resource, $reslist, $requeriments;
+
+        $CONF	= Config::getAll(NULL, $USER['universe']);
 
         $time   = 0;
 
         if(!isset($elementPrice)) {
-            $elementPrice    = self::getElementPrice($USER, $PLANET, $Element, $forDestroy, $forLevel);
-        }
-        
-        $elementCost    = 0;
-        
-        if(isset($elementPrice[901])) {
-            $elementCost    += $elementPrice[901];
-        }
-        
-        if(isset($elementPrice[902])) {
-            $elementCost    += $elementPrice[902];
-        }
-        
-		
-		$one = 0;
-		$two = 0;
-		if ($USER['ally_id'] != 0){
-        		$sql = "SELECT * FROM ".ALLIBONUS." WHERE id='".$USER['ally_id']."'";
-				$result = $GLOBALS['DATABASE']->query($sql);
-				foreach($result as $data){
-					$one 		= $data['building'];
-					$two    	= $data['research'];
-				}
-        }
-		$ship  = 1;
-		$build = 1;
-		$def   = 1;
-		$ref   = 1; 
-		switch ($USER['race']){
-			case 1: $ship = 0.8;
-					break;
-			case 2:	$def = 0.8;
-					break;
-			case 3: $build = 0.8;
-					break;
-			case 4: $ref = 0.8;
-					break;
+			$elementPrice	= self::getElementPrice($USER, $PLANET, $Element, $forDestroy, $forLevel);
 		}
-		$build -= ((1/100)*$one);
-		$ship -= ((1/100)*$one);
-		$def -= ((1/100)*$one);
-		$ref -= ((1/100)*$two);	
-        if       (in_array($Element, $reslist['build'])) {
-            $time    = $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['BuildTime']) * $build;
-        } elseif (in_array($Element, $reslist['fleet'])) {
-            $time    = $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['ShipTime']) * $ship;    
-        } elseif (in_array($Element, $reslist['defense'])) {
-            $time    = $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['DefensiveTime']) * $def;
-        } elseif (in_array($Element, $reslist['tech'])) {
+
+        $elementCost	= 0;
+		
+		if(isset($elementPrice[901])) {
+			$elementCost	+= $elementPrice[901];
+		}
+		
+		if(isset($elementPrice[902])) {
+			$elementCost	+= $elementPrice[902];
+		}
+
+
+        if	   (in_array($Element, $reslist['build'])) {
+			$time	= $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['BuildTime']);
+		} elseif (in_array($Element, $reslist['fleet'])) {
+			$time	= $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['ShipTime']);	
+		} elseif (in_array($Element, $reslist['defense'])) {
+			$time	= $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['DefensiveTime']);
+		} elseif (in_array($Element, $reslist['tech'])) {
+
             if(is_numeric($PLANET[$resource[31].'_inter']))
-            {
-                $Level    = $PLANET[$resource[31]];
-            } else {
+			{
+                $Level	= $PLANET[$resource[31]];
+			} else {
                 $Level = 0;
                 foreach($PLANET[$resource[31].'_inter'] as $Levels)
-                {
+				{
                     if(!isset($requeriments[$Element][31]) || $Levels >= $requeriments[$Element][31])
-                        $Level += $Levels;
-                }
-            }
-            
-            $time    = $elementCost / (1000 * (1 + $Level)) / (Config::get('game_speed') / 2500) * pow(1 - Config::get('factor_university') / 100, $PLANET[$resource[6]]) * (1 + $USER['factor']['ResearchTime']) * ($ref);
-        }
-        
+						$Level += $Levels;
+				}
+			}
+			
+			$time	= $elementCost / (1000 * (1 + $Level)) / (Config::get('game_speed') / 2500) * pow(1 - Config::get('factor_university') / 100, $PLANET[$resource[6]]) * (1 + $USER['factor']['ResearchTime']);
+		}
+
         if($forDestroy) {
-            $time    = floor($time * 1300);
-        } else {
-            $time    = floor($time * 3600);
-        }
-        
+			$time	= floor($time * 1300);
+		} else {
+			$time	= floor($time * 3600);
+		}
+
         return max($time, Config::get('min_build_time'));
-    }
+	}
 	
 	public static function isElementBuyable($USER, $PLANET, $Element, $elementPrice = NULL, $forDestroy = false, $forLevel = NULL)
 	{
@@ -260,7 +233,7 @@ class BuildFunctions
 	
 	public static function getMaxConstructibleRockets($USER, $PLANET, $Missiles = NULL)
 	{
-		global $resource, $reslist;
+		global $resource, $CONF, $reslist;
 
 		if(!isset($Missiles))
 		{		
@@ -308,4 +281,229 @@ class BuildFunctions
 		
 		return $elementBonus;
 	}
+
+    public static function addBuildingToQueue($Element, $AddMode = true) {
+        global $PLANET, $USER, $resource, $CONF, $reslist, $pricelist;
+
+        if(!in_array($Element, $reslist['allow'][$PLANET['planet_type']])
+            || !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element)
+            || ($Element == 31 && $USER["b_tech_planet"] != 0)
+            || (($Element == 15 || $Element == 21) && !empty($PLANET['b_hangar_id']))
+            || (!$AddMode && $PLANET[$resource[$Element]] == 0)
+        )
+            return;
+
+        $CurrentQueue  		= unserialize($PLANET['b_building_id']);
+
+
+        if (!empty($CurrentQueue)) {
+            $ActualCount	= count($CurrentQueue);
+        } else {
+            $CurrentQueue	= array();
+            $ActualCount	= 0;
+        }
+
+        $CurrentMaxFields  	= CalculateMaxPlanetFields($PLANET);
+
+        if ((Config::get('max_elements_build') != 0 && $ActualCount == Config::get('max_elements_build')) || ($AddMode && $PLANET["field_current"] >= ($CurrentMaxFields - $ActualCount)))
+            return;
+
+        $BuildMode 			= $AddMode ? 'build' : 'destroy';
+        $BuildLevel			= $PLANET[$resource[$Element]] + (int) $AddMode;
+
+        if($ActualCount == 0)
+        {
+            if($pricelist[$Element]['max'] < $BuildLevel)
+                return;
+
+            $costRessources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element, !$AddMode);
+
+            if(!BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costRessources))
+                return;
+
+            if(isset($costRessources[901])) { $PLANET[$resource[901]]	-= $costRessources[901]; }
+            if(isset($costRessources[902])) { $PLANET[$resource[902]]	-= $costRessources[902]; }
+            if(isset($costRessources[903])) { $PLANET[$resource[903]]	-= $costRessources[903]; }
+            if(isset($costRessources[921])) { $USER[$resource[921]]		-= $costRessources[921]; }
+
+            $elementTime    			= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costRessources);
+            $BuildEndTime				= TIMESTAMP + $elementTime;
+
+            $PLANET['b_building_id']	= serialize(array(array($Element, $BuildLevel, $elementTime, $BuildEndTime, $BuildMode)));
+            $PLANET['b_building']		= $BuildEndTime;
+
+        } else {
+            $addLevel = 0;
+            foreach($CurrentQueue as $QueueSubArray)
+            {
+                if($QueueSubArray[0] != $Element)
+                    continue;
+
+                if($QueueSubArray[4] == 'build')
+                    $addLevel++;
+                else
+                    $addLevel--;
+            }
+
+            $BuildLevel					+= $addLevel;
+
+            if(!$AddMode && $BuildLevel == 0)
+                return;
+
+            if($pricelist[$Element]['max'] < $BuildLevel)
+                return;
+
+            $elementTime    			= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, NULL, !$AddMode, $BuildLevel);
+            $BuildEndTime				= $CurrentQueue[$ActualCount - 1][3] + $elementTime;
+            $CurrentQueue[]				= array($Element, $BuildLevel, $elementTime, $BuildEndTime, $BuildMode);
+            $PLANET['b_building_id']	= serialize($CurrentQueue);
+        }
+    }
+
+    public static function addShipsToQueue($fmenge) {
+        global $USER, $PLANET, $reslist, $CONF, $resource;
+
+        $Missiles	= array(
+            502	=> $PLANET[$resource[502]],
+            503	=> $PLANET[$resource[503]],
+        );
+
+        foreach($fmenge as $Element => $Count)
+        {
+            if(empty($Count)
+                || !in_array($Element, array_merge($reslist['fleet'], $reslist['defense'], $reslist['missile']))
+                || !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element)
+            ) {
+                continue;
+            }
+
+            $MaxElements 	= BuildFunctions::getMaxConstructibleElements($USER, $PLANET, $Element);
+            $Count			= is_numeric($Count) ? round($Count) : 0;
+            $Count 			= max(min($Count, Config::get('max_fleet_per_build')), 0);
+            $Count 			= min($Count, $MaxElements);
+
+            $BuildArray    	= !empty($PLANET['b_hangar_id']) ? unserialize($PLANET['b_hangar_id']) : array();
+            if (in_array($Element, $reslist['missile']))
+            {
+                $MaxMissiles		= BuildFunctions::getMaxConstructibleRockets($USER, $PLANET, $Missiles);
+                $Count 				= min($Count, $MaxMissiles[$Element]);
+
+                $Missiles[$Element] += $Count;
+            } elseif(in_array($Element, $reslist['one'])) {
+                $InBuild	= false;
+                foreach($BuildArray as $ElementArray) {
+                    if($ElementArray[0] == $Element) {
+                        $InBuild	= true;
+                        break;
+                    }
+                }
+
+                if ($InBuild)
+                    continue;
+
+                if($Count != 0 && $PLANET[$resource[$Element]] == 0 && $InBuild === false)
+                    $Count =  1;
+            }
+
+            if(empty($Count))
+                continue;
+
+            $costRessources	= BuildFunctions::getElementPrice($USER, $PLANET, $Element, false, $Count);
+
+            if(isset($costRessources[901])) { $PLANET[$resource[901]]	-= $costRessources[901]; }
+            if(isset($costRessources[902])) { $PLANET[$resource[902]]	-= $costRessources[902]; }
+            if(isset($costRessources[903])) { $PLANET[$resource[903]]	-= $costRessources[903]; }
+            if(isset($costRessources[921])) { $USER[$resource[921]]		-= $costRessources[921]; }
+
+            $BuildArray[]			= array($Element, $Count);
+            $PLANET['b_hangar_id']	= serialize($BuildArray);
+
+        }
+    }
+
+    public static function CheckLabSettingsInQueue() {
+        global $PLANET, $CONF;
+        if ($PLANET['b_building'] == 0)
+            return true;
+
+        $CurrentQueue		= unserialize($PLANET['b_building_id']);
+        foreach($CurrentQueue as $ListIDArray) {
+            if($ListIDArray[0] == 6 || $ListIDArray[0] == 31)
+                return false;
+        }
+
+        return true;
+    }
+
+    public static function addResearchToQueue($Element, $AddMode = true) {
+        global $PLANET, $USER, $resource, $CONF, $reslist, $pricelist;
+
+        $PLANET[$resource[31].'_inter']	= ResourceUpdate::getNetworkLevel($USER, $PLANET);
+
+        if(!in_array($Element, $reslist['tech'])
+            || !BuildFunctions::isTechnologieAccessible($USER, $PLANET, $Element)
+            || !BuildFunctions::CheckLabSettingsInQueue($PLANET)
+        ) {
+            return;
+        }
+
+        $CurrentQueue  		= unserialize($USER['b_tech_queue']);
+
+        if (!empty($CurrentQueue)) {
+            $ActualCount   	= count($CurrentQueue);
+        } else {
+            $CurrentQueue  	= array();
+            $ActualCount   	= 0;
+        }
+
+        if(Config::get('max_elements_tech') != 0 && Config::get('max_elements_tech') <= $ActualCount) {
+            return false;
+        }
+
+        $BuildLevel					= $USER[$resource[$Element]] + 1;
+        if($ActualCount == 0)
+        {
+            if($pricelist[$Element]['max'] < $BuildLevel)
+                return;
+
+            $costRessources		= BuildFunctions::getElementPrice($USER, $PLANET, $Element, !$AddMode);
+
+            if(!BuildFunctions::isElementBuyable($USER, $PLANET, $Element, $costRessources))
+                return;
+
+            if(isset($costRessources[901])) { $PLANET[$resource[901]]	-= $costRessources[901]; }
+            if(isset($costRessources[902])) { $PLANET[$resource[902]]	-= $costRessources[902]; }
+            if(isset($costRessources[903])) { $PLANET[$resource[903]]	-= $costRessources[903]; }
+            if(isset($costRessources[921])) { $USER[$resource[921]]		-= $costRessources[921]; }
+
+            $elementTime    			= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, $costRessources);
+            $BuildEndTime				= TIMESTAMP + $elementTime;
+
+            $USER['b_tech_queue']		= serialize(array(array($Element, $BuildLevel, $elementTime, $BuildEndTime, $PLANET['id'])));
+            $USER['b_tech']				= $BuildEndTime;
+            $USER['b_tech_id']			= $Element;
+            $USER['b_tech_planet']		= $PLANET['id'];
+        } else {
+            $addLevel = 0;
+
+            foreach($CurrentQueue as $QueueSubArray)
+            {
+                if($QueueSubArray[0] != $Element)
+                    continue;
+
+                $addLevel++;
+            }
+
+            $BuildLevel					+= $addLevel;
+
+            if($pricelist[$Element]['max'] < $BuildLevel)
+                return;
+
+            $elementTime    			= BuildFunctions::getBuildingTime($USER, $PLANET, $Element, NULL, !$AddMode, $BuildLevel);
+
+            $BuildEndTime				= $CurrentQueue[$ActualCount - 1][3] + $elementTime;
+            $CurrentQueue[]				= array($Element, $BuildLevel, $elementTime, $BuildEndTime, $PLANET['id']);
+            $USER['b_tech_queue']		= serialize($CurrentQueue);
+        }
+    }
 }

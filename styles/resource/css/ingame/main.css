@@ -622,7 +622,7 @@ background: transparent;
     float: left;
     margin: 0px 0px;
     width:98.5%;
-    height: 55px;
+    height: 20%;
     -webkit-border-bottom-left-radius: 10px;
     -moz-border-radius-bottomleft: 10px;
     border-bottom-left-radius: 10px;
@@ -643,3 +643,35 @@ background: transparent;
     border-top-right-radius: 10px;
     color: #00FF00;
     }	
+
+
+
+/* PLANETMENU */
+
+
+#planet_menu_header{
+	height: 0px;
+	padding-top:0px;
+	padding-bottom:0px;
+	padding-right:10px;
+}
+
+#planet_menu_content{
+	height:250px;
+
+}
+
+#planet_menu_content img {
+	height:35px;
+	width:35px;
+}
+/* planet_menu */
+
+#planet_menu {
+width:15%;
+margin: -80px 0px 0px -150px;
+bottom:10px;
+z-index:2;
+position: fixed;
+
+}

@@ -29,19 +29,19 @@
                   <div class="mainMenu">
                      <ul>
                         <li>
-                        Home
+                        <a style="color:#fff;text-decoration:none;"href="index.php?page=News">{$LNG.icey_menu_news}</a>
                         </li>
                         <li>
-                        <a style="color:#fff;text-decoration:none;" href="http://space.landoflegends.de/phpBB3">Forum</a>
+                        <a style="color:#fff;text-decoration:none;" href="http://space.landoflegends.de/phpBB3">{$LNG.icey_menu_forum}</a>
                         </li>
                         <li>
-                        <a style="color:#fff;text-decoration:none;"href="index.php?page=banList">Pranger</a>
+                        <a style="color:#fff;text-decoration:none;"href="index.php?page=banList">{$LNG.icey_menu_pranger}</a>
                         </li>
                         <li>
-                        <a style="color:#fff;text-decoration:none;"href="index.php?page=rules">Regeln</a>
+                        <a style="color:#fff;text-decoration:none;"href="index.php?page=rules">{$LNG.icey_menu_regeln}</a>
                         </li>
                         <li class="last"> 
-                        <a style="color:#fff;text-decoration:none;"href="index.php?page=battleHall">Battelhall</a>
+                        <a style="color:#fff;text-decoration:none;"href="index.php?page=screens">{$LNG.icey_menu_galerie}</a>
                        
                         </li>
                      </ul>
@@ -83,7 +83,7 @@
 
 
         <td colspan="1">
-            <div>{$news_short}</div>
+            <div style="text-align:center;"> <h3>{$LNG.icey_news_last}</h3> {$news_short}</div>
 
 	
 
@@ -138,20 +138,20 @@
 <tbody>
 <tr>
 <td colspan="2" style="color: #00ebc7; text-align:left;">
-<b>Userinfos</b>
+<b>{$LNG.icey_user_info}</b>
 <hr>
 </td>
 </tr>
 <tr>
-<td width="100" style="color: #ffffff; font-size:14px; text-align:left;"> Spieler online: </td>
+<td width="100" style="color: #ffffff; font-size:14px; text-align:left;">{$LNG.icey_user_online}</td>
 <td width="100" style="color: #00ebc7; font-size:14px; text-align: right;">{$user_online}</td>
 </tr>
 <tr>
-<td width="100" style="color: #ffffff; font-size:14px; text-align:left;"> User gesamt: </td>
+<td width="100" style="color: #ffffff; font-size:14px; text-align:left;">{$LNG.icey_user_gesamt}</td>
 <td width="100" style="color: #00ebc7; font-size:14px; text-align: right;">{$user_gesamt}</td>
 </tr>
 <tr>
-<td width="100" style="color: #ffffff; font-size:14px; text-align:left;"> Neuer Spieler: </td>
+<td width="100" style="color: #ffffff; font-size:14px; text-align:left;">{$LNG.icey_user_last}</td>
 <td width="100" style="color: #00ebc7; font-size:14px; text-align: right;">{$user_last}</td>
 </tr>
 <tr>
@@ -164,7 +164,7 @@
 </div>
 </div>
 	<div class="contentBlock">
-        <div align="center" class="innerContent">
+        <div align="center" class="innerContent"text-decoration="none;">
         	<h2>{$LNG.loginHeader}</h2>
 			<form  id="login" name="login" action="index.php?page=login" data-action="index.php?page=login" method="post"><p>
 			<label for="universe">{$LNG.universe}</label>
@@ -175,6 +175,7 @@
                         <input name="password"  id="password" type="password">
 			<p>
 			<input id="log" class="log" type="submit" value="{$LNG.loginButton}">
+			<br><a class="small">{$loginInfo}</a>
 	</div>
 	</div>
 
@@ -215,8 +216,8 @@
 
 <div class="contentBlock">
         <div align="center" class="innerContent">
-<h3>Bilder Galarie</h3>
- <a title="Bilder Galarie" href="index.php?page=screens/">
+<h3>{$LNG.icey_gala_bilder}</h3>
+ <a title="Bilder Galerie" href="index.php?page=screens/">
 <img src="img/gala.gif">
 
 </div>
@@ -242,9 +243,12 @@
 {literal}<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>{/literal}	
 	
 	</div>
+
 	</div>
+<div align="center" width="200px"><a style="text-align:center;" href="index.php?page=disclamer" target="_blank">{$LNG.lm_disclamer}</a></div>
 	</div>
 </div>
+
 </div>
 	
 

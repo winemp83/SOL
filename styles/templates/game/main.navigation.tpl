@@ -76,6 +76,14 @@
 			<li style="width:180px;"><a href="game.php?page=logout">{$LNG.lm_logout}</a></li>	
 			{if $authlevel > 0}<li style="width:180px;"><a href="./admin.php" style="color:lime">{$LNG.lm_administration} ({$VERSION})</a></li>{/if}
 	</ul></li>
+	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_voteus}</span></a>
+	<ul style="width:180px;">
+			<li style="width:180px;"><a href="http://www.kostenlos-browsergame.de/" target="_blank">{$LNG.lm_browser1}</a></li>
+			<li style="width:180px;"><a href="http://www.top100arena.com/in.asp?id=82759" target="_blank">{$LNG.lm_browser2}</a></li>	
+			<li style="width:180px;"><a href="http://www.browsergamelist.com/vote.php?gid=49" target="_blank">{$LNG.lm_browser3}</a></li>
+			<li style="width:180px;"><a href="http://www.browsergames.info/" target="_blank">{$LNG.lm_browser4}</a></li>
+			<li style="width:180px;"><a href="http://www.gtop100.com/in.php?site=81654&cookie_test=true" target="_blank">{$LNG.lm_browser5}</a></li>
+	</ul></li>
 
 
 
@@ -94,6 +102,16 @@
 {literal}<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>{/literal}
 	</div>
 	</li>
+<div align="center" width="200px" id="menue_r2">
+<script src="http://ak-webdesign.net/streambox/box.php?id=12184" type="text/javascript">
+function setcode_12184_1378562088_streambox12183()
+{
+document.getElementById('12184_1378562088_streambox12183').innerHTML = '<iframe src="http://ak-webdesign.net/streambox/streambox_core.php?mode=view_12184" scrolling="no" frameborder="0" align=aus marginheight="0px" marginwidth="0px" height="170" width="140"></iframe>';
+setTimeout("setcode_12184_1378562088_streambox12183()",180000);
+}
+document.write(unescape("%3Cdiv%20id%3D%2212184_1378562088_streambox12183%22%3E%3C%2Fdiv%3E"));setTimeout("setcode_12184_1378562088_streambox12183()",10);
+</script>
+</div>
 	<li class="menu-footer">
 	<div align="center" width="200px"><a style="text-align:center;" href="index.php?page=disclamer" target="_blank">{$LNG.lm_disclamer}</a></div>
 	</li>

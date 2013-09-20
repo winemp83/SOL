@@ -95,14 +95,23 @@ abstract class AbstractPage
 	protected function getNavigationData() 
     {
 		global $PLANET, $LNG, $USER, $THEME, $resource, $reslist;
+		//PlanetMenu
+		if(isset($USER['PLANETS']))
+			$USER['PLANETS']	= getPlanets($USER);
 		
 		if($PLANET[$resource[43]] > 0) {
 			$this->tplObj->loadscript("gate.js");
 		}
 		
 		$this->tplObj->loadscript("topnav.js");
+		$this->tplObj->loadscript("planetmenu.js");
+		$this->phpself	= "?page=".HTTP::_GP('page', '')."&amp;mode=".HTTP::_GP('mode', '');
 			
 		$PlanetSelect	= array();
+		
+		
+		
+		$Scripttime 	= array();
 		
 		if(isset($USER['PLANETS'])) {
 			$USER['PLANETS']	= getPlanets($USER);
@@ -112,6 +121,31 @@ abstract class AbstractPage
 		{
 			$PlanetSelect[$PlanetQuery['id']]	= $PlanetQuery['name'].(($PlanetQuery['planet_type'] == 3) ? " (" . $LNG['fcm_moon'] . ")":"")." [".$PlanetQuery['galaxy'].":".$PlanetQuery['system'].":".$PlanetQuery['planet']."]";
 		}
+		foreach($USER['PLANETS'] as $CurPlanetID => $PlanetQuery)
+		{
+			if(!empty($PlanetQuery['b_building_id']))
+			{
+				$QueueArray                    	= unserialize($PlanetQuery['b_building_id']);
+				foreach($QueueArray as $ListIDArray)
+				{
+					if($ListIDArray[3] > TIMESTAMP)
+						$Scripttime[$PlanetQuery['id']][]	= $ListIDArray[3] - TIMESTAMP;
+				}
+			}
+			$Planetlist[$PlanetQuery['id']]	= array(
+					'url'    		=> $this->phpself."&amp;cp=".$PlanetQuery['id'],
+					'name'    		=> $PlanetQuery['name'].(($PlanetQuery['planet_type'] == 3) ? " (".$LNG['fcm_moon'].")":""),
+					'image'   		 => $PlanetQuery['image'],
+					'galaxy'   		 => $PlanetQuery['galaxy'],
+					'system'   		 => $PlanetQuery['system'],
+					'planet'			=> $PlanetQuery['planet'],
+					'ptype'  		  => $PlanetQuery['planet_type'],
+			);
+			$PlanetSelect[$PlanetQuery['id']]	= $PlanetQuery['name'].(($PlanetQuery['planet_type'] == 3) ? " (" . $LNG['fcm_moon'] . ")":"")." [".$PlanetQuery['galaxy'].":".$PlanetQuery['system'].":".$PlanetQuery['planet']."]";
+		}
+		
+		
+		
 		
 		$resourceTable	= array();
 		$resourceSpeed	= Config::get('resource_multiplier');
@@ -200,6 +234,14 @@ abstract class AbstractPage
 			'closed'			=> !Config::get('game_disable'),
 			'hasBoard'			=> filter_var(Config::get('forum_url'), FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED),
 			'hasAdminAccess'	=> isset($_SESSION['admin_login']),
+        		'PlanetMenu'   	=> $Planetlist,
+        		'show_planetmenu'   => $LNG['show_planetmenu'],
+        		'Scripttime'    	=> json_encode($Scripttime),
+        		'is_pmenu'        	=> $USER['settings_planetmenu'],
+        		'PlanetSelect'		=> $PlanetSelect,
+      
+        		
+        		
 		));
 	}
 	

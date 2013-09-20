@@ -78,7 +78,8 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 		}
 	}
 	
-	for ($ROUNDC = 0; $ROUNDC <= MAX_ATTACK_ROUNDS; $ROUNDC++) {
+	for ($ROUNDC = 0; $ROUNDC <= MAX_ATTACK_ROUNDS; $ROUNDC++) 
+	{
 		$attackDamage  = array('total' => 0);
 		$attackShield  = array('total' => 0);
 		$attackAmount  = array('total' => 0);
@@ -119,7 +120,7 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 			$defenseShield[$fleetID] = 0;
 			$defenseAmount[$fleetID] = 0;
 
-			$attTech	= (1 + (0.1 * $defender['player']['military_tech'])  + $defender['player']['factor']['Attack']); //attaquue
+			$attTech	= (1 + (0.1 * $defender['player']['military_tech']) + $defender['player']['factor']['Attack']); //attaquue
 			$defTech	= (1 + (0.1 * $defender['player']['defence_tech']) + $defender['player']['factor']['Defensive']); //bouclier
 			$shieldTech = (1 + (0.1 * $defender['player']['shield_tech']) + $defender['player']['factor']['Shield']); //coque
 			$defenders[$fleetID]['techs'] = array($attTech, $defTech, $shieldTech);
