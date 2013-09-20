@@ -11,7 +11,7 @@
 <table class="table519" style="background: transparent;">
 	<tbody>
 		<tr>
-			<th colspan="6" style="text-align:center" class="servertime"> {$servertime} </th> </tr>
+			<th colspan="6" style="text-align:center;color:gold;" class="servertime"> {$servertime1} <span style="color:silver;">{$servertime2}</span> </th> </tr>
 		{if $messages}
 
 		<tr>
