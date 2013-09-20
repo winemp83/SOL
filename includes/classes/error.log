@@ -1,0 +1,7 @@
+[05-Jul-2013 20:26:17 Europe/Berlin] PHP Warning:  Uncaught exception 'ErrorException' with message 'require_once(/home/forum/test/includes/config.php): failed to open stream: Datei oder Verzeichnis nicht gefunden' in /home/forum/test/install/index.php:510
+Stack trace:
+#0 /home/forum/test/install/index.php(510): errorHandler(2, 'require_once(/h...', '/home/forum/tes...', 510, Array)
+#1 /home/forum/test/install/index.php(510): require_once()
+#2 {main}
+  thrown in /home/forum/test/install/index.php on line 510
+[05-Jul-2013 20:26:17 Europe/Berlin] PHP Fatal error:  main(): Failed opening required '/home/forum/test/includes/config.php' (include_path='.:/usr/share/php5:/usr/share/php') in /home/forum/test/install/index.php on line 510

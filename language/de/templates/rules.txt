@@ -1,0 +1,141 @@
+<ul id="rules">
+	<li>
+		<h1>§1 Anerkennung der Nutzungsbedingungen</h1>
+		<p>Um an Space of Legends teilzunehmen, ist es notwendig, den Nutzungsbedingungen zuzustimmen. Werden die Nutzungsbedingungen nicht anerkannt,
+		kommt ein Nutzungsvertrag mit Spaceoflegends nicht zustande.
+		Spaceoflegends ist kostenlos, kein Benutzer hat Anspruch auf die Teilnahme an SOL oder die Verfügbarkeit des Services.
+		Der Betreiber behält sich das Recht vor, Nutzer/Spieler zu löschen bzw. zu sperren, die gegen diese Nutzungsbedingungen verstossen,
+		anderweitig störend auf den Spielbetrieb wirken oder unerwünscht sind.
+		</p>
+	</li>
+	<li>
+		<h1>§2 Ende der Teilnahme</h1>
+		<p>Die Teilnahme kann jederzeit mit Löschung des Accounts beendet werden. Eine Ausnahme besteht, wenn der Account wegen später genannter Gründe gesperrt ist.
+In diesem Fall ist das Ende der Sperrung abzuwarten. Sollte der Account für mehr als 3 Monate gesperrt sein, besteht die Möglichkeit, von der Savemail aus eine
+Email an den Support zu schicken mit der Bitte um Änderung der Benutzerdaten, damit keine Nutzerdaten weiterhin in SOL gespeichert sind.
+Diese Ausnahme gilt nicht für den Ingame-Nick, der bereits durch das SOL Team zensiert wurde
+		</p>
+	</li>
+	<li>
+		<h1>§3 Account/Multiaccount</h1>
+		<p>
+		Die Teilnahme kann jederzeit mit Löschung des Accounts beendet werden. Eine Ausnahme besteht, wenn der Account wegen später genannter Gründe gesperrt ist.
+In diesem Fall ist das Ende der Sperrung abzuwarten. Sollte der Account für mehr als 3 Monate gesperrt sein, besteht die Möglichkeit, von der Savemail aus eine
+Email an den Support zu schicken mit der Bitte um Änderung der Benutzerdaten, damit keine Nutzerdaten weiterhin in SOL gespeichert sind.
+Diese Ausnahme gilt nicht für den Ingame-Nick, der bereits durch das SOL Team zensiert wurde.
+ <br/>
+§3 Account/Multiaccount<br/>
+(1)Der Inhaber des Accounts ist immer der Inhaber der angegebenen Emailadresse. Mehrfachanmeldungen sind verboten.
+Ein Account darf ausschließlich allein genutzt werden. Es ist dem Spieler nur erlaubt, einen Account pro Universum zu spielen.
+Falls zwei oder mehrere Accounts gelegentlich oder dauerhaft vom selben Internetanschluss aus besucht werden (Schulen, Universitäten,
+Internetcafes), ist dieses im Vorfeld (innerhalb von 3 Tagen) einem Admin mitzuteilen.
+In dem Fall ist den betreffenden Accounts jeglicher Flottenkontakt untersagt, während sie denselben Internetanschluss benutzen.
+Bei Zuwiderhandlung werden alle Accounts der betroffenden IP-Adresse gelöscht.
+ <br/>
+(2) Accountsitting/-Sharing/Weitergabe<br/>
+Accountsitting/-Sharing ist nicht erlaubt. Bei Abwesenheit kann der Urlaubsmodus genutzt werden.
+Jegliches Anbieten und Nachfragen von Accounttausch ist sowohl im Forum als auch im Spiel generell verboten.
+Dieses Verbot gilt sowohl für die öffentlichen Themen und Channel als auch für die privaten wie "PN" im Forum und "Chat" im Spiel.
+Die Weitergabe der Accountdaten erfolgt immer auf eigene Gefahr. Die Strafe trifft in jedem Fall alle Accounts der IP.
+		</p>
+	</li>
+	<li>
+		<h1>§4 Nutzung von Fremdsoftware</h1>
+		<p>
+		(1)Der Benutzer ist nicht berechtigt, Maßnahmen, Mechanismen, Software oder sonstige Scripte in Verbindung mit der SOL-Webseite zu verwenden,
+die die Funktion der Webseite beeinträchtigen oder stören könnte. Er darf keine Maßnahmen ergreifen, die eine unzumutbare oder übermäßige Belastung der
+Infrastruktur zu Folge haben können. Weiterhin ist es nicht gestattet, die von der Spielleitung generierten Inhalte zu blockieren, zu überschreiben,zu
+modifizieren oder in sonstiger Weise störend in das Spiel einzugreifen.
+ <br/>
+(2) Es ist strengstens verboten jegliche Seiten von SOL mit anderen Programmen als einem gängigen Browser abzurufen. Das bezieht sich insbesondere auf
+sog. Bots oder andere Tools, die das Webinterface ersetzen sollen und die automatische Ausführung von Spielaktionen ermöglichen.
+Nur mit Einverständnis der Administration dürfen diese genutzt werden, dabei müssen diese Tools der Allgemeinheit zur Vefügung gestellt werden.
+ <br/>
+(3)Bugs (Fehler in der Programmierung) auszunutzen ist verboten. Der Nutzer verpflichtet sich, einen Bug sofort der Spielleitung oder Admin zu melden.
+Das kann per PN, im Forum oder mit der Ticket-Funktion geschehen. Wer einen Bug nicht meldet, kann wegen Verdachts auf Bugusing verwarnt und sogar
+gesperrt werden
+		</p>
+	</li>
+	<li>
+		<h1>§5 Haftungsausschluss</h1>
+		<p>
+		(1)SpaceofLegends übernimmt keine Haftung für Schäden, die durch die Benutzung von SOL entstanden sind. Schadensersatzleistungen sind in jedem Fall ausgeschlossen.
+ 		<br/>
+(2)SpaceofLegends stellt weiterhin nur eine Plattform bereit, über die Benutzer miteinander kommunizieren können (Chat, PNs). Für den Inhalt der Nachrichten sind die
+Nutzer selbst verantwortlich. Pornografische, rassistische, beleidigende oder gegen geltendes Recht verstossende Inhalte führen zu sofortigen Sperrung oder Löschung
+des Accounts. Rechtliche Schritte vorbehalten.
+ 		</p>
+ 	</li>
+ 	<li>
+		<h1>§6 Sollte einer dieser Paragraphen ungültig sein, wird die Wirksamkeit der anderen Paragraphen dadurch nicht berührt.</h1>
+	</li>
+	<li>
+		<h1>§7 Einhaltung der Regeln durch Moderatoren</h1>
+		<p>
+Die Serverregeln werden gemeinsam vom Support, den jeweiligen Moderatoren und dem Serverteam von SpaceofLegends.de beschlossen.
+Die Serverregeln werden von den Moderatoren auf ihre Einhaltung überprüft und stehen in keinem Fall zur Debatte in öffentlichen Diskussionen.
+<br/>
+(1)Autorität der Teammitglieder<br/>
+Die Teammitglieder nehmen, neben ihren Supportaufgaben, auch die Aufgabe des Schiedsrichters wahr. Ihren Anordnungen ist Folge zu leisten.
+ <br/>
+(2)Auslegung der Serverregeln</br>
+Die Auslegung der einzelnen Regeln ist im Streitfall allein den Moderatoren/Teammitgliedern von SpaceofLegends.de vorbehalten.
+		</p>
+	</li>
+	<li>
+		<h1>Verhalten im Spiel</h1>
+	</li>
+	<li>
+	<h1>§1 Sprache</h1>
+<p>Die offizielle Sprachen im Spiel sind Deutsch/Englisch. Verstösse können unter Vorbehalt zu einer Sperrung des Accounts führen.
+</p>
+</li>
+<li> 
+<h1>§2 Spammen, Flamen und Fremdwerbung</h1>
+<p>Spammen und Flamen sind im Forum und Ingame-Chat verboten. Auch das Verwenden der GROSSSCHRIFT und das farbige Schreiben im Chat wird als Spam betrachtet.
+Werbung und Abwerben in jeglicher Form ist untersagt und führt zu einem permanenten Ausschluss/ Hausverbot!
+</p>
+</li>
+<li> 
+<h1>§3 Eigentum</h1>
+<p>Jeder Account, sowie die Ressourcen, Schiffe und Custom mods sind virtuelle Gegenstände im Spiel. Sie werden dem Spieler zur Verfügung gestellt, sind und bleiben
+jedoch Eigentum des Spielbetreibers. Die finanzielle Bereicherung mit Hilfe der Zugangsdaten ist grundsätzlich verboten und führen zur Sperrung bzw. Löschung des Benutzers.
+Darunter sind das Veräußern von Ressourcen, Schiffen, des Accounts oder Zugangsdaten gegen reales Geld zu verstehen.
+</p>
+</li>
+<li> 
+<h1>§4 Pushen</h1>
+<p>Pushen ist grundsätzlich verboten. Als Pushing werden alle Ressourcen-Lieferungen ohne angemessene Gegenleistung von punktschwächeren Accounts an punktstärkere Accounts
+gesehen. Ausnahmen müssen im Vorfeld vom Operator genehmigt werden. Ein Handel muss innerhalb von 24 Stunden abgeschlossen oder vorab bei einem Operator angemeldet sein.
+</p>
+</li>
+<li> 
+<h1>§5 Bashen</h1>
+<p> 
+(1) Mehr als 5 Angriffe innerhalb von 24 Stunden auf den selben Planeten zählen als Bashen und sind nicht gestattet- der Mond zählt dabei als eigenständiges Objekt.
+Angriffe mit Spionagesonden oder Interplanetarraketen fallen nicht unter diese Regel.
+ <br/>
+(2) Die Bashregel gilt ausschließlich für aktive Spieler. Befinden sich die Parteien im Krieg, sind weitere Angriffe erlaubt. Der Krieg muss mind. 24 Stunden vor weiteren
+Angriffen im Forum erklärt werden. In der Kategorie Ankündigungen müssen beide Parteien bzw. der Name des erklärenden Spielers in korrekter Schreibweise genannt werden.
+Eine Kriegserklärung kann ausschließlich an Allianzen gerichtet werden, wobei der Erklärung selbst durch eine Allianz oder Einzelperson erfolgen kann.
+Die Annahme des Krieges ist nicht erforderlich.
+ <br/>
+(3) Kriege, die offensichtlich nur der Umgehung der Bashregel dienen, sind verboten. Die Beurteilung obliegt den zuständigen Moderatoren und Admins.
+</p>
+</li>
+<li> 
+<h1>§6 Irak-Angriffe</h1>
+<p>Es sind max. 1000 Irak-Angriffe pro 24 Stunden erlaubt. Die Anzahl der Raketen pro Angriff spilet dabei keine Rolle.
+</p>
+<li> 
+<h1>§7 Urlaubs-Bashing</h1>
+<p> 
+Angriffe, die dazu dienen einen Spieler zu hindern in den Urlaubsmodus zu gehen, sind verboten.
+Sogenannte Blockangriffe sind untypische Flottenaktionen, welche nur dazu dienen, einem Spieler eine Spielfunktion zu versperren. Flüge zu befreundeten Spielern sind keine
+Blockadeflüge, diese gehören zum regulären Spielbetrieb.
+Angriffe von mehren Spielern, die eine Dauerangriffswelle darstellen, zählen als Blockadeangriffe.
+Vermutet ein Spieler einen Blockadeangriff, kann er den entsprechenden Spieler auffordern, den Angriff abzubrechen und muss dieses per Supportticket den Admins melden.
+Kommen diese zum Ergebnis, dass es sich um eine Blockade handelt, wird der entsprechende Spieler ermahnt und der Angriff wird abgebrochen. Der Wiederholungsfall führt zur Sperrung des Spielers.
+</p>
+</li>
+</ul>

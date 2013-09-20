@@ -1,0 +1,30 @@
+#
+#---- [ PROSTYLIZE DARKBLUE STYLE FAQ - BY ISHIMARU DESIGN ] ----
+#
+
+Here I answer to a few questions that you might have regarding the Id_ProValentina style.
+
+Q - Why are the buttons available only for languages using Latin alphabet ?
+A - The reason is simple : The font I used for the style is available only in Latin alphabet.  And since I speak only French and English and I speak no language that requires a different alphabet, such as Arabic, Russian, Chinese, Japanese or Thai, I cannot use another language than English or French (and barely Spanish) as my system language and for my keyboard settings.  For all these reasons, I cannot make non-Latin translations.
+
+Q - Which font did you use for the site logo and buttons ?
+A - The font I used is named "04b_09" and can be found on www.dafont.com in the Pixel/Bitmap fonts category.
+
+Q - Why are some accents missing in buttons ?
+A - The font I use does not support accents, even the ones for French language.  So, I cannot do any miracle about that, it's up to the font's author.
+
+Q - Can I modify this style for my needs ?
+A - You can modify it without any problem, whatever the modification degree.  I even included GIMP and Photoshop files to make modifications easier on the graphics side.  But all I ask you is to keep the copyright notice (Prostylize_Darkblue style by Ishimaru Design) if you want support for the style in phpBB communities and on my own board.  However, you can add a "Modified by X" notice just after the copyright notice.
+
+Q - Which softwares did you use to make this style ?
+A - As I mostly work under Ubuntu, I work with applications that are shipped with Ubuntu, or are available in the package manager.  I used GIMP to make all the buttons, folders, backgrounds and icon recolorizing.  And I used gedit to edit the files.
+When I have to work under Windows XP, I use GIMP, Inkscape and Notepad++.
+
+Q - Why did you provide both PSD and XCF files instead of just providing PSD files ?
+A - Since I made my graphics with Gimp, I decided to provide both formats for commodity reasons for GIMP users.  When you use GIMP, it's always recommended to work with the native file, when possible, because the PSD format which is a closed format, isn't fully supported by GIMP.  So, I preferred to provide both formats, so GIMP users can work with the native format while Photoshop users are able to do modifications as well.
+
+Q - Are you going to port this style to other forum platforms ?
+A - This style was originally made for phpBB2, then I ported it to phpBB3.  I'm also considering about porting it to Connectix Boards (once the 1.0 released) and to phpBB3's subsilver2 base style, if I have time.
+
+
+Any new question will be added to this txt file if there is any, next time I update the style.

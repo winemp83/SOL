@@ -1,0 +1,64 @@
+[11-Jul-2013 21:38:09] USER ERROR: "Unable to load template file 'ins_intro.tpl'"
+File: /home/forum/test/includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php | Line: 127
+URL: http://test.landoflegends.de/install/index.php | Version: 1.7.2749 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(374): Smarty_Internal_TemplateBase-&gt;fetch('ins_intro.tpl', NULL, NULL, NULL, true)
+#1 /includes/classes/class.template.php(135): Smarty_Internal_TemplateBase-&gt;display('ins_intro.tpl')
+#2 /install/index.php(647): template-&gt;show('ins_intro.tpl')
+#3 {main}
+[11-Jul-2013 21:38:17] USER ERROR: "Unable to load template file 'ins_intro.tpl'"
+File: /home/forum/test/includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php | Line: 127
+URL: http://test.landoflegends.de/install/index.php | Version: 1.7.2749 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(374): Smarty_Internal_TemplateBase-&gt;fetch('ins_intro.tpl', NULL, NULL, NULL, true)
+#1 /includes/classes/class.template.php(135): Smarty_Internal_TemplateBase-&gt;display('ins_intro.tpl')
+#2 /install/index.php(647): template-&gt;show('ins_intro.tpl')
+#3 {main}
+[11-Jul-2013 21:38:29] USER ERROR: "Unable to load template file 'ins_intro.tpl'"
+File: /home/forum/test/includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php | Line: 127
+URL: http://test.landoflegends.de/install/index.php | Version: 1.7.2749 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(374): Smarty_Internal_TemplateBase-&gt;fetch('ins_intro.tpl', NULL, NULL, NULL, true)
+#1 /includes/classes/class.template.php(135): Smarty_Internal_TemplateBase-&gt;display('ins_intro.tpl')
+#2 /install/index.php(647): template-&gt;show('ins_intro.tpl')
+#3 {main}
+[11-Jul-2013 21:39:00] USER ERROR: "Unable to load template file 'ins_intro.tpl'"
+File: /home/forum/test/includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php | Line: 127
+URL: http://test.landoflegends.de/install/index.php | Version: 1.7.2749 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(374): Smarty_Internal_TemplateBase-&gt;fetch('ins_intro.tpl', NULL, NULL, NULL, true)
+#1 /includes/classes/class.template.php(135): Smarty_Internal_TemplateBase-&gt;display('ins_intro.tpl')
+#2 /install/index.php(647): template-&gt;show('ins_intro.tpl')
+#3 {main}
+[11-Jul-2013 21:39:15] USER ERROR: "Unable to load template file 'ins_intro.tpl'"
+File: /home/forum/test/includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php | Line: 127
+URL: http://test.landoflegends.de/install/index.php | Version: 1.7.2749 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(374): Smarty_Internal_TemplateBase-&gt;fetch('ins_intro.tpl', NULL, NULL, NULL, true)
+#1 /includes/classes/class.template.php(135): Smarty_Internal_TemplateBase-&gt;display('ins_intro.tpl')
+#2 /install/index.php(647): template-&gt;show('ins_intro.tpl')
+#3 {main}
+[11-Jul-2013 21:39:26] USER ERROR: "Unable to load template file 'ins_intro.tpl'"
+File: /home/forum/test/includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php | Line: 127
+URL: http://test.landoflegends.de/install/index.php | Version: 1.7.2749 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(374): Smarty_Internal_TemplateBase-&gt;fetch('ins_intro.tpl', NULL, NULL, NULL, true)
+#1 /includes/classes/class.template.php(135): Smarty_Internal_TemplateBase-&gt;display('ins_intro.tpl')
+#2 /install/index.php(647): template-&gt;show('ins_intro.tpl')
+#3 {main}
+[11-Jul-2013 21:40:43] USER ERROR: "Unable to load template file 'ins_intro.tpl'"
+File: /home/forum/test/includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php | Line: 127
+URL: http://test.landoflegends.de/install/index.php | Version: 1.7.2749 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(374): Smarty_Internal_TemplateBase-&gt;fetch('ins_intro.tpl', NULL, NULL, NULL, true)
+#1 /includes/classes/class.template.php(135): Smarty_Internal_TemplateBase-&gt;display('ins_intro.tpl')
+#2 /install/index.php(647): template-&gt;show('ins_intro.tpl')
+#3 {main}
+[11-Jul-2013 21:41:07] USER ERROR: "Unable to load template file 'ins_intro.tpl'"
+File: /home/forum/test/includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php | Line: 127
+URL: http://test.landoflegends.de/install/index.php | Version: 1.7.2749 (FILE)
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(374): Smarty_Internal_TemplateBase-&gt;fetch('ins_intro.tpl', NULL, NULL, NULL, true)
+#1 /includes/classes/class.template.php(135): Smarty_Internal_TemplateBase-&gt;display('ins_intro.tpl')
+#2 /install/index.php(647): template-&gt;show('ins_intro.tpl')
+#3 {main}
