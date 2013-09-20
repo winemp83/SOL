@@ -3,10 +3,10 @@ SOL
 
 SPACE of LEGENDS Entwicklungszweig
 
-@TODO
--Dokumentation anfertigen!
--Multilingualität wieder herstellen
--Style fertig stellen
+@TODO Ic3y GitHub machen
+@TODO Dokumentation anfertigen!
+@TODO Multilingualität wieder herstellen
+@TODO Style fertig stellen
 
 Space of Legends basiert auf der 2moons-Engine. Alle Rechte an der Engine liegen bei den Jeweiligen Entwicklern!
 
