@@ -190,10 +190,10 @@ abstract class AbstractPage
 		    ));
 		}
 		
-		$Marketlot = $GLOBALS['DATABASE']->getFirstCell("SELECT COUNT(*) FROM ".MARKETALLY." WHERE universe = 1 AND idally=".$USER['allyid'].";");
-		if (!empty($Marketlot)) {
+		$Marketlot1 = $GLOBALS['DATABASE']->getFirstCell("SELECT COUNT(*) FROM ".MARKETALLY." WHERE universe = 1 AND idally=".$USER['ally_id'].";");
+		if (!empty($Marketlot1)) {
 		$this->tplObj->assign_vars(array(
-		'fff' => $Marketlot,
+		'fff' => $Marketlot1,
 		    ));
 		}else{
 		$this->tplObj->assign_vars(array(
