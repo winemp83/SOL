@@ -369,17 +369,16 @@
 			</td>
 
 		</tr>
-<th>
-<span style="color:yellow">{$LNG.ov_obank}</span>
-</th>
-<td>
-<a href="game.php?page=alliBank&mode=in"><span style="color:yellow">{$LNG.ov_oklick}</span></a>
-</td>
 		<tr>
-			<th colspan="2"><a href="game.php?page=market&amp;who=2" style="color:yellow">{$LNG['winemp_allyMarket_text']}{$fff}</th>
+			<th>
+				<span style="color:yellow">{$LNG.ov_obank}</span>
+			</th>
+			<td>
+				<a href="game.php?page=alliBank&mode=in"><span style="color:yellow">{$LNG.ov_oklick}</span></a>
+			</td>
 		</tr>
 		<tr>
-			<th colspan="2"><a href="game.php?page=market&amp;who=2" style="color:yellow">{$LNG['winemp_allyMarket_text']}{$fff}</th>
+			<th colspan="2"><div align="center" width="100%"><a href="game.php?page=market&amp;who=2" style="color:yellow">{$LNG['winemp_allyMarket_text']}</span></a><span style="color:green">{$fff}</span></div></th>
 		</tr>
 		<tr>
 			<th colspan="2">Allianz Bonus</th>
