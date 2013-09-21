@@ -190,6 +190,18 @@ abstract class AbstractPage
 		    ));
 		}
 		
+		$Marketlot1 = $GLOBALS['DATABASE']->getFirstCell("SELECT COUNT(*) FROM ".MARKETALLY." WHERE universe = 1 AND idally=".$USER['ally_id'].";");
+		if (!empty($Marketlot1)) {
+		$this->tplObj->assign_vars(array(
+		'fff' => $Marketlot1,
+		    ));
+		}else{
+		$this->tplObj->assign_vars(array(
+		'fff' => 0,
+		    ));
+		}
+		
+		
 		$Alarm       = $GLOBALS['DATABASE']->uniquequery("SELECT `fleet_mission` FROM ".FLEETS." WHERE `fleet_target_owner` = '". $USER['id'] ."' AND (`fleet_mission` = '1' OR `fleet_mission` = '2' OR `fleet_mission` = '6') AND `fleet_mess` ='0';");
             if($Alarm['fleet_mission'] == 1 || $Alarm['fleet_mission'] == 2){
             $this->tplObj->assign_vars(array(
