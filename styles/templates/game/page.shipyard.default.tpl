@@ -2,25 +2,25 @@
 {block name="content"}
 {if !$NotBuilding}<table width="70%" id="infobox" style="border: 2px solid red; text-align:center;background:transparent"><tr><td>{$LNG.bd_building_shipyard}</td></tr></table><br><br>{/if}
 {if !empty($BuildList)}
-<table id="icey" style="width:760px;">
+<table id="icey_baumenu" style="width:760px;">
 	<tr>
-		<td  class="transparent" >
+		<td class="transparent" id="icey_baumenu" >
 
 			<div class="transparent" id="bx" class="z"></div>
-			<br> <br><br><br><br>
+			<br><br><br><br><br>
 			<form action="game.php?page=shipyard&amp;mode={$mode}" method="post">
 			<input type="hidden" name="action" value="delete">
 			<table>
-		
-			<tr >
-				<td><select name="auftr[]" id="auftr" size="10" multiple><option>&nbsp;</option></select><br><br>{$LNG.bd_cancel_warning}<br><input type="submit" value="{$LNG.bd_cancel_send}"></td>
+		<tr>
+			
+				<div id="icey_abaumenu"><select name="auftr[]" id="auftr" size="10" multiple><option>&nbsp;</option></select><br><br><span class="icey_bbaumenu">{$LNG.bd_cancel_warning}</span><br><input type="submit" value="{$LNG.bd_cancel_send}"></div>
 			</tr>
 			<tr>
 			
 			</tr>
 			</table>
 			</form>
-			<br><span id="timeleft"></span><br><br>
+			<br><span class="icey_bbaumenu" id="timeleft"></span><br><br>
 		</td>
 	</tr>
 </table>

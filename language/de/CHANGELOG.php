@@ -31,7 +31,16 @@ $LNG['Version']     = 'Version';
 $LNG['Description'] = 'Beschreibung';
 
 $LNG['changelog']   = array(
-'v1.7.4.1.3 Custom' =>'winemp83 10.08.2013
+'v1.7.4.1.4 Custom' => 'Space_Ic3y 8.09.2013
+#Deutsche Tech.php überarbeitet was Astrop. angeht!.
+#Overview / Menu so umgestellt das man über die Custem.php beareiten kann für die sprache!.
+#Buiding / Forschung so umgestellt das man über die Custem.php beareiten kann für die sprache!.
+#Eventsystem geupdatet.
+#Leichte Style änderungen.
++Radioplayer integriert.
++AllianzBonus System.
++Allianz Einladung',
+'1.7.4.1.3 Custom' =>'winemp83 10.08.2013
 +Custom Style, Style includet.
 +Allianz Mod, vorbereitung erste Einspielung für den neuen Allianz Mod.
 +Neues Regelwerk, neues Regelwerk eingespielt',

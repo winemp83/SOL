@@ -20,9 +20,9 @@
           <td><input name="TF_Event" value="1"  type="checkbox">
             {$ev_tfplanet}<br>
           </td>
-          <td><input name="ev_attack" value="1"  type="checkbox">
+          <td ><input name="ev_attack" value="1"  type="checkbox">
             {$ev_attack}</td>
-	  <td><input name="ev_attack" value="1"  type="checkbox">
+	  <td style="color:red"><input name="ev_attack" value="1"  type="checkbox">
             Save Fluege</td>
 
         </tr>
@@ -33,7 +33,7 @@
           <th>
             <center><font size="2"><u>{$ev_angriff}:</u></font></center>
           </th>
-<th>
+<th style="color:red">
          <center><font size="2"><u>Save Fluege:</u></font></center>
 </th>
         </tr>
@@ -83,7 +83,7 @@
           </th>
          
 
-  <th>Leichter Laser | max:<br>
+  <th style="color:red">Leichter Laser | max:<br>
           </th>
           <th><center><input value="0" name="slaser_bis" size="20" type="text"><br>
           </th>
@@ -94,7 +94,7 @@
           <th><center><input value="0" name="slaser_bis" size="20" type="text"><br>
           </th>
           
-  <th>Gravitonkanone | max:<br>
+  <th style="color:red">Gravitonkanone | max:<br>
           </th>
           <th><center><input value="0" name="slaser_bis" size="20" type="text"><br>
           </th>
@@ -105,7 +105,7 @@
           <th><center><input value="0" name="ionen_bis" size="20" type="text"><br>
           </th>
           
-  <th>Orbitale Verteidigung | max:<br>
+  <th style="color:red">Orbitale Verteidigung | max:<br>
           </th>
           <th><center><input value="0" name="slaser_bis" size="20" type="text"><br>
           </th>
@@ -143,7 +143,7 @@
           <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
           </th>
 
-        <th>Kreuzer | max:<br>
+        <th style="color:red">Kreuzer | max:<br>
           </th>
           <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
           </th>
@@ -154,7 +154,7 @@
           </th>
           <th><center><input value="0" name="gtrans_bis" size="20" type="text"><br>
           </th>
-           <th>Bomber | max:<br>
+           <th style="color:red">Bomber | max:<br>
           </th>
           <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
           </th>
@@ -165,7 +165,7 @@
           </th>
           <th><center><input value="0" name="ljaeger_bis" size="20" type="text"><br>
           </th>
-           <th>Zerstörer | max:<br>
+           <th style="color:red">Zerstörer | max:<br>
           </th>
           <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
           </th>
@@ -175,7 +175,7 @@
           </th>
           <th><center><input value="0" name="sjaeger_bis" size="20" type="text"><br>
           </th>
-           <th>Evolution Transporter | max:<br>
+           <th style="color:red">Evolution Transporter | max:<br>
           </th>
           <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
           </th>
@@ -186,7 +186,7 @@
           </th>
           <th><center><input value="0" name="schlachts_bis" size="20" type="text"><br>
           </th>
-           <th>Schlachtkreuzer | max:<br>
+           <th style="color:red">Schlachtkreuzer | max:<br>
           </th>
           <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
           </th>
@@ -196,7 +196,7 @@
           </th>
           <th><center><input value="0" name="todesstern_bis" size="20" type="text"><br>
           </th>
-           <th>Avatar | max:<br>
+           <th style="color:red">Avatar | max:<br>
           </th>
           <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
           </th>
@@ -206,7 +206,7 @@
           </th>
           <th><center><input value="0" name="lune_bis" size="20" type="text"><br>
           </th>
-          <th>Giga / Recycler | max:<br>
+          <th style="color:red">Giga / Recycler | max:<br>
           </th>
           <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
           </th>
@@ -223,7 +223,7 @@
             <center><u><font size="2">{$planetdata}:</font></u><font size="4"> </font>
             </center>
           </th>
-          <th>&nbsp;</th><th>&nbsp;</th>
+          <th style="color:red">Rote Schrifft = Inaktiv momentan </th><th style="color:red"></th>
         </tr>
         <tr>
           <th>{$name}:</th>

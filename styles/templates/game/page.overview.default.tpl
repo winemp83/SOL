@@ -367,6 +367,16 @@
 			<td>
 				{$ally_deu}
 			</td>
+
+		</tr>
+<th>
+<span style="color:yellow">{$LNG.ov_obank}</span>
+</th>
+<td>
+<a href="game.php?page=alliBank&mode=in"><span style="color:yellow">{$LNG.ov_oklick}</span></a>
+</td>
+		<tr>
+			<th colspan="2"><a href="game.php?page=market&amp;who=2" style="color:yellow">{$LNG['winemp_allyMarket_text']}{$fff}</th>
 		</tr>
 		<tr>
 			<th colspan="2"><a href="game.php?page=market&amp;who=2" style="color:yellow">{$LNG['winemp_allyMarket_text']}{$fff}</th>
