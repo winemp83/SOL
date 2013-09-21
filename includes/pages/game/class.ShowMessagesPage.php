@@ -255,7 +255,7 @@ class ShowMessagesPage extends AbstractPage
 		$side			= HTTP::_GP('side', 1);
 		
 		$CategoryType   = array ( 0, 1, 2, 3, 4, 5, 15, 50, 99, 100, 999);
-		$TitleColor    	= array ( 0 => '#FFFF00', 1 => '#FF6699', 2 => '#FF3300', 3 => '#FF9900', 4 => '#773399', 5 => '#009933', 15 => '#6495ed', 50 => '#666600', 99 => '#007070', 100 => '#ABABAB', 999 => '#CCCCCC');
+		$TitleColor    	= array ( 0 => '#FFFF00', 1 => '#FF6699', 2 => '#FF3300', 3 => '#FF9900', 4 => '#00FF00', 5 => '#009933', 15 => '#6495ed', 50 => '#37FDFC', 99 => '#0147FA', 100 => '#ABABAB', 999 => '#CCCCCC');
 		
 		$MessOut		= $GLOBALS['DATABASE']->getFirstCell("SELECT COUNT(*) FROM ".MESSAGES." WHERE message_sender = ".$USER['id']." AND message_type != 50;");
 		
