@@ -506,6 +506,7 @@ $LNG['winemp_allyBonus_Error_M']		= 'Sie besitzen zu wenig Metall';
 $LNG['winemp_allyBonus_Error_K']		= 'Sie besitzen zu wenig Kristall';
 $LNG['winemp_allyBonus_Error_D']		= 'Sie besitzen zu wenig Deuterium';	
 $LNG['winemp_allyBonus_allOkay']		= 'Sie haben Erfolgreich einen Bonus erworben';
+$LNG['winemp_allyMarket_text']			= 'Es gibt folgende Auktion in der Allianz: ';
 //Loginpage
 //Menu
 $LNG['icey_menu_news']		= 'News';
