@@ -367,7 +367,14 @@
 			<td>
 				{$ally_deu}
 			</td>
+
 		</tr>
+<th>
+<span style="color:yellow">{$LNG.ov_obank}</span>
+</th>
+<td>
+<a href="game.php?page=alliBank&mode=in"><span style="color:yellow">{$LNG.ov_oklick}</span></a>
+</td>
 		<tr>
 			<th colspan="2">Allianz Bonus</th>
 		</tr>

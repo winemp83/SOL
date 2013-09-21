@@ -473,6 +473,8 @@ $LNG['ov_oaver']						= 'Allianz Vermögen';
 $LNG['ov_oametal']						= 'Metall:';
 $LNG['ov_oakris']						= 'Kristall:';
 $LNG['ov_oadeut']						= 'Deuterium:';
+$LNG['ov_oklick']						= 'Einzahlen';
+$LNG['ov_obank']						= 'Allianz Bank';
 
 //Building menu
 $LNG['b_mgdar']							= 'Grafik Darstellung';
