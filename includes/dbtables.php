@@ -82,6 +82,8 @@ define('MARKET'			    , DB_PREFIX.'market');
 define('MARKETALLY'			, DB_PREFIX.'marketally');
 define('DMGut'				, DB_PREFIX.'gutscheine');
 define('ALLIBONUS'      	, DB_PREFIX.'alli_bonus');
+define('ALLYTOPIC'			, DB_PREFIX.'ally_topic');
+define('TopicAnswer'		, DB_PREFIX.'ally_tpoic_answer');	
 
 // Bot
 define('BOTS'               , $database['tableprefix'].'bots');

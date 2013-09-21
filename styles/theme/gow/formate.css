@@ -105,7 +105,7 @@ select {
 /*Global Messgae */
 
 .admin {
-	color:red;
+	color:lightblue;
 }
 .mod {
 	color:yellow;
@@ -116,7 +116,7 @@ select {
 
 .messages_body .admin {
 	font-weight:700;
-	color:red;
+	color:silver;
 }
 .messages_body .mod {
 	font-weight:700;
