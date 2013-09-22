@@ -62,7 +62,7 @@
 <li><a href="#t1">{$LNG.ov_events}</a></li>
 <li><a href="#t2">{$LNG.lm_overview}</a></li>
 <li><a href="#t3">{$LNG.lm_malli}</a></li>
-<li><a href="#t4">Alli Forum</a></li>
+<li><a href="#t4">{$LNG.lm_malliForum}</a></li>
 <li><a href="#t5">{$LNG.bu_partners}</a></li>
 <li><a href="#t6">{$LNG.ov_reflink}</a></li>
 
@@ -101,7 +101,10 @@
 	<table style="width: 100%; background: transparent;">
 						
 <tr>
-		<th colspan="2"  >{$LNG.winemp_Forum_forum_topic}</th><th colspan="2"  >{$LNG.winemp_Forum_forum_date} <br/> {$LNG.winemp_Forum_forum_lastdate}</th><th colspan="2"  >{$LNG.winemp_Forum_forum_user}</th>
+	<th width="30%" style="text-align: center;" >{$LNG.winemp_Forum_forum_topic}</th>
+	<th width="5%"  style="text-align: center;" >{$LNG.winemp_Forum_forum_lastdate}</th>
+	<th width="5%"  style="text-align: center;" >{$LNG.winemp_Forum_forum_user}</th>
+	<th width="10%" style="text-align: center;" > </th>
 	</tr>
 	
 {foreach	item=topic	from=$topics}
@@ -110,7 +113,7 @@
 			{$topic.topic_name}
 		</td>
 		<td>
-			{$topic.time}<br/>
+			
 			{$topic.lastinsert}
 		</td>
 		<td>
@@ -118,13 +121,11 @@
 		</td>
 		<td>
 			{if $topic.close != 1}
-				<form action="" method="post">
-					<input name="menue" value="1" type="hidden">
-					<input name="id" value="{$topic.id}" type="hidden">
-					<input type="submit" value="{$LNG.winemp_Forum_topic_show}" name="{$LNG.winemp_Forum_topic_show}">
-				</form>
-			{else}
-				<span style="color:#8B0000;">{$LNG.winemp_Forum_topic_closed}</span>
+				
+			<a href="game.php?page=allianzForum">{$LNG.alliforumlink}</a>		
+				
+			
+				
 			{/if}
 		</td>
 	</tr>
@@ -133,23 +134,6 @@
 
 	</tr>
 						</table></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 <div style="background: transparent;"> <a name="t5" id="t5"></a>

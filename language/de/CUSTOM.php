@@ -547,8 +547,8 @@ $LNG['winemp_Forum_topic_answer']	= 'Auf den Tread Antworten'; //Antworten
 $LNG['winemp_Forum_topic_back']		= 'zurück zur Treadliste'; // zurück zum Forum
 $LNG['winemp_Forum_topic_title']	= 'Topic: '; //Header
 $LNG['winemp_Forum_forum_title']	= 'Allianz Forum :';
-$LNG['winemp_Forum_topic_create']	= 'Tread erstellen';
-$LNG['winemp_Forum_forum_topic']	= 'Tread';
+$LNG['winemp_Forum_topic_create']	= 'Thema Erstellen';
+$LNG['winemp_Forum_forum_topic']	= 'Thema';
 $LNG['winemp_Forum_forum_date']		= 'Erstellungs Datum';
 $LNG['winemp_Forum_forum_lastdate']	= 'Letzter Beitrag';
 $LNG['winemp_Forum_forum_user']		= 'Allianz Mitglied';
@@ -556,3 +556,6 @@ $LNG['winemp_Forum_forum_close']	= 'Geschlossen<br/>Antworten';
 $LNG['winemp_Forum_topic_show']		= 'Tread anzeigen';
 $LNG['winemp_Forum_topic_closed']	= 'Geschlossen';
 $LNG['lm_malliForum']				= 'Allianz Forum';
+//Allianz Forum Overview
+$LNG['alliforumlink']				= 'Zum Forum';
+
