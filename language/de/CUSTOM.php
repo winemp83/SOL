@@ -530,3 +530,29 @@ $LNG['icey_user_last']		= 'Neuer Spieler:';
 
 //Bilder Galarie
 $LNG['icey_gala_bilder']	= 'Bilder Galerie';
+
+
+//Allianz Forum
+$LNG['winemp_Forum_error_1']		= 'Leider seid Ihr in keiner Allianz, Commander'; // in keiner Allianz
+$LNG['winemp_Forum_error_2']		= 'Commander, ein Tread-Titel muss mindestens 3 Zeichen haben.'; // topic muss mehr als 3 zeichen haben
+$LNG['winemp_Forum_error_3']		= 'Commander, Ihr braucht 10 Zeichen in der Treadbeschreibung '; // eintrag muss mehr als 10 zeichen haben
+$LNG['winemp_Forum_error_4']		= 'Commander? Eure Antwort braucht 5 Zeichen!'; // Antworten müssen mehr als 5 Zeichen haben
+$LNG['winemp_Forum_error_5']		= 'Commander, die Suche hat ergeben dass der Tread nicht bekannt ist'; // Topic nicht bekannt
+$LNG['winemp_Forum_error_6']		= 'Commander, auf gespeerte Treads könnt ihr nicht antworten'; // Topic gespeert
+$LNG['winemp_Forum_error_0']		= 'Commander, irgend etwas stimmt hier nicht'; // standart Fehlermeldung | keine Allianz
+$LNG['winemp_Forum_error']			= 'Achtung Fehler!'; // Fehler!!!
+$LNG['winemp_Forum_error_title']	= 'Foren Fehler'; // Forums Fehler (Title);
+$LNG['winemp_Forum_error_back']		= 'zurück zur Treadliste'; // zurück zum Forum
+$LNG['winemp_Forum_topic_answer']	= 'Auf den Tread Antworten'; //Antworten 
+$LNG['winemp_Forum_topic_back']		= 'zurück zur Treadliste'; // zurück zum Forum
+$LNG['winemp_Forum_topic_title']	= 'Topic: '; //Header
+$LNG['winemp_Forum_forum_title']	= 'Allianz Forum :';
+$LNG['winemp_Forum_topic_create']	= 'Tread erstellen';
+$LNG['winemp_Forum_forum_topic']	= 'Tread';
+$LNG['winemp_Forum_forum_date']		= 'Erstellungs Datum';
+$LNG['winemp_Forum_forum_lastdate']	= 'Letzter Beitrag';
+$LNG['winemp_Forum_forum_user']		= 'Allianz Mitglied';
+$LNG['winemp_Forum_forum_close']	= 'Geschlossen<br/>Antworten';
+$LNG['winemp_Forum_topic_show']		= 'Tread anzeigen';
+$LNG['winemp_Forum_topic_closed']	= 'Geschlossen';
+$LNG['lm_malliForum']				= 'Allianz Forum';

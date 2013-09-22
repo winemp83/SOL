@@ -48,6 +48,7 @@
 	<ul style="width:180px;">
 			{if isModulAvalible($smarty.const.MODULE_ALLIANCE)}<li style="width:180px;"><a href="game.php?page=alliance">{$LNG.lm_alliance}</a></li>{/if}
         		<li style="width:180px;"><a href="game.php?page=alliBank">{$LNG.lm_mallib}</a></li>
+        		<li style="width:180px;"><a href="game.php?page=allianzForum">{$LNG.lm_malliForum}</a></li>
 
 	</ul></li>
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_mcommunity}</span></a>
