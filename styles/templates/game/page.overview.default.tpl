@@ -61,13 +61,15 @@
 <ul class="domtabs">
 <li><a href="#t1">{$LNG.ov_events}</a></li>
 <li><a href="#t2">{$LNG.lm_overview}</a></li>
-<li><a href="#t3">{$LNG.bu_partners}</a></li>
-<li><a href="#t4">{$LNG.ov_reflink}</a></li>
-<li><a href="#t5">{$LNG.lm_malli}</a></li>
+<li><a href="#t3">{$LNG.lm_malli}</a></li>
+<li><a href="#t4">Alli Forum</a></li>
+<li><a href="#t5">{$LNG.bu_partners}</a></li>
+<li><a href="#t6">{$LNG.ov_reflink}</a></li>
+
 
 
 </ul>
-<div style="background: transparent;"> <a name="t4" id="t4"></a>
+<div style="background: transparent;"> <a name="t6" id="t6"></a>
 
 	<table style="width: 100%; background: transparent;">						
 
@@ -92,7 +94,65 @@
 						</table></div>
 
 
-<div style="background: transparent;"> <a name="t3" id="t3"></a>
+
+
+<div style="background: transparent;"> <a name="t4" id="t4"></a>
+
+	<table style="width: 100%; background: transparent;">
+						
+<tr>
+		<th colspan="2"  >{$LNG.winemp_Forum_forum_topic}</th><th colspan="2"  >{$LNG.winemp_Forum_forum_date} <br/> {$LNG.winemp_Forum_forum_lastdate}</th><th colspan="2"  >{$LNG.winemp_Forum_forum_user}</th>
+	</tr>
+	
+{foreach	item=topic	from=$topics}
+	<tr>
+		<td>
+			{$topic.topic_name}
+		</td>
+		<td>
+			{$topic.time}<br/>
+			{$topic.lastinsert}
+		</td>
+		<td>
+			{$topic.author}
+		</td>
+		<td>
+			{if $topic.close != 1}
+				<form action="" method="post">
+					<input name="menue" value="1" type="hidden">
+					<input name="id" value="{$topic.id}" type="hidden">
+					<input type="submit" value="{$LNG.winemp_Forum_topic_show}" name="{$LNG.winemp_Forum_topic_show}">
+				</form>
+			{else}
+				<span style="color:#8B0000;">{$LNG.winemp_Forum_topic_closed}</span>
+			{/if}
+		</td>
+	</tr>
+{/foreach}
+
+
+	</tr>
+						</table></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="background: transparent;"> <a name="t5" id="t5"></a>
 						<table style="width: 100%;">
 							<tbody><tr>
 								<tr><th colspan="6" style="text-align:center"> {$LNG.bu_anfrage} </th></tr>
@@ -185,9 +245,9 @@
 					</tbody></table>
 					</div>
 
-<div style="background: transparent;">
+
 <div style="background: transparent;"> <a name="t1" id="t1"></a>
-											<table style="width: 100%; background: transparent;">
+											<table style="background: transparent;">
 <tr>
 		<th colspan="3">{$LNG.ov_events}  
 	</tr>
@@ -318,7 +378,7 @@
 
 
 
-<div style="background: transparent;"> <a name="t5" id="t5"></a>						
+<div style="background: transparent;"> <a name="t3" id="t3"></a>						
 <table class="table519"style="width: 100%; background: transparent;">
 	<tbody>
 		<tr>
@@ -369,16 +429,14 @@
 			</td>
 
 		</tr>
+<th>
+<span style="color:yellow">{$LNG.ov_obank}</span>
+</th>
+<td>
+<a href="game.php?page=alliBank&mode=in"><span style="color:yellow">{$LNG.ov_oklick}</span></a>
+</td>
 		<tr>
-			<th>
-				<span style="color:yellow">{$LNG.ov_obank}</span>
-			</th>
-			<td>
-				<a href="game.php?page=alliBank&mode=in"><span style="color:yellow">{$LNG.ov_oklick}</span></a>
-			</td>
-		</tr>
-		<tr>
-			<th colspan="2"><div align="center" width="100%"><a href="game.php?page=market&amp;who=2" style="color:yellow">{$LNG['winemp_allyMarket_text']}</span></a><span style="color:green">{$fff}</span></div></th>
+			<th colspan="2"><a href="game.php?page=market&amp;who=2" style="color:yellow">{$LNG['winemp_allyMarket_text']}{$fff}</th>
 		</tr>
 		<tr>
 			<th colspan="2">Allianz Bonus</th>
@@ -415,6 +473,8 @@
 	
 	
 						</table></div>
+
+
 
 
 </tbody></table>
