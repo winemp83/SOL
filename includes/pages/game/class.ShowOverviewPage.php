@@ -28,6 +28,7 @@
 
 class ShowOverviewPage extends AbstractPage 
 {
+	private $topicList = array();
 	public static $requireModule = 0;
 
 	function __construct() 
@@ -329,7 +330,11 @@ class ShowOverviewPage extends AbstractPage
 			
 			$i ++;
 			
+		} if($USER['ally_id'] != 0){
+			$this -> showForum();
 		}
+			
+		
 		if($USER['ally_id'] != 0){
 			$sql = "SELECT * FROM ".ALLIANCE." WHERE id='".$USER['ally_id']."'";
 			$result = $GLOBALS['DATABASE']->query($sql);
@@ -498,5 +503,55 @@ class ShowOverviewPage extends AbstractPage
 			}
 		}
 	}
+	protected function showForum(){
+		global $USER;
+		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".ALLYTOPIC." WHERE ally_id='".$USER['ally_id']."'");
+		
+		while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
+		{
+			$dateRow = $GLOBALS['DATABASE']->query("SELECT `createtime` FROM ".TOPICANSWER." WHERE topic_id='".$topicListRow['id']."'");
+			$help = 0;
+			foreach($dateRow as $data){
+				if ($data > $help){
+					$help = $data;
+				}
+			}
+			$this->topicList[]	= array(
+				'time'			=> date("d.m.Y H:i:s", $topicListRow['createtime']),
+				'topic_name'	=> $topicListRow['topic_name'],
+				'author'		=> $topicListRow['author'],
+				'id'			=> $topicListRow['id'],
+				'close'			=> $topicListRow['close'],
+				'lastinsert'	=> date("d.m.Y H:i:s", $help['createtime']),
+			);
+			
+		}
+		if(!empty($this->topicList)){
+			$this->tplObj->assign_vars(array(
+            	'topics'	=> $this->sabsi($this->topicList, 'id'),	
+			));
+		}
+		else{
+			$this->tplObj->assign_vars(array(
+            	'topics'	=> $this->topicList,	
+			));
+		}
+
+		
+	}
+	function sabsi ($array, $index, $order='asc', $natsort=FALSE, $case_sensitive=FALSE) {
+		if(is_array($array) && count($array)>0) {
+			foreach(array_keys($array) as $key) $temp[$key]=$array[$key][$index];
+			if(!$natsort) ($order=='asc')? asort($temp) : arsort($temp);
+			else {
+				($case_sensitive)? natsort($temp) : natcasesort($temp);
+				if($order!='asc') $temp=array_reverse($temp,TRUE);
+			}
+			foreach(array_keys($temp) as $key) (is_numeric($key))? $sorted[]=$array[$key] : $sorted[$key]=$array[$key];
+			return $sorted;
+		}
+		return $array;
+	}
+	
  }
 

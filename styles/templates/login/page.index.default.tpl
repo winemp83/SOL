@@ -85,6 +85,7 @@
         <td colspan="1">
             <div style="text-align:center;"> <h3>{$LNG.icey_news_last}</h3> {$news_short}</div>
 
+
 	
 
     </td>
