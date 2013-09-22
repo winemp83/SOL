@@ -222,10 +222,8 @@ class ShowOverviewPage extends AbstractPage
 		elseif ($help >= 11 && $help < 20) {
 			$online = "<span style=\"color:gold;\">".$help."</span>";
 		}
-		elseif($help >= 21) {
+		else{
 			$online = "<span style=\"color:green;\">".$help."</span>";
-		}
-		else{$online = "<span style=\"color:red;\">Fehler!!</span>";
 		}
 		
 		$BuddyListResult    = $GLOBALS['DATABASE']->query("SELECT 
