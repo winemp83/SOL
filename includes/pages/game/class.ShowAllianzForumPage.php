@@ -1,9 +1,10 @@
 <?php
-class ShowAlliBankPage extends AbstractPage 
+class ShowAllianzForumPage extends AbstractPage 
 {
 	public static $requireModule = MODULE_SUPPORT;
 	
 	private $topicList = array();
+	private $topic = array();
 
 	function __construct() 
 	{
@@ -18,90 +19,226 @@ class ShowAlliBankPage extends AbstractPage
 
 	protected function createTopic(){
 		global $USER;
-		if(empty(HTTP::_GP('step'))){
+		if(empty(HTTP::_GP('step',''))){
 			$step = 1;
 		}
 		else{
-			$step = HTTP::_GP('step');
+			$step = HTTP::_GP('step','');
 		}
 		switch ($step){
 			case 1 :
+					$this->display('AllyForum_createTopic.tpl');
 					break;
 			case 2 :
-					$topicName = HTTP::_GP('topicName', '');
-					$user = $USER['name'];
-					$text = HTTP::_GP('text', '');
-					$alli = $USER['ally_id'];
-					$GLOBALS['DATABASE']->multi_query("INSERT INTO ".ALLYTOPIC." SET
-						topic_name				= '".$GLOBALS['DATABASE']->sql_escape($topicName)."',
-						ally_id					= '".$alli."',
-						author					= '".$user."',
-						createtime				= '".time()."';
-						SET @topicID = LAST_INSERT_ID();
-						INSERT INTO ".TopicAnswer." SET 
-						topic_id 				= @topicID,
-						createtime				= '".time()."',
-						author					= '".$user."',
-						text					= '".$GLOBALS['DATABASE']->sql_escape($text)."';");
+					if(strlen(HTTP::_GP('topicName', '')) >= 3 && strlen(HTTP::_GP('text', '')) >= 10){
+						$topicName = htmlspecialchars(htmlentities(HTTP::_GP('topicName', '')));
+						$user = $USER['username'];
+						$text = htmlspecialchars(htmlentities(HTTP::_GP('text', '')));
+						$alli = $USER['ally_id'];
+						$GLOBALS['DATABASE']->multi_query("INSERT INTO ".ALLYTOPIC." SET
+							topic_name				= '".$GLOBALS['DATABASE']->sql_escape($topicName)."',
+							ally_id					= '".$alli."',
+							author					= '".$user."',
+							createtime				= '".time()."',
+							close					= '0' ;
+							SET @topicID = LAST_INSERT_ID();
+							INSERT INTO ".TOPICANSWER." SET 
+							topic_id 				= @topicID,
+							createtime				= '".time()."',
+							author					= '".$user."',
+							ally					= '".$alli."',
+							text					= '".$GLOBALS['DATABASE']->sql_escape($text)."';"
+						);
+						$sql = "SELECT * FROM ".ALLYTOPIC." WHERE ally_id='".$alli."' AND author='".$user."'";
+						$result = $GLOBALS['DATABASE']->query($sql);
+						$help = 0;
+						foreach($result as $data){
+							$a = $data['id'];
+							if($help < $a){
+								$help = $a;
+							}
+						}
+						$this->showTopic($help);
+					}
+					else{
+						if(strlen(HTTP::_GP('topicName', '')) <3){
+							$this->error(2);
+						}
+						elseif(strlen(HTTP::_GP('text', '')) < 10){
+							$this->error(3);
+						}
+					}
 					break;
 			default:
+					$this->display('AllyForum_createTopic.tpl');
 					break;
 		}
 	}
 	
-	protected function answerTopic(){
+	protected function answerTopic($id){
+		global $USER;
+		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".TOPICANSWER." WHERE topic_id='".$id."'");
+		$topic_name = $GLOBALS['DATABASE']->query("SELECT (topic_name) FROM ".ALLYTOPIC." WHERE id='".$id."'");
+		$topic_close =	$GLOBALS['DATABASE']->query("SELECT (close) FROM ".ALLYTOPIC." WHERE id='".$id."'");						
+		foreach($topic_name as $data){
+			$topic_name = $data['topic_name'];
+		}
+		foreach($topic_close as $data){
+			$topic_close = $data['close'];
+		}
+		while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
+		{
+			$this->topic[] = array(
+				'time'		=> date("d.m.Y H:i:s", $topicListRow['createtime']),
+				'user'		=> $topicListRow['author'],
+				'text'		=> $topicListRow['text'],
+				'id'		=> $topicListRow['id'],
+			);
+		}
 		
+		$this->tplObj->assign_vars(array(
+			'topic'			=> $this->sabsi($this->topic, 'id'),
+			'topic_name'	=> $topic_name,
+			'topic_close'	=> $topic_close,
+			'topic_id'		=> $id,
+		));
+		
+		if (HTTP::_GP('do_it', '') != 'yes'){
+			$this->display('AllyForum_answer.tpl');
+		}
+		elseif ($id == 0){
+			$this->display('AllyForum_answer.tpl');
+		}
+		else{
+			$text = htmlspecialchars(htmlentities(HTTP::_GP('text', '')));
+			$user = $USER['username'];
+			$time = time();
+			$ally = $USER['ally_id'];
+			
+			if (strlen($text) < 5){
+				$this->error(4);
+			}
+			else{
+				$result = $GLOBALS['DATABASE']->query("SELECT `close` FROM ".ALLYTOPIC." WHERE id='".$id."'");
+				foreach($result as $data){
+					$result = $data['close'];
+				}
+				if($result != 1 ){
+					$GLOBALS['DATABASE']->query("INSERT INTO ".TOPICANSWER." SET topic_id='".$id."', createtime='".$time."', author='".$user."', ally='".$ally."', text='".$text."'");
+					$this->showTopic($id);
+				}
+				else{
+					$this->error(6);
+				}
+			}
+		}
 	}
 	
-	protected function delTopic(){
-		
+	protected function delTopic($id){
+		if($id == 0){
+			$this->error(5);
+		}
+		else{
+			$GLOBALS['DATABASE']->query("DELETE FROM ".ALLYTOPIC." WHERE id='".$id."'");
+			$GLOBALS['DATABASE']->query("DELETE FROM ".TOPICANSWER." WHERE topic_id='".$id."'");
+			$this->showForum();
+		}
+	}
+
+	protected function closeTopic($id){
+		if($id == 0){
+			$this->error(5);
+		}
+		else{
+			$GLOBALS['DATABASE']->query("UPDATE ".ALLYTOPIC." SET close='1' WHERE id='".$id."'");
+			$this->showForum();
+		}
 	}
 	
 	protected function showForum(){
 		global $USER;
-		$sql = "SELECT * FROM ".ALLYTOPIC." WHERE ally_id='".$USER['ally_id']."'";
+		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".ALLYTOPIC." WHERE ally_id='".$USER['ally_id']."'");
 		
 		while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
 		{
+			$dateRow = $GLOBALS['DATABASE']->query("SELECT `createtime` FROM ".TOPICANSWER." WHERE topic_id='".$topicListRow['id']."'");
+			$help = 0;
+			foreach($dateRow as $data){
+				if ($data > $help){
+					$help = $data;
+				}
+			}
 			$this->topicList[]	= array(
-				'time'			=> date("D.M.Y H:I:S", $topicListRow['createtime']),
-				'topic_name'	=> $topicListRow['topicname'],
+				'time'			=> date("d.m.Y H:i:s", $topicListRow['createtime']),
+				'topic_name'	=> $topicListRow['topic_name'],
 				'author'		=> $topicListRow['author'],
 				'id'			=> $topicListRow['id'],
+				'close'			=> $topicListRow['close'],
+				'lastinsert'	=> date("d.m.Y H:i:s", $help['createtime']),
 			);
+			
 		}
-		$this->tplObj->assign_vars(array(
-            'topics'	=> $this->sabsi($this->topicList, 'id'),	
-		));
-
-		$this->display('AllyForum_error.tpl');
+		if(!empty($this->topicList)){
+			$this->tplObj->assign_vars(array(
+            	'topics'	=> $this->sabsi($this->topicList, 'id'),	
+			));
+		}
+		else{
+			$this->tplObj->assign_vars(array(
+            	'topics'	=> $this->topicList,	
+			));
+		}
+		$this->display('AllyForum.tpl');
 		
 	}
 	
-	protected function showTopic(){
+	protected function showTopic($id){
+		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".TOPICANSWER." WHERE topic_id='".$id."'");
+		$topic_name = $GLOBALS['DATABASE']->query("SELECT (topic_name) FROM ".ALLYTOPIC." WHERE id='".$id."'");
+		$topic_close =	$GLOBALS['DATABASE']->query("SELECT (close) FROM ".ALLYTOPIC." WHERE id='".$id."'");						
+		foreach($topic_name as $data){
+			$topic_name = $data['topic_name'];
+		}
+		foreach($topic_close as $data){
+			$topic_close = $data['close'];
+		}
+		while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
+		{
+			$this->topic[] = array(
+				'time'		=> date("d.m.Y H:i:s", $topicListRow['createtime']),
+				'user'		=> $topicListRow['author'],
+				'text'		=> $topicListRow['text'],
+				'id'		=> $topicListRow['id'],
+			);
+		}
 		
+		$this->tplObj->assign_vars(array(
+			'topic'			=> $this->sabsi($this->topic, 'id'),
+			'topic_name'	=> $topic_name,
+			'topic_close'	=> $topic_close,
+			'topic_id'		=> $id,
+		));
+		
+		$this->display('AllyForum_topic.tpl');
 	}
 	
 	protected function menue(){
+		global $USER;
+		$menue = HTTP::_GP('menue', '');
+		$id = HTTP::_GP('id', '');
 		if($USER['ally_id'] == 0){
 			$menue = 10;	
 		}
-		else{	
-			if(!empty(HTTP::_GP('menue'))){
-				$menue = 0;
-			}
-			else{
-				$menue = HTTP::_GP('menue');
-			}
-		}
 		switch ($menue){
-			case 1 : $this->showTopic();
+			case 1 : $this->showTopic($id);
 					break;
 			case 2 : $this->createTopic();
 					break;
-			case 3 : $this->answerTopic();
+			case 3 : $this->answerTopic($id);
 					break;
-			case 4 : $this->delTopic();
+			case 4 : $this->delTopic($id);
+					break;
+			case 5 : $this->closeTopic($id);
 					break;
 			case 10:
 					 $this->error(1);
@@ -112,8 +249,19 @@ class ShowAlliBankPage extends AbstractPage
 	}
 	
 	protected function error($id){
+		global $LNG;
 		switch ($id){
-			case 1 : $msg = $LNG['winemp_Forum_error_1'];
+			case 1 : $msg = $LNG['winemp_Forum_error_1']; // in keiner Allianz
+					break;
+			case 2 : $msg = $LNG['winemp_Forum_error_2']; // topic muss mehr als 3 zeichen haben
+					break; 
+			case 3 : $msg = $LNG['winemp_Forum_error_3']; // eintrag muss mehr als 10 zeichen haben
+					break;
+			case 4 : $msg = $LNG['winemp_Forum_error_4']; // Antworten müssen mehr als 5 Zeichen haben
+					break;
+			case 5 : $msg = $LNG['winemp_Forum_error_5']; // Topic nicht bekannt
+					break;
+			case 6 : $msg = $LNG['winemp_Forum_error_6']; // Topic gespeert
 					break;
 			default: $msg = $LNG['winemp_Forum_error_0'];
 					break;

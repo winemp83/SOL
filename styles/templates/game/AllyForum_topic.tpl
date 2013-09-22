@@ -41,12 +41,30 @@
 			<span style="color:#F0F8FF;">{$topics.text}</span>
 		</div>
 	</td>
+<<<<<<< HEAD
+	<td colspan="2" valign="top">
+=======
 	<td colspan="1" valign="top">
+>>>>>>> fa8e398f7f8f35ffee755fc52c216a59749327c0
 		<div width="90%" align="center">
 			<span style="color:#B8860B;"><b>{$topics.user}</b></span><br/>
 			<span style="color:#CD5C5C;">{$topics.time}</span>
 		</div>
 	</td>
+<<<<<<< HEAD
+</tr>
+{/foreach}
+<tr>
+	<th colspan="2">
+		<form action="" method="post">
+		<input name="menue" value="3" type="hidden">
+		<input name="do_it" value="no" type="hidden">
+		<input name="id" value="{$topic_id}" type="hidden">
+		<input type="submit" value="{$LNG.winemp_Forum_topic_answer}" name="{$LNG.winemp_Forum_topic_answer}">
+		</form>
+	</th>
+=======
+>>>>>>> fa8e398f7f8f35ffee755fc52c216a59749327c0
 	<td>
 	{if $topic_close != 1}
 	<form action="" method="post">
@@ -59,6 +77,8 @@
 	{/if}
 	</td>
 </tr>
+<<<<<<< HEAD
+=======
 {/foreach}
 <tr>
 	<th colspan="3">
@@ -70,5 +90,6 @@
 		</form>
 	</th>
 </tr>
+>>>>>>> fa8e398f7f8f35ffee755fc52c216a59749327c0
 </table>
 {/block}
