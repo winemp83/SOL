@@ -1,8 +1,6 @@
 {block name="title" prepend}{$LNG.winemp_Forum_forum_title}{/block}
 {block name="content"}
 <script type="text/javascript" src="scripts/jQuery.js?v=1829"></script>
-
-
 <table style="width:700px; background-color: #000000;">
 <tbody>
 <tr>
@@ -21,12 +19,29 @@
 	</td>
 </tr>
 <tr>
-	<th colspan="5">
+	{if $adm}
+	<th colspan="4">
 		<form action="" method="post">
-		<input name="menue" value="2" type="hidden">
-		<input type="submit" value="{$LNG.winemp_Forum_topic_create}" name="{$LNG.winemp_Forum_topic_create}">
+			<input name="menue" value="2" type="hidden">
+			<input type="submit" value="{$LNG.winemp_Forum_topic_create}" name="{$LNG.winemp_Forum_topic_create}">
 		</form>
 	</th>
+	<th>
+		<div width="100%" align="right">
+			<form action="" method="post">
+				<input name="menue" value="6" type="hidden">
+				<input type="submit" value="{$LNG.winemp_Forum_adm_enter}" name="{$LNG.winemp_Forum_adm_enter}">
+			</form>
+		</div>
+	</th>
+	{else}
+	<th colspan="5">
+		<form action="" method="post">
+			<input name="menue" value="2" type="hidden">
+			<input type="submit" value="{$LNG.winemp_Forum_topic_create}" name="{$LNG.winemp_Forum_topic_create}">
+		</form>
+	</th>
+	{/if}
 </tr>
 
 

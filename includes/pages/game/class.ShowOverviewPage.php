@@ -362,9 +362,9 @@ class ShowOverviewPage extends AbstractPage
 			$this->tplObj->assign_vars(array(
 			'ally_true'			=> true,
 			'ally_name'			=> $help['name'],
-			'ally_met'			=> $help['met'],
-			'ally_kri'			=> $help['kri'],
-			'ally_deu'			=> $help['deu'],
+			'ally_met'			=> pretty_number($help['met']),
+			'ally_kri'			=> pretty_number($help['kri']),
+			'ally_deu'			=> pretty_number($help['deu']),
 			'ally_tag'			=> $help['tag'],
 			'ally_mec'			=> $help['members'],
 			'ally_mem'			=> $help['members_max'],

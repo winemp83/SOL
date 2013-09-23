@@ -95,13 +95,14 @@
 	</th>
 	<th width="15% style="text-align: center">
 
-	{if $topic_close != 1}
+	{if $topic_close != 1 && $adm}
 	<form action="" method="post">
 		<input name="menue" value="5" type="hidden">
 		<input name="id" value="{$topic_id}" type="hidden">
 		<input type="submit" value="{$LNG.winemp_Forum_topic_closen}" name="{$LNG.winemp_Forum_topic_closen}">
 	</form>
 	{else}
+	
 	{/if}
 		
 	</th>

@@ -30,10 +30,10 @@ class ShowAllianzForumPage extends AbstractPage
 					$this->display('AllyForum_createTopic.tpl');
 					break;
 			case 2 :
-					if(strlen(HTTP::_GP('topicName', '')) >= 3 && strlen(HTTP::_GP('text', '')) >= 10){
-						$topicName = htmlspecialchars(htmlentities(HTTP::_GP('topicName', '')));
+					if(strlen($_POST['topicName']) >= 3 && strlen($_POST['text']) >= 10){
+						$topicName = $_POST['topicName'];
 						$user = $USER['username'];
-						$text = htmlspecialchars(htmlentities(HTTP::_GP('text', '')));
+						$text = $_POST['text'];
 						$alli = $USER['ally_id'];
 						$GLOBALS['DATABASE']->multi_query("INSERT INTO ".ALLYTOPIC." SET
 							topic_name				= '".$GLOBALS['DATABASE']->sql_escape($topicName)."',
@@ -61,10 +61,10 @@ class ShowAllianzForumPage extends AbstractPage
 						$this->showTopic($help);
 					}
 					else{
-						if(strlen(HTTP::_GP('topicName', '')) <3){
+						if(strlen($_POST['topicName']) <3){
 							$this->error(2);
 						}
-						elseif(strlen(HTTP::_GP('text', '')) < 10){
+						elseif(strlen($_POST['text']) < 10){
 							$this->error(3);
 						}
 					}
@@ -110,7 +110,7 @@ class ShowAllianzForumPage extends AbstractPage
 			$this->display('AllyForum_answer.tpl');
 		}
 		else{
-			$text = htmlspecialchars(htmlentities(HTTP::_GP('text', '')));
+			$text = $_POST['text'];
 			$user = $USER['username'];
 			$time = time();
 			$ally = $USER['ally_id'];
@@ -124,7 +124,7 @@ class ShowAllianzForumPage extends AbstractPage
 					$result = $data['close'];
 				}
 				if($result != 1 ){
-					$GLOBALS['DATABASE']->query("INSERT INTO ".TOPICANSWER." SET topic_id='".$id."', createtime='".$time."', author='".$user."', ally='".$ally."', text='".$text."'");
+					$GLOBALS['DATABASE']->query("INSERT INTO ".TOPICANSWER." SET topic_id='".$id."', createtime='".$time."', author='".$user."', ally='".$ally."', text='".$GLOBALS['DATABASE']->sql_escape($text)."'");
 					$this->showTopic($id);
 				}
 				else{
@@ -156,7 +156,7 @@ class ShowAllianzForumPage extends AbstractPage
 	}
 	
 	protected function showForum(){
-		global $USER;
+		global $USER, $ALLY;
 		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".ALLYTOPIC." WHERE ally_id='".$USER['ally_id']."'");
 		
 		while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
@@ -170,8 +170,8 @@ class ShowAllianzForumPage extends AbstractPage
 			}
 			$this->topicList[]	= array(
 				'time'			=> date("d.m.Y H:i:s", $topicListRow['createtime']),
-				'topic_name'	=> $topicListRow['topic_name'],
-				'author'		=> $topicListRow['author'],
+				'topic_name'	=> htmlspecialchars($topicListRow['topic_name']),
+				'author'		=> htmlspecialchars($topicListRow['author']),
 				'id'			=> $topicListRow['id'],
 				'close'			=> $topicListRow['close'],
 				'lastinsert'	=> date("d.m.Y H:i:s", $help['createtime']),
@@ -180,12 +180,14 @@ class ShowAllianzForumPage extends AbstractPage
 		}
 		if(!empty($this->topicList)){
 			$this->tplObj->assign_vars(array(
-            	'topics'	=> $this->sabsi($this->topicList, 'id'),	
+            	'topics'	=> $this->sabsi($this->topicList, 'id'),
+            	'adm'		=> $this->checkadm(),	
 			));
 		}
 		else{
 			$this->tplObj->assign_vars(array(
-            	'topics'	=> $this->topicList,	
+            	'topics'	=> $this->topicList,
+            	'adm'		=> $this->checkadm(),
 			));
 		}
 		$this->display('AllyForum.tpl');
@@ -207,19 +209,41 @@ class ShowAllianzForumPage extends AbstractPage
 			$this->topic[] = array(
 				'time'		=> date("d.m.Y H:i:s", $topicListRow['createtime']),
 				'user'		=> $topicListRow['author'],
-				'text'		=> $topicListRow['text'],
+				'text'		=> nl2br(htmlspecialchars($topicListRow['text'])),
 				'id'		=> $topicListRow['id'],
 			);
 		}
 		
 		$this->tplObj->assign_vars(array(
 			'topic'			=> $this->sabsi($this->topic, 'id'),
-			'topic_name'	=> $topic_name,
+			'topic_name'	=> htmlspecialchars($topic_name),
 			'topic_close'	=> $topic_close,
 			'topic_id'		=> $id,
+			'adm'		=> $this->checkadm(),
 		));
 		
 		$this->display('AllyForum_topic.tpl');
+	}
+
+	protected function admForum(){
+		
+	}
+	
+	protected function checkadm(){
+		global $USER;
+		$ally_id = $USER['ally_id'];
+		
+		$sql = "SELECT (ally_owner) FROM ".ALLIANCE." WHERE id='".$ally_id."'";
+		$result = $GLOBALS['DATABASE']->query($sql);
+		foreach($result as $data){
+			$owner = $data['ally_owner'];
+		}
+		if($owner != $USER['id']){
+			return false;
+		}
+		else{
+			return true;
+		}
 	}
 	
 	protected function menue(){
