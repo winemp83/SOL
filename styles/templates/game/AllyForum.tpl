@@ -1,7 +1,25 @@
 {block name="title" prepend}{$LNG.winemp_Forum_forum_title}{/block}
 {block name="content"}
 <script type="text/javascript" src="scripts/jQuery.js?v=1829"></script>
-<table width="100%">
+
+
+<table style="width:700px; background-color: #000000;">
+<tbody>
+<tr>
+
+<td>
+<table style="width:950px;">
+<tbody>
+<tr>
+	<th colspan="5">
+		Allianz Forum
+	</th>
+</tr>
+<tr>
+	<td colspan="5">
+		<img alt="" src="./styles/theme/gow/img/forumpic.jpg">
+	</td>
+</tr>
 <tr>
 	<th colspan="5">
 		<form action="" method="post">
@@ -10,18 +28,28 @@
 		</form>
 	</th>
 </tr>
+
+
 <tr>
-	<th width="70%">
+
+
+
+<tr>
+	<th width="40%">
 		{$LNG.winemp_Forum_forum_topic}
 	</th>
+
 	<th width="10%">
-		{$LNG.winemp_Forum_forum_date} <br/>
+		{$LNG.winemp_Forum_forum_date} 
+		
+	</th>
+	<th width="10%">
 		{$LNG.winemp_Forum_forum_lastdate}
 	</th>
 	<th width="5%">
 		{$LNG.winemp_Forum_forum_user}
 	</th>
-	<th colspan="2">
+	<th width="15%">
 		{$LNG.winemp_Forum_forum_close}
 	</th>
 </tr>
@@ -30,8 +58,11 @@
 		<td>
 			{$topic.topic_name}
 		</td>
+<td>
+			{$topic.time}
+		</td>
 		<td>
-			{$topic.time}<br/>
+			
 			{$topic.lastinsert}
 		</td>
 		<td>
@@ -50,5 +81,20 @@
 		</td>
 	</tr>
 {/foreach}
+</td>
+
+
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+
 </table>
 {/block}

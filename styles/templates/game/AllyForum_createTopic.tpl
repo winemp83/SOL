@@ -1,6 +1,30 @@
 {block name="title" prepend}{$LNG.winemp_Forum_create_title}{/block}
 {block name="content"}
 <script type="text/javascript" src="scripts/jQuery.js?v=1829"></script>
+<table style="width:950px; background-color: #000000;">
+<tbody>
+<tr>
+
+<td>
+<table style="width:950px;">
+<tbody>
+<tr>
+	<th colspan="5">
+		Allianz Forum
+	</th>
+</tr>
+<tr>
+	<td colspan="5">
+		<img alt="" src="./styles/theme/gow/img/forumpic.jpg">
+	</td>
+</tr>
+<tr>
+	<th colspan="5">
+		
+	</th>
+</tr>
+
+
 <table width="100%">
 	<form action="" method="post">
 		<input name="menue" value="2" type="hidden">
@@ -33,4 +57,7 @@
 		</tr>
 	</form>
 </table>
+</tbody>
+</table>
+
 {/block}

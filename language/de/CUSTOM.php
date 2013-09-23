@@ -556,6 +556,13 @@ $LNG['winemp_Forum_forum_close']	= 'Geschlossen<br/>Antworten';
 $LNG['winemp_Forum_topic_show']		= 'Tread anzeigen';
 $LNG['winemp_Forum_topic_closed']	= 'Geschlossen';
 $LNG['lm_malliForum']				= 'Allianz Forum';
+
+$LNG['lm_malliForum']				= 'Allianz Forum';
+$LNG['lm_beitragloeschen']			= 'Dummy'; // beitrag löschen
+$LNG['lm_beitragedit']				= 'Dummy'; // beitrag Edit
+$LNG['lm_themaloeschen']			= 'Dummy'; // Thema löschen
+$LNG['lm_themaedit']				= 'Dummy'; // Thema Edit
+
 //Allianz Forum Overview
-$LNG['alliforumlink']				= 'Zum Forum';
+$LNG['alliforumlink']				= 'Zum Forum'; // Overview Button Direkt link
 
