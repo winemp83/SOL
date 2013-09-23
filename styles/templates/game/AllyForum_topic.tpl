@@ -67,7 +67,8 @@
   </tr>
 <th></th>
 <th width="10%"> {$LNG.lm_beitragloeschen} </th>
-<th width="5%"> {$LNG.lm_beitragedit}</th>
+<th width="5%">
+</th>
 
 
 {/foreach}
@@ -80,31 +81,45 @@
 <tbody>
 <tr>
 	<th width="15%">
+		{if $topic_close != 1}
 		<form action="" method="post">
-		<input name="menue" value="3" type="hidden">
-		<input name="do_it" value="no" type="hidden">
-		<input name="id" value="{$topic_id}" type="hidden">
-		<input type="submit" value="{$LNG.winemp_Forum_topic_answer}" name="{$LNG.winemp_Forum_topic_answer}">
+			<input name="menue" value="3" type="hidden">
+			<input name="do_it" value="no" type="hidden">
+			<input name="id" value="{$topic_id}" type="hidden">
+			<input type="submit" value="{$LNG.winemp_Forum_topic_answer}" name="{$LNG.winemp_Forum_topic_answer}">
 		</form>
+		{else}
+		<div width="100%">
+			<span style="color:red;">GESCHLOSSEN</span>
+		</div>
+		{/if}
 	</th>
-	<th width="15%" style="text-align: center">
-		{$LNG.lm_themaedit}
-	</th>
-	<th width="15%" style="text-align: center">
+	{if adm}
+	<th width="30%" style="text-align: center">
 		{$LNG.lm_themaloeschen}
 	</th>
-	<th width="15% style="text-align: center">
-
-	{if $topic_close != 1 && $adm}
-	<form action="" method="post">
-		<input name="menue" value="5" type="hidden">
-		<input name="id" value="{$topic_id}" type="hidden">
-		<input type="submit" value="{$LNG.winemp_Forum_topic_closen}" name="{$LNG.winemp_Forum_topic_closen}">
-	</form>
 	{else}
-	
+	<th width="30%" style="text-align: center">
+	</th>
 	{/if}
-		
+	<th width="20% style="text-align: center">
+	{if $adm}
+		{if $topic_close != 1}
+		<form action="" method="post">
+			<input name="menue" value="5" type="hidden">
+			<input name="what" value="2" type="hidden">
+			<input name="id" value="{$topic_id}" type="hidden">
+			<input type="submit" value="{$LNG.winemp_Forum_topic_closen}" name="{$LNG.winemp_Forum_topic_closen}">
+		</form>
+		{else}
+		<form action="" method="post">
+			<input name="menue" value="5" type="hidden">
+			<input name="what" value="3" type="hidden">
+			<input name="id" value="{$topic_id}" type="hidden">
+			<input type="submit" value="{$LNG.winemp_Forum_topic_reopen}" name="{$LNG.winemp_Forum_topic_reopen}">
+		</form>
+		{/if}
+	{/if}
 	</th>
 	<th width="15% style="text-align: center">
 	
@@ -116,7 +131,6 @@
 	</th >
 
 </tr>
-
 </table>
 </td>
 </tr>

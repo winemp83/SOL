@@ -134,6 +134,69 @@ class ShowAllianzForumPage extends AbstractPage
 		}
 	}
 	
+	protected function delAnswer($id){
+		
+	}
+	
+	protected function editAnswer($id, $id2){
+		global $USER;
+		$sql = $GLOBALS['DATABASE']->query("SELECT (text) FROM ".TOPICANSWER." WHERE topic_id='".$id2."'");
+		$topic_name = $GLOBALS['DATABASE']->query("SELECT (topic_name) FROM ".ALLYTOPIC." WHERE id='".$id."'");
+		$topic_close =	$GLOBALS['DATABASE']->query("SELECT (close) FROM ".ALLYTOPIC." WHERE id='".$id."'");						
+		foreach($topic_name as $data){
+			$topic_name = $data['topic_name'];
+		}
+		foreach($topic_close as $data){
+			$topic_close = $data['close'];
+		}
+		while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
+		{
+			$this->topic[] = array(
+				'time'		=> date("d.m.Y H:i:s", $topicListRow['createtime']),
+				'user'		=> $topicListRow['author'],
+				'text'		=> $topicListRow['text'],
+				'id'		=> $topicListRow['id'],
+			);
+		}
+		
+		$this->tplObj->assign_vars(array(
+			'topic'			=> $this->sabsi($this->topic, 'id'),
+			'topic_name'	=> $topic_name,
+			'topic_close'	=> $topic_close,
+			'topic_id'		=> $id,
+		));
+		
+		if (HTTP::_GP('do_it', '') != 'yes'){
+			$this->display('AllyForum_answer.tpl');
+		}
+		elseif ($id == 0){
+			$this->display('AllyForum_answer.tpl');
+		}
+		else{
+			$text = $_POST['text'];
+			$user = $USER['username'];
+			$time = time();
+			$ally = $USER['ally_id'];
+			
+			if (strlen($text) < 5){
+				$this->error(4);
+			}
+			else{
+				$result = $GLOBALS['DATABASE']->query("SELECT `close` FROM ".ALLYTOPIC." WHERE id='".$id."'");
+				foreach($result as $data){
+					$result = $data['close'];
+				}
+				if($result != 1 ){
+					$GLOBALS['DATABASE']->query("INSERT INTO ".TOPICANSWER." SET topic_id='".$id."', createtime='".$time."', author='".$user."', ally='".$ally."', text='".$GLOBALS['DATABASE']->sql_escape($text)."'");
+					$this->showTopic($id);
+				}
+				else{
+					$this->error(6);
+				}
+			}
+		}
+	}
+	
 	protected function delTopic($id){
 		if($id == 0){
 			$this->error(5);
@@ -180,21 +243,21 @@ class ShowAllianzForumPage extends AbstractPage
 		}
 		if(!empty($this->topicList)){
 			$this->tplObj->assign_vars(array(
-            	'topics'	=> $this->sabsi($this->topicList, 'id'),
-            	'adm'		=> $this->checkadm(),	
+           		'topics'	=> $this->sabsi($this->topicList, 'id'),
+           		'adm'		=> $this->checkadm(),	
 			));
 		}
 		else{
 			$this->tplObj->assign_vars(array(
-            	'topics'	=> $this->topicList,
-            	'adm'		=> $this->checkadm(),
+           		'topics'	=> $this->topicList,
+           		'adm'		=> $this->checkadm(),
 			));
 		}
-		$this->display('AllyForum.tpl');
-		
+		$this->display('AllyForum.tpl');		
 	}
 	
 	protected function showTopic($id){
+		global $USER;
 		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".TOPICANSWER." WHERE topic_id='".$id."'");
 		$topic_name = $GLOBALS['DATABASE']->query("SELECT (topic_name) FROM ".ALLYTOPIC." WHERE id='".$id."'");
 		$topic_close =	$GLOBALS['DATABASE']->query("SELECT (close) FROM ".ALLYTOPIC." WHERE id='".$id."'");						
@@ -206,11 +269,20 @@ class ShowAllianzForumPage extends AbstractPage
 		}
 		while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
 		{
+			if($topicListRow['author'] == $USER['username']){
+				$help = true;
+			}
+			else{
+				$help = false;
+			}
+			
 			$this->topic[] = array(
 				'time'		=> date("d.m.Y H:i:s", $topicListRow['createtime']),
 				'user'		=> $topicListRow['author'],
 				'text'		=> nl2br(htmlspecialchars($topicListRow['text'])),
-				'id'		=> $topicListRow['id'],
+				'id'		=> $topicListRow['topic_id'],
+				'entry_id'	=> $topicListRow['id'],
+				'usertest'  => $help,
 			);
 		}
 		
@@ -219,14 +291,36 @@ class ShowAllianzForumPage extends AbstractPage
 			'topic_name'	=> htmlspecialchars($topic_name),
 			'topic_close'	=> $topic_close,
 			'topic_id'		=> $id,
-			'adm'		=> $this->checkadm(),
+			'adm'			=> $this->checkadm(),
 		));
 		
 		$this->display('AllyForum_topic.tpl');
 	}
 
 	protected function admForum(){
-		
+		global $USER;
+		if($this->checkadm()){
+			if(!empty($_POST['what'])){
+				switch ($_POST['what']){
+					case 1 : $this->delTopic($_POST['id']);
+							 break;
+					case 2 : $this->closeTopic($_POST['id']);
+							 break;
+					case 3 : $this->reopenTopic($_POST['id']);
+							 break;
+					case 4 : $this->delAnswer($_POST['id']);
+							 break;
+					default: $this->showForum();
+							 break;
+				}
+			}
+			else{
+				$this->showForum();
+			}
+		}
+		else{	
+			$this->showForum();	
+		}
 	}
 	
 	protected function checkadm(){
@@ -254,15 +348,15 @@ class ShowAllianzForumPage extends AbstractPage
 			$menue = 10;	
 		}
 		switch ($menue){
-			case 1 : $this->showTopic($id);
+			case 1 : $this->showTopic($_POST['id']);
 					break;
 			case 2 : $this->createTopic();
 					break;
-			case 3 : $this->answerTopic($id);
+			case 3 : $this->answerTopic($_POST['id']);
 					break;
-			case 4 : $this->delTopic($id);
+			case 4 : $this->editAnswer($_POST['id'], $_POST['id2']);
 					break;
-			case 5 : $this->closeTopic($id);
+			case 5 : $this->admForum();
 					break;
 			case 10:
 					 $this->error(1);

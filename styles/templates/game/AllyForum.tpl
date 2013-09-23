@@ -19,29 +19,12 @@
 	</td>
 </tr>
 <tr>
-	{if $adm}
-	<th colspan="4">
-		<form action="" method="post">
-			<input name="menue" value="2" type="hidden">
-			<input type="submit" value="{$LNG.winemp_Forum_topic_create}" name="{$LNG.winemp_Forum_topic_create}">
-		</form>
-	</th>
-	<th>
-		<div width="100%" align="right">
-			<form action="" method="post">
-				<input name="menue" value="6" type="hidden">
-				<input type="submit" value="{$LNG.winemp_Forum_adm_enter}" name="{$LNG.winemp_Forum_adm_enter}">
-			</form>
-		</div>
-	</th>
-	{else}
 	<th colspan="5">
 		<form action="" method="post">
 			<input name="menue" value="2" type="hidden">
 			<input type="submit" value="{$LNG.winemp_Forum_topic_create}" name="{$LNG.winemp_Forum_topic_create}">
 		</form>
 	</th>
-	{/if}
 </tr>
 
 
@@ -84,15 +67,11 @@
 			{$topic.author}
 		</td>
 		<td>
-			{if $topic.close != 1}
 				<form action="" method="post">
 					<input name="menue" value="1" type="hidden">
 					<input name="id" value="{$topic.id}" type="hidden">
 					<input type="submit" value="{$LNG.winemp_Forum_topic_show}" name="{$LNG.winemp_Forum_topic_show}">
 				</form>
-			{else}
-				<span style="color:#8B0000;">{$LNG.winemp_Forum_topic_closed}</span>
-			{/if}
 		</td>
 	</tr>
 {/foreach}
