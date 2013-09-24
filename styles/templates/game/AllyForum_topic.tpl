@@ -69,16 +69,17 @@
 <th width="10%">
 {if $topic_close != 1}
 		<form action="" method="post">
-			<input name="menue" value="3" type="hidden">
+			<input name="menue" value="4" type="hidden">
 			<input name="do_it" value="no" type="hidden">
-			<input name="id" value="{$topics.id}" type="hidden">
-			<input name="id2" value="{$topic_id}" type="hidden">
+			<input name="topic_id" value="{$topics.id}" type="hidden">
+			<input name="tread_id" value="{$topics.entry_id}" type="hidden">
 			<input type="submit" value="{$LNG.winemp_Forum_topic_answer_edit}" name="{$LNG.winemp_Forum_topic_answer_edit}">
 		</form>
 {else}
 {/if}
 </th>
 <th width="5%">
+{$topics.id} / {$topics.entry_id}
 </th>
 
 

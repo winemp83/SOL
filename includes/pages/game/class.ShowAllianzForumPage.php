@@ -125,7 +125,7 @@ class ShowAllianzForumPage extends AbstractPage
 				}
 				if($result != 1 ){
 					$GLOBALS['DATABASE']->query("INSERT INTO ".TOPICANSWER." SET topic_id='".$id."', createtime='".$time."', author='".$user."', ally='".$ally."', text='".$GLOBALS['DATABASE']->sql_escape($text)."'");
-					$this->showTopic($id);
+					$this->showForum();
 				}
 				else{
 					$this->error(6);
@@ -148,11 +148,11 @@ class ShowAllianzForumPage extends AbstractPage
 		}
 	}
 	
-	protected function editAnswer($id, $id2){
+	protected function editAnswer($topic_id, $tread_id){
 		global $USER;
-		$tread = $GLOBALS['DATABASE']->query("SELECT * FROM ".TOPICANSWER." WHERE topic_id='".$id2."' AND id='".$id."'");
-		$topic_name = $GLOBALS['DATABASE']->query("SELECT (topic_name) FROM ".ALLYTOPIC." WHERE id='".$id2."'");
-		$topic_close =	$GLOBALS['DATABASE']->query("SELECT (close) FROM ".ALLYTOPIC." WHERE id='".$id2."'");						
+		$tread = $GLOBALS['DATABASE']->query("SELECT * FROM ".TOPICANSWER." WHERE topic_id='".$topic_id."' AND id='".$tread_id."'");
+		$topic_name = $GLOBALS['DATABASE']->query("SELECT (topic_name) FROM ".ALLYTOPIC." WHERE id='".$topic_id."'");
+		$topic_close =	$GLOBALS['DATABASE']->query("SELECT (close) FROM ".ALLYTOPIC." WHERE id='".$topic_id."'");						
 		foreach($topic_name as $data){
 			$topic_name = $data['topic_name'];
 		}
@@ -167,19 +167,19 @@ class ShowAllianzForumPage extends AbstractPage
 		}
 		
 		$this->tplObj->assign_vars(array(
-			'tread_text'	=> tread_text,
+			'tread_text'	=> $tread_text,
 			'tread_id'		=> $tread_id,
 			'user'			=> $tread_user,
 			'topic_name'	=> $topic_name,
 			'topic_close'	=> $topic_close,
-			'topic_id'		=> $id,
+			'topic_id'		=> $topic_id,
 		));
 		
 		if (HTTP::_GP('do_it', '') != 'yes'){
-			$this->display('AllyForum_answer.tpl');
+			$this->display('AllyForum_editAnswer.tpl');
 		}
-		elseif ($id == 0){
-			$this->display('AllyForum_answer.tpl');
+		elseif ($tread_id == 0 || $topic_id == 0){
+			$this->display('AllyForum.tpl');
 		}
 		else{
 			$text = $_POST['text'];
@@ -191,13 +191,13 @@ class ShowAllianzForumPage extends AbstractPage
 				$this->error(4);
 			}
 			else{
-				$result = $GLOBALS['DATABASE']->query("SELECT `close` FROM ".ALLYTOPIC." WHERE id='".$id."'");
+				$result = $GLOBALS['DATABASE']->query("SELECT `close` FROM ".ALLYTOPIC." WHERE id='".$topic_id."'");
 				foreach($result as $data){
 					$result = $data['close'];
 				}
 				if($result != 1 ){
-					$GLOBALS['DATABASE']->query("UPDATE ".TOPICANSWER." SET createtime='".$time."', author='".$user."',  text='".$GLOBALS['DATABASE']->sql_escape($text)."' WHERE topic_id='".$id2."' AND id='".$id."'");
-					$this->showTopic($id);
+					$GLOBALS['DATABASE']->query("UPDATE ".TOPICANSWER." SET createtime='".$time."', author='".$user."',  text='".$GLOBALS['DATABASE']->sql_escape($text)."' WHERE topic_id='".$topic_id."' AND id='".$tread_id."'");
+					$this->showTopic($topic_id);
 				}
 				else{
 					$this->error(6);
@@ -363,7 +363,7 @@ class ShowAllianzForumPage extends AbstractPage
 					break;
 			case 3 : $this->answerTopic($_POST['id']);
 					break;
-			case 4 : $this->editAnswer($_POST['id'], $_POST['id2']);
+			case 4 : $this->editAnswer($_POST['topic_id'], $_POST['tread_id']);
 					break;
 			case 5 : $this->admForum();
 					break;
