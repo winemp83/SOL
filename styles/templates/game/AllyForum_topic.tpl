@@ -66,7 +66,18 @@
 
   </tr>
 <th></th>
-<th width="10%"> {$LNG.lm_beitragloeschen} </th>
+<th width="10%">
+{if $topic_close != 1}
+		<form action="" method="post">
+			<input name="menue" value="3" type="hidden">
+			<input name="do_it" value="no" type="hidden">
+			<input name="id" value="{$topics.id}" type="hidden">
+			<input name="id2" value="{$topic_id}" type="hidden">
+			<input type="submit" value="{$LNG.winemp_Forum_topic_answer_edit}" name="{$LNG.winemp_Forum_topic_answer_edit}">
+		</form>
+{else}
+{/if}
+</th>
 <th width="5%">
 </th>
 
@@ -96,7 +107,12 @@
 	</th>
 	{if adm}
 	<th width="30%" style="text-align: center">
-		{$LNG.lm_themaloeschen}
+		<form action="" method="post">
+			<input name="menue" value="5" type="hidden">
+			<input name="what" value="1" type="hidden">
+			<input name="id" value="{$topic_id}" type="hidden">
+			<input type="submit" value="{$LNG.winemp_Forum_topic_delete}" name="{$LNG.winemp_Forum_topic_delete}">
+		</form>
 	</th>
 	{else}
 	<th width="30%" style="text-align: center">

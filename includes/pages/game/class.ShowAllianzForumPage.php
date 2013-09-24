@@ -138,29 +138,38 @@ class ShowAllianzForumPage extends AbstractPage
 		
 	}
 	
+	protected function reopenTopic($id){
+		if($id == 0){
+			$this->error(5);
+		}
+		else{
+			$GLOBALS['DATABASE']->query("UPDATE ".ALLYTOPIC." SET close='0' WHERE id='".$id."'");
+			$this->showForum();
+		}
+	}
+	
 	protected function editAnswer($id, $id2){
 		global $USER;
-		$sql = $GLOBALS['DATABASE']->query("SELECT (text) FROM ".TOPICANSWER." WHERE topic_id='".$id2."'");
-		$topic_name = $GLOBALS['DATABASE']->query("SELECT (topic_name) FROM ".ALLYTOPIC." WHERE id='".$id."'");
-		$topic_close =	$GLOBALS['DATABASE']->query("SELECT (close) FROM ".ALLYTOPIC." WHERE id='".$id."'");						
+		$tread = $GLOBALS['DATABASE']->query("SELECT * FROM ".TOPICANSWER." WHERE topic_id='".$id2."' AND id='".$id."'");
+		$topic_name = $GLOBALS['DATABASE']->query("SELECT (topic_name) FROM ".ALLYTOPIC." WHERE id='".$id2."'");
+		$topic_close =	$GLOBALS['DATABASE']->query("SELECT (close) FROM ".ALLYTOPIC." WHERE id='".$id2."'");						
 		foreach($topic_name as $data){
 			$topic_name = $data['topic_name'];
 		}
 		foreach($topic_close as $data){
 			$topic_close = $data['close'];
 		}
-		while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
+		foreach($tread as $data)
 		{
-			$this->topic[] = array(
-				'time'		=> date("d.m.Y H:i:s", $topicListRow['createtime']),
-				'user'		=> $topicListRow['author'],
-				'text'		=> $topicListRow['text'],
-				'id'		=> $topicListRow['id'],
-			);
+			$tread_text = $data['text'];
+			$tread_id	= $data['id'];
+			$tread_user	= $data['author'];
 		}
 		
 		$this->tplObj->assign_vars(array(
-			'topic'			=> $this->sabsi($this->topic, 'id'),
+			'tread_text'	=> tread_text,
+			'tread_id'		=> $tread_id,
+			'user'			=> $tread_user,
 			'topic_name'	=> $topic_name,
 			'topic_close'	=> $topic_close,
 			'topic_id'		=> $id,
@@ -187,7 +196,7 @@ class ShowAllianzForumPage extends AbstractPage
 					$result = $data['close'];
 				}
 				if($result != 1 ){
-					$GLOBALS['DATABASE']->query("INSERT INTO ".TOPICANSWER." SET topic_id='".$id."', createtime='".$time."', author='".$user."', ally='".$ally."', text='".$GLOBALS['DATABASE']->sql_escape($text)."'");
+					$GLOBALS['DATABASE']->query("UPDATE ".TOPICANSWER." SET createtime='".$time."', author='".$user."',  text='".$GLOBALS['DATABASE']->sql_escape($text)."' WHERE topic_id='".$id2."' AND id='".$id."'");
 					$this->showTopic($id);
 				}
 				else{

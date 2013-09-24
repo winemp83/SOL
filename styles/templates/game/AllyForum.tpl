@@ -10,7 +10,7 @@
 <tbody>
 <tr>
 	<th colspan="5">
-		Allianz Forum
+		{$LNG.winemp_Forum_Forum_main}
 	</th>
 </tr>
 <tr>
