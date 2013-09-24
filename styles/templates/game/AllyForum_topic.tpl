@@ -67,7 +67,7 @@
   </tr>
 <th></th>
 <th width="10%">
-{if $topic_close != 1}
+{if $topic_close != 1 && $topics.usertest || $adm}
 		<form action="" method="post">
 			<input name="menue" value="4" type="hidden">
 			<input name="do_it" value="no" type="hidden">

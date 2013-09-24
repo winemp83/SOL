@@ -173,6 +173,7 @@ class ShowAllianzForumPage extends AbstractPage
 			'topic_name'	=> $topic_name,
 			'topic_close'	=> $topic_close,
 			'topic_id'		=> $topic_id,
+
 		));
 		
 		if (HTTP::_GP('do_it', '') != 'yes'){
