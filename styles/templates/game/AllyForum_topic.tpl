@@ -106,7 +106,7 @@
 		</div>
 		{/if}
 	</th>
-	{if adm}
+	{if $adm}
 	<th width="30%" style="text-align: center">
 		<form action="" method="post">
 			<input name="menue" value="5" type="hidden">
