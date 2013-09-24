@@ -661,10 +661,12 @@ class ShowAlliancePage extends AbstractPage
 	
 	private function adminOverview() 
 	{
-		global $LNG, $UNI;
+		global $LNG, $UNI, $USER;
 		$send 		= HTTP::_GP('send', 0);
 		$textMode  	= HTTP::_GP('textMode', 'external');
-		
+		if($this->allianceData['ally_owner'] != $USER['id']){
+			$this->redirectToHome();
+		}
 		if ($send)
 		{
 			$this->allianceData['ally_owner_range'] 		= HTTP::_GP('owner_range', '', true);
@@ -796,9 +798,9 @@ class ShowAlliancePage extends AbstractPage
 	{
 		global $LNG, $USER;
 
-		if($this->allianceData['ally_owner'] != $USER['id'])
+		if($this->allianceData['ally_owner'] != $USER['id']){
 			$this->redirectToHome();
-			
+			}
 		$postleader = HTTP::_GP('newleader', 0);
 		if (!empty($postleader))
 		{

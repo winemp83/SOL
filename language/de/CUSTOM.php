@@ -573,4 +573,4 @@ $LNG['lm_themaedit']				= 'Dummy4'; // Thema Edit
 
 //Allianz Forum Overview
 $LNG['alliforumlink']				= 'Zum Forum'; // Overview Button Direkt link
-
+$LNG['lm_faq']						= 'F.A.Q';
