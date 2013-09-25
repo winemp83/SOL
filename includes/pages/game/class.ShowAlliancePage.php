@@ -661,11 +661,10 @@ class ShowAlliancePage extends AbstractPage
 	
 	private function adminOverview() 
 	{
-		global $LNG, $UNI;
+		global $LNG, $UNI, $USER;
 		$send 		= HTTP::_GP('send', 0);
 		$textMode  	= HTTP::_GP('textMode', 'external');
-		
-		if ($send)
+		if ($send && $this->allianceData['ally_owner'] == $USER['id'])
 		{
 			$this->allianceData['ally_owner_range'] 		= HTTP::_GP('owner_range', '', true);
 			$this->allianceData['ally_web'] 				= filter_var(HTTP::_GP('web', ''), FILTER_VALIDATE_URL);
@@ -728,20 +727,21 @@ class ShowAlliancePage extends AbstractPage
 					$textSQL	= "ally_request = '".$GLOBALS['DATABASE']->sql_escape($text)."', ";
 				break;
 			}
-			
-			$GLOBALS['DATABASE']->query("UPDATE ".ALLIANCE." SET
-			".$textSQL."
-			ally_tag = '".$GLOBALS['DATABASE']->sql_escape($this->allianceData['ally_tag'])."',
-			ally_name = '".$GLOBALS['DATABASE']->sql_escape($this->allianceData['ally_name'])."',
-			ally_owner_range = '".$GLOBALS['DATABASE']->sql_escape($this->allianceData['ally_owner_range'])."',
-			ally_image = '".$GLOBALS['DATABASE']->sql_escape($this->allianceData['ally_image'])."',
-			ally_web = '".$GLOBALS['DATABASE']->sql_escape($this->allianceData['ally_web'])."',
-			ally_request_notallow = ".$this->allianceData['ally_request_notallow'].",
-			ally_request_min_points = ".$this->allianceData['ally_request_min_points'].",
-			ally_stats = ".$this->allianceData['ally_stats'].",
-			ally_diplo = ".$this->allianceData['ally_diplo'].",
-			ally_events = '".$this->allianceData['ally_events']."'
-			WHERE id = ".$this->allianceData['id'].";");
+			if($this->allianceData['ally_owner'] == $USER['id']){
+				$GLOBALS['DATABASE']->query("UPDATE ".ALLIANCE." SET
+				".$textSQL."
+				ally_tag = '".$GLOBALS['DATABASE']->sql_escape($this->allianceData['ally_tag'])."',
+				ally_name = '".$GLOBALS['DATABASE']->sql_escape($this->allianceData['ally_name'])."',
+				ally_owner_range = '".$GLOBALS['DATABASE']->sql_escape($this->allianceData['ally_owner_range'])."',
+				ally_image = '".$GLOBALS['DATABASE']->sql_escape($this->allianceData['ally_image'])."',
+				ally_web = '".$GLOBALS['DATABASE']->sql_escape($this->allianceData['ally_web'])."',
+				ally_request_notallow = ".$this->allianceData['ally_request_notallow'].",
+				ally_request_min_points = ".$this->allianceData['ally_request_min_points'].",
+				ally_stats = ".$this->allianceData['ally_stats'].",
+				ally_diplo = ".$this->allianceData['ally_diplo'].",
+				ally_events = '".$this->allianceData['ally_events']."'
+				WHERE id = ".$this->allianceData['id'].";");
+			}
 		} else {
 			switch($textMode)
 			{
@@ -796,9 +796,9 @@ class ShowAlliancePage extends AbstractPage
 	{
 		global $LNG, $USER;
 
-		if($this->allianceData['ally_owner'] != $USER['id'])
+		if($this->allianceData['ally_owner'] != $USER['id']){
 			$this->redirectToHome();
-			
+			}
 		$postleader = HTTP::_GP('newleader', 0);
 		if (!empty($postleader))
 		{

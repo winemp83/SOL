@@ -99,7 +99,7 @@
 <div style="background: transparent;"> <a name="t4" id="t4"></a>
 
 	<table style="width: 100%; background: transparent;">
-						
+{if $ally_true}						
 <tr>
 	<th width="30%" style="text-align: center;" >{$LNG.winemp_Forum_forum_topic}</th>
 	<th width="5%"  style="text-align: center;" >{$LNG.winemp_Forum_forum_lastdate}</th>
@@ -133,6 +133,9 @@
 
 
 	</tr>
+{else}
+<tr><td>{$ally_error}</td></tr>
+{/if}
 						</table></div>
 
 
