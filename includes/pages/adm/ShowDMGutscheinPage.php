@@ -52,6 +52,10 @@ function ShowDMGutscheine()
 	$query = $GLOBALS['DATABASE']->query("SELECT * FROM ".DMGut."");
 	while($Gutschein = $GLOBALS['DATABASE']->fetch_array($query))
 	{
+		$sql = $GLOBALS['DATABASE']->query("SELECT (username) FROM ".USERS." WHERE id=".$Gutschein['userid']."");
+		foreach($sql as $data){
+			$help = $data['username'];
+		} 
 		$Gutscheine[] = array(
 		'id' 		=> $Gutschein['id'],
 		'name'		=> $Gutschein['name'],
@@ -60,7 +64,7 @@ function ShowDMGutscheine()
 		'deuterium' => $Gutschein['deuterium'],
 		'dm'		=> $Gutschein['matter'],
 		'useable'	=> $Gutschein['useable'],
-		'used'		=> $Gutschein['usedby'],
+		'used'		=> $help,
 		'key'		=> $Gutschein['key'],
 		'expireday' => $Gutschein['expireday'],
 		'createday' => $Gutschein['createday'],

@@ -89,11 +89,11 @@ function ShowDMGutscheine()
 	
 	if (!empty($_POST))
     {
-        $gmineralien        = HTTP::_GP('gutscheine_gutschrift_minerals', '', true);
-        $gkristall            = HTTP::_GP('gutscheine_gutschrift_kristall', '', true);
-        $gdeuterium            = HTTP::_GP('gutscheine_gutschrift_deuterium', '', true);
-        $gdarkmatter        = HTTP::_GP('gutscheine_gutschrift_dm', '', true);
-        $guseable            = HTTP::_GP('gutscheine_useable', '', true);
+        $gmineralien        = HTTP::_GP('gutscheine_gutschrift_minerals', '', 0);
+        $gkristall            = HTTP::_GP('gutscheine_gutschrift_kristall', '', 0);
+        $gdeuterium            = HTTP::_GP('gutscheine_gutschrift_deuterium', '', 0);
+        $gdarkmatter        = HTTP::_GP('gutscheine_gutschrift_dm', '', 0);
+        $guseable            = HTTP::_GP('gutscheine_useable', '', 0);
 
 		$pwd = '';
 		while(checkKeyInsert($pwd) == false){
@@ -123,6 +123,13 @@ function ShowDMGutscheine()
 	$query = $GLOBALS['DATABASE']->query("SELECT * FROM ".DMGut."");
 	while($Gutschein = $GLOBALS['DATABASE']->fetch_array($query))
 	{
+		$sql = $GLOBALS['DATABASE']->query("SELECT (username) FROM ".USERS." WHERE id=".$Gutschein['userid']."");
+		foreach($sql as $data){
+			$help = $data['username'];
+			if(empty($help)){
+				$help = 'unbekannt';
+			}
+		}
 		$Gutscheine[] = array(
 		'id' 		=> $Gutschein['id'],
 		'metall'	=> $Gutschein['metall'],
@@ -130,7 +137,7 @@ function ShowDMGutscheine()
 		'deuterium' => $Gutschein['deuterium'],
 		'dm'		=> $Gutschein['darkmatter'],
 		'useable'	=> $Gutschein['useable'],
-		'userid'	=> $Gutschein['userid'],
+		'userid'	=> $help,
 		'key'		=> $Gutschein['gkey'],
 		);
 	}

@@ -27,9 +27,9 @@
 	<td>{$Gutschein.dm}</td>
 	<td>{$Gutschein.key}</td>
 	<td>{$Gutschein.userid}</td>
-	<td><a href="?page=DMGutscheine&amp;action=up&id={$Gutschein.id}">+1<br/></a>{$Gutschein.useable}<br/><a href="?page=DMGutscheine&amp;action=down&id={$Gutschein.id}">-1</a></td>
-	<td><a href="?page=DMGutscheine&amp;action=delete&id={$Gutschein.id}">löschen</a></td>
-	<td><a href="?page=DMGutscheine&amp;action=disable&id={$Gutschein.id}">deaktivieren</a></td>
+	<td><a href="?page=DMGutschein&amp;action=up&id={$Gutschein.id}">+1<br/></a>{$Gutschein.useable}<br/><a href="?page=DMGutschein&amp;action=down&id={$Gutschein.id}">-1</a></td>
+	<td><a href="?page=DMGutschein&amp;action=delete&id={$Gutschein.id}">löschen</a></td>
+	<td><a href="?page=DMGutschein&amp;action=disable&id={$Gutschein.id}">deaktivieren</a></td>
 </tr>
 	{/foreach}
 </tr><tr>
