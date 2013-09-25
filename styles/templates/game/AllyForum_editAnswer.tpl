@@ -27,8 +27,8 @@
 		<form action="" method="post">
 		<input name="menue" value="4" type="hidden">
 		<input name="do_it" value="yes" type="hidden">
-		<input name="id2" value="{$topic_id}" type="hidden">
-		<input name="id" value="{$tread_id}" type="hidden">
+		<input name="topic_id" value="{$topic_id}" type="hidden">
+		<input name="tread_id" value="{$tread_id}" type="hidden">
 		<textarea name="text" cols="50" rows="10">{$tread_text}</textarea>
 		<input type="submit" value="{$LNG.winemp_Forum_topic_answer}" name="{$LNG.winemp_Forum_topic_answer}">
 		</form>
