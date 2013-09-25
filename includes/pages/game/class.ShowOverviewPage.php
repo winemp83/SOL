@@ -362,9 +362,9 @@ class ShowOverviewPage extends AbstractPage
 			$this->tplObj->assign_vars(array(
 			'ally_true'			=> true,
 			'ally_name'			=> $help['name'],
-			'ally_met'			=> $help['met'],
-			'ally_kri'			=> $help['kri'],
-			'ally_deu'			=> $help['deu'],
+			'ally_met'			=> pretty_number($help['met']),
+			'ally_kri'			=> pretty_number($help['kri']),
+			'ally_deu'			=> pretty_number($help['deu']),
 			'ally_tag'			=> $help['tag'],
 			'ally_mec'			=> $help['members'],
 			'ally_mem'			=> $help['members_max'],
@@ -503,35 +503,42 @@ class ShowOverviewPage extends AbstractPage
 	}
 	protected function showForum(){
 		global $USER;
-		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".ALLYTOPIC." WHERE ally_id='".$USER['ally_id']."'");
+		if($USER['ally_id'] != 0){
+			$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".ALLYTOPIC." WHERE ally_id='".$USER['ally_id']."'");
 		
-		while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
-		{
-			$dateRow = $GLOBALS['DATABASE']->query("SELECT `createtime` FROM ".TOPICANSWER." WHERE topic_id='".$topicListRow['id']."'");
-			$help = 0;
-			foreach($dateRow as $data){
-				if ($data > $help){
-					$help = $data;
+			while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
+			{
+				$dateRow = $GLOBALS['DATABASE']->query("SELECT `createtime` FROM ".TOPICANSWER." WHERE topic_id='".$topicListRow['id']."'");
+				$help = 0;
+				foreach($dateRow as $data){
+					if ($data > $help){
+						$help = $data;
+					}
 				}
-			}
-			$this->topicList[]	= array(
-				'time'			=> date("d.m.Y H:i:s", $topicListRow['createtime']),
-				'topic_name'	=> $topicListRow['topic_name'],
-				'author'		=> $topicListRow['author'],
-				'id'			=> $topicListRow['id'],
-				'close'			=> $topicListRow['close'],
-				'lastinsert'	=> date("d.m.Y H:i:s", $help['createtime']),
-			);
+				$this->topicList[]	= array(
+					'time'			=> date("d.m.Y H:i:s", $topicListRow['createtime']),
+					'topic_name'	=> $topicListRow['topic_name'],
+					'author'		=> $topicListRow['author'],
+					'id'			=> $topicListRow['id'],
+					'close'			=> $topicListRow['close'],
+					'lastinsert'	=> date("d.m.Y H:i:s", $help['createtime']),
+				);
 			
-		}
-		if(!empty($this->topicList)){
-			$this->tplObj->assign_vars(array(
-            	'topics'	=> $this->sabsi($this->topicList, 'id'),	
-			));
+			}
+			if(!empty($this->topicList)){
+				$this->tplObj->assign_vars(array(
+            		'topics'	=> $this->sabsi($this->topicList, 'id'),	
+				));
+			}
+			else{
+				$this->tplObj->assign_vars(array(
+            		'topics'	=> $this->topicList,	
+				));
+			}
 		}
 		else{
 			$this->tplObj->assign_vars(array(
-            	'topics'	=> $this->topicList,	
+            		'topics'	=> $this->topicList,	
 			));
 		}
 
@@ -552,4 +559,3 @@ class ShowOverviewPage extends AbstractPage
 	}
 	
  }
-
