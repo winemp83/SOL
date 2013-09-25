@@ -542,9 +542,9 @@ $LNG['winemp_Forum_error_6']		= 'Commander, auf gespeerte Treads könnt ihr nich
 $LNG['winemp_Forum_error_0']		= 'Commander, irgend etwas stimmt hier nicht'; // standart Fehlermeldung | keine Allianz
 $LNG['winemp_Forum_error']			= 'Achtung Fehler!'; // Fehler!!!
 $LNG['winemp_Forum_error_title']	= 'Foren Fehler'; // Forums Fehler (Title);
-$LNG['winemp_Forum_error_back']		= 'zurück zur Treadliste'; // zurück zum Forum
+$LNG['winemp_Forum_error_back']		= 'zurück zur Themenliste'; // zurück zum Forum
 $LNG['winemp_Forum_topic_answer']	= 'Auf den Tread Antworten'; //Antworten 
-$LNG['winemp_Forum_topic_back']		= 'zurück zur Treadliste'; // zurück zum Forum
+$LNG['winemp_Forum_topic_back']		= 'zurück zur Themenliste'; // zurück zum Forum
 $LNG['winemp_Forum_topic_title']	= 'Topic: '; //Header
 $LNG['winemp_Forum_forum_title']	= 'Allianz Forum :';
 $LNG['winemp_Forum_topic_create']	= 'Thema Erstellen';
@@ -553,15 +553,15 @@ $LNG['winemp_Forum_forum_date']		= 'Erstellungs Datum';
 $LNG['winemp_Forum_forum_lastdate']	= 'Letzter Beitrag';
 $LNG['winemp_Forum_forum_user']		= 'Allianz Mitglied';
 $LNG['winemp_Forum_forum_close']	= 'Geschlossen<br/>Antworten';
-$LNG['winemp_Forum_topic_show']		= 'Tread anzeigen';
+$LNG['winemp_Forum_topic_show']		= 'Thema anzeigen';
 $LNG['winemp_Forum_topic_closed']	= 'Geschlossen';
 $LNG['lm_malliForum']				= 'Allianz Forum';
 
-$LNG['lm_malliForum']				= 'Allianz Forum';
-$LNG['lm_beitragloeschen']			= 'Dummy'; // beitrag löschen
-$LNG['lm_beitragedit']				= 'Dummy'; // beitrag Edit
-$LNG['lm_themaloeschen']			= 'Dummy'; // Thema löschen
-$LNG['lm_themaedit']				= 'Dummy'; // Thema Edit
+$LNG[' winemp_Forum__malliForum']				= 'Allianz Forum';
+$LNG[' winemp_Forum__bloeschen']			= 'Dummy'; // beitrag löschen
+$LNG[' winemp_Forum__bedit']				= 'Dummy'; // beitrag Edit
+$LNG[' winemp_Forum__tloeschen']			= 'Dummy'; // Thema löschen
+$LNG[' winemp_Forum__tedit']				= 'Dummy'; // Thema Edit
 
 //Allianz Forum Overview
 $LNG['alliforumlink']				= 'Zum Forum'; // Overview Button Direkt link
