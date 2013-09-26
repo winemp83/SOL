@@ -212,7 +212,7 @@ switch($page)
 		include_once('includes/pages/adm/ShowIndexPage.php');
 		ShowIndexPage();
 	break;
-	case 'DMGutscheine':
+	case 'DMGutschein':
 		include_once('includes/pages/adm/ShowDMGutschein.php');
 		ShowDMGutscheine();
 	break;
