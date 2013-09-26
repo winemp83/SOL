@@ -141,7 +141,7 @@ class ShowOverviewPage extends AbstractPage
 
 			if (!empty($CPLANET['b_building']) && $CPLANET['b_building'] > TIMESTAMP) {
 				$Queue				= unserialize($CPLANET['b_building_id']);
-				$BuildPlanet		= $LNG['tech'][$Queue[0][0]]." (".$Queue[0][1].")<br><span style=\"color:#7F7F7F;\">(".pretty_time($Queue[0][3] - TIMESTAMP).")</span>";
+				$BuildPlanet		= $LNG['tech'][$Queue[0][0]]." (".$Queue[0][1].")<br><span style=\"color:#12B2EC;\">(".pretty_time($Queue[0][3] - TIMESTAMP).")</span>";
 			} else {
 				$BuildPlanet     = $LNG['ov_free'];
 			}

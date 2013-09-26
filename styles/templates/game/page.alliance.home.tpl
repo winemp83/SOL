@@ -1,4 +1,4 @@
-{block name="title" prepend}{$LNG.lm_alliance}{/block}
+﻿{block name="title" prepend}{$LNG.lm_alliance}{/block}
 {block name="content"}
 <table class="table519">
 	<tr>
@@ -62,6 +62,12 @@
 		<th>Deuterium</th>
 		<td>{$ally_deut}</td>
 	</tr>
+<th>
+<span style="color:yellow">{$LNG.ov_obank}</span>
+</th>
+<td>
+<a href="game.php?page=alliBank&mode=in"><span style="color:yellow">{$LNG.ov_oklick}</span></a>
+</td>
 	<tr>
 		<th colspan="2">Allianz Bonus</th>
 	</tr>

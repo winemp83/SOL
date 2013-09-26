@@ -104,7 +104,7 @@
 	<th width="30%" style="text-align: center;" >{$LNG.winemp_Forum_forum_topic}</th>
 	<th width="5%"  style="text-align: center;" >{$LNG.winemp_Forum_forum_lastdate}</th>
 	<th width="5%"  style="text-align: center;" >{$LNG.winemp_Forum_forum_user}</th>
-	<th width="10%" style="text-align: center;" > </th>
+	<th width="10%" style="text-align: center;" ><a href="game.php?page=allianzForum">{$LNG.alliforumlink}</a</th>
 	</tr>
 	
 {foreach	item=topic	from=$topics}
@@ -216,7 +216,7 @@
 <tr id='system3'>
 	<td width="5%" style="background: transparent;">[{$PlanetRow.coordsa}.{$PlanetRow.coordsb}.{$PlanetRow.coordsc}]</td>
 	<td width="20%" style="background: transparent;"><a href="game.php?page=overview&amp;cp={$PlanetRow.id}">{$PlanetRow.name}</a></td>
-	<td width="30%" style="background: transparent;"> {$PlanetRow.build} </td> 
+	<td width="30%" style="background: transparent;">  {$PlanetRow.build}</td> 
 	<td width="25%" style="background: transparent;"> </td>
 	<td width="20%" style="background: transparent;"> <a href="game.php?page=overview&amp;cp={$PlanetRow.id}"><img src='./styles/theme/gow/img/switch.png' width='88px' height='31px' border='0'></a> </td>			
 
