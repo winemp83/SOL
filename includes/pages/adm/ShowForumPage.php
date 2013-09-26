@@ -24,10 +24,16 @@ function ShowForumPage(){
 			 	 }
 				 while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
 				 {
-				 	$AllianceRow = $GLOBALS['DATABASE']->query("SELECT (ally_name) FROM ".ALLIANCE." WHERE id='".$topicListRow['ally']."'");
-					 foreach($AllianceRow as $data_two){
-					 	$alliance = $data_two['ally_name'];
+				 	if($topicListRow['ally_id'] != 0){
+				 		$AllianceRow = $GLOBALS['DATABASE']->query("SELECT (ally_name) FROM ".ALLIANCE." WHERE id='".$topicListRow['ally']."'");
+					 	foreach($AllianceRow as $data_two){
+					 		$alliance = $data_two['ally_name'];
+					 	}
 					 }
+					else{
+						$alliance = '-';
+					}
+					
 					 $topic[] = array(
 						'time'		=> date("d.m.Y H:i:s", $topicListRow['createtime']),
 						'user'		=> $topicListRow['author'],
@@ -49,10 +55,15 @@ function ShowForumPage(){
 		case 2 : $GLOBALS['DATABASE']->query("UPDATE ".TOPICANSWER." SET text='(Dieser Beitrag wurde von einen Administrator gelöscht)', createtime='".time()."' WHERE id='".$_POST['id']."'");
 				 $sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".ALLYTOPIC);
 				 while($data = $GLOBALS['DATABASE']->fetch_array($sql)){
-					 $AllianceRow = $GLOBALS['DATABASE']->query("SELECT (ally_name) FROM ".ALLIANCE." WHERE id='".$data['ally_id']."'");
-					 foreach($AllianceRow as $data_two){
-					 	$alliance = $data_two['ally_name'];
-					 }
+				 	if($data['ally_id'] != 0){
+					 	$AllianceRow = $GLOBALS['DATABASE']->query("SELECT (ally_name) FROM ".ALLIANCE." WHERE id='".$data['ally_id']."'");
+					 	foreach($AllianceRow as $data_two){
+					 		$alliance = $data_two['ally_name'];
+					 	}
+					}
+					else{
+						$alliance = '-';
+					}
 					 $topicList[] = array(
 						'id'		=> $data['id'],
 						'create' 	=> date('d.m.Y H:i:s', $data['createtime']),
@@ -89,7 +100,7 @@ function ShowForumPage(){
 					'tread'		=> false,
 				 ));
 				break;
-		case 4 : $GLOBALS['DATABASE']->query("DELETE FROM ".TOPICANSWER." WHERE id='".$_POST['id']."'");
+		case 4 : $GLOBALS['DATABASE']->query("DELETE FROM ".TOPICANSWER." WHERE topic_id='".$_POST['id']."'");
 				 $GLOBALS['DATABASE']->query("DELETE FROM ".ALLYTOPIC."  WHERE id='".$_POST['id']."'");
 				 $sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".ALLYTOPIC);
 				 while($data = $GLOBALS['DATABASE']->fetch_array($sql)){
