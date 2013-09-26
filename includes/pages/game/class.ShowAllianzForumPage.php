@@ -135,7 +135,7 @@ class ShowAllianzForumPage extends AbstractPage
 	}
 	
 	protected function delAnswer($tread_id, $topic_id){
-		if($id == 0){
+		if($tread_id == 0){
 			$this->error(5);
 		}
 		else{
