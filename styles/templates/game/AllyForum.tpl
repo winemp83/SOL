@@ -76,7 +76,12 @@
 					<input type="submit" value="{$LNG.winemp_Forum_topic_show}" name="{$LNG.winemp_Forum_topic_show}">
 				</form>
 			{else}
-				<span style="color:#8B0000;">{$LNG.winemp_Forum_topic_closed}</span>
+				<span style="color:red;"><b>{$LNG.winemp_Forum_topic_closed}</b></span><br/>
+				<form action="" method="post">
+					<input name="menue" value="1" type="hidden">
+					<input name="id" value="{$topic.id}" type="hidden">
+					<input type="submit" value="{$LNG.winemp_Forum_topic_show}" name="{$LNG.winemp_Forum_topic_show}">
+				</form>
 			{/if}
 		</td>
 	</tr>

@@ -134,8 +134,14 @@ class ShowAllianzForumPage extends AbstractPage
 		}
 	}
 	
-	protected function delAnswer($id){
-		
+	protected function delAnswer($tread_id, $topic_id){
+		if($id == 0){
+			$this->error(5);
+		}
+		else{
+			$GLOBALS['DATABASE']->query("DELETE FROM ".TOPICANSWER." WHERE id='".$tread_id."'");
+			$this->showTopic($topic_id);
+		}
 	}
 	
 	protected function reopenTopic($id){
@@ -367,6 +373,8 @@ class ShowAllianzForumPage extends AbstractPage
 			case 4 : $this->editAnswer($_POST['topic_id'], $_POST['tread_id']);
 					break;
 			case 5 : $this->admForum();
+					break;
+			case 6 : $this->delAnswer($_POST['tread_id'], $_POST['topic_id']);
 					break;
 			case 10:
 					 $this->error(1);

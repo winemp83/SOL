@@ -35,6 +35,7 @@
 		{if allowedTo('ShowSearchPage')}<li><a href="?page=search" target="Hauptframe">{$LNG.mu_search_page}</a></li>{/if}
 	    {if allowedTo('ShowEventPlanet')}<li><a href="?page=eventplanet" target="Hauptframe">{$LNG.ev_eventplanet}</a></li>{/if}
 		{if allowedTo('ShowMultiIPPage')}<li><a href="?page=multiips" target="Hauptframe">{$LNG.mu_multiip_page}</a></li>{/if}
+		<li><a href="?page=Forum" target="Hauptframe">Foren Anzeigen!</a></li>
 		<li><a href="javascript:void(0);"><span style="color:lime">{$LNG.mu_tools}</span></a></li>
 		{if allowedTo('ShowLogPage')}<li><a href="?page=log" target="Hauptframe">{$LNG.mu_logs}</a>
 </li>{/if}{if allowedTo('ShowSendMessagesPage')}<li><a href="?page=globalmessage" target="Hauptframe">{$LNG.mu_global_message}</a></li>{/if}

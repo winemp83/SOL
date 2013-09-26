@@ -786,7 +786,10 @@ class ShowAlliancePage extends AbstractPage
 			DELETE FROM ".STATPOINTS." WHERE id_owner = ".$this->allianceData['id']." AND stat_type = 2;
 			DELETE FROM ".ALLIANCE." WHERE id = ".$this->allianceData['id'].";
 			DELETE FROM ".ALLIANCE_REQUEST." WHERE allianceID = ".$this->allianceData['id'].";
-			DELETE FROM ".DIPLO." WHERE owner_1 = ".$this->allianceData['id']." OR owner_2 = ".$this->allianceData['id'].";");
+			DELETE FROM ".DIPLO." WHERE owner_1 = ".$this->allianceData['id']." OR owner_2 = ".$this->allianceData['id'].";
+			DELETE FROM ".ALLYTOPIC." WHERE ally_id='".$this->allianceData['id']."';
+			DELETE FROM ".TOPICANSWER." WHERE ally='".$this->allianceData['id']."';
+			");
 		}
 		
 		$this->redirectToHome();

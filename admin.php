@@ -216,6 +216,10 @@ switch($page)
 		include_once('includes/pages/adm/ShowDMGutschein.php');
 		ShowDMGutscheine();
 	break;
+	case 'Forum':
+		include_once('includes/pages/adm/ShowForumPage.php');
+		ShowForumPage();
+	break;
 	// TF-Event-Mod 1.7.2
        case 'eventplanet':
         include_once(ROOT_PATH . 'includes/pages/adm/ShowEventplanet.php');

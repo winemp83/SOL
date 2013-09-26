@@ -562,8 +562,13 @@ $LNG['winemp_Forum_create_topic_text']	= 'Tread Text';
 $LNG['winemp_Forum_create_submit']		= 'Tread Eintragen';
 $LNG['winemp_Forum_topic_answer_edit']	= 'Beitrag Editieren';
 $LNG['winemp_Forum_topic_delete']		= 'Tread Löschen';
+$LNG['winemp_Forum_topic_answer_del']	= 'Antwort Löschen!';
 $LNG['winemp_Forum_topic_closen']		= 'Tread Schließen';
 $LNG['winemp_Forum_topic_reopen']		= 'Tread wiedereröffnen';
+$LNG['winemp_Forum_create_formA'] 		= 'Topic erstellen';
+$LNG['winemp_Forum_create_formB'] 		= 'Titel';
+$LNG['winemp_Forum_create_formC'] 		= 'Text';
+$LNG['winemp_Forum_create_submit']		= "Topic eintragen";
 
 $LNG['lm_malliForum']				= 'Allianz Forum';
 $LNG['lm_beitragloeschen']			= 'Dummy1'; // beitrag löschen

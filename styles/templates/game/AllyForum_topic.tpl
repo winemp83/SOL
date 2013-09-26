@@ -79,7 +79,16 @@
 {/if}
 </th>
 <th width="5%">
-{$topics.id} / {$topics.entry_id}
+{if $topic_close != 1 && $topics.usertest || $adm}
+		<form action="" method="post">
+			<input name="menue" value="6" type="hidden">
+			<input name="do_it" value="no" type="hidden">
+			<input name="topic_id" value="{$topics.id}" type="hidden">
+			<input name="tread_id" value="{$topics.entry_id}" type="hidden">
+			<input type="submit" value="{$LNG.winemp_Forum_topic_answer_del}" name="{$LNG.winemp_Forum_topic_answer_del}">
+		</form>
+{else}
+{/if}
 </th>
 
 

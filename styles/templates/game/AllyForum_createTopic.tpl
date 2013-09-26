@@ -31,12 +31,12 @@
 		<input name="step" value="2" type="hidden">
 		<tr>
 			<th colspan="2">
-				{$LNG.winemp_Forum_create_form}
+				{$LNG.winemp_Forum_create_formA}
 			</th>
 		</tr>
 		<tr>
 			<th width="40%">
-				{$LNG.winemp_Forum_create_form}
+				{$LNG.winemp_Forum_create_formB}
 			</th>
 			<td width="60%">
 				<input type="text" name="topicName">
@@ -44,7 +44,7 @@
 		</tr>
 		<tr>
 			<th>
-				{$LNG.winemp_Forum_create_form}
+				{$LNG.winemp_Forum_create_formC}
 			</th>
 			<td width="60%">
 				<textarea name="text" cols="50" rows="10"></textarea>
