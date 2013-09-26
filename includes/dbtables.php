@@ -84,7 +84,7 @@ define('DMGut'				, DB_PREFIX.'gutscheine');
 define('ALLIBONUS'      	, DB_PREFIX.'alli_bonus');
 define('ALLYTOPIC'			, DB_PREFIX.'ally_topic');
 define('TOPICANSWER'		, DB_PREFIX.'ally_topic_answer');	
-
+define('VOTES'				, DB_PREFIX.'votes');		 
 // Bot
 define('BOTS'               , $database['tableprefix'].'bots');
 
