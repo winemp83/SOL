@@ -251,7 +251,7 @@
 
 <td colspan="6">
 
- <div id='planet_overview' style='background: transparent url({$dpath}planeten/{$planetimage}.jpg); height: 290px; width: 625px;'>
+ <div id='planet_overview' style='background: transparent url({$dpath}planeten/{$planetimage}.jpg); height: 290px; width: 615px;'>
  <div id='planet_overview_header'> <span class="planetname"> {$planetname} </span>
 </div>
 
