@@ -511,6 +511,10 @@ $LNG['winemp_allyBonus_Error_K']		= 'Sie besitzen zu wenig Kristall';
 $LNG['winemp_allyBonus_Error_D']		= 'Sie besitzen zu wenig Deuterium';	
 $LNG['winemp_allyBonus_allOkay']		= 'Sie haben erfolgreich einen Bonus erworben';
 $LNG['winemp_allyMarket_text']			= 'Es gibt folgende Auktion in der Allianz: ';
+$LNG['winemp_alliBonus_deaktiviert']			= 'Deaktiviert';
+$LNG['winemp_alliBonus_alliBonus_7']			= 'Themen Kaufen';
+
+
 //Loginpage
 //Menu
 $LNG['icey_menu_news']		= 'News';
@@ -534,17 +538,17 @@ $LNG['icey_gala_bilder']	= 'Bilder Galerie';
 
 //Allianz Forum
 $LNG['winemp_Forum_error_1']			= 'Leider seid Ihr in keiner Allianz, Commander'; // in keiner Allianz
-$LNG['winemp_Forum_error_2']			= 'Commander, ein Tread-Titel muss mindestens 3 Zeichen haben.'; // topic muss mehr als 3 zeichen haben
-$LNG['winemp_Forum_error_3']			= 'Commander, Ihr braucht 10 Zeichen in der Treadbeschreibung '; // eintrag muss mehr als 10 zeichen haben
+$LNG['winemp_Forum_error_2']			= 'Commander, ein Beitrag-Titel muss mindestens 3 Zeichen haben.'; // topic muss mehr als 3 zeichen haben
+$LNG['winemp_Forum_error_3']			= 'Commander, Ihr braucht 10 Zeichen in der Beitrags beschreibung '; // eintrag muss mehr als 10 zeichen haben
 $LNG['winemp_Forum_error_4']			= 'Commander? Eure Antwort braucht 5 Zeichen!'; // Antworten müssen mehr als 5 Zeichen haben
-$LNG['winemp_Forum_error_5']			= 'Commander, die Suche hat ergeben dass der Tread nicht bekannt ist'; // Topic nicht bekannt
+$LNG['winemp_Forum_error_5']			= 'Commander, die Suche hat ergeben dass der Beitrag nicht bekannt ist'; // Topic nicht bekannt
 $LNG['winemp_Forum_error_6']			= 'Commander, auf gespeerte Treads könnt ihr nicht antworten'; // Topic gespeert
 $LNG['winemp_Forum_error_0']			= 'Commander, irgend etwas stimmt hier nicht'; // standart Fehlermeldung | keine Allianz
 $LNG['winemp_Forum_error']				= 'Achtung Fehler!'; // Fehler!!!
 $LNG['winemp_Forum_error_title']		= 'Foren Fehler'; // Forums Fehler (Title);
-$LNG['winemp_Forum_error_back']			= 'zurück zur Treadliste'; // zurück zum Forum
-$LNG['winemp_Forum_topic_answer']		= 'Auf den Tread Antworten'; //Antworten 
-$LNG['winemp_Forum_topic_back']			= 'zurück zur Treadliste'; // zurück zum Forum
+$LNG['winemp_Forum_error_back']			= 'zurück zum Forum'; // zurück zum Forum
+$LNG['winemp_Forum_topic_answer']		= 'Auf den Beitrag Antworten'; //Antworten 
+$LNG['winemp_Forum_topic_back']			= 'zurück zum Forum'; // zurück zum Forum
 $LNG['winemp_Forum_topic_title']		= 'Topic: '; //Header
 $LNG['winemp_Forum_forum_title']		= 'Allianz Forum :';
 $LNG['winemp_Forum_topic_create']		= 'Thema Erstellen';
@@ -552,23 +556,23 @@ $LNG['winemp_Forum_forum_topic']		= 'Thema';
 $LNG['winemp_Forum_forum_date']			= 'Erstellungs Datum';
 $LNG['winemp_Forum_forum_lastdate']		= 'Letzter Beitrag';
 $LNG['winemp_Forum_forum_user']			= 'Allianz Mitglied';
-$LNG['winemp_Forum_forum_close']		= 'Tread Lesen';
-$LNG['winemp_Forum_topic_show']			= 'Tread anzeigen';
+$LNG['winemp_Forum_forum_close']		= 'Thema Lesen';
+$LNG['winemp_Forum_topic_show']			= 'Thema anzeigen';
 $LNG['winemp_Forum_topic_closed']		= 'Geschlossen';
 $LNG['winemp_Forum_Forum_main']			= 'Allianz Forum';
-$LNG['winemp_Forum_create_title']		= 'Tread erstellen';
-$LNG['winemp_Forum_create_topic_title']	= 'Tread Titel';
-$LNG['winemp_Forum_create_topic_text']	= 'Tread Text';
-$LNG['winemp_Forum_create_submit']		= 'Tread Eintragen';
+$LNG['winemp_Forum_create_title']		= 'erstellen';
+$LNG['winemp_Forum_create_topic_title']	= 'Titel';
+$LNG['winemp_Forum_create_topic_text']	= 'Text';
+$LNG['winemp_Forum_create_submit']		= 'Eintragen';
 $LNG['winemp_Forum_topic_answer_edit']	= 'Beitrag Editieren';
-$LNG['winemp_Forum_topic_delete']		= 'Tread Löschen';
+$LNG['winemp_Forum_topic_delete']		= 'Thema Löschen';
 $LNG['winemp_Forum_topic_answer_del']	= 'Antwort Löschen!';
-$LNG['winemp_Forum_topic_closen']		= 'Tread Schließen';
-$LNG['winemp_Forum_topic_reopen']		= 'Tread wiedereröffnen';
-$LNG['winemp_Forum_create_formA'] 		= 'Topic erstellen';
+$LNG['winemp_Forum_topic_closen']		= 'Thema Schließen';
+$LNG['winemp_Forum_topic_reopen']		= 'Thema wiedereröffnen';
+$LNG['winemp_Forum_create_formA'] 		= 'Thema erstellen';
 $LNG['winemp_Forum_create_formB'] 		= 'Titel';
 $LNG['winemp_Forum_create_formC'] 		= 'Text';
-$LNG['winemp_Forum_create_submit']		= "Topic eintragen";
+$LNG['winemp_Forum_create_submit']		= "Thema eintragen";
 
 $LNG['lm_malliForum']				= 'Allianz Forum';
 $LNG['lm_beitragloeschen']			= 'Dummy1'; // beitrag löschen
@@ -582,13 +586,3 @@ $LNG['lm_faq']						= 'F.A.Q';
 
 // Galaxie liste neue Option Save flug!
 $LNG['icey_gala_saveflug']						= 'Save Flug (inaktiv)';
-
-$LNG['winemp_vote_gesamt']			= 'Gesamt Stimmen';
-$LNG['winemp_vote_submit']			= 'Stimme abgeben';
-$LNG['winemp_vote_title']			= 'Abstimmungen';
-$LNG['winemp_vote_header']			= 'Spieler Abstimmungen';
-$LNG['winemp_vote_erg']				= 'Ergebniss in : ';
-$LNG['winemp_vote_proz']			= 'Prozenten';
-$LNG['winemp_vote_stimmen']			= 'Stimmen';
-$LNG['winemp_Vote_error_1']			= 'Sie müssen eine Auswahl treffen';
-$LNG['winemp_Vote_error_1']			= 'Sie haben bereits gewählt';
