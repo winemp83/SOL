@@ -73,27 +73,31 @@
 	</tr>
 	<tr>
 		<th>{$LNG.winemp_alliBonus_1}</th>
-		<td>{$one}</td>
+		<td>{if $deakt_one != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$one}{/if}</td>
 	</tr>
 	<tr>
 		<th>{$LNG.winemp_alliBonus_2}</th>
-		<td>{$two} %</td>
+		<td>{if $deakt_two != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$two} %{/if}</td>
 	</tr>
 	<tr>
 		<th>{$LNG.winemp_alliBonus_3}</th>
-		<td>{$tree} %</td>
+		<td>{if $deakt_tree != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$tree} %{/if}</td>
 	</tr>
 	<tr>
 		<th>{$LNG.winemp_alliBonus_4}</th>
-		<td>{$four} %</td>
+		<td>{if $deakt_four != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$four} %{/if}</td>
 	</tr>
 	<tr>
 		<th>{$LNG.winemp_alliBonus_5}</th>
-		<td>{$five} %</td>
+		<td>{if $deakt_five != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$five} %{/if}</td>
 	</tr>
 	<tr>
 		<th>{$LNG.winemp_alliBonus_6}</th>
-		<td>{$six} %</td>
+		<td>{if $deakt_six != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$six} %{/if}</td>
+	</tr>
+	<tr>
+		<th>{$LNG.winemp_alliBonus_7}</th>
+		<td>{if $deakt_seven != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$seven}{/if}</td>
 	</tr>
 	{if $rights.EVENTS}
 	<tr>

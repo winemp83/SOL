@@ -430,27 +430,31 @@
 		</tr>
 		<tr>
 			<th>{$LNG.winemp_alliBonus_1}</th>
-			<td>{$bo_slo}</td>
+			<td>{if $bo_d1 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_slo}{/if}</td>
 		</tr>
 		<tr>
 			<th>{$LNG.winemp_alliBonus_2}</th>
-			<td>{$bo_pro} %</td>
+			<td>{if $bo_d2 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_pro} %{/if}</td>
 		</tr>
 		<tr>
 			<th>{$LNG.winemp_alliBonus_5}</th>
-			<td>{$bo_def} %</td>
+			<td>{if $bo_d5 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_def} %{/if}</td>
 		</tr>
 		<tr>
 			<th>{$LNG.winemp_alliBonus_6}</th>
-			<td>{$bo_atk} %</td>
+			<td>{if $bo_d6 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_atk} %{/if}</td>
 		</tr>
 		<tr>
 			<th>{$LNG.winemp_alliBonus_3}</th>
-			<td>{$bo_bui} %</td>
+			<td>{if $bo_d3 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_bui} %{/if}</td>
 		</tr>
 		<tr>
 			<th>{$LNG.winemp_alliBonus_4}</th>
-			<td>{$bo_res} %</td>
+			<td>{if $bo_d4 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_res} %{/if}</td>
+		</tr>
+		<tr>
+			<th>{$LNG.winemp_alliBonus_7}</th>
+			<td>{if $bo_d7 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_top}{/if}</td>
 		</tr>
 		{else}
 		<tr><td>{$ally_error}</tr></td>

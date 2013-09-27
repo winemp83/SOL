@@ -502,6 +502,7 @@ $LNG['winemp_alliBonus_3']				= 'Forschungszeit verkürzung in %';
 $LNG['winemp_alliBonus_4']				= 'Bauzeit verkürzung in %';
 $LNG['winemp_alliBonus_5']				= 'Verteidigungkraft Steigerung in %';
 $LNG['winemp_alliBonus_6']				= 'Angriffskraft Steigerung in %';
+$LNG['winemp_alliBonus_7']				= 'Zusätzliche Themen';
 $LNG['winemp_alliBonus_submit1']		= 'zu dem Kaufmenü';
 $LNG['winemp_alliBonus_buy1']			= 'Bonus Kaufmenü';
 $LNG['winemp_alliBonus_select']			= 'Auswahl';

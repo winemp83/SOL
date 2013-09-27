@@ -356,6 +356,14 @@ class ShowOverviewPage extends AbstractPage
 				$two['attak'] = $bonus['attack'];
 				$two['build'] = $bonus['building'];
 				$two['resea'] = $bonus['research'];
+				$two['topic'] = $bonus['topics'];
+				$two['d1']	  = $bonus['act_slo'];
+				$two['d2']	  = $bonus['act_pro'];
+				$two['d3']	  = $bonus['act_def'];
+				$two['d4']	  = $bonus['act_att'];
+				$two['d5']	  = $bonus['act_bui'];
+				$two['d6']	  = $bonus['act_res'];
+				$two['d7']	  = $bonus['act_top'];		
 			}
 			$help['members_max'] += $two['slots'];
 			
@@ -374,6 +382,14 @@ class ShowOverviewPage extends AbstractPage
 			'bo_atk'			=> $two['attak'],
 			'bo_bui'			=> $two['build'],
 			'bo_res'			=> $two['resea'],
+			'bo_top'			=> $two['topic'],
+			'bo_d1'				=> $two['d1'],
+			'bo_d2'				=> $two['d2'],
+			'bo_d3'				=> $two['d3'],
+			'bo_d4'				=> $two['d4'],
+			'bo_d5'				=> $two['d5'],
+			'bo_d6'				=> $two['d6'],
+			'bo_d7'				=> $two['d7'],
 			
 			));
 		}
