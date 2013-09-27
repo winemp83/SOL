@@ -483,6 +483,14 @@ class ShowAlliancePage extends AbstractPage
 			$four 	= $data['building'];
 			$five 	= $data['defense'];
 			$six 	= $data['attack'];
+			$seven  = $data['topics'];
+			$data['act_slo'] == 0 ? $deak_1 = false : $deak_1 = true;
+			$data['act_pro'] == 0 ? $deak_2 = false : $deak_2 = true;
+			$data['act_res'] == 0 ? $deak_3 = false : $deak_3 = true;
+			$data['act_bui'] == 0 ? $deak_4 = false : $deak_4 = true;
+			$data['act_def'] == 0 ? $deak_5 = false : $deak_5 = true;
+			$data['act_att'] == 0 ? $deak_6 = false : $deak_6 = true;
+			$data['act_top'] == 0 ? $deak_7 = false : $deak_7 = true;
 		}
 		$alli_maxMember = $this->allianceData['ally_max_members'] + $one; 
 		$this->tplObj->assign_vars(array(
@@ -518,6 +526,14 @@ class ShowAlliancePage extends AbstractPage
 			'four'						=> $four,
 			'five'						=> $five,
 			'six'						=> $six,
+			'seven'						=> $seven,
+			'deakt_one'					=> $deak_1,
+			'deakt_two'					=> $deak_2,
+			'deakt_tree'				=> $deak_3,
+			'deakt_four'				=> $deak_4,
+			'deakt_five'				=> $deak_5,
+			'deakt_six'					=> $deak_6,
+			'deakt_seven'				=> $deak_7,
 			
 		));
 		
