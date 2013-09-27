@@ -586,3 +586,12 @@ $LNG['lm_faq']						= 'F.A.Q';
 
 // Galaxie liste neue Option Save flug!
 $LNG['icey_gala_saveflug']						= 'Save Flug (inaktiv)';
+-$LNG['winemp_vote_gesamt']      = 'Gesamt Stimmen';
+-$LNG['winemp_vote_submit']      = 'Stimme abgeben';
+-$LNG['winemp_vote_title']      = 'Abstimmungen';
+-$LNG['winemp_vote_header']      = 'Spieler Abstimmungen';
+-$LNG['winemp_vote_erg']        = 'Ergebniss in : ';
+-$LNG['winemp_vote_proz']      = 'Prozenten';
+-$LNG['winemp_vote_stimmen']      = 'Stimmen';
+-$LNG['winemp_Vote_error_1']      = 'Sie müssen eine Auswahl treffen';
+-$LNG['winemp_Vote_error_1']      = 'Sie haben bereits gewählt';
