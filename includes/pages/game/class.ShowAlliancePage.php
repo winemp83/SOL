@@ -38,6 +38,7 @@ class ShowAlliancePage extends AbstractPage
 	private $Reser_max = 100;
 	private $Defen_max = 250;
 	private $Attak_max = 250;
+	private $Topics_max = 95;
 	private $allianceData;
 	private $ranks;
 	private $rights;
@@ -789,6 +790,7 @@ class ShowAlliancePage extends AbstractPage
 			DELETE FROM ".DIPLO." WHERE owner_1 = ".$this->allianceData['id']." OR owner_2 = ".$this->allianceData['id'].";
 			DELETE FROM ".ALLYTOPIC." WHERE ally_id='".$this->allianceData['id']."';
 			DELETE FROM ".TOPICANSWER." WHERE ally='".$this->allianceData['id']."';
+			DELETE FROM ".ALLYBONUS." WHERE id='".$this->allianceData['id']."';
 			");
 		}
 		
@@ -1341,6 +1343,14 @@ class ShowAlliancePage extends AbstractPage
 				$four 	= $data['building'];
 				$five 	= $data['defense'];
 				$six 	= $data['attack'];
+				$seven	= $data['topics'];
+				$d_1	= $data['act_slo'];
+				$d_2	= $data['act_pro'];
+				$d_3	= $data['act_res'];
+				$d_4	= $data['act_bui'];
+				$d_5	= $data['act_def'];
+				$d_6	= $data['act_att'];
+				$d_7	= $data['act_top'];
 			}
 			//Hilfsvariablen
 			$one_h = $one;
@@ -1349,6 +1359,15 @@ class ShowAlliancePage extends AbstractPage
 			$four_h = $four;
 			$five_h = $five;
 			$six_h = $six;
+			$seven_h = $seven;
+			// Kontrolle ob modul deaktiviert ist
+			$d_1 == 0 ? $deak_1 = false : $deak_1 = true;
+			$d_2 == 0 ? $deak_2 = false : $deak_2 = true;
+			$d_3 == 0 ? $deak_3 = false : $deak_3 = true;
+			$d_4 == 0 ? $deak_4 = false : $deak_4 = true;
+			$d_5 == 0 ? $deak_5 = false : $deak_5 = true;
+			$d_6 == 0 ? $deak_6 = false : $deak_6 = true;
+			$d_7 == 0 ? $deak_7 = false : $deak_7 = true;
 			//Kontrolle das mindestens LvL 1 einen Preis hat
 			$one == 0 ? $one = 1 : $one = $one;
 			$two == 0 ? $two = 1 : $two = $two;
@@ -1356,6 +1375,7 @@ class ShowAlliancePage extends AbstractPage
 			$four == 0 ? $four = 1 : $four = $four;
 			$five == 0 ? $five = 1 : $five = $five;
 			$six == 0 ? $six = 1 : $six = $six;
+			$seven == 0 ? $seven = 1 : $seven = $seven;
 			//Kosten für einen Slot
 			$price_one_m = ceil(((($one*$one)*125000)/7)*sqrt(19*$one));
 			$price_one_k = ceil(((($one*$one)*225000)/7)*sqrt(17*$one));
@@ -1380,6 +1400,10 @@ class ShowAlliancePage extends AbstractPage
 			$price_six_m = ceil(((($six*$six)*155000)/7)*sqrt(19*$six));
 			$price_six_k = ceil(((($six*$six)*175000)/7)*sqrt(17*$six));
 			$price_six_d = ceil(((($six*$six)*125000)/7)*sqrt(13*$six));
+			//Kosten für 5 neue Topics
+			$price_seven_m = ceil(((($seven*$seven)*192826)/7)*sqrt(18*$seven));
+			$price_seven_k = ceil(((($seven*$seven)*256341)/7)*sqrt(21*$seven));
+			$price_seven_d = ceil(((($seven*$seven)*192463)/7)*sqrt(11*$seven));
 				
 			$this->tplObj->assign_vars(array(
 				'error'			=> false,
@@ -1413,6 +1437,18 @@ class ShowAlliancePage extends AbstractPage
 				'six_m'			=> $price_six_m." Metall <br/>",
 				'six_k'			=> $price_six_k." Kristall <br/>",
 				'six_d'			=> $price_six_d." Deuterium",
+				'seven_akt'		=> $seven_h,
+				'seven_max'		=> $this->Topics_max,
+				'seven_m'		=> $price_seven_m." Metall <br/>",
+				'seven_k'		=> $price_seven_k." Kristall <br/>",
+				'seven_d'		=> $price_seven_d." Deuterium",
+				'deakt_one'		=> $deak_1,
+				'deakt_two'		=> $deak_2,
+				'deakt_tree'	=> $deak_3,
+				'deakt_four'	=> $deak_4,
+				'deakt_five'	=> $deak_5,
+				'deakt_six'		=> $deak_6,
+				'deakt_seven'	=> $deak_7,
 
 		));
 		$this->display('allyBonus_buy_one.tpl');
@@ -1440,6 +1476,14 @@ class ShowAlliancePage extends AbstractPage
 				$four 	= $data['building'];
 				$five 	= $data['defense'];
 				$six 	= $data['attack'];
+				$seven	= $data['topics'];
+				$d_1	= $data['act_slo'];
+				$d_2	= $data['act_pro'];
+				$d_3	= $data['act_res'];
+				$d_4	= $data['act_bui'];
+				$d_5	= $data['act_def'];
+				$d_6	= $data['act_att'];
+				$d_7	= $data['act_top'];
 			}
 			//Hilfsvariablen
 			$one_h = $one;
@@ -1448,6 +1492,15 @@ class ShowAlliancePage extends AbstractPage
 			$four_h = $four;
 			$five_h = $five;
 			$six_h = $six;
+			$seven_h = $seven;
+			// Kontrolle ob modul deaktiviert ist
+			$d_1 == 0 ? $deak_1 = false : $deak_1 = true;
+			$d_2 == 0 ? $deak_2 = false : $deak_2 = true;
+			$d_3 == 0 ? $deak_3 = false : $deak_3 = true;
+			$d_4 == 0 ? $deak_4 = false : $deak_4 = true;
+			$d_5 == 0 ? $deak_5 = false : $deak_5 = true;
+			$d_6 == 0 ? $deak_6 = false : $deak_6 = true;
+			$d_7 == 0 ? $deak_7 = false : $deak_7 = true;
 			//Kontrolle das mindestens LvL 1 einen Preis hat
 			$one == 0 ? $one = 1 : $one = $one;
 			$two == 0 ? $two = 1 : $two = $two;
@@ -1455,6 +1508,7 @@ class ShowAlliancePage extends AbstractPage
 			$four == 0 ? $four = 1 : $four = $four;
 			$five == 0 ? $five = 1 : $five = $five;
 			$six == 0 ? $six = 1 : $six = $six;
+			$seven == 0 ? $seven = 1 : $seven = $seven;
 			//Kosten für einen Slot
 			$price_one_m = ceil(((($one*$one)*125000)/7)*sqrt(19*$one));
 			$price_one_k = ceil(((($one*$one)*225000)/7)*sqrt(17*$one));
@@ -1479,6 +1533,10 @@ class ShowAlliancePage extends AbstractPage
 			$price_six_m = ceil(((($six*$six)*155000)/7)*sqrt(19*$six));
 			$price_six_k = ceil(((($six*$six)*175000)/7)*sqrt(17*$six));
 			$price_six_d = ceil(((($six*$six)*125000)/7)*sqrt(13*$six));
+			//Kosten für 5 neue Topics
+			$price_seven_m = ceil(((($seven*$seven)*192826)/7)*sqrt(18*$seven));
+			$price_seven_k = ceil(((($seven*$seven)*256341)/7)*sqrt(21*$seven));
+			$price_seven_d = ceil(((($seven*$seven)*192463)/7)*sqrt(11*$seven));
 			print_r($_POST);
 			if(!isset($_POST['what'])){
 				$_POST['what'] = 0;
@@ -1501,159 +1559,186 @@ class ShowAlliancePage extends AbstractPage
 							break;
 						}
 						else{
-						$ally_m -= $price_one_m;
-						$ally_k -= $price_one_k;
-								$ally_d -= $price_one_d;
-								$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
-								$sql = "UPDATE ".ALLIBONUS." SET slots= slots+1 WHERE id='".$USER['ally_id']."'";;
-								$GLOBALS['DATABASE']->query($SQL);
-								$GLOBALS['DATABASE']->query($sql);
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_allOkay'];
-								break;
-								}
-						case 2: if($ally_m < $price_two_m){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_M'];
-								break;
-								}
-								elseif ($ally_k < $price_two_k){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_K'];
-								break;	
-								}
-								elseif ($ally_d < $price_two_d){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_D'];
-								break;
-								}
-								else{
-								$ally_m -= $price_two_m;
-								$ally_k -= $price_two_k;
-								$ally_d -= $price_two_d;
-								$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
-								$sql = "UPDATE ".ALLIBONUS." SET produktion= produktion +1 WHERE id='".$USER['ally_id']."'";
-								$GLOBALS['DATABASE']->query($SQL);
-								$GLOBALS['DATABASE']->query($sql);
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_allOkay'];
-								break;
-								}
-						case 3: if($ally_m < $price_tree_m){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_M'];
-								break;
-								}
-								elseif ($ally_k < $price_tree_k){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_K'];
-								break;	
-								}
-								elseif ($ally_d < $price_tree_d){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_D'];
-								break;
-								}
-								else{
-								$ally_m -= $price_tree_m;
-								$ally_k -= $price_tree_k;
-								$ally_d -= $price_tree_d;
-								$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
-								$sql = "UPDATE ".ALLIBONUS." SET research = research +1 WHERE id='".$USER['ally_id']."'";
-								$GLOBALS['DATABASE']->query($SQL);
-								$GLOBALS['DATABASE']->query($sql);
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_allOkay'];
-								break;
-								}
-						case 4: if($ally_m < $price_four_m){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_M'];
-								break;
-								}
-								elseif ($ally_k < $price_four_k){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_K'];
-								break;	
-								}
-								elseif ($ally_d < $price_four_d){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_D'];
-								break;
-								}
-								else{
-								$ally_m -= $price_four_m;
-								$ally_k -= $price_four_k;
-								$ally_d -= $price_four_d;
-								$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
-								$sql = "UPDATE ".ALLIBONUS." SET building= building +1 WHERE id='".$USER['ally_id']."'";
-								$GLOBALS['DATABASE']->query($SQL);
-								$GLOBALS['DATABASE']->query($sql);
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_allOkay'];
-								break;
-								}
-						case 5: if($ally_m < $price_five_m){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_K'];
-								break;
-								}
-								elseif ($ally_k < $price_five_k){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_D'];
-								break;	
-								}
-								elseif ($ally_d < $price_five_d){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_allOkay'];
-								break;
-								}
-								else{
-								$ally_m -= $price_five_m;
-								$ally_k -= $price_five_k;
-								$ally_d -= $price_five_d;
-								$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
-								$sql = "UPDATE ".ALLIBONUS." SET defense = defense + 1 WHERE id='".$USER['ally_id']."'";
-								$GLOBALS['DATABASE']->query($SQL);
-								$GLOBALS['DATABASE']->query($sql);
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_allOkay'];
-								break;
-								}
-						case 6: if($ally_m < $price_six_m){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_M'];
-								break;
-								}
-								elseif ($ally_k < $price_six_k){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_K'];
-								break;	
-								}
-								elseif ($ally_d < $price_six_d){
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_Error_D'];
-								break;
-								}
-								else{
-								$ally_m -= $price_six_m;
-								$ally_k -= $price_six_k;
-								$ally_d -= $price_six_d;
-								$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
-								$sql = "UPDATE ".ALLIBONUS." SET attack = attack+ 1 WHERE id='".$USER['ally_id']."'";
-								$GLOBALS['DATABASE']->query($SQL);
-								$GLOBALS['DATABASE']->query($sql);
-								$error = false;
-								$msg = $LNG['winemp_allyBonus_allOkay'];
-								break;
-								}
-						default:
-							$error = true;
-							$msg = '';
+							$ally_m -= $price_one_m;
+							$ally_k -= $price_one_k;
+							$ally_d -= $price_one_d;
+							$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
+							$sql = "UPDATE ".ALLIBONUS." SET slots= slots+1 WHERE id='".$USER['ally_id']."'";;
+							$GLOBALS['DATABASE']->query($SQL);
+							$GLOBALS['DATABASE']->query($sql);
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_allOkay'];
 							break;
-					}
+						}
+				case 2: if($ally_m < $price_two_m){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_M'];
+							break;
+						}
+						elseif ($ally_k < $price_two_k){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_K'];
+							break;	
+						}
+						elseif ($ally_d < $price_two_d){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_D'];
+							break;
+						}
+						else{
+							$ally_m -= $price_two_m;
+							$ally_k -= $price_two_k;
+							$ally_d -= $price_two_d;
+							$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
+							$sql = "UPDATE ".ALLIBONUS." SET produktion= produktion +1 WHERE id='".$USER['ally_id']."'";
+							$GLOBALS['DATABASE']->query($SQL);
+							$GLOBALS['DATABASE']->query($sql);
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_allOkay'];
+							break;
+						}
+				case 3: if($ally_m < $price_tree_m){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_M'];
+							break;
+						}
+						elseif ($ally_k < $price_tree_k){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_K'];
+							break;	
+						}
+						elseif ($ally_d < $price_tree_d){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_D'];
+							break;
+						}
+						else{
+							$ally_m -= $price_tree_m;
+							$ally_k -= $price_tree_k;
+							$ally_d -= $price_tree_d;
+							$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
+							$sql = "UPDATE ".ALLIBONUS." SET research = research +1 WHERE id='".$USER['ally_id']."'";
+							$GLOBALS['DATABASE']->query($SQL);
+							$GLOBALS['DATABASE']->query($sql);
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_allOkay'];
+							break;
+						}
+				case 4: if($ally_m < $price_four_m){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_M'];
+							break;
+						}
+						elseif ($ally_k < $price_four_k){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_K'];
+							break;	
+						}
+						elseif ($ally_d < $price_four_d){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_D'];
+							break;
+						}
+						else{
+							$ally_m -= $price_four_m;
+							$ally_k -= $price_four_k;
+							$ally_d -= $price_four_d;
+							$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
+							$sql = "UPDATE ".ALLIBONUS." SET building= building +1 WHERE id='".$USER['ally_id']."'";
+							$GLOBALS['DATABASE']->query($SQL);
+							$GLOBALS['DATABASE']->query($sql);
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_allOkay'];
+							break;
+						}
+				case 5: if($ally_m < $price_five_m){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_K'];
+							break;
+						}
+						elseif ($ally_k < $price_five_k){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_D'];
+							break;	
+						}
+						elseif ($ally_d < $price_five_d){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_allOkay'];
+							break;
+						}
+						else{
+						$ally_m -= $price_five_m;
+						$ally_k -= $price_five_k;
+						$ally_d -= $price_five_d;
+						$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
+						$sql = "UPDATE ".ALLIBONUS." SET defense = defense + 1 WHERE id='".$USER['ally_id']."'";
+						$GLOBALS['DATABASE']->query($SQL);
+						$GLOBALS['DATABASE']->query($sql);								
+						$error = false;
+						$msg = $LNG['winemp_allyBonus_allOkay'];
+						break;
+						}
+				case 6: if($ally_m < $price_six_m){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_M'];
+							break;
+						}
+						elseif ($ally_k < $price_six_k){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_K'];
+							break;	
+						}
+						elseif ($ally_d < $price_six_d){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_D'];
+							break;
+						}
+						else{
+							$ally_m -= $price_six_m;
+							$ally_k -= $price_six_k;
+							$ally_d -= $price_six_d;
+							$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
+							$sql = "UPDATE ".ALLIBONUS." SET attack = attack+ 1 WHERE id='".$USER['ally_id']."'";
+							$GLOBALS['DATABASE']->query($SQL);
+							$GLOBALS['DATABASE']->query($sql);
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_allOkay'];
+							break;
+						}
+				case 7: if($ally_m < $price_seven_m){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_M'];
+							break;
+						}
+						elseif ($ally_k < $price_seven_k){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_K'];
+							break;	
+						}
+						elseif ($ally_d < $price_seven_d){
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_Error_D'];
+							break;
+						}
+						else{
+							$ally_m -= $price_seven_m;
+							$ally_k -= $price_seven_k;
+							$ally_d -= $price_seven_d;
+							$SQL = "UPDATE ".ALLIANCE." SET ally_met='".$ally_m."', ally_krist='".$ally_k."', ally_deut='".$ally_d."' WHERE id ='".$USER['ally_id']."'"; 
+							$sql = "UPDATE ".ALLIBONUS." SET topics = topics+ 5 WHERE id='".$USER['ally_id']."'";
+							$GLOBALS['DATABASE']->query($SQL);
+							$GLOBALS['DATABASE']->query($sql);
+							$error = false;
+							$msg = $LNG['winemp_allyBonus_allOkay'];
+							break;
+						}
+				default:
+						$error = true;
+						$msg = '';
+						break;
+				}
 				
-				$this->tplObj->assign_vars(array(
+			$this->tplObj->assign_vars(array(
 				'error'			=> $error,
 				'one_akt'		=> $one_h,
 				'one_max'		=> $this->Slots_max,
@@ -1685,9 +1770,21 @@ class ShowAlliancePage extends AbstractPage
 				'six_m'			=> $price_six_m." Metall <br/>",
 				'six_k'			=> $price_six_k." Kristall <br/>",
 				'six_d'			=> $price_six_d." Deuterium",
+				'seven_akt'		=> $seven_h,
+				'seven_max'		=> $this->Topics_max,
+				'seven_m'		=> $price_seven_m." Metall <br/>",
+				'seven_k'		=> $price_seven_k." Kristall <br/>",
+				'seven_d'		=> $price_seven_d." Deuterium",
+				'deakt_one'		=> $deak_1,
+				'deakt_two'		=> $deak_2,
+				'deakt_tree'	=> $deak_3,
+				'deakt_four'	=> $deak_4,
+				'deakt_five'	=> $deak_5,
+				'deakt_six'		=> $deak_6,
+				'deakt_seven'	=> $deak_7,
 				'msg'			=> $msg,
 				
 				));
-				$this->display('allyBonus_buy_two.tpl');
+			$this->display('allyBonus_buy_two.tpl');
 	}
 }
