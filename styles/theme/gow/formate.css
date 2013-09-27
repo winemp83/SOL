@@ -1765,3 +1765,15 @@ background-image: url("./img/kom.png");
   border-top-right-radius: 5px;
   border-bottom-left-radius: 5px;
   background-color:black;
+ }
+#vote_style {
+   -webkit-border-radius: 15px;
+  -webkit-border-top-right-radius: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  -moz-border-radius: 15px;
+  -moz-border-radius-topright: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  border-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
