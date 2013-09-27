@@ -9,60 +9,11 @@ function ShowVotePage(){
 	
 	$template 	= new template();
 	
-	switch ($menue){
+	switch (HTTP::_GP('menue', 0)){
 		case 1 :
-				$do_it = HTTP::_GP('do_it', 0);
-				if($do_it != 1){
-						$step		= 1;
-						$error		= false;
-						$msg		= '';
-				}
-				else{
-					if(empty($_POST['question']) || !isset($_POST['question'])){
-						$msg = 'Bitte eine Frage stellen!';
-						$error = true;
-					}
-					elseif(empty($_POST['des_one']) || !isset($_POST['des_one'])){
-						$msg = 'Bitte eine Beschreibung für die erste Antwort einfügen!';
-						$error = true;
-					}
-					elseif(empty($_POST['des_two']) || !isset($_POST['des_two'])){
-						$msg = 'Bitte eine Beschreibung für die zweite Antwort einfügen!';
-						$error = true;
-					}
-					elseif(empty($_POST['des_tree']) || !isset($_POST['des_tree'])){
-						$msg = 'Bitte eine Beschreibung für die dritte Antwort einfügen!';
-						$error = true;
-					}
-					elseif(empty($_POST['ans_one']) || !isset($_POST['ans_one'])){
-						$msg = 'Bitte die erste Antwort einfügen!';
-						$error = true;
-					}
-					elseif(empty($_POST['ans_two']) || !isset($_POST['ans_two'])){
-						$msg = 'Bitte die zweite Antwort einfügen!';
-						$error = true;
-					}
-					elseif(empty($_POST['ans_tree']) || !isset($_POST['ans_tree'])){
-						$msg = 'Bitte die dritte Antwort einfügen!';
-						$error = true;
-					}
-					else{
-						$msg = 'Vote erstellt';
-						$error = false;
-						$step = '2';
-						$GLOBALS['DATABASE']->query("UPDATE ".VOTES." SET close='1'");
-						$GLOBALS['DATABASE']->query("INSERT INTO ".VOTES." SET ans_one='".$GLOBALS['DATABASE']->sql_escape($_POST['ans_one'])."', ans_two='".$GLOBALS['DATABASE']->sql_escape($_POST['ans_two'])."', ans_tree='".$GLOBALS['DATABASE']->sql_escape($_POST['ans_tree'])."', desc_one='".$GLOBALS['DATABASE']->sql_escape($_POST['des_one'])."', desc_two='".$GLOBALS['DATABASE']->sql_escape($_POST['des_two'])."', desc_tree='".$GLOBALS['DATABASE']->sql_escape($_POST['des_tree'])."', question='".$GLOBALS['DATABASE']->sql_escape($_POST['question'])."'");
-						$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET has_vote='0'");	
-					}
-					
-					$template->assign_vars(array(
-						'error'		=> $error,
-						'msg'		=> $msg,
-						'step'		=> $step,
-					));
-					$template->show('VoteCreate.tpl');
-				}
+				createVote();
 				break;
+		case 2 : $GLOBALS['DATABASE']->query("UPDATE ".VOTES." SET close='1'");
 		default:
 				$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".VOTES);
 					if(!empty($sql)){
@@ -111,10 +62,55 @@ function ShowVotePage(){
 					$template->assign_vars(array(
 						'list'		=> $votes,
 					));
-					$template->show('VoteList.tpl');
+				$template->show('VoteList.tpl');
 				break;
 	}
-	
+}
+
+function createVote(){
+	$template 	= new template();
+	if($_POST['step'] == 1){
+		$step = 1;
+		$msg = '';
+		$error = false;
+	}
+	else{
+		$step = 2;
+		if(empty($_POST['question']) || !isset($_POST['question'])){
+			$error = true;
+			$msg = "Sie müssen eine Frage eingeben";
+		}
+		elseif(empty($_POST['ans1']) || !isset($_POST['ans1']) || empty($_POST['ans2']) || !isset($_POST['ans2']) || empty($_POST['ans3']) || !isset($_POST['ans3'])){
+			$error = true;
+			$msg = "Sie müssen für jede Auswahl eine Antwort eingeben";
+		}
+		elseif(empty($_POST['des1']) || !isset($_POST['des1']) || empty($_POST['des2']) || !isset($_POST['des2']) || empty($_POST['des3']) || !isset($_POST['des3'])){
+			$error = true;
+			$msg = "Sie müssen für jede Antwort eine Beschreibung eingeben";
+		}
+		else{
+			$vote_deakt = "UPDATE ".VOTES." SET close='1'";
+			$player_vote = "UPDATE ".USERS." SET has_vote='0'";
+			$insert_vote = ("INSERT INTO ".VOTES." SET 
+				question='".$_POST['question']."',
+				ans_one='".$_POST['ans1']."',
+				ans_two='".$_POST['ans2']."',
+				ans_tree='".$_POST['ans3']."',
+				desc_one='".$_POST['des1']."',
+				desc_two='".$_POST['des2']."',
+				desc_tree='".$_POST['des3']."'
+				");
+			$GLOBALS['DATABASE']->query($vote_deakt);
+			$GLOBALS['DATABASE']->query($player_vote);
+			$GLOBALS['DATABASE']->query($insert_vote);
+		}	
+	}
+	$template->assign_vars(array(
+		'step'		=> $step,
+		'msg'		=> $msg,
+		'error'		=> $error,
+		));
+	$template->show('VoteCreate.tpl');	
 }
 
 function sabsi ($array, $index, $order='asc', $natsort=FALSE, $case_sensitive=FALSE) {

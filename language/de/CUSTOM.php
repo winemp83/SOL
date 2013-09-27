@@ -590,3 +590,5 @@ $LNG['winemp_vote_header']			= 'Spieler Abstimmungen';
 $LNG['winemp_vote_erg']				= 'Ergebniss in : ';
 $LNG['winemp_vote_proz']			= 'Prozenten';
 $LNG['winemp_vote_stimmen']			= 'Stimmen';
+$LNG['winemp_Vote_error_1']			= 'Sie müssen eine Auswahl treffen';
+$LNG['winemp_Vote_error_1']			= 'Sie haben bereits gewählt';
