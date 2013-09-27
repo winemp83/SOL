@@ -65,33 +65,19 @@ class ShowVotePage extends AbstractPage
 		$this->display('Vote_error.tpl');
 	}
 	
-	protected function checkVote($vote_id){
+	protected function checkVote(){
 		global $USER;
-		$sql = $GLOBALS['DATABASE']->query("SELECT (user) FROM ".VOTES." WHERE id='".$vote_id."'");
-		if(!empty($sql)){
-			while($result = $GLOBALS['DATABASE']->fetch_array($sql)){
-				if(empty($result['user'])){
-				 $this->user = array( 'one' => '0'); 	
-				}
-				else{
-					$this->user = unserialize($result['user']);
-					print_r($this->user);
-				}		
-			}
-			$help = array_key_exists($USER['username'], $this->user);
-			if((!empty($help) || isset($help)) && $help != false ){
-				return false;
-			}
-			else{
-				return true;
-			}
+		if($USER['has_vote'] != 0){
+			return false;
 		}
-		return false;
+		else{
+			return true;
+		}
 	}
 	
 	protected function insertVote($id){
 		global $USER;
-		if($this->checkVote($id)){
+		if($this->checkVote()){
 			$sql  = $GLOBALS['DATABASE']->query("SELECT (votes_ig) FROM ".VOTES." WHERE id='".$id."'");
 			foreach ($sql as $data){
 				$number = $data['votes_ig']+1;
@@ -108,9 +94,8 @@ class ShowVotePage extends AbstractPage
 			if(empty($_POST['select']) || !isset($_POST['select'])){
 				$this->error(1);
 			}
-			 array_push($this->user, $USER['username']);
-			 serialize($this->user);
-			 $GLOBALS['DATABASE']->query("UPDATE ".VOTES." SET ".$value."=".$value."+1, votes_ig= votes_ig+1, user='".serialize($this->user)."' WHERE id='".$id."'");
+			 $GLOBALS['DATABASE']->query("UPDATE ".USERS." SET has_vote='1' WHERE id='".$USER['id']."'");
+			 $GLOBALS['DATABASE']->query("UPDATE ".VOTES." SET ".$value."=".$value."+1, votes_ig= votes_ig+1 WHERE id='".$id."'");
 			 $this->showVoteSite();
 		}
 		else{
@@ -169,7 +154,7 @@ class ShowVotePage extends AbstractPage
 		$this->tplObj->assign_vars(array(
 			'vote'			=> $this->votes,
 			'vote_name'		=> $this->vote_question,
-			'usable'		=> $this->checkVote($this->vote_id),
+			'usable'		=> $this->checkVote(),
 			'one'			=> $help_a,
 			'two'			=> $help_b,
 			'tree'			=> $help_c,
