@@ -543,6 +543,7 @@ $LNG['winemp_Forum_error_3']			= 'Commander, Ihr braucht 10 Zeichen in der Beitr
 $LNG['winemp_Forum_error_4']			= 'Commander? Eure Antwort braucht 5 Zeichen!'; // Antworten müssen mehr als 5 Zeichen haben
 $LNG['winemp_Forum_error_5']			= 'Commander, die Suche hat ergeben dass der Beitrag nicht bekannt ist'; // Topic nicht bekannt
 $LNG['winemp_Forum_error_6']			= 'Commander, auf gespeerte Treads könnt ihr nicht antworten'; // Topic gespeert
+$LNG['winemp_Forum_error_7']			= 'Commander, Sie haben die maximale Anzahl an Themen erreicht.<br/> Bitte kaufen Sie ein Themenpack im Allianz-Bonus Modul'; // may beiträge
 $LNG['winemp_Forum_error_0']			= 'Commander, irgend etwas stimmt hier nicht'; // standart Fehlermeldung | keine Allianz
 $LNG['winemp_Forum_error']				= 'Achtung Fehler!'; // Fehler!!!
 $LNG['winemp_Forum_error_title']		= 'Foren Fehler'; // Forums Fehler (Title);
