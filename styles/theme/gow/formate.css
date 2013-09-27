@@ -253,7 +253,7 @@ select {
 
 #header {
 	background: url(img/4.jpg) -webkit-background-size:cover; -moz-background-size:cover; background-size:cover; 
-	position: fixed;
+
   	width: calc(100% - 250px);
 	border: none;
 }
