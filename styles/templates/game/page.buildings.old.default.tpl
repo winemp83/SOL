@@ -9,7 +9,7 @@
 			<td style="width:70%;vertical-align:top;" class="left">
 				{$List@iteration}.: 
 				{if !($isBusy.research && ($ID == 6 || $ID == 31)) && !($isBusy.shipyard && ($ID == 15 || $ID == 21)) && $RoomIsOk && $CanBuildElement && $BuildInfoList[$ID].buyable}
-				<form class="build_form" action="game.php?page=buildingsold" method="post">
+				<form class="build_form" action="game.php?page=buildingsOld" method="post">
 				
 					<input type="hidden" name="cmd" value="insert">
 					<input type="hidden" name="building" value="{$ID}">
@@ -25,7 +25,7 @@
           
 			<td>
 				<div id="time" data-time="{$List.time}"><br></div>
-				<form action="game.php?page=buildingsold" method="post" class="build_form">
+				<form action="game.php?page=buildingsOld" method="post" class="build_form">
 					<input type="hidden" name="cmd" value="cancel">
 					<button type="submit" class="build_submit onlist">{$LNG.bd_cancel}</button>
 
@@ -34,7 +34,7 @@
 			</td>
 
 			<td>
-				<form action="game.php?page=buildingsold" method="post" class="build_form">
+				<form action="game.php?page=buildingsOld" method="post" class="build_form">
 					<input type="hidden" name="cmd" value="remove">
 					<input type="hidden" name="listid" value="{$List@iteration}">
 					<button type="submit" class="build_submit onlist">{$LNG.bd_cancel}</button>
@@ -77,7 +77,7 @@
 					{else}
 						{if $RoomIsOk}
 							{if $CanBuildElement && $Element.buyable}
-							<form action="game.php?page=buildingsold" method="post" class="build_form">
+							<form action="game.php?page=buildingsOld" method="post" class="build_form">
 								<input type="hidden" name="cmd" value="insert">
 								<input type="hidden" name="building" value="{$ID}">
 								<button type="submit" class="build_submit">{if $Element.level == 0}{$LNG.bd_build}{else}{$LNG.bd_build_next_level}{$Element.levelToBuild + 1}{/if}</button>
@@ -132,7 +132,7 @@
 									</tr>
 									<tr>
 										<td colspan='2'>
-											<form action='game.php?page=buildings' method='post' class='build_form'>
+											<form action='game.php?page=buildingsOld' method='post' class='build_form'>
 												<input type='hidden' name='cmd' value='destroy'>
 												<input type='hidden' name='building' value='{$ID}'>
 												<button type='submit' class='build_submit onlist'>{$LNG.bd_dismantle}</button>

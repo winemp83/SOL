@@ -29,7 +29,7 @@
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_baumenu}</span></a>
 	<ul style="width:180px;">
 			{if isModulAvalible($smarty.const.MODULE_BUILDING)}<li style="width:180px;"><a href="game.php?page=buildings">{$LNG.lm_buildings} 2D</a></li>{/if}
-			{if isModulAvalible($smarty.const.MODULE_BUILDING)}<li style="width:180px;"><a href="game.php?page=buildingsold">{$LNG.lm_buildings} old</a></li>{/if}
+			{if isModulAvalible($smarty.const.MODULE_BUILDING)}<li style="width:180px;"><a href="game.php?page=buildingsOld">{$LNG.lm_buildings} old</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_SHIPYARD_FLEET)}<li style="width:180px;"><a href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}<li style="width:180px;"><a href="game.php?page=shipyard&amp;mode=defense">{$LNG.lm_defenses}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_RESEARCH)}<li style="width:180px;"><a href="game.php?page=research">{$LNG.lm_research}</a></li>{/if}	
@@ -59,7 +59,6 @@
         		{if !empty($hasBoard)}<li style="width:180px;"><a href="game.php?page=board" target="forum">{$LNG.lm_forums}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_CHAT)}<li style="width:180px;"><a href="game.php?page=chat">{$LNG.lm_chat}</a></li>{/if}
 			<li style="width:180px;"><a href="game.php?page=questions" target="">{$LNG.lm_faq}</a></li>
-			<li style="width:180px;"><a href="game.php?page=vote" target="">Votes</a></li>
 	</ul></li>
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_mhandel}</span></a>
 	<ul style="width:180px;">
