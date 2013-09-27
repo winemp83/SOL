@@ -94,7 +94,6 @@ class ShowVotePage extends AbstractPage
 			if(empty($_POST['select']) || !isset($_POST['select'])){
 				$this->error(1);
 			}
-			$USER['has_vote'] = 1;
 			 $GLOBALS['DATABASE']->query("UPDATE ".USERS." SET has_vote='1' WHERE id='".$USER['id']."'");
 			 $GLOBALS['DATABASE']->query("UPDATE ".VOTES." SET ".$value."=".$value."+1, votes_ig= votes_ig+1 WHERE id='".$id."'");
 			 $this->showVoteSite();

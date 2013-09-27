@@ -19,74 +19,62 @@ class ShowAllianzForumPage extends AbstractPage
 
 	protected function createTopic(){
 		global $USER;
-		$sql = $GLOBALS['DATABASE']->query("SELECT COUNT(id) FROM ".ALLYTOPIC." WHERE ally_id='".$USER['ally_id']."'");
-		$SQL = $GLOBALS['DATABASE']->query("SELECT (topics) FROM ".ALLIBONUS." WHERE id='".$USER['ally_id']."'");
-		foreach($SQL as $check){
-			$check_b = $check['topics'];
-		}
-		foreach($sql as $check){
-			$check_a = $check['COUNT(id)'];
-		}
-		if($check_a >= ($check_b +5)){
-			$this->error(7);
+		if(empty(HTTP::_GP('step',''))){
+			$step = 1;
 		}
 		else{
-			if(empty(HTTP::_GP('step',''))){
-				$step = 1;
-			}
-			else{
-				$step = HTTP::_GP('step','');
-			}
-			switch ($step){
-				case 1 :
-						$this->display('AllyForum_createTopic.tpl');
-						break;
-				case 2 :
-						if(strlen($_POST['topicName']) >= 3 && strlen($_POST['text']) >= 10){
-							$topicName = $_POST['topicName'];
-							$user = $USER['username'];
-							$text = $_POST['text'];
-							$alli = $USER['ally_id'];
-							$GLOBALS['DATABASE']->multi_query("INSERT INTO ".ALLYTOPIC." SET
-								topic_name				= '".$GLOBALS['DATABASE']->sql_escape($topicName)."',
-								ally_id					= '".$alli."',
-								author					= '".$user."',
-								createtime				= '".time()."',
-								close					= '0' ;
-								SET @topicID = LAST_INSERT_ID();
-								INSERT INTO ".TOPICANSWER." SET 
-								topic_id 				= @topicID,
-								createtime				= '".time()."',
-								author					= '".$user."',
-								ally					= '".$alli."',
-								text					= '".$GLOBALS['DATABASE']->sql_escape($text)."';"
-							);
-							$sql = "SELECT * FROM ".ALLYTOPIC." WHERE ally_id='".$alli."' AND author='".$user."'";
-							$result = $GLOBALS['DATABASE']->query($sql);
-							$help = 0;
-							foreach($result as $data){
-								$a = $data['id'];
-								if($help < $a){
-									$help = $a;
-								}
-							}
-							$this->showTopic($help);
-						}
-						else{
-							if(strlen($_POST['topicName']) <3){
-								$this->error(2);
-							}
-							elseif(strlen($_POST['text']) < 10){
-								$this->error(3);
+			$step = HTTP::_GP('step','');
+		}
+		switch ($step){
+			case 1 :
+					$this->display('AllyForum_createTopic.tpl');
+					break;
+			case 2 :
+					if(strlen($_POST['topicName']) >= 3 && strlen($_POST['text']) >= 10){
+						$topicName = $_POST['topicName'];
+						$user = $USER['username'];
+						$text = $_POST['text'];
+						$alli = $USER['ally_id'];
+						$GLOBALS['DATABASE']->multi_query("INSERT INTO ".ALLYTOPIC." SET
+							topic_name				= '".$GLOBALS['DATABASE']->sql_escape($topicName)."',
+							ally_id					= '".$alli."',
+							author					= '".$user."',
+							createtime				= '".time()."',
+							close					= '0' ;
+							SET @topicID = LAST_INSERT_ID();
+							INSERT INTO ".TOPICANSWER." SET 
+							topic_id 				= @topicID,
+							createtime				= '".time()."',
+							author					= '".$user."',
+							ally					= '".$alli."',
+							text					= '".$GLOBALS['DATABASE']->sql_escape($text)."';"
+						);
+						$sql = "SELECT * FROM ".ALLYTOPIC." WHERE ally_id='".$alli."' AND author='".$user."'";
+						$result = $GLOBALS['DATABASE']->query($sql);
+						$help = 0;
+						foreach($result as $data){
+							$a = $data['id'];
+							if($help < $a){
+								$help = $a;
 							}
 						}
-						break;
-				default:
-						$this->display('AllyForum_createTopic.tpl');
-						break;
-			}
+						$this->showTopic($help);
+					}
+					else{
+						if(strlen($_POST['topicName']) <3){
+							$this->error(2);
+						}
+						elseif(strlen($_POST['text']) < 10){
+							$this->error(3);
+						}
+					}
+					break;
+			default:
+					$this->display('AllyForum_createTopic.tpl');
+					break;
 		}
 	}
+	
 	protected function answerTopic($id){
 		global $USER;
 		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".TOPICANSWER." WHERE topic_id='".$id."'");
@@ -410,8 +398,6 @@ class ShowAllianzForumPage extends AbstractPage
 			case 5 : $msg = $LNG['winemp_Forum_error_5']; // Topic nicht bekannt
 					break;
 			case 6 : $msg = $LNG['winemp_Forum_error_6']; // Topic gespeert
-					break;
-			case 7 : $msg = $LNG['winemp_Forum_error_7']; //  max Topic's erreicht gespeert
 					break;
 			default: $msg = $LNG['winemp_Forum_error_0'];
 					break;
