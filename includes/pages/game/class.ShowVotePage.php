@@ -25,18 +25,25 @@ class ShowVotePage extends AbstractPage
 	
 	protected function menue(){
 		$menue = HTTP::_GP('menue', '');
+		if(!empty($_POST['id'])){
+			$id = $_POST['id'];
+		}
+		else{
+			$id = 0;
+		}
+		
 		switch ($menue){
-			case 1 : 
+			case 1 : $this->insertVote($id);
 					break;
-			default: showVoteSite();
+			default : $this->showVoteSite();
 					break;
-		} 
+		}
 	}
 	
 	protected function error($id){
 		global $LNG;
 		switch ($id){
-			case 1 : $msg = $LNG['winemp_Vote_error_1']; 
+			case 1 : $msg = $LNG['winemp_Vote_error_1']; //nix angegeben
 					break;
 			case 2 : $msg = $LNG['winemp_Vote_error_2']; 
 					break; 
@@ -60,45 +67,108 @@ class ShowVotePage extends AbstractPage
 	
 	protected function checkVote($vote_id){
 		global $USER;
-		$sql = $GLOBALS['DATABASE']->query("SELECT (votes) FROM ".VOTES." WHERE id='".$vote_id."'");
-		while($result =$GLOBALS['DATABASE']->fetch_array($sql)){
-			$this->user = unserialize($result['votes']);
+		$sql = $GLOBALS['DATABASE']->query("SELECT (user) FROM ".VOTES." WHERE id='".$vote_id."'");
+		if(!empty($sql)){
+			while($result = $GLOBALS['DATABASE']->fetch_array($sql)){
+				if(empty($result['user'])){
+				 $this->user = array( 'one' => '0'); 	
+				}
+				else{
+					$this->user = unserialize($result['user']);
+					print_r($this->user);
+				}		
+			}
+			$help = array_key_exists($USER['username'], $this->user);
+			if((!empty($help) || isset($help)) && $help != false ){
+				return false;
+			}
+			else{
+				return true;
+			}
 		}
-		$help = array_search($USER['id'], $this->user);
-		if((!empty($help) || isset($help)) && $help != false ){
-			return false;
+		return false;
+	}
+	
+	protected function insertVote($id){
+		global $USER;
+		if($this->checkVote($id)){
+			$sql  = $GLOBALS['DATABASE']->query("SELECT (votes_ig) FROM ".VOTES." WHERE id='".$id."'");
+			foreach ($sql as $data){
+				$number = $data['votes_ig']+1;
+			}
+			if($_POST['select'] == 1){
+				$value = 'one';
+			}
+			if($_POST['select'] == 2){
+				$value = 'two';
+			}
+			if($_POST['select'] == 3){
+				$value = 'tree';
+			}
+			if(empty($_POST['select']) || !isset($_POST['select'])){
+				$this->error(1);
+			}
+			 array_push($this->user, $USER['username']);
+			 serialize($this->user);
+			 $GLOBALS['DATABASE']->query("UPDATE ".VOTES." SET ".$value."=".$value."+1, votes_ig= votes_ig+1, user='".serialize($this->user)."' WHERE id='".$id."'");
+			 $this->showVoteSite();
 		}
 		else{
-			return true;
+			$this->error(10);
 		}
 	}
 	
 	protected function showVoteSite(){
-		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".VOTES." ORDER BY DESC id LIMIT 1");
-		while($votesResult = $GLOBALS['DATABASE']->fetch_array()){
-				$this->vote_question = $votesResult['question'];
-				$this->vote_id = $votesResult['id'];
-				$this->vote_ig =  $votesResult['votes_ig'];
-				$this->vote_one		= $votesResult['vote_one'];
-				$this->vote_two		= $votesResult['vote_two'];
-				$this->vote_tree	= $votesResult['vote_tree'];
-				$this->votes[] = array(
-				 'option_one' 	=> $voteResult['one'],
-				 'option_two' 	=> $voteResult['two'],
-				 'option_tree' 	=> $voteResult['tree'],
-				 'desc_one' 	=> $voteResult['desc_one'],
-				 'desc_two' 	=> $voteResult['desc_two'],
-				 'desc_tree' 	=> $voteResult['desc_tree'], 
-				); 
-		}
-		$help = $this->vote_ig / 100;
-		$help_a = $this->vote_one / $help;
-		$help_b = $this->vote_two / $help;
-		$help_c = $this->vote_tree / $help;
 		
+		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".VOTES." WHERE close='0'");
+		if(!empty($sql)){
+			while($votesResult = $GLOBALS['DATABASE']->fetch_array($sql)){
+					$this->vote_question 	= $votesResult['question'];
+					$this->vote_id 			= $votesResult['id'];
+					$this->vote_ig 			= $votesResult['votes_ig'];
+					$this->vote_one			= $votesResult['one'];
+					$this->vote_two			= $votesResult['two'];
+					$this->vote_tree		= $votesResult['tree'];
+					$this->votes[] = array(
+				 	'option_one' 	=> $votesResult['ans_one'],
+				 	'option_two' 	=> $votesResult['ans_two'],
+				 	'option_tree' 	=> $votesResult['ans_tree'],
+				 	'desc_one' 		=> $votesResult['desc_one'],
+				 	'desc_two' 		=> $votesResult['desc_two'],
+				 	'desc_tree' 	=> $votesResult['desc_tree'], 
+					);
+			} 
+		}
+		if($this->vote_ig == 0){
+			$this->vote_ig = 1;
+		}
+		if($this->vote_ig != 0 ){
+			$help = $this->vote_ig / 100;	
+		}
+		else{
+			$help = 0;
+		}
+		if($this->vote_one != 0){
+			$help_a = ceil($this->vote_one / $help);
+		}
+		else{
+			$help_a = 0;
+		}
+		if($this->vote_two != 0){
+			$help_b = ceil($this->vote_two / $help);
+		}
+		else{
+			$help_b = 0;
+		}
+		if($this->vote_tree != 0){
+			$help_c = ceil($this->vote_tree / $help);
+		}
+		else{
+			$help_c = 0;
+		}
 		$this->tplObj->assign_vars(array(
 			'vote'			=> $this->votes,
-			'vote_name'		=> $vote_question,
+			'vote_name'		=> $this->vote_question,
 			'usable'		=> $this->checkVote($this->vote_id),
 			'one'			=> $help_a,
 			'two'			=> $help_b,
