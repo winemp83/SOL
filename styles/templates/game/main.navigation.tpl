@@ -17,6 +17,7 @@
 
 
 <ul id="css3menu1" >
+<li style="width:180px;"><a href="game.php?page=Vote">{$LNG.lm_Vote}</a></li>
 <li class="topfirst"><a href="#" style="width:190px;" id="item-1"><span>{$LNG.lm_overview}</span></a>
 	<ul style="width:180px;  ">
                         <li style="width:180px;"><a href="game.php?page=overview">{$LNG.lm_overview}</a></li>	
