@@ -1,17 +1,30 @@
 {include file="overall_header.tpl"}
-<table width="90%">
+
+
+
+<table style=" background-color: #000000;">
+<tbody>
 <tr>
-	<th>
-		Allianz Übersicht
+{foreach item=alli from=$list}
+<td>
+<table style="width:950px;">
+<tbody>
+<tr>
+	<th colspan="5">
+	{$alli.a_name}
 	</th>
 </tr>
-{foreach item=alli from=$list}
-<tr>
-	<th>
-		<table width="75%">
-			<tr>
-				<th colspan="4">{$alli.a_name}</th>
-			</tr>
+
+
+
+<table>
+
+
+
+
+	
+		<table width="90%">
+			
 			<tr>
 			 	<th>ALLIANZ ID</th>
 			 	<th>ALLIANZ NAME</th>
@@ -100,9 +113,69 @@
 			 	</table> 
 			 	</th>
 			 </tr>
-		</table>
-	</th>
-</tr>
+		
+		<table>
+	
 {/foreach}
+
+
+
+</table>	
+
+		
+
+
 </table>
+
+
+
+</table>
+</td>
+</tr>
+</tbody>
+</table>
+
+</td>
+</tr>
+</tbody>
+</table>
+
+<table width="100%">
+
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 {include file="overall_footer.tpl"}
