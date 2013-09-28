@@ -18,7 +18,7 @@ function show()
 {
 		global $USER, $LNG;
 
-		$lista = $GLOBALS['DATABASE']->query("SELECT * FROM ".USERS." WHERE `ally_id` = '0' ORDER BY id");
+		$lista = $GLOBALS['DATABASE']->query("SELECT * FROM ".USERS." WHERE `ally_id` = '0' AND authlevel='0' ORDER BY id");
 		while($listau = $GLOBALS['DATABASE']->fetch_array($lista))
 		{
 			$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".STATPOINTS." WHERE id_owner='".$listau['id']."' AND stat_type='1'");

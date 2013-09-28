@@ -1,6 +1,10 @@
 {include file="overall_header.tpl"}
-<div width="75%">Allianz Übersicht</div>
 <table width="90%">
+<tr>
+	<th>
+		Allianz Übersicht
+	</th>
+</tr>
 {foreach item=alli from=$list}
 <tr>
 	<th>

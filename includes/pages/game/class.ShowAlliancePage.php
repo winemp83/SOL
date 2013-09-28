@@ -1553,7 +1553,7 @@ class ShowAlliancePage extends AbstractPage
 			$price_seven_m = ceil(((($seven*$seven)*192826)/7)*sqrt(18*$seven));
 			$price_seven_k = ceil(((($seven*$seven)*256341)/7)*sqrt(21*$seven));
 			$price_seven_d = ceil(((($seven*$seven)*192463)/7)*sqrt(11*$seven));
-			print_r($_POST);
+
 			if(!isset($_POST['what'])){
 				$_POST['what'] = 0;
 			}
