@@ -33,15 +33,18 @@
 		{if allowedTo('ShowMessageListPage')}<li><a href="?page=messagelist" target="Hauptframe">{$LNG.mu_mess_list}</a></li>{/if}
 		{if allowedTo('ShowAccountDataPage')}<li><a href="?page=accountdata" target="Hauptframe">{$LNG.mu_info_account_page}</a></li>{/if}
 		{if allowedTo('ShowSearchPage')}<li><a href="?page=search" target="Hauptframe">{$LNG.mu_search_page}</a></li>{/if}
-	    {if allowedTo('ShowEventPlanet')}<li><a href="?page=eventplanet" target="Hauptframe">{$LNG.ev_eventplanet}</a></li>{/if}
 		{if allowedTo('ShowMultiIPPage')}<li><a href="?page=multiips" target="Hauptframe">{$LNG.mu_multiip_page}</a></li>{/if}
+		<li><a href="javascript:void(0);"><span style="color:lime">Eigen Module</span></a></li>
 		<li><a href="?page=Vote" target="Hauptframe">Votings</a></li>
 		<li><a href="?page=Forum" target="Hauptframe">Foren Anzeigen!</a></li>
+		<li><a href="?page=AlliOver" target="Hauptframe">Allianz Übersicht</a></li>
+		{if allowedTo('ShowSendMessagesPage')}<li><a href="?page=DMGutschein" target="Hauptframe">Gutscheine</a></li>{/if}
+	    {if allowedTo('ShowEventPlanet')}<li><a href="?page=eventplanet" target="Hauptframe">{$LNG.ev_eventplanet}</a></li>{/if}
 		<li><a href="javascript:void(0);"><span style="color:lime">{$LNG.mu_tools}</span></a></li>
 		{if allowedTo('ShowLogPage')}<li><a href="?page=log" target="Hauptframe">{$LNG.mu_logs}</a>
 </li>{/if}{if allowedTo('ShowSendMessagesPage')}<li><a href="?page=globalmessage" target="Hauptframe">{$LNG.mu_global_message}</a></li>{/if}
 
-{if allowedTo('ShowSendMessagesPage')}<li><a href="?page=DMGutschein" target="Hauptframe">Gutscheine</a></li>{/if}		{if allowedTo('ShowPassEncripterPage')}<li><a href="?page=password" target="Hauptframe">{$LNG.mu_md5_encripter}</a></li>{/if}
+		{if allowedTo('ShowPassEncripterPage')}<li><a href="?page=password" target="Hauptframe">{$LNG.mu_md5_encripter}</a></li>{/if}
 		{if allowedTo('ShowStatUpdatePage')}<li><a href="?page=statsupdate" target="Hauptframe" onClick=" return confirm('{$LNG.mu_mpu_confirmation}');">{$LNG.mu_manual_points_update}</a></li>{/if}
 		{if allowedTo('ShowClearCachePage')}<li><a href="?page=clearcache" target="Hauptframe">{$LNG.mu_clear_cache}</a></li>{/if}
 		<li style="background-image: url('./styles/theme/gow/img/menu-foot.png');height:30px;"></li>

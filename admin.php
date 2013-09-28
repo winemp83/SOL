@@ -224,6 +224,10 @@ switch($page)
 		include_once('includes/pages/adm/ShowVotePage.php');
 		ShowVotePage();
 	break;
+	case 'AlliOver':
+		include_once('includes/pages/adm/ShowAllianzoverviewPage.php');
+		ShowAllianzOverview();
+	break;
 	// TF-Event-Mod 1.7.2
        case 'eventplanet':
         include_once(ROOT_PATH . 'includes/pages/adm/ShowEventplanet.php');
