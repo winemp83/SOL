@@ -232,13 +232,34 @@ class ShowFleetStep3Page extends AbstractPage
 		
 			$IsNoobProtec	= CheckNoobProtec($USER, $targetPlayerData, $targetPlayerData);
 			
-			if ($IsNoobProtec['NoobPlayer']) {
+			$check_A = 0;
+			$check_B = 0;
+			
+			$sql = $GLOBALS['DATABASE']->query("SELECT (total_points) FROM ".STATPOINTS." WHERE id_owner='".$USER['id']."'");
+			$Sql = $GLOBALS['DATABASE']->query("SELECT (total_points) FROM ".STATPOINTS." WHERE id_owner='".$targetPlanetData['id_owner']."'");
+			foreach($sql as $data){
+				$check_A = $data['total_points'];
+			}
+			foreach($Sql as $Data){
+				$check_B = $Data['total_points'];
+			}
+	
+			if($check_A < 100000 && $check_B >= 100000){
+				$time_a = time() + (60*60*24);
+				$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET noob='0', noob_time='".$time_a."' WHERE id='".$USER['id']."'");
+			}
+			
+			elseif ($IsNoobProtec['NoobPlayer']) {
 				$this->printMessage($LNG['fl_player_is_noob']);
 			}
 			
-			if ($IsNoobProtec['StrongPlayer']) {
+			elseif ($IsNoobProtec['StrongPlayer']) {
 				$this->printMessage($LNG['fl_player_is_strong']);
 			}
+			
+			
+
+			
 		}
 
 		if ($targetMission == 5) {

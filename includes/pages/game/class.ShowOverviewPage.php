@@ -387,8 +387,8 @@ class ShowOverviewPage extends AbstractPage
 			'bo_d2'				=> $two['d2'],
 			'bo_d3'				=> $two['d3'],
 			'bo_d4'				=> $two['d4'],
-			'bo_d5'				=> $two['d5'],
-			'bo_d6'				=> $two['d6'],
+			'bo_d5'				=> $two['d6'],
+			'bo_d6'				=> $two['d5'],
 			'bo_d7'				=> $two['d7'],
 			
 			));

@@ -22,12 +22,12 @@
 			<td colspan="1">Gamer online:</td>
 			<td colspan="5">{$online}</td>
 		</tr> 
-{* Spezial-Event-Mod 1.7.2  Start *} 
+
     <tr>
 		<th>{$eventplaneten}</th>
         {$aktiv_ev}
      </tr> 
-{* Spezial-Event-Mod 1.7.2  / End*} 
+
 		{if !empty($chatOnline)}
 		<tr>
 			<td colspan="1" style="white-space: nowrap;">{$LNG.ov_chat_online}</td>
@@ -438,19 +438,19 @@
 		</tr>
 		<tr>
 			<th>{$LNG.winemp_alliBonus_5}</th>
-			<td>{if $bo_d5 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_def} %{/if}</td>
+			<td>{if $bo_d3 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_def} %{/if}</td>
 		</tr>
 		<tr>
 			<th>{$LNG.winemp_alliBonus_6}</th>
-			<td>{if $bo_d6 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_atk} %{/if}</td>
-		</tr>
-		<tr>
-			<th>{$LNG.winemp_alliBonus_3}</th>
-			<td>{if $bo_d3 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_bui} %{/if}</td>
+			<td>{if $bo_d4 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_atk} %{/if}</td>
 		</tr>
 		<tr>
 			<th>{$LNG.winemp_alliBonus_4}</th>
-			<td>{if $bo_d4 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_res} %{/if}</td>
+			<td>{if $bo_d5 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_bui} %{/if}</td>
+		</tr>
+		<tr>
+			<th>{$LNG.winemp_alliBonus_3}</th>
+			<td>{if $bo_d6 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_res} %{/if}</td>
 		</tr>
 		<tr>
 			<th>{$LNG.winemp_alliBonus_7}</th>

@@ -422,6 +422,7 @@ function CheckPlanetIfExist($Galaxy, $System, $Planet, $Universe, $Planettype = 
 function CheckNoobProtec($OwnerPlayer, $TargetPlayer, $Player)
 {	
 	global $CONF;
+	
 	if(
 		Config::get('noobprotection') == 0 
 		|| Config::get('noobprotectiontime') == 0 
@@ -432,7 +433,15 @@ function CheckNoobProtec($OwnerPlayer, $TargetPlayer, $Player)
 		return array('NoobPlayer' => false, 'StrongPlayer' => false);
 	}
 	
+	if($TargetPlayer['total_points'] <= 500){
+		return array('NoobPlayer' => true, 'StrongPlayer' => false);	
+	}
+	elseif($TargetPlayer['total_points'] >= 100000 && $OwnerPlayer['total_points'] >= 100000){
+		return array('NoobPlayer' => false, 'StrongPlayer' => false);
+	}
+	else{
 	return array(
+			
 		'NoobPlayer' => (
 			/* WAHR: 
 				Wenn Spieler mehr als 25000 Punkte hat UND
@@ -440,20 +449,21 @@ function CheckNoobProtec($OwnerPlayer, $TargetPlayer, $Player)
 				ODER weniger als 5.000 hat.
 			*/
 			// Addional Comment: Letzteres ist eigentlich sinnfrei, bitte testen.a
-			($TargetPlayer['total_points'] <= 25000) && // Default: 25.000
-			($OwnerPlayer['total_points'] > ($TargetPlayer['total_points'] * 0.8))
+			
+			($TargetPlayer['total_points'] > 500) && // Default: 25.000
+			($OwnerPlayer['total_points'] > ($TargetPlayer['total_points'] * 1.5))
 		), 
 		'StrongPlayer' => (
 			/* WAHR: 
 				Wenn Spieler weniger als 5000 Punkte hat UND
 				Mehr als das funfache der eigende Punkte hat
 			*/
-			($OwnerPlayer['total_points'] < 25000) && // Default: 25.000
-			(($OwnerPlayer['total_points'] * 0.8) < $TargetPlayer['total_points'])
+			($OwnerPlayer['total_points'] < 500) && // Default: 25.000
+			(($OwnerPlayer['total_points'] * 3) < $TargetPlayer['total_points'])
 		),
 	);
 }
-
+}
 function CheckName($name)
 {
 	if(UTF8_SUPPORT) {

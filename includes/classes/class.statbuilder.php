@@ -379,6 +379,15 @@ class statbuilder
 		
 		$GLOBALS['DATABASE']->free_result($TotalData['Planets']);
 		
+		$time_a = time();
+		
+		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_users WHERE noob!= 1");
+		foreach($sql as $data){
+			if($data['noob_time'] <= $time_a){
+				$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET noob='1' WHERE id='".$data['id']."'");
+			}
+		}
+		
 		$UniData	= array();
 		
 		while($UserData	= $GLOBALS['DATABASE']->fetch_array($TotalData['Users']))
