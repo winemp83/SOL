@@ -165,16 +165,17 @@ textarea.tinymce{
 
 /** HEADER **/
 #header {
-	padding:5px 10px;
-	margin-left:5px;
-	margin-right:5px;
-	height:115px;
-	min-width:665px;
-	max-width: 80%;
-	overflow: hidden;
-	z-index: 6;
-}
+	padding: 0px 0px 0px 200px;
 
+	height:115px;
+	min-width:1000px;
+
+	overflow: hidden;
+
+}
+#menu-ausrichtung {
+	margin: -120px 0px 0px 0px;
+}
 #headerTable {
 	width:100%;
 	height: 120px;
@@ -217,7 +218,7 @@ textarea.tinymce{
 
 #resourceTable td{
 	margin:0 5px;
-	min-width:130px;
+	min-width:120px;
 }
 
 #resourceTable img {
@@ -384,20 +385,34 @@ div#disclamer_r {
 /* CONTENT */
 
 #page {
-	margin-left:200px;
+	margin-left:100px;
 	padding:0;
 }
 
 #content, .infobox {
-	margin:10px 10px 0 ;
-	padding:10px 10px 5px 10px;
+	margin:10px 10px 10px 0px ;
+	padding:150px 10px 100px 150px;
+    position:absolute ;
+    top: 0px;
+    left: 200px;
+
 
 }
 
+#content1,{
+	margin:10px 10px 10px 0px ;
+	padding:10px 10px 5px 10px;
+		max-width:1000px;
+	min-width:700px;
+	vertical-align: center;
+ 
+
+}
 .full #content > table, .full form > table {
 	max-width:1000px;
-	min-width:500px;
+	min-width:700px;
 	vertical-align: center;
+	
 }
 
 .left{
