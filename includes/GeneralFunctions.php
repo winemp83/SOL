@@ -422,13 +422,13 @@ function CheckPlanetIfExist($Galaxy, $System, $Planet, $Universe, $Planettype = 
 function CheckNoobProtec($OwnerPlayer, $TargetPlayer, $Player)
 {	
 	global $CONF;
-	
 	if(
 		Config::get('noobprotection') == 0 
 		|| Config::get('noobprotectiontime') == 0 
 		|| Config::get('noobprotectionmulti') == 0 
 		|| $Player['banaday'] > TIMESTAMP
 		|| $Player['onlinetime'] < TIMESTAMP - INACTIVE
+		|| $TargetPlayer['noob'] != 1
 	) {
 		return array('NoobPlayer' => false, 'StrongPlayer' => false);
 	}
