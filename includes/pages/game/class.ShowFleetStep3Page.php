@@ -257,9 +257,7 @@ class ShowFleetStep3Page extends AbstractPage
 				$Message = '<p style="color:gold;">"Commander, durch den Angriff auf den Spieler <span style="color:red;">'.$target_user.'</span> haben Sie ihren Noobschutz für 24 Stunden verloren.<br/>In dieser Zeit sind sie von allen Spielern angreifbar!</p>';
 				SendSimpleMessage($USER['id'], 1, time(), 50, $From, $Subject, $Message);
 			}
-			elseif($check_B < 500){
-				$this->printMessage($LNG['fl_player_is_noob']);
-			}
+			
 			elseif ($IsNoobProtec['NoobPlayer']) {
 				$this->printMessage($LNG['fl_player_is_noob']);
 			}
