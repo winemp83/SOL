@@ -1,7 +1,5 @@
 {include file="overall_header.tpl"}
-
-
-
+{if $member_show == false && $bank_show == false}
 <table style=" background-color: #000000;">
 <tbody>
 <tr>
@@ -115,67 +113,23 @@
 			 </tr>
 		
 		<table>
-	
 {/foreach}
-
-
-
 </table>	
-
-		
-
-
 </table>
-
-
-
 </table>
 </td>
 </tr>
 </tbody>
 </table>
-
 </td>
 </tr>
 </tbody>
 </table>
-
 <table width="100%">
-
 </table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{/if}
+{if $member_show}
+{/if}
+{if bank_show}
+{/if}
 {include file="overall_footer.tpl"}

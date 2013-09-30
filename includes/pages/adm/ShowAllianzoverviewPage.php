@@ -4,6 +4,8 @@ if (!allowedTo(str_replace(array(dirname(__FILE__), '\\', '/', '.php'), '', __FI
 function ShowAllianzOverview(){
 	$template	= new template();
 	$alliance = array();
+	$members = array();
+
 	if(!isset($_POST['menue']) || empty($_POST['menue'])){
 		$menue = 0;
 	}
@@ -12,13 +14,25 @@ function ShowAllianzOverview(){
 	}
 	
 	switch ($menue){
-		case 1 :
+		case 1 : 
+				$sql = $GLOBALS->query("SELECT * FROM uni1_users WHERE ally_id='".$_POST['ally_id']."'");
+				while($result = $GLOBALS['DATABASE']->fetch_array($sql)){
+					
+					$members[] = array(
+						'name'			=> $result['username'],
+						'id'			=> $result['id'],
+						'last_online'	=> date("d.m.Y H:i:s", $result['onlinetime']),
+						'ally_reg'		=> date("d.m.Y H:i:s", $result['onlinetime']),
+					);
+					
+				}
 				break;
 		default:
 				$sql = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_alliance");
 				while($result = $GLOBALS['DATABASE']->fetch_array($sql)){
 					$sql1 = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_alli_bonus WHERE id='".$result['id']."'");
 					while($result2 = $GLOBALS['DATABASE']->fetch_array($sql1)){
+				
 						$bonus = array(
 							'pro'		=> $result2['produktion'],
 							'def'		=> $result2['defense'],
@@ -58,8 +72,10 @@ function ShowAllianzOverview(){
 			
 				}
 				$template->assign_vars(array(
-					'list'		=>$alliance,
-					'bonus'		=>$bonus,
+					'list'			=>$alliance,
+					'bonus'			=>$bonus,
+					'member_show'	=> false,
+					'bank_show'		=> false,
 				));
 				$template->show('AllianzOverview.tpl');
 				break;
