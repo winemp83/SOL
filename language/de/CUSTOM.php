@@ -585,6 +585,7 @@ $LNG['lm_themaedit']				= 'Dummy4'; // Thema Edit
 //Allianz Forum Overview
 $LNG['alliforumlink']				= 'Zum Forum'; // Overview Button Direkt link
 $LNG['lm_faq']						= 'F.A.Q';
+$LNG['al_alliance_max_members']		= 'Die Allianz hat die maximale Anzahl an Mitgliedern erreicht!<br/> Bitte kaufen sie neue Slots';
 
 // Galaxie liste neue Option Save flug!
 $LNG['icey_gala_saveflug']			= 'Save Flug (inaktiv)';

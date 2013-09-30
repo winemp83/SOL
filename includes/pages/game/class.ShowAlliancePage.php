@@ -256,11 +256,24 @@ class ShowAlliancePage extends AbstractPage
 		$text		= HTTP::_GP('text' , '', true);
 		$allianceID	= HTTP::_GP('id', 0);
 			
-		$allianceResult = $GLOBALS['DATABASE']->getFirstRow("SELECT ally_tag, ally_request, ally_request_notallow FROM ".ALLIANCE." WHERE id = ".$allianceID." AND ally_universe = ".$UNI.";");
+		$allianceResult = $GLOBALS['DATABASE']->getFirstRow("SELECT ally_tag, ally_request, ally_request_notallow, ally_members FROM ".ALLIANCE." WHERE id = ".$allianceID." AND ally_universe = ".$UNI.";");
 
 		if (!isset($allianceResult)) {
 			$this->redirectToHome();
 		}
+		
+		$sql = $GLOBALS['DATABASE']->query("SELECT (slots) FROM ".ALLYBONUS." WHERE id='".$allianceID."'");
+		foreach($sql as $data){
+			$check_a = $data['slots'];
+		}
+		
+		
+		$check_a += 5;
+		
+		if($check_a >= $allianceResult['ally_members']){
+			$this->printMessage($LNG['al_alliance_max_members']);
+		}
+		
 		
 		if($allianceResult['ally_request_notallow'] == 1)
 		{
