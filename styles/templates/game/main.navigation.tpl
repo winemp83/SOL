@@ -1,8 +1,23 @@
 ﻿<div id="leftmenu-ingame">
 
-	<div id="header" >
+<div id="header" >
+	<div id="extra-m1">
+
+		<ul id="extra-m">
+			<li>{if isModulAvalible($smarty.const.MODULE_SUPPORT)}<li style="width:180px;"><a href="game.php?page=ticket">{$LNG.lm_support}</a></li>{/if}</li>
+			{if isModulAvalible($smarty.const.MODULE_NOTICE)}<li style="width:180px;"><a href="javascript:OpenPopup('?page=notes', 'notes', 720, 300);">{$LNG.lm_notes}</a></li>{/if}
+			{if !empty($hasBoard)}<li style="width:180px;"><a href="game.php?page=board" target="forum">{$LNG.lm_forums}</a></li>{/if}
+			{if isModulAvalible($smarty.const.MODULE_CHAT)}<li style="width:180px;"><a href="game.php?page=chat">{$LNG.lm_chat}</a></li>{/if}
+			<li style="width:180px;"><a href="game.php?page=questions" target="">{$LNG.lm_faq}</a></li>
+		        {if isModulAvalible($smarty.const.MODULE_SIMULATOR)}<li style="width:180px;"><a href="game.php?page=battleSimulator">{$LNG.lm_msimu}</a></li>{/if}
+			{if isModulAvalible($smarty.const.MODULE_TECHTREE)}<li style="width:180px;"><a href="game.php?page=techtree">{$LNG.lm_mtech}</a></li>{/if}
+
+		</ul>	
+	</div>
+
 		<table id="headerTable"> 
 <tbody>
+
 				<tr>
 				<td id="resourceWrapper">
 						<table id="resourceTable">
@@ -120,15 +135,14 @@
 
 
 <ul id="css3menu1" >
-<li style="width:180px;"><a href="game.php?page=Vote">{$LNG.lm_Vote}</a></li>
 <li class="topfirst"><a href="#" style="width:190px;" id="item-1"><span>{$LNG.lm_overview}</span></a>
 	<ul style="width:180px;  ">
                         <li style="width:180px;"><a href="game.php?page=overview">{$LNG.lm_overview}</a></li>	
 			{if isModulAvalible($smarty.const.MODULE_IMPERIUM)}<li style="width:180px;"><a href="game.php?page=imperium">{$LNG.lm_empire}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_RESSOURCE_LIST)}<li style="width:180px;"><a href="game.php?page=resources">{$LNG.lm_resources}</a></li>{/if}
-			{if isModulAvalible($smarty.const.MODULE_TUTORIAL)}<li style="width:180px;"><a href="game.php?page=tutorial">{$LNG.tut_tut}</a></li>{/if}
-			<li style="width:180px;"><a href="?page=achievement">{$LNG.lm_merrung}</a></li>
-		        {if isModulAvalible($smarty.const.MODULE_SIMULATOR)}<li style="width:180px;"><a href="game.php?page=battleSimulator">{$LNG.lm_msimu}</a></li>{/if}
+			{if isModulAvalible($smarty.const.MODULE_GALAXY)}<li style="width:180px;"><a href="game.php?page=galaxy">{$LNG.lm_mgala2d}</a></li>{/if}	
+			{if isModulAvalible($smarty.const.MODULE_GALAXY)}<li style="width:180px;"><a href="game.php?page=galaxyOld">{$LNG.lm_mgalalist}</a></li>{/if}
+
 	</ul></li>
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_baumenu}</span></a>
 	<ul style="width:180px;">
@@ -145,9 +159,14 @@
 
     			{if isModulAvalible($smarty.const.MODULE_STATISTICS)}<li style="width:180px;"><a href="game.php?page=statistics">{$LNG.lm_statistics}</a></li>{/if}
    			{if isModulAvalible($smarty.const.MODULE_RECORDS)}<li style="width:180px;"><a href="game.php?page=records">{$LNG.lm_records}</a></li>{/if}
-   			{if isModulAvalible($smarty.const.MODULE_TECHTREE)}<li style="width:180px;"><a href="game.php?page=techtree">{$LNG.lm_mtech}</a></li>{/if}
    			{if isModulAvalible($smarty.const.MODULE_BATTLEHALL)}<li style="width:180px;"><a href="game.php?page=battleHall">{$LNG.lm_topkb}</a></li>{/if}
+	</ul></li>
+	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_mquest}</span></a>
+	<ul style="width:180px;">
 
+ 	 
+			{if isModulAvalible($smarty.const.MODULE_TUTORIAL)}<li style="width:180px;"><a href="game.php?page=tutorial">{$LNG.tut_tut}</a></li>{/if}
+			<li style="width:180px;"><a href="?page=achievement">{$LNG.lm_merrung}</a></li>
         </ul></li>
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_malli}</span></a>
 	<ul style="width:180px;">
@@ -155,14 +174,6 @@
         		<li style="width:180px;"><a href="game.php?page=alliBank">{$LNG.lm_mallib}</a></li>
         		<li style="width:180px;"><a href="game.php?page=allianzForum">{$LNG.lm_malliForum}</a></li>
 
-	</ul></li>
-	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_mcommunity}</span></a>
-	<ul style="width:180px;">
-			{if isModulAvalible($smarty.const.MODULE_GALAXY)}<li style="width:180px;"><a href="game.php?page=galaxy">{$LNG.lm_mgala2d}</a></li>{/if}	
-			{if isModulAvalible($smarty.const.MODULE_GALAXY)}<li style="width:180px;"><a href="game.php?page=galaxyOld">{$LNG.lm_mgalalist}</a></li>{/if}
-        		{if !empty($hasBoard)}<li style="width:180px;"><a href="game.php?page=board" target="forum">{$LNG.lm_forums}</a></li>{/if}
-			{if isModulAvalible($smarty.const.MODULE_CHAT)}<li style="width:180px;"><a href="game.php?page=chat">{$LNG.lm_chat}</a></li>{/if}
-			<li style="width:180px;"><a href="game.php?page=questions" target="">{$LNG.lm_faq}</a></li>
 	</ul></li>
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_mhandel}</span></a>
 	<ul style="width:180px;">
@@ -176,15 +187,12 @@
 	</ul></li>
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_meinstellungen}</span></a>
 	<ul style="width:180px;">
-			{if isModulAvalible($smarty.const.MODULE_NOTICE)}<li style="width:180px;"><a href="javascript:OpenPopup('?page=notes', 'notes', 720, 300);">{$LNG.lm_notes}</a></li>{/if}
-
 			<li style="width:180px;"><a href="game.php?page=settings">{$LNG.lm_options}</a></li>
 			<li style="width:180px;"><a href="game.php?page=logout">{$LNG.lm_logout}</a></li>	
 			{if $authlevel > 0}<li style="width:180px;"><a href="./admin.php" style="color:lime">{$LNG.lm_administration} ({$VERSION})</a></li>{/if}
 	</ul></li>
-	<li>
-		{if isModulAvalible($smarty.const.MODULE_SUPPORT)}<li style="width:180px;"><a href="game.php?page=ticket">{$LNG.lm_support}</a></li>{/if}
-	</li>
+	<li style="width:200px;"><a href="game.php?page=Vote">{$LNG.lm_Vote}</a></li>
+
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_voteus}</span></a>
 	<ul style="width:180px;">
 			<li style="width:180px;"><a href="http://www.kostenlos-browsergame.de/" target="_blank">{$LNG.lm_browser1}</a></li>
