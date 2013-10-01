@@ -8,7 +8,7 @@
 			{if !empty($hasBoard)}<li style="width:180px;"><a href="game.php?page=board" target="forum">{$LNG.lm_forums}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_CHAT)}<li style="width:180px;"><a href="game.php?page=chat">{$LNG.lm_chat}</a></li>{/if}
 			<li style="width:180px;"><a href="game.php?page=questions" target="">{$LNG.lm_faq}</a></li>
-			<li style="width:180px;"><a href="http://space-wiki.game.lc/doku.php?id=uebersicht" target="">Wiki</a></li>
+			<li style="width:180px;"><a href="http://space-wiki.game.lc/doku.php?id=uebersicht" target="forum">Wiki</a></li>
 			{if isModulAvalible($smarty.const.MODULE_NOTICE)}<li style="width:180px;"><a href="javascript:OpenPopup('?page=notes', 'notes', 720, 300);">{$LNG.lm_notes}</a></li>{/if}
 		        {if isModulAvalible($smarty.const.MODULE_SIMULATOR)}<li style="width:180px;"><a href="game.php?page=battleSimulator">{$LNG.lm_msimu}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_TECHTREE)}<li style="width:180px;"><a href="game.php?page=techtree">{$LNG.lm_mtech}</a></li>{/if}
