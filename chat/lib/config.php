@@ -168,7 +168,7 @@ $config['defaultBanTime'] = 5;
 $config['logoutData'] = './?logout=true';
 
 // If true, checks if the user IP is the same when logged in:
-$config['ipCheck'] = true;
+$config['ipCheck'] = false;
 
 // Defines the max time difference in hours for logs when no period or search condition is given:
 $config['logsRequestMessagesTimeDiff'] = 1;

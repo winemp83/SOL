@@ -1,0 +1,43 @@
+[02-Oct-2013 10:46:50 Europe/Berlin] PHP Fatal error:  Cannot redeclare class ts3admin in /home/forum/test/includes/libs/teamspeak/class.teamspeak3.php on line 38
+[02-Oct-2013 10:50:26] USER ERROR: "Teamspeak-Error: You got banned from server. Connection closed."
+File: /home/forum/test/includes/classes/cache/builder/TeamspeakBuildCache.class.php | Line: 66
+URL: http://test.landoflegends.de/cronjob.php?cronjobID=6 | Version: 1.7.2676
+Stack trace:
+#0 /includes/classes/class.Cache.php(85): TeamspeakBuildCache-&gt;buildCache()
+#1 /includes/classes/class.Cache.php(61): Cache-&gt;buildCache('teamspeak')
+#2 /includes/classes/cronjob/TeamSpeakCronjob.class.php(35): Cache-&gt;flush('teamspeak')
+#3 /includes/classes/Cronjob.class.php(53): TeamSpeakCronjob-&gt;run()
+#4 /cronjob.php(62): Cronjob::execute(6)
+#5 {main}
+[02-Oct-2013 10:50:45 Europe/Berlin] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home/forum/test/includes/libs/teamspeak/class.teamspeak3.php on line 3451
+[02-Oct-2013 10:52:44] USER ERROR: "Teamspeak-Error: You got banned from server. Connection closed."
+File: /home/forum/test/includes/classes/cache/builder/TeamspeakBuildCache.class.php | Line: 66
+URL: http://test.landoflegends.de/cronjob.php?cronjobID=6 | Version: 1.7.2676
+Stack trace:
+#0 /includes/classes/class.Cache.php(85): TeamspeakBuildCache-&gt;buildCache()
+#1 /includes/classes/class.Cache.php(61): Cache-&gt;buildCache('teamspeak')
+#2 /includes/classes/cronjob/TeamSpeakCronjob.class.php(35): Cache-&gt;flush('teamspeak')
+#3 /includes/classes/Cronjob.class.php(53): TeamSpeakCronjob-&gt;run()
+#4 /cronjob.php(62): Cronjob::execute(6)
+#5 {main}
+[02-Oct-2013 10:59:02] USER ERROR: "Teamspeak-Error: You got banned from server. Connection closed."
+File: /home/forum/test/includes/classes/cache/builder/TeamspeakBuildCache.class.php | Line: 66
+URL: http://test.landoflegends.de/cronjob.php?cronjobID=6 | Version: 1.7.2676
+Stack trace:
+#0 /includes/classes/class.Cache.php(85): TeamspeakBuildCache-&gt;buildCache()
+#1 /includes/classes/class.Cache.php(61): Cache-&gt;buildCache('teamspeak')
+#2 /includes/classes/cronjob/TeamSpeakCronjob.class.php(35): Cache-&gt;flush('teamspeak')
+#3 /includes/classes/Cronjob.class.php(53): TeamSpeakCronjob-&gt;run()
+#4 /cronjob.php(62): Cronjob::execute(6)
+#5 {main}
+[02-Oct-2013 11:00:49 Europe/Berlin] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home/forum/test/includes/libs/teamspeak/class.teamspeak3.php on line 3459
+[02-Oct-2013 11:01:01] USER ERROR: "Teamspeak-Error: You got banned from server. Connection closed."
+File: /home/forum/test/includes/classes/cache/builder/TeamspeakBuildCache.class.php | Line: 66
+URL: http://test.landoflegends.de/cronjob.php?cronjobID=6 | Version: 1.7.2676
+Stack trace:
+#0 /includes/classes/class.Cache.php(85): TeamspeakBuildCache-&gt;buildCache()
+#1 /includes/classes/class.Cache.php(61): Cache-&gt;buildCache('teamspeak')
+#2 /includes/classes/cronjob/TeamSpeakCronjob.class.php(35): Cache-&gt;flush('teamspeak')
+#3 /includes/classes/Cronjob.class.php(53): TeamSpeakCronjob-&gt;run()
+#4 /cronjob.php(62): Cronjob::execute(6)
+#5 {main}

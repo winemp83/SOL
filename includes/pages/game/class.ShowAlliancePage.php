@@ -262,7 +262,7 @@ class ShowAlliancePage extends AbstractPage
 			$this->redirectToHome();
 		}
 		
-		$sql = $GLOBALS['DATABASE']->query("SELECT (slots) FROM ".ALLYBONUS." WHERE id='".$allianceID."'");
+		$sql = $GLOBALS['DATABASE']->query("SELECT (slots) FROM ".ALLIBONUS." WHERE id='".$allianceID."'");
 		foreach($sql as $data){
 			$check_a = $data['slots'];
 		}
@@ -270,7 +270,7 @@ class ShowAlliancePage extends AbstractPage
 		
 		$check_a += 5;
 		
-		if($check_a >= $allianceResult['ally_members']){
+		if($check_a <= $allianceResult['ally_members']){
 			$this->printMessage($LNG['al_alliance_max_members']);
 		}
 		
@@ -819,7 +819,7 @@ class ShowAlliancePage extends AbstractPage
 			DELETE FROM ".DIPLO." WHERE owner_1 = ".$this->allianceData['id']." OR owner_2 = ".$this->allianceData['id'].";
 			DELETE FROM ".ALLYTOPIC." WHERE ally_id='".$this->allianceData['id']."';
 			DELETE FROM ".TOPICANSWER." WHERE ally='".$this->allianceData['id']."';
-			DELETE FROM ".ALLYBONUS." WHERE id='".$this->allianceData['id']."';
+			DELETE FROM ".ALLIBONUS." WHERE id='".$this->allianceData['id']."';
 			");
 		}
 		
@@ -1406,33 +1406,33 @@ class ShowAlliancePage extends AbstractPage
 			$six == 0 ? $six = 1 : $six = $six;
 			$seven == 0 ? $seven = 1 : $seven = $seven;
 			//Kosten für einen Slot
-			$price_one_m = ceil(((($one*$one)*125000)/7)*sqrt(19*$one));
-			$price_one_k = ceil(((($one*$one)*225000)/7)*sqrt(17*$one));
-			$price_one_d = ceil(((($one*$one)*155000)/7)*sqrt(13*$one));
+			$price_one_m = ceil(((($one*$one)*12500)/7)*sqrt(19*$one));
+			$price_one_k = ceil(((($one*$one)*22500)/7)*sqrt(17*$one));
+			$price_one_d = ceil(((($one*$one)*15500)/7)*sqrt(13*$one));
 			//Kosten für 1% Produktions Steigerung
-			$price_two_m = ceil(((($two*$two)*175000)/7)*sqrt(19*$two));
-			$price_two_k = ceil(((($two*$two)*275000)/7)*sqrt(17*$two));
-			$price_two_d = ceil(((($two*$two)*255000)/7)*sqrt(13*$two));
+			$price_two_m = ceil(((($two*$two)*17500)/7)*sqrt(19*$two));
+			$price_two_k = ceil(((($two*$two)*27500)/7)*sqrt(17*$two));
+			$price_two_d = ceil(((($two*$two)*25500)/7)*sqrt(13*$two));
 			//Kosten für 1% schnellere Forschung
-			$price_tree_m = ceil(((($tree*$tree)*115680)/7)*sqrt(19*$tree));
-			$price_tree_k = ceil(((($tree*$tree)*151790)/7)*sqrt(17*$tree));
-			$price_tree_d = ceil(((($tree*$tree)*103780)/7)*sqrt(13*$tree));
+			$price_tree_m = ceil(((($tree*$tree)*11568)/7)*sqrt(19*$tree));
+			$price_tree_k = ceil(((($tree*$tree)*15179)/7)*sqrt(17*$tree));
+			$price_tree_d = ceil(((($tree*$tree)*10378)/7)*sqrt(13*$tree));
 			//Kosten für 1% schnelleres Bauen
-			$price_four_m = ceil(((($four*$four)*255020)/7)*sqrt(19*$four));
-			$price_four_k = ceil(((($four*$four)*275680)/7)*sqrt(17*$four));
-			$price_four_d = ceil(((($four*$four)*237190)/7)*sqrt(13*$four));
+			$price_four_m = ceil(((($four*$four)*25502)/7)*sqrt(19*$four));
+			$price_four_k = ceil(((($four*$four)*27568)/7)*sqrt(17*$four));
+			$price_four_d = ceil(((($four*$four)*23719)/7)*sqrt(13*$four));
 			//Kosten für 1% mehr Verteidigung
-			$price_five_m = ceil(((($five*$five)*125000)/7)*sqrt(19*$five));
-			$price_five_k = ceil(((($five*$five)*155000)/7)*sqrt(17*$five));
-			$price_five_d = ceil(((($five*$five)*175000)/7)*sqrt(13*$five));
+			$price_five_m = ceil(((($five*$five)*12500)/7)*sqrt(19*$five));
+			$price_five_k = ceil(((($five*$five)*15500)/7)*sqrt(17*$five));
+			$price_five_d = ceil(((($five*$five)*17500)/7)*sqrt(13*$five));
 			//Kosten für 1% mehr Angriffskraft
-			$price_six_m = ceil(((($six*$six)*155000)/7)*sqrt(19*$six));
-			$price_six_k = ceil(((($six*$six)*175000)/7)*sqrt(17*$six));
-			$price_six_d = ceil(((($six*$six)*125000)/7)*sqrt(13*$six));
+			$price_six_m = ceil(((($six*$six)*15500)/7)*sqrt(19*$six));
+			$price_six_k = ceil(((($six*$six)*17500)/7)*sqrt(17*$six));
+			$price_six_d = ceil(((($six*$six)*12500)/7)*sqrt(13*$six));
 			//Kosten für 5 neue Topics
-			$price_seven_m = ceil(((($seven*$seven)*192826)/7)*sqrt(18*$seven));
-			$price_seven_k = ceil(((($seven*$seven)*256341)/7)*sqrt(21*$seven));
-			$price_seven_d = ceil(((($seven*$seven)*192463)/7)*sqrt(11*$seven));
+			$price_seven_m = ceil(((($seven*$seven)*19282)/7)*sqrt(18*$seven));
+			$price_seven_k = ceil(((($seven*$seven)*25634)/7)*sqrt(21*$seven));
+			$price_seven_d = ceil(((($seven*$seven)*19246)/7)*sqrt(11*$seven));
 				
 			$this->tplObj->assign_vars(array(
 				'error'			=> false,
@@ -1539,33 +1539,33 @@ class ShowAlliancePage extends AbstractPage
 			$six == 0 ? $six = 1 : $six = $six;
 			$seven == 0 ? $seven = 1 : $seven = $seven;
 			//Kosten für einen Slot
-			$price_one_m = ceil(((($one*$one)*125000)/7)*sqrt(19*$one));
-			$price_one_k = ceil(((($one*$one)*225000)/7)*sqrt(17*$one));
-			$price_one_d = ceil(((($one*$one)*155000)/7)*sqrt(13*$one));
+			$price_one_m = ceil(((($one*$one)*12500)/7)*sqrt(19*$one));
+			$price_one_k = ceil(((($one*$one)*22500)/7)*sqrt(17*$one));
+			$price_one_d = ceil(((($one*$one)*15500)/7)*sqrt(13*$one));
 			//Kosten für 1% Produktions Steigerung
-			$price_two_m = ceil(((($two*$two)*175000)/7)*sqrt(19*$two));
-			$price_two_k = ceil(((($two*$two)*275000)/7)*sqrt(17*$two));
-			$price_two_d = ceil(((($two*$two)*255000)/7)*sqrt(13*$two));
+			$price_two_m = ceil(((($two*$two)*17500)/7)*sqrt(19*$two));
+			$price_two_k = ceil(((($two*$two)*27500)/7)*sqrt(17*$two));
+			$price_two_d = ceil(((($two*$two)*25500)/7)*sqrt(13*$two));
 			//Kosten für 1% schnellere Forschung
-			$price_tree_m = ceil(((($tree*$tree)*115680)/7)*sqrt(19*$tree));
-			$price_tree_k = ceil(((($tree*$tree)*151790)/7)*sqrt(17*$tree));
-			$price_tree_d = ceil(((($tree*$tree)*103780)/7)*sqrt(13*$tree));
+			$price_tree_m = ceil(((($tree*$tree)*11568)/7)*sqrt(19*$tree));
+			$price_tree_k = ceil(((($tree*$tree)*15179)/7)*sqrt(17*$tree));
+			$price_tree_d = ceil(((($tree*$tree)*10378)/7)*sqrt(13*$tree));
 			//Kosten für 1% schnelleres Bauen
-			$price_four_m = ceil(((($four*$four)*255020)/7)*sqrt(19*$four));
-			$price_four_k = ceil(((($four*$four)*275680)/7)*sqrt(17*$four));
-			$price_four_d = ceil(((($four*$four)*237190)/7)*sqrt(13*$four));
+			$price_four_m = ceil(((($four*$four)*25502)/7)*sqrt(19*$four));
+			$price_four_k = ceil(((($four*$four)*27568)/7)*sqrt(17*$four));
+			$price_four_d = ceil(((($four*$four)*23719)/7)*sqrt(13*$four));
 			//Kosten für 1% mehr Verteidigung
-			$price_five_m = ceil(((($five*$five)*125000)/7)*sqrt(19*$five));
-			$price_five_k = ceil(((($five*$five)*155000)/7)*sqrt(17*$five));
-			$price_five_d = ceil(((($five*$five)*175000)/7)*sqrt(13*$five));
+			$price_five_m = ceil(((($five*$five)*12500)/7)*sqrt(19*$five));
+			$price_five_k = ceil(((($five*$five)*15500)/7)*sqrt(17*$five));
+			$price_five_d = ceil(((($five*$five)*17500)/7)*sqrt(13*$five));
 			//Kosten für 1% mehr Angriffskraft
-			$price_six_m = ceil(((($six*$six)*155000)/7)*sqrt(19*$six));
-			$price_six_k = ceil(((($six*$six)*175000)/7)*sqrt(17*$six));
-			$price_six_d = ceil(((($six*$six)*125000)/7)*sqrt(13*$six));
+			$price_six_m = ceil(((($six*$six)*15500)/7)*sqrt(19*$six));
+			$price_six_k = ceil(((($six*$six)*17500)/7)*sqrt(17*$six));
+			$price_six_d = ceil(((($six*$six)*12500)/7)*sqrt(13*$six));
 			//Kosten für 5 neue Topics
-			$price_seven_m = ceil(((($seven*$seven)*192826)/7)*sqrt(18*$seven));
-			$price_seven_k = ceil(((($seven*$seven)*256341)/7)*sqrt(21*$seven));
-			$price_seven_d = ceil(((($seven*$seven)*192463)/7)*sqrt(11*$seven));
+			$price_seven_m = ceil(((($seven*$seven)*19282)/7)*sqrt(18*$seven));
+			$price_seven_k = ceil(((($seven*$seven)*25634)/7)*sqrt(21*$seven));
+			$price_seven_d = ceil(((($seven*$seven)*19246)/7)*sqrt(11*$seven));
 
 			if(!isset($_POST['what'])){
 				$_POST['what'] = 0;

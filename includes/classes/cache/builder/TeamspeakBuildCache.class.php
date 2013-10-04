@@ -2,7 +2,7 @@
 
 /**
  *  2Moons
- *  Copyright (C) 2012 Jan Kröpke
+ *  Copyright (C) 2012 Jan Krï¿½pke
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,8 +18,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @package 2Moons
- * @author Jan Kröpke <info@2moons.cc>
- * @copyright 2012 Jan Kröpke <info@2moons.cc>
+ * @author Jan Krï¿½pke <info@2moons.cc>
+ * @copyright 2012 Jan Krï¿½pke <info@2moons.cc>
  * @license http://www.gnu.org/licenses/gpl.html GNU GPLv3 License
  * @version 1.7.3 (2013-05-19)
  * @info $Id: TeamspeakBuildCache.class.php 2641 2013-03-24 13:43:52Z slaver7 $
@@ -52,7 +52,7 @@ class TeamspeakBuildCache
 				}
 			break;
 			case 3:
-				require 'includes/libs/teamspeak/class.teamspeak3.php';
+				require_once 'includes/libs/teamspeak/class.teamspeak3.php';
 				$tsAdmin 	= new ts3admin(Config::get('ts_server'), Config::get('ts_udpport'), Config::get('ts_timeout'));
 				$connected	= $tsAdmin->connect();				
 				if(!$connected['success'])

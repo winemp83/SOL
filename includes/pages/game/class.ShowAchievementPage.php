@@ -1332,7 +1332,7 @@ function show()
 	//Colony Level 1
 	if($USER['achievements_colony'] == 1)
 	{
-		$query = $GLOBALS['DATABASE']->uniquequery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE `id_owner` = '". $USER['id'] ."';");
+		$query = $GLOBALS['DATABASE']->uniquequery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE `id_owner` = '". $USER['id'] ."' AND destruyed='0';");
 		$planet_count = $query['planet_count'];
 		if($planet_count >=3)
 		{
@@ -1360,7 +1360,7 @@ function show()
 	//Colony Level 2
 	if($USER['achievements_colony'] == 2)
 	{
-		$query = $GLOBALS['DATABASE']->uniquequery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE `id_owner` = '". $USER['id'] ."';");
+		$query = $GLOBALS['DATABASE']->uniquequery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE `id_owner` = '". $USER['id'] ."' AND destruyed='0';");
 		$planet_count = $query['planet_count'];
 		if($planet_count >=6)
 		{
@@ -1388,11 +1388,11 @@ function show()
 	//Colony Level 3
 	if($USER['achievements_colony'] == 3)
 	{
-		$query = $GLOBALS['DATABASE']->uniquequery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE `id_owner` = '". $USER['id'] ."';");
+		$query = $GLOBALS['DATABASE']->uniquequery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE `id_owner` = '". $USER['id'] ."' AND destruyed='0' ;");
 		$planet_count = $query['planet_count'];
 		if($planet_count >=11)
 		{
-			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_colony` = achievements_colony+1 WHERE `id` = ".$USER['id'].";");
+			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_colony` = achievements_colony+1 WHERE `id` = ".$USER['id']." AND destruyed='0';");
 			$PLANET[$resource[901]]	+= 50000; //reward
                     $PLANET[$resource[902]]	+= 50000; //reward
                     $PLANET[$resource[903]]	+= 50000; //reward
@@ -1416,7 +1416,7 @@ function show()
 	//Colony Level 4
 	if($USER['achievements_colony'] == 4)
 	{
-		$query = $GLOBALS['DATABASE']->uniquequery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE `id_owner` = '". $USER['id'] ."';");
+		$query = $GLOBALS['DATABASE']->uniquequery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE `id_owner` = '". $USER['id'] ."' AND destruyed='0';");
 		$planet_count = $query['planet_count'];
 		if($planet_count >=16)
 		{
@@ -1444,7 +1444,7 @@ function show()
 	//Colony Level 5
 	if($USER['achievements_colony'] == 5)
 	{
-		$query = $GLOBALS['DATABASE']->uniquequery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE `id_owner` = '". $USER['id'] ."';");
+		$query = $GLOBALS['DATABASE']->uniquequery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE `id_owner` = '". $USER['id'] ."'; AND destruyed='0'");
 		$planet_count = $query['planet_count'];
 		if($planet_count >=20)
 		{
