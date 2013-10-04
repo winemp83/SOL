@@ -113,17 +113,6 @@ $LNG['questions'][1][3]['body']		= <<<BODY
 <h3>Logout</h3>
 <p>Hier wirst du ausgeloggt.</p>
 BODY;
-$LNG['questions'][1][3]['title']	= 'Weitere wichtige Adressen';
-$LNG['questions'][1][3]['body']		= <<<BODY
-<h3>Bugs</h3>
-<p>Fehler kannst du jederzeit gerne im Mantis posten. Du findest es unter: <a href="http://bugs.landoflegends.de" target="_blank">http://bugs.landoflegends.de</a> </p>
-<h3>WoW</h3>
-<p>Natürlich unterhalten wir auch einen WoW-Server, zu finden unter: <a href="http://www.landoflegends.de" target="_blank">http://www.landoflegends.de</a> </p>
-<h3>Radio</h3>
-<p>Ingame ist es dir zu leise? Dann schau auf unserem Radiostream vorbei : <a href="http://radio.landoflegends.de" target="_blank">http://radio.landoflegends.de</a> </p>
-<h3>Teamsepak³</h3>
-<p>Unseren Teamspeak³ Server erreichst du unter folgender Adresse : <a href="ts://ts.landoflegends.de:9988" target="_blank">ts.landoflegends.de:9988</a> </p>
-BODY;
 $LNG['questions'][2]['category']	= 'Einsteiger-Tipps';
 $LNG['questions'][2][1]['title']	= 'Schritt 1';
 $LNG['questions'][2][1]['body']		= <<<BODY
@@ -203,29 +192,6 @@ Die erste Methode des Savens ist das „Stationieren-Rückruf“ Saven. Dazu sch
 <p>Eine sehr weit verbreitete Methode, die Flotte zu saven ist der Flug von einem Mond zu einem Trümmerfeld. Dieser ist an sich relativ sicher, da er nicht in der Phalanx zu sehen ist. Jedoch gibt es Möglichkeiten, den genauen Zeitpunkt der Rückkehr der Flotte festzustellen, in dem man kontrolliert, wann das Trümmerfeld von den Recyklern der Flotte abgebaut wird. Eine Möglichkeit, diese Saveart sicherer zu machen ist, vor der eigentlichen Flotte so genannte Schattenrecycler zu schicken, die das Trümmerfeld schon eher abbauen, so dass die Zeit ein wenig verschleiert wird. Eine weitere Art, diesen Flug sicher zu machen ist, wenn man an einem Planeten, der vollkommen verteidigungsfrei ist das Trümmerfeld abbaut, da dieses nie in der Galaxieansicht angezeigt wird, weil es leer, aber trotzdem anfliegbar ist.</p>
 <p>Die wohl sicherste Methode um die Flotte zu saven, ist das Stationieren von Mond zu Mond. Dieser Flug kann in keiner Phalanx gesehen werden, und auch das Beobachten von TFs ist hierbei sinnlos. Die einzige Möglichkeit, diesen Flug abzufangen, ist, einen der Monde zu zerstören, was durch große Monde fast unmöglich, bzw. sehr unwahrscheinlich/teuer wird.</p>
 BODY;
-
-$LNG['questions'][3][2]['title']	= 'Allianzkampfsystem';
-$LNG['questions'][3][2]['body']		= <<<BODY
-<h3>Angreifen mit dem AKS</h3>
-<p>Damit ihr gemeinsam angreifen könnt, musst du zuerst einmal eine Flotte mit dem Auftrag "Angreifen" auf das Ziel eures Angriffs abschicken. Nachdem der Angriff gestartet wurde, kannst du dann im Flottenmenü über den Button "Verband" deine Flotte in einen Flottenverband umwandeln. Im Flottenverbandsmenü hast du dann die Möglichkeit, den Verband umzubenennen und neue Spieler in den Verband einzuladen, wobei der Spieler, der den Angriff gestartet hat, automatisch mit eingeladen ist. Nun müssen sich nur noch alle gewünschten Flotten anschließen und euer Flottenverband ist komplett. Dazu muss jeder eingeladene Spieler beim Versenden seiner eigenen Schiffe die richtigen Zielkoordinaten angeben, den Auftrag "Verbandsangriff" auswählen und die Flotte abschicken. Der Verband fliegt immer so lange, wie die langsamste Teilflotte benötigt. Schnellere Flotten verändern die Restflugzeit nicht, wenn sie dem Verband beitreten. Langsamere Flotten erhöhen die Restflugzeit allerdings auf ihre eigene Flugzeit. Zu beachten ist noch, dass maximal 5 Spieler einen gemeinsamen Angriff fliegen können und insgesamt maximal 16 einzelne Flotten in einem Verband fliegen dürfen. Eine Flotte, die sich einem Verband anschließt, darf dessen Restflugzeit um maximal 30% erhöhen. Wenn die Restflugzeit also 100 Minuten beträgt, darf eine Flotte, die sich dem Verband zu diesem Zeitpunkt anschließen möchte, eine maximale Flugzeit von 130 Minuten haben.<br>
-<b>Achtung:</b> wenn die Flotte der Verbandsgründers zurückgerufen wird, fliegen die anderen trotzdem weiter!</p>
-<h3>Verteidigen mit dem AKS</h3>
-<p>Wenn du von einer feindlichen Flotte angegriffen wirst, hast du die Möglichkeit, dir von befreundeten Spielern helfen zu lassen. Egal ob der Angreifer einfach zu stark für dich alleine ist oder du einfach weniger Verluste und mehr Gewinn bei einem Abfang anstrebst. Damit dir befreundete Spieler helfen können, müssen sie dir ihre Flotte zur Unterstützung schicken. Das können alle Spieler sein, die entweder deiner Allianz angehören oder auf deiner Buddyliste stehen. Ist das der Fall, können sie in ihrem Flottenmenü die Koordinaten auswählen, auf denen du angegriffen wirst, einstellen wie lange sie ihre Flotten bei dir stationieren wollen und dann mit dem Auftrag "Halten" losfliegen. Zusätzlich zu den Deuteriumkosten für den Flug fallen je nach Größe der Flotte und Dauer des Aufenthalts weitere Kosten an, die direkt beim Start abgebucht werden. Während befreundete Flotten bei dir stationiert sind, nehmen sie an allen Kämpfen auf diesem Planeten oder Mond teil. Sie tauchen auf einem Spionagebericht so auf, als wären es deine eigenen Schiffe. Es ist also wichtig, die haltenden Flotten so zu schicken, dass sie relativ knapp vor der Angreiferflotte ankommen, um bei einem eventuellen Savecan nicht entdeckt zu werden. Spieler die ihre Flotten zur Unterstützung geschickt haben, können diese jederzeit im Flottenmenü zurückrufen. Wird diese Möglichkeit nicht genutzt, wartet die Flotte einfach ihre eingestellte Haltezeit ab und fliegt dann wieder zu ihrem Besitzer zurück.</p>
-<h3>Deuteriumsverbrauch pro 1 Stunde halten:</h3>
-<p>Kleiner Transporter: 5<br>
-Großer Transporter: 5<br>
-Leichter Jäger: 2<br>
-Schwerer Jäger: 7<br>
-Kreuzer: 30<br>
-Schlachtschiff: 50<br>
-Kolonieschiff: 100<br>
-Recycler: 30<br>
-Spionagesonde: 1/10<br>
-Bomber: 100<br>
-Zerstörer: 100<br>
-Todesstern: 1/10</p>
-BODY;
-
 $LNG['questions'][3][3]['title']	= 'Monde';
 $LNG['questions'][3][3]['body']		= <<<BODY
 <p>Ein Mond kann entstehen wenn ein Trümmerfeld von mindestens 100.000 Units, das ist dann eine 1%ige Chance Mondchance, entsteht. Maximum sind aber nur 20% Mondchance egal wie groß das TF dann ist.</p>
@@ -258,25 +224,6 @@ Vormals errechnete sich dies wie folgt:<br>
 Maximale Felder = ABRUNDEN((Durchmesser des Mondes/1000)2)<br>
 Größtmöglicher Mond: 8944 km Durchmesser, also 79 Felder.</p>
 BODY;
-
-$LNG['questions'][3][4]['title']	= 'Allianzen';
-$LNG['questions'][3][4]['body']		= <<<BODY
-<h3>Wie gründe ich eine Ally?</h3>
-<p>Um eine Allianz zu gründen, klicke im Menü links auf "Allianzen". Danach klicke auf "Eigene Allianz gründen". Im folgenden Menü musst du einen "Allianz-Tag" und einen Allianz-Namen eingeben, das "Allianz-Tag" ist die Abkürzung für deine Allianz. Als Beispiel: Wenn du deine Allianz "Die Top Ally" nennst, wäre ein mögliches Allianz-Tag "DTA".<br>
-Beachte bitte, dass keine Sonderzeichen erlaubt sind, nur Buchstaben, Ziffern und Leerzeichen können verwendet werden.<br>
-Sobald du das Allianz-Tag und einen Namen eingegeben hast, klicke auf "Gründen".<br>
-Wenn es schon eine Allianz mit diesem Name oder Tag gibt, bekommst du eine dementsprechende Meldung, in diesem Fall musst du dir entweder ein anderes Allianz-Tag oder einen anderen Namen überlegen.<br>
-Wurde die Allianz erfolgreich gegründet, wird es dir auch angezeigt. Klickst du dann auf "Weiter", kommst du in das noch ganz leere Allianzmenü, das du ab jetzt über einen Klick auf "Allianzen" im linken Menü erreichst. Dort siehst du mehrere Auswahlmöglichkeiten und Informationen, zuoberst den Tag und Namen deiner Allianz.</p>
-<p>Darunter findest du folgende Links:<br>
-"Mitgliederliste": In der Mitgliederliste siehst du alle Mitglieder deiner Allianz, mit ihren Punkten, Koordinaten des Heimatplaneten und dem Datum ihres Beitritts, sowie ihrem Onlinestatus. Mit einem Klick auf die Spaltenüberschriften kannst du die Sortierreihenfolge verändern.<br>
-"Ihr Rang": Hier steht dein Rangname, daneben findest du den Link zum Allianzverwaltungsmenü, dazu gleich mehr.<br>
-"Rundmail": Mit einem Klick auf "Rundmail versenden" kannst du eine Nachricht an die gesamte Allianz oder auch nur an bestimmte Ränge senden.</p>
-<h3>Das Allianzverwaltungsmenü</h3>
-<p>Ganz oben im Allianzverwaltungsmenü gibt es den Link "Rechte einstellen". Hier kannst du die Rechte für die verschiedenen Ränge einstellen, z. B. das Recht, die Allianz aufzulösen oder Rundmails zu verschicken. Darunter findest du den Link "Mitglieder verwalten". Hier kannst du Mitglieder aus der Allianz werfen, ihnen Ränge zuweisen und auch sehen, wieviele Tage sie schon nicht mehr in ihren Accounts eingeloggt waren. Mit den zwei Buttons unter dem "Mitglieder verwalten"-Link kannst du das Allianz-Tag und den Allianz-Namen ändern.<br>
-Unter "Textverwaltung" kannst du die Allianztexte ändern. Den externen Text sieht jeder OGamer, den internen Text nur Mitglieder deiner Allianz. Der Bewerbungstext ist eine Art Vorlage für Leute, die sich für deine Allianz bewerben.<br>
-Bei den Einstellungen kannst du ein Bild verlinken, dass auf der Allianzseite dargestellt wird, sowie einen Link zu einem Allianzforum eingeben, falls du eines hast. Außerdem kannst du festlegen, ob Bewerbungen möglich sind oder nicht, und welchen Rangnamen du als Gründer verwenden willst. Wenn du dort nichts eingibst, ist dein Rangname "Gründer".<br>
-Mit "Allianz auflösen" kannst du logischerweise die Allianz auflösen, und mit "Allianz abtreten/übernehmen" kannst du die Allianz an ein anderes Allianzmitglied übergeben, dieses bekommt dann den Gründerstatus.</p>
-BODY;
 $LNG['questions'][4]['category']	= 'Neue Funktion';
 $LNG['questions'][4][1]['title']	= 'Ingame Markt';
 $LNG['questions'][4][1]['body']		= <<<BODY
@@ -302,3 +249,119 @@ $LNG['questions'][4][2]['body']		= <<<BODY
 <h3>Wie wird bestimmt, welche Ressourcen ich bekomme?</h3>
 <p>Der Gutschein wird anhand deiner Punkte berechnet.<br/>Die Formel ist grob vereinfacht :<br/>Zufallszahl zwischen 0 und ((deinePunkte*2)+(deinePunkte/100))<br/>Damit aber Spieler unter 1000 Punkte, nicht fast leer an Ressourcen ausgehen, ist dort die Formel so angepasst, dass sie maximal pro Ressource 2000 Tonnen bekommen können.</p>
 BODY;
+
+$LNG['questions'][5]['category']	= 'Allianz Veränderungen';
+$LNG['questions'][5][1]['title']	= 'Allianzen';
+$LNG['questions'][5][1]['body']		= <<<BODY
+<h3>Wie gründe ich eine Ally?</h3>
+<p>Um eine Allianz zu gründen, klicke im Menü links auf "Allianzen". Danach klicke auf "Eigene Allianz gründen". Im folgenden Menü musst du einen "Allianz-Tag" und einen Allianz-Namen eingeben, das "Allianz-Tag" ist die Abkürzung für deine Allianz. Als Beispiel: Wenn du deine Allianz "Die Top Ally" nennst, wäre ein mögliches Allianz-Tag "DTA".<br>
+Beachte bitte, dass keine Sonderzeichen erlaubt sind, nur Buchstaben, Ziffern und Leerzeichen können verwendet werden.<br>
+Sobald du das Allianz-Tag und einen Namen eingegeben hast, klicke auf "Gründen".<br>
+Wenn es schon eine Allianz mit diesem Name oder Tag gibt, bekommst du eine dementsprechende Meldung, in diesem Fall musst du dir entweder ein anderes Allianz-Tag oder einen anderen Namen überlegen.<br>
+Wurde die Allianz erfolgreich gegründet, wird es dir auch angezeigt. Klickst du dann auf "Weiter", kommst du in das noch ganz leere Allianzmenü, das du ab jetzt über einen Klick auf "Allianzen" im linken Menü erreichst. Dort siehst du mehrere Auswahlmöglichkeiten und Informationen, zuoberst den Tag und Namen deiner Allianz.</p>
+<p>Darunter findest du folgende Links:<br>
+"Mitgliederliste": In der Mitgliederliste siehst du alle Mitglieder deiner Allianz, mit ihren Punkten, Koordinaten des Heimatplaneten und dem Datum ihres Beitritts, sowie ihrem Onlinestatus. Mit einem Klick auf die Spaltenüberschriften kannst du die Sortierreihenfolge verändern.<br>
+"Ihr Rang": Hier steht dein Rangname, daneben findest du den Link zum Allianzverwaltungsmenü, dazu gleich mehr.<br>
+"Rundmail": Mit einem Klick auf "Rundmail versenden" kannst du eine Nachricht an die gesamte Allianz oder auch nur an bestimmte Ränge senden.</p>
+<h3>Das Allianzverwaltungsmenü</h3>
+<p>Ganz oben im Allianzverwaltungsmenü gibt es den Link "Rechte einstellen". Hier kannst du die Rechte für die verschiedenen Ränge einstellen, z. B. das Recht, die Allianz aufzulösen oder Rundmails zu verschicken. Darunter findest du den Link "Mitglieder verwalten". Hier kannst du Mitglieder aus der Allianz werfen, ihnen Ränge zuweisen und auch sehen, wieviele Tage sie schon nicht mehr in ihren Accounts eingeloggt waren. Mit den zwei Buttons unter dem "Mitglieder verwalten"-Link kannst du das Allianz-Tag und den Allianz-Namen ändern.<br>
+Unter "Textverwaltung" kannst du die Allianztexte ändern. Den externen Text sieht jeder OGamer, den internen Text nur Mitglieder deiner Allianz. Der Bewerbungstext ist eine Art Vorlage für Leute, die sich für deine Allianz bewerben.<br>
+Bei den Einstellungen kannst du ein Bild verlinken, dass auf der Allianzseite dargestellt wird, sowie einen Link zu einem Allianzforum eingeben, falls du eines hast. Außerdem kannst du festlegen, ob Bewerbungen möglich sind oder nicht, und welchen Rangnamen du als Gründer verwenden willst. Wenn du dort nichts eingibst, ist dein Rangname "Gründer".<br>
+Mit "Allianz auflösen" kannst du logischerweise die Allianz auflösen, und mit "Allianz abtreten/übernehmen" kannst du die Allianz an ein anderes Allianzmitglied übergeben, dieses bekommt dann den Gründerstatus.</p>
+BODY;
+$LNG['questions'][5][2]['title']	= 'Allianz Bank';
+$LNG['questions'][5][2]['body']		= <<<BODY
+<h3>Allianz Bank</h3>
+<p>Die Allianz Bank ist für den Allianz Bonus einkauf gedacht.<br/></p>
+<p>Jeder Spieler der Selben Allianz, kann Res einzahlen, Nicht einmal die Allianz Admins können den res entnehmen, das verhindert das kein Allianz Admin (leader) sich bereichern kann.</p>
+
+BODY;
+$LNG['questions'][5][3]['title']	= 'Allianz Bonus';
+$LNG['questions'][5][3]['body']		= <<<BODY
+<h3>Allianz Bonus</h3>
+<p>Der Allianz Bonus ist einen weitere Möglichkeit sich zu Pushen, Das kaufen eines Bonuses ist genau so wie bei den Offizieren, nur er kostet res statt DM.</p>
+<p>Der Vorteil eines Allianz Bonuses ist es das Alle Mitglieder was davon haben!</p>
+<h3>Bonus Übersicht!</h3>
+Zusätzliche Mitglieder Slots - 0 / 20 <br>
+Zusatz Slots für Mitglieder Ohne Boni hat man nur 5. Pro Stufe bekommt man 1extra.
+<p>
+Produktionssteigerung in % - 0 / 200 <br>
+Jedes Prozent erhöht die minen produktion
+<p>
+Forschungszeit verkürzung in % - 0 / 100 <br>
+Jedes Prozent verkürzt Die Forschungszeit 
+<p>
+Bauzeit verkürzung in % - 0 / 100<br>
+Jedes Prozent verkürzt Die Bauzeit
+<p>
+Verteidigungkraft Steigerung in % - 0 / 250<br>
+Jedes Prozent erhöht die Verteidigungskraft
+<p>
+Angriffskraft Steigerung in % - 0 / 250<br>
+Jedes Prozent erhöht die Angriffskraft
+<p>
+Zusätzliche Themen - 0 / 95<br>
+Jede Stufe bringt 5 weitere Slots für Themen im Allianz Forum 
+
+BODY;
+$LNG['questions'][5][4]['title']	= 'Allianz Forum';
+$LNG['questions'][5][4]['body']		= <<<BODY
+<h3>Allianz Forum</h3>
+<p>Das Forum soll es einfacher machen das Mitglieder sich besser unterhalten können<br>
+Jede Allianz hat ihr eigenes Forum, es kann keiner von auserhalb das Forum sehen.<br>
+
+BODY;
+
+$LNG['questions'][5][5]['title']	= 'Allianzkampfsystem';
+$LNG['questions'][5][5]['body']		= <<<BODY
+<h3>Angreifen mit dem AKS</h3>
+<p>Damit ihr gemeinsam angreifen könnt, musst du zuerst einmal eine Flotte mit dem Auftrag "Angreifen" auf das Ziel eures Angriffs abschicken. Nachdem der Angriff gestartet wurde, kannst du dann im Flottenmenü über den Button "Verband" deine Flotte in einen Flottenverband umwandeln. Im Flottenverbandsmenü hast du dann die Möglichkeit, den Verband umzubenennen und neue Spieler in den Verband einzuladen, wobei der Spieler, der den Angriff gestartet hat, automatisch mit eingeladen ist. Nun müssen sich nur noch alle gewünschten Flotten anschließen und euer Flottenverband ist komplett. Dazu muss jeder eingeladene Spieler beim Versenden seiner eigenen Schiffe die richtigen Zielkoordinaten angeben, den Auftrag "Verbandsangriff" auswählen und die Flotte abschicken. Der Verband fliegt immer so lange, wie die langsamste Teilflotte benötigt. Schnellere Flotten verändern die Restflugzeit nicht, wenn sie dem Verband beitreten. Langsamere Flotten erhöhen die Restflugzeit allerdings auf ihre eigene Flugzeit. Zu beachten ist noch, dass maximal 5 Spieler einen gemeinsamen Angriff fliegen können und insgesamt maximal 16 einzelne Flotten in einem Verband fliegen dürfen. Eine Flotte, die sich einem Verband anschließt, darf dessen Restflugzeit um maximal 30% erhöhen. Wenn die Restflugzeit also 100 Minuten beträgt, darf eine Flotte, die sich dem Verband zu diesem Zeitpunkt anschließen möchte, eine maximale Flugzeit von 130 Minuten haben.<br>
+<b>Achtung:</b> wenn die Flotte der Verbandsgründers zurückgerufen wird, fliegen die anderen trotzdem weiter!</p>
+<h3>Verteidigen mit dem AKS</h3>
+<p>Wenn du von einer feindlichen Flotte angegriffen wirst, hast du die Möglichkeit, dir von befreundeten Spielern helfen zu lassen. Egal ob der Angreifer einfach zu stark für dich alleine ist oder du einfach weniger Verluste und mehr Gewinn bei einem Abfang anstrebst. Damit dir befreundete Spieler helfen können, müssen sie dir ihre Flotte zur Unterstützung schicken. Das können alle Spieler sein, die entweder deiner Allianz angehören oder auf deiner Buddyliste stehen. Ist das der Fall, können sie in ihrem Flottenmenü die Koordinaten auswählen, auf denen du angegriffen wirst, einstellen wie lange sie ihre Flotten bei dir stationieren wollen und dann mit dem Auftrag "Halten" losfliegen. Zusätzlich zu den Deuteriumkosten für den Flug fallen je nach Größe der Flotte und Dauer des Aufenthalts weitere Kosten an, die direkt beim Start abgebucht werden. Während befreundete Flotten bei dir stationiert sind, nehmen sie an allen Kämpfen auf diesem Planeten oder Mond teil. Sie tauchen auf einem Spionagebericht so auf, als wären es deine eigenen Schiffe. Es ist also wichtig, die haltenden Flotten so zu schicken, dass sie relativ knapp vor der Angreiferflotte ankommen, um bei einem eventuellen Savecan nicht entdeckt zu werden. Spieler die ihre Flotten zur Unterstützung geschickt haben, können diese jederzeit im Flottenmenü zurückrufen. Wird diese Möglichkeit nicht genutzt, wartet die Flotte einfach ihre eingestellte Haltezeit ab und fliegt dann wieder zu ihrem Besitzer zurück.</p>
+<h3>Deuteriumsverbrauch pro 1 Stunde halten:</h3>
+<p>Kleiner Transporter: 5<br>
+Großer Transporter: 5<br>
+Leichter Jäger: 2<br>
+Schwerer Jäger: 7<br>
+Kreuzer: 30<br>
+Schlachtschiff: 50<br>
+Kolonieschiff: 100<br>
+Recycler: 30<br>
+Spionagesonde: 1/10<br>
+Bomber: 100<br>
+Zerstörer: 100<br>
+Todesstern: 1/10</p>
+BODY;
+$LNG['questions'][6]['category']	= 'Event System';
+$LNG['questions'][6][1]['title']	= 'Event System';
+$LNG['questions'][6][1]['body']		= <<<BODY
+<h3>Das Event System</h3>
+<p>Es gibt momentan 3 Möglichkeiten ein EventSystem zu erstellen als Admin.<br>
+Events sollen den Spielern mehr spielraum geben um an Res zu kommen und aktiv am Uni leben teil zunehmen<br>
+Einige Events benötigen Freunde / Allianz Member, das Event ist extra schwerer damit die Leute zusammen spielen<br>
+<p>Möglichkeit 1 Trümmerfeld Event:<br>
+Dieses Ist zum Jagen und Sammeln gedacht, jeder spieler hat die möglichkeiten Recyler zubauen und einfach ihnzufiegen und Res zu erbeuten ohne kampf.<br>
+<p>Möglichkeit 2 Planten Event:<br>
+Es werden vom System Planten mit Def / Off erstellt im Universum.<br>
+Diese „Piraten“ haben die möglichkeit zu reagieren, Gegeangriffe, Saveflüge und sogar, Flottenbau.<br>
+Um einen Event Planten zu finden muß man die Galaxie Systeme durchsuchen, Es soll wie ein Echter Spieler behandlet werden.<br>
+So fähig ist der Privat auch.<br>
+<p>Möglichkeit 3 Planten Event Allianz/Freunde/Bündnispartner:<br>
+Dieses Event ist Extra so schwer das die Spieler nicht alleine klar kommen damit, Gute Spieler werden auch auf die hilfe<br>
+von andern spieler angewisen sein.<br>
+Dieses Event ist vom Ablauf genau so wie die Möglichkeit 2 <br>
+
+BODY;
+$LNG['questions'][10]['category']	= 'Wichtige Links';
+$LNG['questions'][10][1]['title']	= 'Links';
+$LNG['questions'][10][1]['body']		= <<<BODY
+<h3>Unsere Wichtigesten Links</h3>
+<p>Homepage = <a href="http://www.spaceoflegends.de/">landoflegends.de</a><br>
+Game Server = <a href="http://game.spaceoflegends.de">game.landoflegends.de</a><br>
+Speed Server = <a href="http://speed.spaceoflegends.de/">speed.landoflegends.de</a><br>
+Unsere Wiki = <a href="http://www.wiki.spaceoflegends.de/">wiki.landoflegends.de</a><br>
+Mantis = <a href="http://bugs.landoflegends.de/">bug.landoflegends.de</a><br>
+
+BODY;
+
