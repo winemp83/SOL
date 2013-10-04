@@ -235,20 +235,6 @@
 
 <div style="background: transparent;"> <a name="t1" id="t1"></a>
 											<table style="background: transparent;">
-<tr>
-		<th colspan="3">{$LNG.ov_events}  
-	</tr>
-	{foreach $fleets as $index => $fleet}
-	<tr>
-		<td id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</td>
-		<td colspan="2">{$fleet.text}</td>
-	</tr>
-	{/foreach}
-	 <tr>
-
-
-	
-
 <td colspan="6">
 
  <div id='planet_overview' style='background: transparent url({$dpath}planeten/{$planetimage}.jpg); height: 290px; width: 615px;'>
@@ -352,12 +338,19 @@
 		</td>
 		 </td>
          
-
-						</tbody></table>		
-										</div>
-
-
-
+	<tr>
+		<th colspan="3">{$LNG.ov_events}  
+		</th>
+	</tr>
+		{foreach $fleets as $index => $fleet}
+	<tr>
+		<td id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</td>
+		<td colspan="2">{$fleet.text}</td>
+	</tr>
+		{/foreach}
+	 <tr>
+</tbody></table>		
+</div>
 </td>
 </tr>
 </tbody></table>
