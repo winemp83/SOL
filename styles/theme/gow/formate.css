@@ -1777,3 +1777,38 @@ background-image: url("./img/kom.png");
   border-top-right-radius: 15px;
   border-bottom-left-radius: 15px;
 }
+//**header menu**//
+#extra-m1{
+
+}
+ul#extra-m{
+	margin: 0px 0px 0px 0px;
+    background-color: black;
+   	width:100%;
+
+}
+  ul#extra-m li {
+    list-style: none;
+    display: inline;
+    margin: 0.4em; padding: 0;
+
+}
+  ul#extra-m a, ul#extra-m span {
+    padding: 0.1em 1em;
+    border: 0px solid black;
+    color: #00FF40;
+
+}
+  ul#extra-m a:hover, ul#extra-m span {
+  color: white; background-color: #0040FF;
+     -webkit-border-radius: 15px;
+  -webkit-border-top-right-radius: 15px;
+  -webkit-border-bottom-left-radius: 15px;
+  -moz-border-radius: 15px;
+  -moz-border-radius-topright: 15px;
+  -moz-border-radius-bottomleft: 15px;
+  border-radius: 15px;
+  border-top-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+}
+
