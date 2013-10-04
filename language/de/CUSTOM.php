@@ -430,7 +430,7 @@ $LNG['ev_attack_msg']		=	 'Dringende Nachricht vom Flottenkommando!<br>Die Langs
 
 // Neu erstellt 2.9.2013
 //Menu
-$LNG['lm_baumenu']						= 'Baumenu';
+$LNG['lm_mwirtschaft']						= 'Wirtschaft';
 $LNG['lm_mstats']						= 'Statistiken';
 $LNG['lm_malli']						= 'Allianz';
 $LNG['lm_mcommunity']					= 'Community';

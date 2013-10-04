@@ -147,7 +147,7 @@
 			{if isModulAvalible($smarty.const.MODULE_GALAXY)}<li style="width:180px;"><a href="game.php?page=galaxyOld">{$LNG.lm_mgalalist}</a></li>{/if}
 
 	</ul></li>
-	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_baumenu}</span></a>
+	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_mwirtschaft}</span></a>
 	<ul style="width:180px;">
 			{if isModulAvalible($smarty.const.MODULE_BUILDING)}<li style="width:180px;"><a href="game.php?page=buildings">{$LNG.lm_buildings} 2D</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_BUILDING)}<li style="width:180px;"><a href="game.php?page=buildingsOld">{$LNG.lm_buildings} old</a></li>{/if}
