@@ -29,9 +29,41 @@
  
 $LNG['Version']     = 'Version';
 $LNG['Description'] = 'Beschreibung';
-
 $LNG['changelog']   = array(
-'v 0.5 Space' => 'Space_Ic3y 21.09.2013
+
+'version 0.7.1 S.o.L' => 'Space_Ic3y 05.10.2013
+#F.A.Q erweitert
+#Overview überarbeitet
+#Menü1 neu aufgebaut
++Menü2 neu
+#Forschung/Schiffe/Gebäude beschreibung geändert
++Wiki zum großteil fertig
+#Menü und Header zusammen gebaut
+',	
+'version 0.7.0 S.o.L' => 'Space_Ic3y 28.09.2013
++Allianz Forum
++Allianz Forum Style
++Allianz Forum im ADM
++Vote Mod
++Vote Mod Style	
++Vote Mod im ADM
++2D Gebäude baumenu
+#Gebäude liste baumenu geändert
++Neue Button im Menu 
+( Vote , Allianz Forum, Gebäude2D, Gebäude Old, FAQ )	
+#New Nachrichten System	
++Overview - Button - Allianz Forum
+#Overview - Button - Neusotiert
+#Overview - Übersicht - Planeten Übersicht - Bauzeitfarbe geändert
+#Overview - Style Edit
++ New Pic für Mond
+#Galaxie Liste - Inaktive (Ii) in Gold
++Galaxie Liste - Button Saveflüge (vorbereitet ohne Funktion )
+Bugfix - Fenstern verschoben und wieder richtig!
+Custom.php weitergeführt.
+Übersetztung - Beschreibung weitergeführt
+',	
+'version 0.5.0 S.o.L' => 'Space_Ic3y 21.09.2013
 #Sprachen - Übersetzung - Beschreibungen - *.tpl datein anpassen.
 #Overview entstaubt - Galaxie button hinzugefügt - hintergrund bearbeitet - formatierung bearbeitet
 #style leicht verändert, buttons hinzugefügt, Custom.php weitergeführt uvw.....
@@ -49,6 +81,7 @@ $LNG['changelog']   = array(
 #Noobprotection überarbeitet
 +Statistik view für admins geändert
 @TODO Dokumentation
-@TODO Teamverstärken
+@TODO Teamverstärken	
 ',
+
 );
