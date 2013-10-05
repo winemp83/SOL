@@ -19,7 +19,7 @@
 		</tr>
 		{/if}
 		<tr>
-			<td colspan="1">Gamer online:</td>
+			<td width="20%">Gamer online:</td>
 			<td colspan="5">{$online}</td>
 		</tr> 
 
@@ -344,9 +344,12 @@
 	</tr>
 		{foreach $fleets as $index => $fleet}
 	<tr>
-		<td id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}">{pretty_fly_time({$fleet.resttime})}</td>
-		<td colspan="2">{$fleet.text}</td>
+		<td id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}" width="10%">{pretty_fly_time({$fleet.resttime})}</td>
+		<td width="80%">{$fleet.text}</td>
+
+
 	</tr>
+	
 		{/foreach}
 	 <tr>
 </tbody></table>		
