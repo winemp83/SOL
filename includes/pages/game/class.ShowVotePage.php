@@ -135,19 +135,19 @@ class ShowVotePage extends AbstractPage
 			$help = 0;
 		}
 		if($this->vote_one != 0){
-			$help_a = ceil($this->vote_one / $help);
+			$help_a = floor($this->vote_one / $help);
 		}
 		else{
 			$help_a = 0;
 		}
 		if($this->vote_two != 0){
-			$help_b = ceil($this->vote_two / $help);
+			$help_b = floor($this->vote_two / $help);
 		}
 		else{
 			$help_b = 0;
 		}
 		if($this->vote_tree != 0){
-			$help_c = ceil($this->vote_tree / $help);
+			$help_c = floor($this->vote_tree / $help);
 		}
 		else{
 			$help_c = 0;

@@ -138,50 +138,77 @@ class BuildFunctions
 	}
 	
 	public static function getBuildingTime($USER, $PLANET, $Element, $elementPrice = NULL, $forDestroy = false, $forLevel = NULL)
-	{
-		global $resource, $reslist, $requeriments;
-
-        $CONF	= Config::getAll(NULL, $USER['universe']);
+    {
+        global $resource, $reslist, $requeriments;
+        
+        $CONF    = Config::getAll(NULL, $USER['universe']);
 
         $time   = 0;
 
         if(!isset($elementPrice)) {
-			$elementPrice	= self::getElementPrice($USER, $PLANET, $Element, $forDestroy, $forLevel);
-		}
-
-        $elementCost	= 0;
+            $elementPrice    = self::getElementPrice($USER, $PLANET, $Element, $forDestroy, $forLevel);
+        }
+        
+        $elementCost    = 0;
+        
+        if(isset($elementPrice[901])) {
+            $elementCost    += $elementPrice[901];
+        }
+        
+        if(isset($elementPrice[902])) {
+            $elementCost    += $elementPrice[902];
+        }
+        
 		
-		if(isset($elementPrice[901])) {
-			$elementCost	+= $elementPrice[901];
+		$one = 0;
+		$two = 0;
+		if ($USER['ally_id'] != 0){
+        		$sql = "SELECT * FROM ".ALLIBONUS." WHERE id='".$USER['ally_id']."'";
+				$result = $GLOBALS['DATABASE']->query($sql);
+				foreach($result as $data){
+					$one 		= $data['building'];
+					$two    	= $data['research'];
+				}
+        }
+		$ship  = 1;
+		$build = 1;
+		$def   = 1;
+		$ref   = 1; 
+		switch ($USER['race']){
+			case 1: $ship = 0.8;
+					break;
+			case 2:	$def = 0.8;
+					break;
+			case 3: $build = 0.8;
+					break;
+			case 4: $ref = 0.8;
+					break;
 		}
-		
-		if(isset($elementPrice[902])) {
-			$elementCost	+= $elementPrice[902];
-		}
-
-
-        if	   (in_array($Element, $reslist['build'])) {
-			$time	= $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['BuildTime']);
-		} elseif (in_array($Element, $reslist['fleet'])) {
-			$time	= $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['ShipTime']);	
-		} elseif (in_array($Element, $reslist['defense'])) {
-			$time	= $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['DefensiveTime']);
-		} elseif (in_array($Element, $reslist['tech'])) {
-
+		$build -= ((1/100)*$one);
+		$ship -= ((1/100)*$one);
+		$def -= ((1/100)*$one);
+		$ref -= ((1/100)*$two);	
+        if       (in_array($Element, $reslist['build'])) {
+            $time    = $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[14]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['BuildTime']) * $build;
+        } elseif (in_array($Element, $reslist['fleet'])) {
+            $time    = $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['ShipTime']) * $ship;    
+        } elseif (in_array($Element, $reslist['defense'])) {
+            $time    = $elementCost / (Config::get('game_speed') * (1 + $PLANET[$resource[21]])) * pow(0.5, $PLANET[$resource[15]]) * (1 + $USER['factor']['DefensiveTime']) * $def;
+        } elseif (in_array($Element, $reslist['tech'])) {
             if(is_numeric($PLANET[$resource[31].'_inter']))
-			{
-                $Level	= $PLANET[$resource[31]];
-			} else {
+            {
+                $Level    = $PLANET[$resource[31]];
+            } else {
                 $Level = 0;
                 foreach($PLANET[$resource[31].'_inter'] as $Levels)
-				{
+                {
                     if(!isset($requeriments[$Element][31]) || $Levels >= $requeriments[$Element][31])
-						$Level += $Levels;
-				}
-			}
-			
-			$time	= $elementCost / (1000 * (1 + $Level)) / (Config::get('game_speed') / 2500) * pow(1 - Config::get('factor_university') / 100, $PLANET[$resource[6]]) * (1 + $USER['factor']['ResearchTime']);
-		}
+                        $Level += $Levels;
+                }
+            }
+            
+            $time    = $elementCost / (1000 * (1 + $Level)) / (Config::get('game_speed') / 2500) * pow(1 - Config::get('factor_university') / 100, $PLANET[$resource[6]]) * (1 + $USER['factor']['ResearchTime']) * ($ref);
+        }
 
         if($forDestroy) {
 			$time	= floor($time * 1300);

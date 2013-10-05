@@ -1919,7 +1919,7 @@ function show()
 			$this->printMessage(sprintf($LNG['achievements_success'],$LNG['achievements_typ_debris'],$LNG['achievements_debris_lvl1'],$LNG['achievements_debris_reward_lvl1']),"?page=achievement",4);
 			exit;	
 		}
-		if ($USER['kbmetal'] >=100000)
+		if ($USER['kbmetal'] >=10000)
 			$debris_done1 = '<img src="styles/achievements/done.png" >';
 		else
 			$debris_done1 = '<img src="styles/achievements/miss.png" >';
@@ -1941,7 +1941,7 @@ function show()
 	//Debris Level 2
 	if($USER['achievements_debris'] == 2)
 	{
-		if($USER['kbmetal'] >= 100000 && $USER['kbcrystal'] >= 100000)
+		if($USER['kbmetal'] + $USER['kbcrystal'] >= 100000 && $USER['kbcrystal'] >= 100000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_debris` = achievements_debris+1 WHERE `id` = ".$USER['id'].";");
 			$PLANET[$resource[901]]	+= 25000; //reward

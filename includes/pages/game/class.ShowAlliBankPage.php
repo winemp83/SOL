@@ -32,9 +32,9 @@ function show()
 				'allyBank_kristall'		=> $LNG['allyBank_kristall'],
 				'allyBank_deuterium'	=> $LNG['allyBank_deuterium'],
 				'allyBank_in'			=> $LNG['allyBank_in'],
-				'ally_bank_met'			=> $help['met'],
-				'ally_bank_kri'			=> $help['kri'],
-				'ally_bank_deu'			=> $help['deu'],
+				'ally_bank_met'			=> pretty_number($help['met']),
+				'ally_bank_kri'			=> pretty_number($help['kri']),
+				'ally_bank_deu'			=> pretty_number($help['deu']),
 			));
 			}
 			else{
@@ -50,9 +50,9 @@ function show()
 				'allyBank_kristall'		=> $LNG['allyBank_kristall'],
 				'allyBank_deuterium'	=> $LNG['allyBank_deuterium'],
 				'allyBank_in'			=> $LNG['allyBank_in'],
-				'ally_bank_met'			=> $help['met'],
-				'ally_bank_kri'			=> $help['kri'],
-				'ally_bank_deu'			=> $help['deu'],
+				'ally_bank_met'			=> pretty_number($help['met']),
+				'ally_bank_kri'			=> pretty_number($help['kri']),
+				'ally_bank_deu'			=> pretty_number($help['deu']),
 			));
 			}	
 			$this->display('allyBank_overview.tpl');
@@ -115,9 +115,9 @@ function in(){
 			'allyBank_in_header'	=> $LNG['allyBank_in_header'],
 			'allyBank_in_overview'	=> $LNG['allyBank_in_overview'],
 			'allyBank_in_payin'		=> $LNG['allyBank_in_payin'],
-			'ally_bank_met'			=> $help['met'],
-			'ally_bank_kri'			=> $help['kri'],
-			'ally_bank_deu'			=> $help['deu'],
+			'ally_bank_met'			=> pretty_number($help['met']),
+			'ally_bank_kri'			=> pretty_number($help['kri']),
+			'ally_bank_deu'			=> pretty_number($help['deu']),
 		));
 		$this->display('allyBank_in.tpl');
 	}
@@ -133,9 +133,9 @@ function in(){
 			'allyBank_in_header'	=> $LNG['allyBank_in_header'],
 			'allyBank_in_overview'	=> $LNG['allyBank_in_overview'],
 			'allyBank_in_payin'		=> $LNG['allyBank_in_payin'],
-			'ally_bank_met'			=> $help['met'],
-			'ally_bank_kri'			=> $help['kri'],
-			'ally_bank_deu'			=> $help['deu'],
+			'ally_bank_met'			=> pretty_number($help['met']),
+			'ally_bank_kri'			=> pretty_number($help['kri']),
+			'ally_bank_deu'			=> pretty_number($help['deu']),
 		));
 		$this->display('allyBank_in.tpl');
 	}

@@ -26,17 +26,17 @@ function show()
 
 			$this->tplObj->assign_vars(array(	
 
-				'bankm'			=> $PLANET['bankm'],
+				'bankm'			=> pretty_number($PLANET['bankm']),
 
-				'bankc'			=> $PLANET['bankc'],
+				'bankc'			=> pretty_number($PLANET['bankc']),
 
-				'bankd'			=> $PLANET['bankd'],
+				'bankd'			=> pretty_number($PLANET['bankd']),
 
 				'transCoast'	=> $transCoasts,
 
-				'maxStorage'	=> $maxStorage,
+				'maxStorage'	=> pretty_number($maxStorage),
 
-				'freeStorage'	=> $freeStorage,
+				'freeStorage'	=> pretty_number($freeStorage),
 
 				'bank'				=> $LNG['bank'],
 
@@ -133,7 +133,7 @@ function in()
                         bankd = bankd + $bDeut 
                     WHERE id = ".$PLANET['id'].";");
 
-					$this->printMessage( 'Sie haben Eingezahlt '. $bMet .' Metall, '. $bCrys .' Kristall und '. $bDeut .' Deuterium in die Bank.', 'game.php?page=bank');
+					$this->printMessage( 'Sie haben Eingezahlt '. pretty_number($bMet) .' Metall, '. pretty_number($bCrys) .' Kristall und '. pretty_number($bDeut) .' Deuterium in die Bank.', 'game.php?page=bank');
 
 				}
 
@@ -145,15 +145,15 @@ function in()
 
 				'transCoast'	=> $transCoasts,
 
-				'bankm'				=> $PLANET['bankm'],
+				'bankm'				=> pretty_number($PLANET['bankm']),
 
-				'bankc'				=> $PLANET['bankc'],
+				'bankc'				=> pretty_number($PLANET['bankc']),
 
-				'bankd'				=> $PLANET['bankd'],
+				'bankd'				=> pretty_number($PLANET['bankd']),
 
-				'maxStorage'	=> $maxStorage,
+				'maxStorage'	=> pretty_number($maxStorage),
 
-				'freeStorage'	=> $freeStorage,
+				'freeStorage'	=> pretty_number($freeStorage),
 
 				'bank_ress'			=> $LNG['bank_ress'],
 
@@ -236,7 +236,7 @@ function out()
                         bankc = bankc - $bCrys,
                         bankd = bankd - $bDeut 
                     WHERE id = ".$PLANET['id'].";");
-					$this->printMessage( 'Sie haben Abgehoben '. $bMet .' Metall, '. $bCrys .' Kristall und '. $bDeut .' Deuterium .', 'game.php?page=bank', 3 );
+					$this->printMessage( 'Sie haben Abgehoben '. pretty_number($bMet) .' Metall, '. pretty_number($bCrys) .' Kristall und '. pretty_number($bDeut) .' Deuterium .', 'game.php?page=bank', 3 );
 
 				}
 
@@ -246,11 +246,11 @@ function out()
 
 			$this->tplObj->assign_vars(array(	
 
-				'bankm'				=> $PLANET['bankm'],
+				'bankm'				=> pretty_number($PLANET['bankm']),
 
-				'bankc'				=> $PLANET['bankc'],
+				'bankc'				=> pretty_number($PLANET['bankc']),
 
-				'bankd'				=> $PLANET['bankd'],
+				'bankd'				=> pretty_number($PLANET['bankd']),
 
 				'bank_ress'			=> $LNG['bank_ress'],
 
