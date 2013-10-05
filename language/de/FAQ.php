@@ -357,11 +357,12 @@ $LNG['questions'][10]['category']	= 'Wichtige Links';
 $LNG['questions'][10][1]['title']	= 'Links';
 $LNG['questions'][10][1]['body']		= <<<BODY
 <h3>Unsere Wichtigesten Links</h3>
-<p>Homepage = <a href="http://www.spaceoflegends.de/">landoflegends.de</a><br>
-Game Server = <a href="http://game.spaceoflegends.de">game.landoflegends.de</a><br>
-Speed Server = <a href="http://speed.spaceoflegends.de/">speed.landoflegends.de</a><br>
-Unsere Wiki = <a href="http://www.wiki.spaceoflegends.de/">wiki.landoflegends.de</a><br>
-Mantis = <a href="http://bugs.landoflegends.de/">bug.landoflegends.de</a><br>
+<p> Momentan nicht aktiv auser die Wiki<br>
+<p>Homepage = <a href="http://www.spaceoflegends.de"  target="forum">landoflegends.de</a><br>
+<p>Game Server = <a href="http://game.spaceoflegends.de"  target="forum" >game.landoflegends.de</a><br>
+<p>Speed Server = <a href="http://speed.spaceoflegends.de"  target="forum">speed.landoflegends.de</a><br>
+<p>Unsere Wiki = <a href="http://www.wiki.spaceoflegends.de"  target="forum">wiki.landoflegends.de</a><br>
+<p>Mantis = <a href="http://bugs.landoflegends.de"  target="forum">bug.landoflegends.de</a><br>
 
 BODY;
 
