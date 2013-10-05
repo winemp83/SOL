@@ -29,9 +29,9 @@
  
 $LNG['Version']     = 'Version';
 $LNG['Description'] = 'Beschreibung';
-
 $LNG['changelog']   = array(
-'v 0.7 Space' => 'Space_Ic3y 05.10.2013
+
+'version 0.7.1 S.o.L' => 'Space_Ic3y 05.10.2013
 #F.A.Q erweitert
 #Overview überarbeitet
 #Menü1 neu aufgebaut
@@ -39,8 +39,8 @@ $LNG['changelog']   = array(
 #Forschung/Schiffe/Gebäude beschreibung geändert
 +Wiki zum großteil fertig
 #Menü und Header zusammen gebaut
-',
-'v 0.7 Space' => 'Space_Ic3y 28.09.2013
+',	
+'version 0.7.0 S.o.L' => 'Space_Ic3y 28.09.2013
 +Allianz Forum
 +Allianz Forum Style
 +Allianz Forum im ADM
@@ -62,9 +62,8 @@ $LNG['changelog']   = array(
 Bugfix - Fenstern verschoben und wieder richtig!
 Custom.php weitergeführt.
 Übersetztung - Beschreibung weitergeführt
-',
-		
-'v 0.5 Space' => 'Space_Ic3y 21.09.2013
+',	
+'version 0.5.0 S.o.L' => 'Space_Ic3y 21.09.2013
 #Sprachen - Übersetzung - Beschreibungen - *.tpl datein anpassen.
 #Overview entstaubt - Galaxie button hinzugefügt - hintergrund bearbeitet - formatierung bearbeitet
 #style leicht verändert, buttons hinzugefügt, Custom.php weitergeführt uvw.....
@@ -82,6 +81,7 @@ Custom.php weitergeführt.
 #Noobprotection überarbeitet
 +Statistik view für admins geändert
 @TODO Dokumentation
-@TODO Teamverstärken
+@TODO Teamverstärken	
 ',
+
 );
