@@ -1,9 +1,4 @@
 ﻿<div id="leftmenu-ingame">
-
-    <script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAzU5E6W-kYkDWncD-gLlvEhRUEaat57mcPuL2sxLOgiGfdu1dyxRm8B-okEsXk6nmXsYNVPSFoKIYxA"></script>
-    <script src="././././scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
-    <script src="././././scripts/dnews.js" type="text/javascript"></script>
-
 <div id="header" >
 	<div id="extra-m1">
 
