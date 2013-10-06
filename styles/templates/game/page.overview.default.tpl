@@ -10,6 +10,7 @@
 	</script>
 <table class="table519" style="background: transparent;">
 	<tbody>
+
 		<tr>
 			<th colspan="6" style="text-align:center;color:gold;" class="servertime"> {$servertime1} <span style="color:silver;">{$servertime2}</span> </th> </tr>
 		{if $messages}
@@ -235,15 +236,28 @@
 
 <div style="background: transparent;"> <a name="t1" id="t1"></a>
 											<table style="background: transparent;">
+<tr>
+		<th colspan="3">{$LNG.ov_events}  
+		</th>
+	</tr>
+		{foreach $fleets as $index => $fleet}
+	<tr>
+		<td id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}" width="10%">{pretty_fly_time({$fleet.resttime})}</td>
+		<td width="80%">{$fleet.text}</td>
+
+
+	</tr>
+	
+		{/foreach}
+	 <tr>
 <td colspan="6">
+	
+
 
  <div id='planet_overview' style='background: transparent url({$dpath}planeten/{$planetimage}.jpg); height: 290px; width: 615px;'>
  <div id='planet_overview_header'> <span class="planetname"> {$planetname} </span>
 </div>
 
-
-
-		
 
 		
 <a href="game.php?page=galaxyOld&amp;galaxy={$galaxy}&amp;system={$system}"> <img src="./styles/theme/gow/img/gala.png" width='88px' height='27px' border='0'></a>
@@ -338,20 +352,7 @@
 		</td>
 		 </td>
          
-	<tr>
-		<th colspan="3">{$LNG.ov_events}  
-		</th>
-	</tr>
-		{foreach $fleets as $index => $fleet}
-	<tr>
-		<td id="fleettime_{$index}" class="fleets" data-fleet-end-time="{$fleet.returntime}" data-fleet-time="{$fleet.resttime}" width="10%">{pretty_fly_time({$fleet.resttime})}</td>
-		<td width="80%">{$fleet.text}</td>
 
-
-	</tr>
-	
-		{/foreach}
-	 <tr>
 </tbody></table>		
 </div>
 </td>

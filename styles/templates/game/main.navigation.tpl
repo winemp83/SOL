@@ -1,14 +1,18 @@
 ﻿<div id="leftmenu-ingame">
 
+    <script type="text/javascript" src="https://www.google.com/jsapi?key=ABQIAAAAzU5E6W-kYkDWncD-gLlvEhRUEaat57mcPuL2sxLOgiGfdu1dyxRm8B-okEsXk6nmXsYNVPSFoKIYxA"></script>
+    <script src="././././scripts/jquery-1.4.4.min.js" type="text/javascript"></script>
+    <script src="././././scripts/dnews.js" type="text/javascript"></script>
+
 <div id="header" >
 	<div id="extra-m1">
 
 		<ul id="extra-m">
 			<li>{if isModulAvalible($smarty.const.MODULE_SUPPORT)}<li style="width:180px;"><a href="game.php?page=ticket">{$LNG.lm_support}</a></li>{/if}</li>
-			{if !empty($hasBoard)}<li style="width:180px;"><a href="game.php?page=board" target="forum">{$LNG.lm_forums}</a></li>{/if}
-			{if isModulAvalible($smarty.const.MODULE_CHAT)}<li style="width:180px;"><a href="game.php?page=chat" target="forum">{$LNG.lm_chat}</a></li>{/if}
+			{if !empty($hasBoard)}<li style="width:180px;"><a href="game.php?page=board" target="_blank">{$LNG.lm_forums}</a></li>{/if}
+			{if isModulAvalible($smarty.const.MODULE_CHAT)}<li style="width:180px;"><a href="game.php?page=chat" target="_blank">{$LNG.lm_chat}</a></li>{/if}
 			<li style="width:180px;"><a href="game.php?page=questions" target="">{$LNG.lm_faq}</a></li>
-			<li style="width:180px;"><a href="http://www.wiki.spaceoflegends.de/doku.php" target="forum">Wiki</a></li>
+			<li style="width:180px;"><a href="http://www.wiki.spaceoflegends.de/doku.php" target="_blank">Wiki</a></li>
 			{if isModulAvalible($smarty.const.MODULE_NOTICE)}<li style="width:180px;"><a href="javascript:OpenPopup('?page=notes', 'notes', 720, 300);">{$LNG.lm_notes}</a></li>{/if}
 		        {if isModulAvalible($smarty.const.MODULE_SIMULATOR)}<li style="width:180px;"><a href="game.php?page=battleSimulator">{$LNG.lm_msimu}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_TECHTREE)}<li style="width:180px;"><a href="game.php?page=techtree">{$LNG.lm_mtech}</a></li>{/if}
@@ -94,7 +98,9 @@
 						{/if}
 						</td>
 					</tr>
+
 			</tbody>
+
 {if !$vmode}
 		<script type="text/javascript">
 		var viewShortlyNumber	= {$shortlyNumber|json}
