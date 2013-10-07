@@ -40,7 +40,7 @@
 	</tr>
 	{if $Si6}
 	<tr>
-		<td colspan=9><a href ="game.php?page=tutorial&mode=spia"><input type="submit" style="cursor: pointer;" value="{$LNG.tut_go_to} {$LNG.tut_m7}" onclick="window.location = 'game.php?page=tutorial&mode=spia'"/></a></td>
+		<td colspan=9><a href ="game.php?page=tutorial&mode=m7"><input type="submit" style="cursor: pointer;" value="{$LNG.tut_go_to} {$LNG.tut_m7}" onclick="window.location = 'game.php?page=tutorial&mode=spia'"/></a></td>
 	</tr>
 	{/if}
 	<tr>

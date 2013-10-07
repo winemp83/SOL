@@ -40,7 +40,7 @@
 	</tr>
 	{if $Si2}
 	<tr>
-		<td colspan=9><a href ="game.php?page=tutorial&mode=pianeta"><input type="submit" style="cursor: pointer;" value="{$LNG.tut_go_to} {$LNG.tut_m3}" onclick="window.location = 'game.php?page=tutorial&mode=m3'"/></a></td>
+		<td colspan=9><a href ="game.php?page=tutorial&mode=m3"><input type="submit" style="cursor: pointer;" value="{$LNG.tut_go_to} {$LNG.tut_m3}" onclick="window.location = 'game.php?page=tutorial&mode=m3'"/></a></td>
 	</tr>
 	{/if}
 	<tr>

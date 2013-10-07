@@ -2,6 +2,12 @@
 
 class ShowForumAllPage extends AbstractPage{
 	
+	protected $kat 		= array();
+	protected $top 		= array();
+	protected $ans 		= array();
+	protected $toplast 	= array();
+	protected $logs		= array();
+	
 	function __construct() 
 	{
 		parent::__construct();
@@ -11,93 +17,503 @@ class ShowForumAllPage extends AbstractPage{
 	function show(){
 		$this->menue();
 	}
-	
+	//done
 	protected function menue(){
-		if(isset($_POST['meneu']) || empty($_POST['menue'])){
+		if(isset($_POST['meneu']) || !empty($_POST['menue'])){
 			$menue = $_POST['menue'];
 		}
 		else{
 			$menue = 0;
 		}
+		if(isset($_POST['log']) || !empty($_POST['log'])){
+			$log = $_POST['log'];
+		}
+		else{
+			$log = 0;
+		}
 		
 		switch ($menue){
-			// getTopic
+			// DONE
 			case 1 :
-					$this->getTopic($kat_id);
+					$this->getTopic($_POST['kat_id']);
+					$this->showPage(1);
 					break;
-			// getAnswer
+			// DONE
 			case 2 :
-					$this->getAnswer($topic_id);
+					$this->getAnswer($_POST['topic_id']);
+					$this->showPage(2);
 					break;
-			// createTopic
+			// DONE
 			case 3 :
+					$this->createTopic($_POST['kat_id']) ;
 					break;
-			// createAnswer
-			case 4 :
-					
+			// DONE
+			case 4 : 
+					$this->createAnswer($_POST['topic_id']);
 					break;
-			// dellTopic
+			// DONE
 			case 5 :
-					$this->logAction('dell_topic', $player_id);
-					$this->dellTopic($topic_id);
+					if($this->getUserMod()){
+						if($this->checkclose($_POST['topic_id'])){
+							$this->logAction('dell_topic');
+							$this->dellTopic($_POST['topic_id']);
+							$this->menue();
+						}
+						else{
+							$this->get_Error(7);
+						}
+					}
+					else{
+						$this->logAction('unberechtigter_Zugriff');
+						$this->get_Error(1);
+					}
 					break;
-			// dellAnswer
+			// DONE 
 			case 6 :
-					$this->logAction('dell_answer', $player_id);
+					$this->logAction('dell_answer');
 					$this->dellAnswer($answer_id);
+					$this->menue();
 					break;
-			// closeTopic
+			// DONE
 			case 7 :
-					$this->logAction($what, $player_id);
+					if($this->getUserMod()){
+						$this->closeTopic($_POST['topic_id']);
+						$this->logAction('topic_close');
+						$this->menue();
+					}
+					else{
+						$this->logAction('unberechtigter_Zugriff');
+						$this->get_Error(1);
+					}
 					break;
-			// logAction
-			/*
-			 * TODO: Make a Function to answer from Team
-			 * 
-			 */
+			// DONE
 			case 8 :
-					$this->logAction($what, $player_id);
+					$this->createAdminAnswer($_POST['topic_id']);
+					$this->logAction('admin_answer');
 					break;
-			// logAction
+			// DONE
 			case 9 :
-					$this->logAction($what, $player_id);
+					if($this->getUserMod()){
+						$this->showLog($log);
+						$this->showPage(3);
+					}
+					else{
+						$this->logAction('unberechtigter_Zugriff');
+						$this->get_Error(1);
+					}
 					break;
-			// getLast
-			// getKat
+			// DONE
 			default:
 					$this->getKat();
 					$this->getLast();
+					$this->showPage(0);
+					break;
+		}
+	}
+
+	//done
+	protected function checkclose($topic_id){
+		$result = $GLOBALS['DATABASE']->query("SELECT (close) FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
+		foreach($result as $DATA){
+			if($DATA['close'] != 0){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+	}
+
+	//done
+	protected function getUserMod(){
+		global $USER;
+		if($USER['forum_adm'] != 1){
+			return false;
+		}
+		else{
+			return true;
+		}
+	}
+	
+	//done
+	protected function closeTopic($topic_id){
+		$GLOBALS['DATABASE']->query("UPDATE ".FORUM_TOP." SET close ='1' WHERE id='".$topic_id."'");
+	}
+	
+	//done
+	protected function showLog($nr){
+		switch ($nr){
+			case 1 :
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='unberechtigter_Zugriff' ORDER BY id DESC");
+					break;
+			case 2 :
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='dell_topic' ORDER BY id DESC");
+					break;
+			case 3 :
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='dell_answer' ORDER BY id DESC");
+					break;
+			case 4 :
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='topic_close' ORDER BY id DESC");
+					break;
+			case 5 :
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='admin_answer' ORDER BY id DESC");
+					break;
+			default:
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." ORDER BY id DESC");
+					break;
+		}
+		
+		while ($logRow = $GLOBALS['DATABASE']->fetch_array($result)){
+			$this->kat = array(
+				'log_action' 	=> $logRow['action'],
+				'log_name'		=> $logRow['player'],
+				'log_create'	=> $logRow['create'],
+				'log_id'		=> $logRow['id'], 
+			);
+		}
+		$this->tplObj->assign_vars(array(
+				'log'	=> $this->logs,
+		));
+	}
+	
+	//done
+	protected function createAdminAnswer($topic_id){
+	global $USER;
+		$step = $_POST['step'];
+		if($step == 1){
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
+			foreach($result as $Data){
+				$this->tplObj->assign_vars(array(
+					'top_id'	=> $Data['id'],
+					'top_name'	=> $Data['name'],
+				));
+			}
+		$this->showPage(4);
+		}
+		elseif($step == 2){
+			$result = $GLOBALS['DATABASE']->query("SELECT (close) FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
+			foreach($result as $Data){
+				if($Data['close'] != 0){
+					$help = true;	
+				}
+				else{
+					$help = false;
+				}
+			}
+			if ($help){
+				$this->get_Error(6);
+			}
+			else{
+				$text = $_POST['text'];
+				if(strlen($text) > 5){
+					$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_ANS." SET create='".time()."', edit='".time()."', user='".$USER['username']."', topic_id='".$topic_id."', text='".$GLOBALS['DATABASE']->sql_escape($text)."', adm='1' ");
+					$GLOBALS['DATABASE']->query("UPDATE ".FORUM_TOP." SET lastchange='".time()." WHERE id='".$topic_id."'");
+					$this->menue();
+				}
+				else{
+					$this->get_Error(4);
+				}
+			}
+		}
+		else{
+		$this->showPage(0);	
+		}
+	}
+	
+	//done
+	protected function createTopic($kat_id){
+	global $USER;
+		if(empty(HTTP::_GP('step',''))){
+			$step = 1;
+		}
+		else{
+			$step = HTTP::_GP('step','');
+		}
+		switch ($step){
+			case 1 :
+					$this->showPage(5);
+					break;
+			case 2 :
+					if(strlen($_POST['topicName']) >= 3 && strlen($_POST['text']) >= 10){
+						$topicName = $_POST['topicName'];
+						$user = $USER['username'];
+						$text = $_POST['text'];
+						$GLOBALS['DATABASE']->multi_query("INSERT INTO ".ALLYTOPIC." SET
+							name					= '".$GLOBALS['DATABASE']->sql_escape($topicName)."',
+							kat_id					= '".$_POST['kat_id']."',
+							user					= '".$user."',
+							create					= '".time()."',
+							lastchange				= '".time()."',
+							close					= '0', 
+							team					= '0',
+							SET @topicID = LAST_INSERT_ID();
+							INSERT INTO ".TOPICANSWER." SET 
+							topic_id 				= @topicID,
+							create					= '".time()."',
+							edit					= '".time()."',
+							user					= '".$user."',
+							text					= '".$GLOBALS['DATABASE']->sql_escape($text)."'
+							adm						= '0';"
+						);
+						$this->menue();
+					}
+					else{
+						if(strlen($_POST['topicName']) <3){
+							$this->get_Error(2);
+						}
+						elseif(strlen($_POST['text']) < 10){
+							$this->get_Error(3);
+						}
+					}
+					break;
+			default:
+					$this->showPage(5);
 					break;
 		}
 	}
 	
+	//done
+	protected function createAnswer($topic_id){
+		global $USER;
+		$step = $_POST['step'];
+		if($step == 1){
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
+			foreach($result as $Data){
+				$this->tplObj->assign_vars(array(
+					'top_id'	=> $Data['id'],
+					'top_name'	=> $Data['name'],
+				));
+			}
+		$this->showPage(4);
+		}
+		elseif($step == 2){
+			$result = $GLOBALS['DATABASE']->query("SELECT (close) FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
+			foreach($result as $Data){
+				if($Data['close'] != 0){
+					$help = true;	
+				}
+				else{
+					$help = false;
+				}
+			}
+			if ($help){
+				$this->get_Error(6);
+			}
+			else{
+				$text = $_POST['text'];
+				if(strlen($text) > 5){
+					$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_ANS." SET create='".time()."', edit='".time()."', user='".$USER['username']."', topic_id='".$topic_id."', text='".$GLOBALS['DATABASE']->sql_escape($text)."'");
+					$GLOBALS['DATABASE']->query("UPDATE ".FORUM_TOP." SET lastchange='".time()." WHERE id='".$topic_id."'");
+					$this->menue();
+				}
+				else{
+					$this->get_Error(4);
+				}
+			}
+		}
+		else{
+		$this->showPage(0);	
+		}
+	}
+	
+	//done
 	protected function dellTopic($topic_id){
-		
+		$GLOBALS['DATABASE']->query("DELETE FROM ".FORUM_ANS." WHERE topic_id='".$topic_id."'");
+		$GLOBALS['DATABASE']->query("DELETE FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
 	}
 	
+	//done
 	protected function dellAnswer($answer_id){
-		
+		$GLOBALS['DATABASE']->query("DELETE FROM ".FORUM_ANS." WHERE id='".$anwser_id."'");
 	}
 	
+	//done
 	protected function logAction($what){
-		
+		global $USER;
+		$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_LOG." SET create='".time()."', player='".$USER['username']."', action='".$what."'");
 	}
 	
+	//done
 	protected function getKat(){
-		
+		if($this->getUserMod()){
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_KAT."");
+		}
+		else{
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_KAT." WHERE team='0' ORDER BY position ASC");
+		}
+		while ($katRow = $GLOBALS['DATABASE']->fetch_array($result)){
+			$this->kat = array(
+				'kat_name' 			=> $katRow['name'],
+				'kat_description'	=> htmlspecialchars($katRow['describion']),
+				'kat_id'			=> $katRow['id'],
+			);
+		}
+		$this->tplObj->assign_vars(array(
+				'kat'	=> $this->kat,
+		));
 	}
 	
+	//done
 	protected function getTopic($kat_id){
-		
+		if($this->getUserMod()){
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE kat_id='".$kat_id."'");
+		}
+		else{
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE kat_id='".$kat_id."' AND team='0'");
+		}
+		while ($topRow = $GLOBALS['DATABASE']->fetch_array($result)){
+			if($topRow['close'] != 0){
+				$help = true;
+			}
+			else{
+				$help = false;
+			}
+			$this->top = array(
+				'top_name' 		=> htmlspecialchars($topRow['name']),
+				'top_id'		=> $topRow['id'],
+				'top_user'		=> $topRow['user'],
+				'top_create'	=> $topRow['create'],
+				'top_last'		=> $topRow['lastchange'],
+				'top_kat_id'	=> $topRow['kat_id'],
+				'top_close'		=> $help,
+			);
+		}
+		$this->tplObj->assign_vars(array(
+				'top'	=> $this->sabsi($this->top, 'top_last'),
+				'kat'	=> $_POST['kat_name'],
+		));
 	}
 	
+	//done
 	protected function getAnswer($topic_id){
-		
+		if($this->getUserMod()){
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_ANS." WHERE topic_id='".$topic_id."'");
+		}
+		else{
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_ANS." WHERE topic_id='".$topic_id."' AND team='0'");
+		}
+		while ($AnsRow = $GLOBALS['DATABASE']->fetch_array($result)){
+			$this->ans = array(
+				'ans_text' 		=> htmlspecialchars($ansRow['text']),
+				'ans_id'		=> $ansRow['id'],
+				'ans_user'		=> $ansRow['user'],
+				'ans_create'	=> $ansRow['create'],
+				'ans_edit'		=> $ansRow['edit'],
+				'ans_top_id'	=> $ansRow['topic_id'],
+				'ans_adm'		=> $AnsRow['adm'],
+			);
+		}
+		$this->tplObj->assign_vars(array(
+				'ans'		=> $this->sabsi($this->ans, 'ans_id'),
+				'top_name'	=> $_POST['top_name'],
+		));
 	}
 	
+	//done
 	protected function getLast(){
-		
+		if($this->getUserMod()){
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." ORDER BY lastchange DESC LIMIT 5");
+		}
+		else{
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE team='0' ORDER BY lastchange DESC LIMIT 5");
+		}
+		while ($topRow = $GLOBALS['DATABASE']->fetch_array($result)){
+			if($topRow['close'] != 0){
+				$help = true;
+			}
+			else{
+				$help = false;
+			}
+			$Result = $GLOBALS['DATABASE']->query("SELECT (name) FROM ".FORUM_KAT." WHERE id='".$topRow['kat_id']."'");
+			foreach($Result as $data){
+				$kat_name = $data['name'];
+			}
+			$this->toplast = array(
+				'top_name' 		=> $topRow['name'],
+				'top_id'		=> $topRow['id'],
+				'top_user'		=> $topRow['user'],
+				'top_create'	=> $topRow['create'],
+				'top_last'		=> $topRow['lastchange'],
+				'top_kat_id'	=> $topRow['kat_id'],
+				'top_close'		=> $help,
+				'kat_name'		=> $kat_name,
+			);
+		}
+		$this->tplObj->assign_vars(array(
+				'top'	=> $this->sabsi($this->topLast, 'top_last'),
+		));
 	} 
 	
+	//done
+	protected function get_Error($id){
+		global $LNG;
+		if(!isset($id) || empty($id)){
+			$id = 100;
+		}
+		switch ($id){
+			case 1 : $msg = $LNG['winemp_Forum_error_8']; // kein Recht
+					break;
+			case 2 : $msg = $LNG['winemp_Forum_error_2']; // topic muss mehr als 3 zeichen haben
+					break; 
+			case 3 : $msg = $LNG['winemp_Forum_error_3']; // Erster Eintrag muss mehr als 10 zeichen haben
+					break;
+			case 4 : $msg = $LNG['winemp_Forum_error_4']; // Antworten müssen mehr als 5 Zeichen haben
+					break;
+			case 5 : $msg = $LNG['winemp_Forum_error_5']; // Topic nicht bekannt
+					break;
+			case 6 : $msg = $LNG['winemp_Forum_error_6']; // Topic gespeert
+					break;
+			case 7 : $msg = $LNG['winemp_Forum_error_9']; // Topic erst schliessen
+					break;
+			case 8 : $msg = $LNG['winemp_Forum_error_10']; // reserve
+					break;
+			default:
+					$msg = $LNG['winemp_Forum_error_0'];
+					break;
+		}
+	
+	
+	}
+	
+	protected function showPage($page){
+		$this->tplObj->assign_vars(array(
+				'adm'	=> $this->getUserMod(),
+		));
+		switch ($page){
+			case 1 : // Show Topics 
+					$this->display('com_Forum_topic.tpl');
+					break;
+			case 2 : // Show Topic answer
+					$this->display('com_Forum_answer.tpl');
+					break;
+			case 3 : // Show log
+					$this->display('com_Forum_logs.tpl');
+					break;
+			case 4 : // Show Answerform
+					$this->display('com_Forum_answer_form.tpl');
+					break;
+			case 5 : // Show Answerform
+					$this->display('com_Forum_topic_form.tpl');
+					break;
+			default: // Show Mainpage
+					$this->display('com_Forum_main.tpl');
+					break;
+		}
+	}
+	
+	//done
+	protected function sabsi ($array, $index, $order='asc', $natsort=FALSE, $case_sensitive=FALSE) {
+  	if(is_array($array) && count($array)>0) {
+    	foreach(array_keys($array) as $key) $temp[$key]=$array[$key][$index];
+    	if(!$natsort) ($order=='asc')? asort($temp) : arsort($temp);
+    	else {
+      	($case_sensitive)? natsort($temp) : natcasesort($temp);
+      		if($order!='asc') $temp=array_reverse($temp,TRUE);
+    	}
+    	foreach(array_keys($temp) as $key) (is_numeric($key))? $sorted[]=$array[$key] : $sorted[$key]=$array[$key];
+    		return $sorted;
+  		}
+  	return $array;
+	}
 }
 ?>
