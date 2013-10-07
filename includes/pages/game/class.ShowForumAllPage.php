@@ -7,6 +7,7 @@ class ShowForumAllPage extends AbstractPage{
 	protected $ans 		= array();
 	protected $toplast 	= array();
 	protected $logs		= array();
+	protected $msg		= '';
 	
 	function __construct() 
 	{
@@ -77,7 +78,7 @@ class ShowForumAllPage extends AbstractPage{
 					break;
 			// DONE 
 			case 6 :
-					$this->logAction('dell_answer');
+					$this->logAction('dell answer');
 					$this->dellAnswer($_POST['ans_id']);
 					$_POST['menue'] = 0;
 					$this->menue();
@@ -153,19 +154,19 @@ class ShowForumAllPage extends AbstractPage{
 	protected function showLog($nr){
 		switch ($nr){
 			case 1 :
-					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='unberechtigter_Zugriff' ORDER BY id DESC");
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='unberechtigter Zugriff' ORDER BY id DESC");
 					break;
 			case 2 :
-					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='dell_topic' ORDER BY id DESC");
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='dell topic' ORDER BY id DESC");
 					break;
 			case 3 :
-					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='dell_answer' ORDER BY id DESC");
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='dell answer' ORDER BY id DESC");
 					break;
 			case 4 :
-					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='topic_close' ORDER BY id DESC");
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='topic close' ORDER BY id DESC");
 					break;
 			case 5 :
-					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='admin_answer' ORDER BY id DESC");
+					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." WHERE action='admin answer' ORDER BY id DESC");
 					break;
 			default:
 					$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_LOG." ORDER BY id DESC");
@@ -503,28 +504,30 @@ class ShowForumAllPage extends AbstractPage{
 			$id = 100;
 		}
 		switch ($id){
-			case 1 : $msg = $LNG['winemp_Forum_error_8']; // kein Recht
+			case 1 : $this->msg = $LNG['winemp_Forum_error_8']; // kein Recht
 					break;
-			case 2 : $msg = $LNG['winemp_Forum_error_2']; // topic muss mehr als 3 zeichen haben
+			case 2 : $this->msg = $LNG['winemp_Forum_error_2']; // topic muss mehr als 3 zeichen haben
 					break; 
-			case 3 : $msg = $LNG['winemp_Forum_error_3']; // Erster Eintrag muss mehr als 10 zeichen haben
+			case 3 : $this->msg = $LNG['winemp_Forum_error_3']; // Erster Eintrag muss mehr als 10 zeichen haben
 					break;
-			case 4 : $msg = $LNG['winemp_Forum_error_4']; // Antworten müssen mehr als 5 Zeichen haben
+			case 4 : $this->msg = $LNG['winemp_Forum_error_4']; // Antworten müssen mehr als 5 Zeichen haben
 					break;
-			case 5 : $msg = $LNG['winemp_Forum_error_5']; // Topic nicht bekannt
+			case 5 : $this->msg = $LNG['winemp_Forum_error_5']; // Topic nicht bekannt
 					break;
-			case 6 : $msg = $LNG['winemp_Forum_error_6']; // Topic gespeert
+			case 6 : $this->msg = $LNG['winemp_Forum_error_6']; // Topic gespeert
 					break;
-			case 7 : $msg = $LNG['winemp_Forum_error_9']; // Topic erst schliessen
+			case 7 : $this->msg = $LNG['winemp_Forum_error_9']; // Topic erst schliessen
 					break;
-			case 8 : $msg = $LNG['winemp_Forum_error_10']; // reserve
+			case 8 : $this->msg = $LNG['winemp_Forum_error_10']; // reserve
 					break;
 			default:
-					$msg = $LNG['winemp_Forum_error_0'];
+					$this->msg = $LNG['winemp_Forum_error_0'];
 					break;
 		}
-	
-	
+		$this->tplObj->assign_vars(array(
+				'msg'	=> $this->msg,
+		));	
+		$this->showPage(6);
 	}
 	
 	protected function showPage($page){
@@ -546,6 +549,9 @@ class ShowForumAllPage extends AbstractPage{
 					break;
 			case 5 : // Show Answerform
 					$this->display('com_Forum_topic_form.tpl');
+					break;
+			case 6 : // Show Answerform
+					$this->display('com_Forum_error.tpl');
 					break;
 			default: // Show Mainpage
 					$this->display('com_Forum_main.tpl');
