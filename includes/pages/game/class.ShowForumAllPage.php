@@ -231,6 +231,9 @@ class ShowForumAllPage extends AbstractPage{
 		}
 		switch ($step){
 			case 1 :
+					$this->tplObj->assign_vars(array(
+						'kat'	=> $_POST['kat_id'],
+					));
 					$this->showPage(5);
 					break;
 			case 2 :
@@ -267,6 +270,9 @@ class ShowForumAllPage extends AbstractPage{
 					}
 					break;
 			default:
+					$this->tplObj->assign_vars(array(
+						'kat'	=> $_POST['kat_id'],
+					));
 					$this->showPage(5);
 					break;
 		}
@@ -342,10 +348,15 @@ class ShowForumAllPage extends AbstractPage{
 			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_KAT." WHERE team='0' ORDER BY position ASC");
 		}
 		while ($katRow = $GLOBALS['DATABASE']->fetch_array($result)){
-			$this->kat = array(
+			$Result = $GLOBALS['DATABASE']->query("SELECT COUNT(id) FROM ".FORUM_TOP." WHERE kat_id='".$katRow['id']."'");
+			foreach($Result as $Data){
+				$help = $Data['COUNT(id)'];
+			}
+			$this->kat[] = array(
 				'kat_name' 			=> $katRow['name'],
-				'kat_description'	=> htmlspecialchars($katRow['describion']),
+				'kat_description'	=> htmlspecialchars($katRow['description']),
 				'kat_id'			=> $katRow['id'],
+				'kat_top_anzahl'	=> $help,
 			);
 		}
 		$this->tplObj->assign_vars(array(
@@ -368,7 +379,11 @@ class ShowForumAllPage extends AbstractPage{
 			else{
 				$help = false;
 			}
-			$this->top = array(
+			$Result = $GLOBALS['DATABASE']->query("SELECT COUNT(id) FROM ".FORUM_ANS." WHERE topic_id='".$topRow['id']."'");
+			foreach($Result as $Data){
+				$help1 = $Data['COUNT(id)'];
+			}
+			$this->top[] = array(
 				'top_name' 		=> htmlspecialchars($topRow['name']),
 				'top_id'		=> $topRow['id'],
 				'top_user'		=> $topRow['user'],
@@ -376,11 +391,19 @@ class ShowForumAllPage extends AbstractPage{
 				'top_last'		=> $topRow['lastchange'],
 				'top_kat_id'	=> $topRow['kat_id'],
 				'top_close'		=> $help,
+				'top_ans'		=> $help1,
 			);
 		}
+		$Result = $GLOBALS['DATABASE']->query("SELECT (name) FROM ".FORUM_KAT." WHERE id='".$_POST['kat_id']."'");
+		foreach ($Result as $Data){
+			$kat_name = $Data['name'];
+		}
+		
 		$this->tplObj->assign_vars(array(
-				'top'	=> $this->sabsi($this->top, 'top_last'),
-				'kat'	=> $_POST['kat_name'],
+				'top'		=> $this->sabsi($this->top, 'top_last'),
+				'kat'		=> $_POST['kat_id'],
+				'kat_name'	=> $kat_name,
+				'adm'		=> $this->getUserMod(),
 		));
 	}
 	
@@ -393,7 +416,7 @@ class ShowForumAllPage extends AbstractPage{
 			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_ANS." WHERE topic_id='".$topic_id."' AND team='0'");
 		}
 		while ($AnsRow = $GLOBALS['DATABASE']->fetch_array($result)){
-			$this->ans = array(
+			$this->ans[] = array(
 				'ans_text' 		=> htmlspecialchars($ansRow['text']),
 				'ans_id'		=> $ansRow['id'],
 				'ans_user'		=> $ansRow['user'],
@@ -406,6 +429,7 @@ class ShowForumAllPage extends AbstractPage{
 		$this->tplObj->assign_vars(array(
 				'ans'		=> $this->sabsi($this->ans, 'ans_id'),
 				'top_name'	=> $_POST['top_name'],
+				'adm'		=> $this->getUserMod(),
 		));
 	}
 	
@@ -428,19 +452,19 @@ class ShowForumAllPage extends AbstractPage{
 			foreach($Result as $data){
 				$kat_name = $data['name'];
 			}
-			$this->toplast = array(
+			$this->toplast[] = array(
 				'top_name' 		=> $topRow['name'],
 				'top_id'		=> $topRow['id'],
 				'top_user'		=> $topRow['user'],
-				'top_create'	=> $topRow['create'],
-				'top_last'		=> $topRow['lastchange'],
+				'top_create'	=> date("d.m.Y H:i:s",$topRow['create']),
+				'top_last'		=> date("d.m.Y H:i:s",$topRow['lastchange']),
 				'top_kat_id'	=> $topRow['kat_id'],
 				'top_close'		=> $help,
 				'kat_name'		=> $kat_name,
 			);
 		}
 		$this->tplObj->assign_vars(array(
-				'top'	=> $this->sabsi($this->topLast, 'top_last'),
+				'top'	=> $this->sabsi($this->toplast, 'top_last'),
 		));
 	} 
 	

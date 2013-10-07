@@ -88,3 +88,7 @@ define('VOTES'				, DB_PREFIX.'votes');
 // Bot
 define('BOTS'               , $database['tableprefix'].'bots');
 
+// Forum
+define('FORUM_KAT'			, DB_PREFIX.'forum_kategories');
+define('FORUM_TOP'			, DB_PREFIX.'forum_topics');
+define('FORUM_ANS'			, DB_PREFIX.'forum_answer');
