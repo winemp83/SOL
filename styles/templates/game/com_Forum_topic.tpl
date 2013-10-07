@@ -18,6 +18,7 @@
 	<form action="" method="post">
 		<input type="hidden" name="menue" value="3">
 		<input type="hidden" name="kat_id" value="{$kat}">
+		<input type="hidden" name="kat_name" value="{$kat_name}">
 		<input type="submit" name="new_topic" value="Neues Thema">
 	</form>
 	</th>
@@ -56,6 +57,9 @@
 			Geschlossen
 		{else}
 			<form action="" method="post">
+				<input type="hidden" name="topic_id" value="{$topic.top_id}">
+				<input type="hidden" name="menue" value="2">
+				<input type="submit" name="get_answer" value="zur Diskussion">
 			</form>
 		{/if}
 	</td>
@@ -66,26 +70,30 @@
 	<form action="" method="post">
 		<input type="hidden" name="menue" value="3">
 		<input type="hidden" name="kat_id" value="{$kat}">
+		<input type="hidden" name="kat_name" value="{$kat_name}">
 		<input type="submit" name="new_topic" value="Neues Thema">
 	</form>
 	</th>
 	<th>
 	<form action="" method="post">
 		<input type="hidden" name="menue" value="7">
-		<input type="submit" name="menue" value="Thema schliessen">
+		<input type="hidden" name="topic_id" value="{$topic.top_id}">
+		<input type="submit" name="topic_close" value="Thema schliessen">
 	</form>
 	</th>
 	<th>
 	<form action="" method="post">
 		<input type="hidden" name="menue" value="5">
-		<input type="submit" name="menue" value="Thema Löschen">
+		<input type="hidden" name="topic_id" value="{$topic.top_id}">
+		<input type="submit" name="topic_del" value="Thema Löschen">
 	</form>
 	</th>
 	<th>
 	<div width="100%" align="right">
 	<form action="" method="post">
 		<input type="hidden" name="menue" value="0">
-		<input type="submit" name="menue" value="zurück">
+		<input type="hidden" name="topic_id" value="{$topic.top_id}">
+		<input type="submit" name="back" value="zurück">
 	</form>
 	</div>
 	</th>
@@ -100,6 +108,7 @@
 	<form action="" method="post">
 		<input type="hidden" name="menue" value="3">
 		<input type="hidden" name="kat_id" value="{$kat}">
+		<input type="hidden" name="kat_name" value="{$kat_name}">
 		<input type="submit" name="new_topic" value="Neues Thema">
 	</form>
 	</th>
@@ -109,7 +118,7 @@
 	<div width="100%" align="right">
 	<form action="" method="post">
 		<input type="hidden" name="menue" value="0">
-		<input type="submit" name="menue" value="zurück">
+		<input type="submit" name="back" value="zurück">
 	</form>
 	</div>
 	</th>

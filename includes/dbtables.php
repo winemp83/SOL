@@ -92,3 +92,4 @@ define('BOTS'               , $database['tableprefix'].'bots');
 define('FORUM_KAT'			, DB_PREFIX.'forum_kategories');
 define('FORUM_TOP'			, DB_PREFIX.'forum_topics');
 define('FORUM_ANS'			, DB_PREFIX.'forum_answer');
+define('FORUM_LOG'			, DB_PREFIX.'forum_log');

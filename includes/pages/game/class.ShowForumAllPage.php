@@ -49,14 +49,21 @@ class ShowForumAllPage extends AbstractPage{
 					break;
 			// DONE
 			case 4 : 
+				if (!isset($_POST['team']) || empty($_POST['team'])){	
 					$this->createAnswer($_POST['topic_id']);
+				}
+				else{
+					$this->createAdminAnswer($_POST['topic_id']);
+					$this->logAction('admin answer');
+				}
 					break;
 			// DONE
 			case 5 :
 					if($this->getUserMod()){
 						if($this->checkclose($_POST['topic_id'])){
-							$this->logAction('dell_topic');
+							$this->logAction('dell topic');
 							$this->dellTopic($_POST['topic_id']);
+							$_POST['menue'] = 0;
 							$this->menue();
 						}
 						else{
@@ -64,32 +71,34 @@ class ShowForumAllPage extends AbstractPage{
 						}
 					}
 					else{
-						$this->logAction('unberechtigter_Zugriff');
+						$this->logAction('unberechtigter Zugriff');
 						$this->get_Error(1);
 					}
 					break;
 			// DONE 
 			case 6 :
 					$this->logAction('dell_answer');
-					$this->dellAnswer($answer_id);
+					$this->dellAnswer($_POST['ans_id']);
+					$_POST['menue'] = 0;
 					$this->menue();
 					break;
 			// DONE
 			case 7 :
-					if($this->getUserMod()){
+				if($this->getUserMod()){
 						$this->closeTopic($_POST['topic_id']);
-						$this->logAction('topic_close');
+						$this->logAction('topic close');
+						$_POST['menue'] = 0;
 						$this->menue();
-					}
+						}
 					else{
-						$this->logAction('unberechtigter_Zugriff');
+						$this->logAction('unberechtigter Zugriff');
 						$this->get_Error(1);
-					}
+					} 
 					break;
 			// DONE
 			case 8 :
 					$this->createAdminAnswer($_POST['topic_id']);
-					$this->logAction('admin_answer');
+					$this->logAction('admin answer');
 					break;
 			// DONE
 			case 9 :
@@ -98,7 +107,7 @@ class ShowForumAllPage extends AbstractPage{
 						$this->showPage(3);
 					}
 					else{
-						$this->logAction('unberechtigter_Zugriff');
+						$this->logAction('unberechtigter Zugriff');
 						$this->get_Error(1);
 					}
 					break;
@@ -179,15 +188,17 @@ class ShowForumAllPage extends AbstractPage{
 	//done
 	protected function createAdminAnswer($topic_id){
 	global $USER;
+		global $USER;
 		$step = $_POST['step'];
+		$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
+		foreach($result as $Data){
+			$this->tplObj->assign_vars(array(
+				'top_id'	=> $Data['id'],
+				'top_name'	=> $Data['name'],
+				'adm'		=> $this->getUserMod(),
+			));
+		}
 		if($step == 1){
-			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
-			foreach($result as $Data){
-				$this->tplObj->assign_vars(array(
-					'top_id'	=> $Data['id'],
-					'top_name'	=> $Data['name'],
-				));
-			}
 		$this->showPage(4);
 		}
 		elseif($step == 2){
@@ -206,8 +217,9 @@ class ShowForumAllPage extends AbstractPage{
 			else{
 				$text = $_POST['text'];
 				if(strlen($text) > 5){
-					$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_ANS." SET create='".time()."', edit='".time()."', user='".$USER['username']."', topic_id='".$topic_id."', text='".$GLOBALS['DATABASE']->sql_escape($text)."', adm='1' ");
-					$GLOBALS['DATABASE']->query("UPDATE ".FORUM_TOP." SET lastchange='".time()." WHERE id='".$topic_id."'");
+					$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_ANS." SET createtime='".time()."', edit='".time()."', user='".$USER['username']."', topic_id='".$topic_id."', text='".$GLOBALS['DATABASE']->sql_escape($text)."', adm='1'");
+					$GLOBALS['DATABASE']->query("UPDATE ".FORUM_TOP." SET lastchange='".time()."' WHERE id='".$topic_id."'");
+					$_POST['menue'] = 0;
 					$this->menue();
 				}
 				else{
@@ -232,7 +244,8 @@ class ShowForumAllPage extends AbstractPage{
 		switch ($step){
 			case 1 :
 					$this->tplObj->assign_vars(array(
-						'kat'	=> $_POST['kat_id'],
+						'kat'		=> $_POST['kat_id'],
+						'kat_name' 	=> $_POST['kat_name'],
 					));
 					$this->showPage(5);
 					break;
@@ -241,23 +254,24 @@ class ShowForumAllPage extends AbstractPage{
 						$topicName = $_POST['topicName'];
 						$user = $USER['username'];
 						$text = $_POST['text'];
-						$GLOBALS['DATABASE']->multi_query("INSERT INTO ".ALLYTOPIC." SET
+						$GLOBALS['DATABASE']->multi_query("INSERT INTO ".FORUM_TOP." SET
 							name					= '".$GLOBALS['DATABASE']->sql_escape($topicName)."',
 							kat_id					= '".$_POST['kat_id']."',
 							user					= '".$user."',
-							create					= '".time()."',
+							createtime				= '".time()."',
 							lastchange				= '".time()."',
 							close					= '0', 
-							team					= '0',
+							team					= '0';
 							SET @topicID = LAST_INSERT_ID();
-							INSERT INTO ".TOPICANSWER." SET 
+							INSERT INTO ".FORUM_ANS." SET 
 							topic_id 				= @topicID,
-							create					= '".time()."',
+							createtime				= '".time()."',
 							edit					= '".time()."',
 							user					= '".$user."',
-							text					= '".$GLOBALS['DATABASE']->sql_escape($text)."'
+							text					= '".$GLOBALS['DATABASE']->sql_escape($text)."',
 							adm						= '0';"
 						);
+						$_POST['menue'] = 0;
 						$this->menue();
 					}
 					else{
@@ -272,6 +286,7 @@ class ShowForumAllPage extends AbstractPage{
 			default:
 					$this->tplObj->assign_vars(array(
 						'kat'	=> $_POST['kat_id'],
+						'kat_name' 	=> $_POST['kat_name'],
 					));
 					$this->showPage(5);
 					break;
@@ -282,14 +297,15 @@ class ShowForumAllPage extends AbstractPage{
 	protected function createAnswer($topic_id){
 		global $USER;
 		$step = $_POST['step'];
+		$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
+		foreach($result as $Data){
+			$this->tplObj->assign_vars(array(
+				'top_id'	=> $Data['id'],
+				'top_name'	=> $Data['name'],
+				'adm'		=> $this->getUserMod(),
+			));
+		}
 		if($step == 1){
-			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
-			foreach($result as $Data){
-				$this->tplObj->assign_vars(array(
-					'top_id'	=> $Data['id'],
-					'top_name'	=> $Data['name'],
-				));
-			}
 		$this->showPage(4);
 		}
 		elseif($step == 2){
@@ -308,8 +324,9 @@ class ShowForumAllPage extends AbstractPage{
 			else{
 				$text = $_POST['text'];
 				if(strlen($text) > 5){
-					$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_ANS." SET create='".time()."', edit='".time()."', user='".$USER['username']."', topic_id='".$topic_id."', text='".$GLOBALS['DATABASE']->sql_escape($text)."'");
-					$GLOBALS['DATABASE']->query("UPDATE ".FORUM_TOP." SET lastchange='".time()." WHERE id='".$topic_id."'");
+					$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_ANS." SET createtime='".time()."', edit='".time()."', user='".$USER['username']."', topic_id='".$topic_id."', text='".$GLOBALS['DATABASE']->sql_escape($text)."'");
+					$GLOBALS['DATABASE']->query("UPDATE ".FORUM_TOP." SET lastchange='".time()."' WHERE id='".$topic_id."'");
+					$_POST['menue'] = 0;
 					$this->menue();
 				}
 				else{
@@ -330,13 +347,13 @@ class ShowForumAllPage extends AbstractPage{
 	
 	//done
 	protected function dellAnswer($answer_id){
-		$GLOBALS['DATABASE']->query("DELETE FROM ".FORUM_ANS." WHERE id='".$anwser_id."'");
+		$GLOBALS['DATABASE']->query("DELETE FROM ".FORUM_ANS." WHERE id='".$answer_id."'");
 	}
 	
 	//done
-	protected function logAction($what){
+	protected function logAction($thing){
 		global $USER;
-		$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_LOG." SET create='".time()."', player='".$USER['username']."', action='".$what."'");
+		$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_LOG." SET createtime= '".time()."', player = '".$USER['username']."', what = '".$thing."';");
 	}
 	
 	//done
@@ -387,8 +404,8 @@ class ShowForumAllPage extends AbstractPage{
 				'top_name' 		=> htmlspecialchars($topRow['name']),
 				'top_id'		=> $topRow['id'],
 				'top_user'		=> $topRow['user'],
-				'top_create'	=> $topRow['create'],
-				'top_last'		=> $topRow['lastchange'],
+				'top_create'	=> date("d.m.Y H:i:s",$topRow['createtime']),
+				'top_last'		=> date("d.m.Y H:i:s",$topRow['lastchange']),
 				'top_kat_id'	=> $topRow['kat_id'],
 				'top_close'		=> $help,
 				'top_ans'		=> $help1,
@@ -415,21 +432,32 @@ class ShowForumAllPage extends AbstractPage{
 		else{
 			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_ANS." WHERE topic_id='".$topic_id."' AND team='0'");
 		}
-		while ($AnsRow = $GLOBALS['DATABASE']->fetch_array($result)){
+		while ($ansRow = $GLOBALS['DATABASE']->fetch_array($result)){
+			$Result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
+			foreach($Result as $Data){
+				$help = $Data['name'];
+				$help2 = $Data['kat_id'];
+			}
+			$RESULT = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_KAT." WHERE id='".$help2."'");
+			foreach($RESULT as $DATA){
+				$kat = $DATA['name'];
+			}
 			$this->ans[] = array(
 				'ans_text' 		=> htmlspecialchars($ansRow['text']),
 				'ans_id'		=> $ansRow['id'],
 				'ans_user'		=> $ansRow['user'],
-				'ans_create'	=> $ansRow['create'],
-				'ans_edit'		=> $ansRow['edit'],
+				'ans_create'	=> date("d.m.Y H:i:s",$ansRow['createtime']),
+				'ans_edit'		=> date("d.m.Y H:i:s",$ansRow['edit']),
 				'ans_top_id'	=> $ansRow['topic_id'],
-				'ans_adm'		=> $AnsRow['adm'],
+				'ans_adm'		=> $ansRow['adm'],
 			);
 		}
 		$this->tplObj->assign_vars(array(
 				'ans'		=> $this->sabsi($this->ans, 'ans_id'),
-				'top_name'	=> $_POST['top_name'],
+				'top_id'	=> $topic_id,
+				'top_name'	=> $help,
 				'adm'		=> $this->getUserMod(),
+				'kat_name'	=> $kat,
 		));
 	}
 	
@@ -456,7 +484,7 @@ class ShowForumAllPage extends AbstractPage{
 				'top_name' 		=> $topRow['name'],
 				'top_id'		=> $topRow['id'],
 				'top_user'		=> $topRow['user'],
-				'top_create'	=> date("d.m.Y H:i:s",$topRow['create']),
+				'top_create'	=> date("d.m.Y H:i:s",$topRow['createtime']),
 				'top_last'		=> date("d.m.Y H:i:s",$topRow['lastchange']),
 				'top_kat_id'	=> $topRow['kat_id'],
 				'top_close'		=> $help,
