@@ -127,6 +127,27 @@ class CustomAJAXChat extends AJAXChat {
 				case '/takeover':
 				$this->insertChatBotMessage( $this->getChannel(), $text );
 				return true;
+				break;
+				case '/dice':
+				$this->insertChatBotMessage($this->getChannel(), 'Botty würfelt 1d6 und erhählt CHUCK NORRIS!');
+				return true;
+				case '/hallo':
+				$this->insertChatBotMessage($this->getChannel(), 'Ich wünscht allen USERN einen schönen TAG.');
+				return true;
+				break;
+				case '/ciao':
+				$this->insertChatBotMessage($this->getChannel(), 'Ich wünsche allen USERN ein baldiges Wiedersehen.');
+				return true;
+				break;
+				case '/count':
+				$i = 0;
+				do{
+					$i++;
+					$this->insertChatBotMessage($this->getChannel(), $i);
+				}
+				while($i < 3);
+				return true;
+				break;
 				default:
 				return false;
 			}

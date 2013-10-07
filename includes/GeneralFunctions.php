@@ -428,7 +428,7 @@ function CheckNoobProtec($OwnerPlayer, $TargetPlayer, $Player)
 		|| Config::get('noobprotectionmulti') == 0 
 		|| $Player['banaday'] > TIMESTAMP
 		|| $Player['onlinetime'] < TIMESTAMP - INACTIVE
-		|| $TargetPlayer['noob'] != 1
+		|| $Player['noob'] != 1
 	) {
 		return array('NoobPlayer' => false, 'StrongPlayer' => false);
 	}

@@ -74,7 +74,7 @@ class ShowFleetMissilePage extends AbstractPage
 		elseif ($anz <= 0)
 			$error = $LNG['ma_add_missile_number'];
 
-		$targetUser	   	= GetUserByID($target['id_owner'], array('onlinetime', 'banaday', 'urlaubs_modus', 'authattack'));
+		$targetUser	   	= GetUserByID($target['id_owner'], array('onlinetime', 'banaday', 'urlaubs_modus', 'authattack', 'noob'));
 		
 		if (Config::get('adm_attack') == 1 && $targetUser['authattack'] > $USER['authlevel'])
 			$error = $LNG['fl_admin_attack'];	
