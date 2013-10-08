@@ -206,9 +206,6 @@
 			<li style="width:180px;"><a href="http://www.gtop100.com/in.php?site=81654&cookie_test=true" target="_blank">{$LNG.lm_browser5}</a></li>
 	</ul></li>
 
-
-
-
 <li><div align="center" width="200px" id="menue_r2"><iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2FLoLSpace&amp;send=false&amp;width=45&amp;height=21&amp;colorscheme=dark&amp;layout=button_count&amp;show_faces=true&amp;send=false" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px;" allowTransparency="true" align="center"></iframe></div></li>
 	
 	<li><div align="center" width="200px" id="menue_r2"><a href="https://plus.google.com/communities/114929726915639497772?prsrc=3"rel="publisher" target="_top" style="text-decoration:none;display:inline-block;color:#333;text-align:center; font:13px/16px arial,sans-serif;white-space:nowrap;">
@@ -233,7 +230,22 @@ setTimeout("setcode_12184_1378562088_streambox12183()",180000);
 document.write(unescape("%3Cdiv%20id%3D%2212184_1378562088_streambox12183%22%3E%3C%2Fdiv%3E"));setTimeout("setcode_12184_1378562088_streambox12183()",10);
 </script>
 </div>
-	<li class="menu-footer">
+</div>
+<div style=";background:black;width:200px;">
+<li>
+<div style="color:green;width:200px;" align="center">Allianz Shoutbox</div>
+</li>
+<li>
+	<input type="text" id="msg" style="width:190px;">
+</li>
+<li>
+	<div id="test" style="width:200px;"></div>
+</li>
+<li>
+	<button id="ajaxpostlink" style="width:200px;background:gold;color:black;opacity:0.75;">Nachricht abschicken!</button>
+</li>
+</div>
+<li class="menu-footer">
 	<div align="center" width="200px"><a style="text-align:center;" href="index.php?page=disclamer" target="_blank">{$LNG.lm_disclamer}</a></div>
 	</li>
 	</ul>

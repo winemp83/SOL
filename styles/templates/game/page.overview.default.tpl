@@ -454,7 +454,7 @@
 			<td>{if $bo_d7 != 0}<span style="color:red;"><b>{$LNG.winemp_alliBonus_deaktiviert}</b>{else}{$bo_top}{/if}</td>
 		</tr>
 		{else}
-		<tr><td>{$ally_error}</tr></td>
+		<tr><td>{$ally_error}</td></tr>
 		{/if}
 </tbody>
 									
