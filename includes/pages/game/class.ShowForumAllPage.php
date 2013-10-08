@@ -388,7 +388,7 @@ class ShowForumAllPage extends AbstractPage{
 			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE kat_id='".$kat_id."'");
 		}
 		else{
-			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE kat_id='".$kat_id."' AND team='0'");
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE kat_id='".$kat_id."' AND team='0' ");
 		}
 		while ($topRow = $GLOBALS['DATABASE']->fetch_array($result)){
 			if($topRow['close'] != 0){

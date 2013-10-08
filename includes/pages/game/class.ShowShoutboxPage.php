@@ -22,9 +22,6 @@ class ShowShoutboxPage extends AbstractPage
 			if(!empty($_POST['ajaxnews'])){
 				$this->setData($_POST['ajaxnews'], $USER['username'], $USER['ally_id']);
 				$this->help = '';
-				$this->getData($USER['ally_id']);
-				echo $this->help;
-				$this->help = "";
 			}	
 		}
 		
@@ -33,7 +30,7 @@ class ShowShoutboxPage extends AbstractPage
 	protected function getData($ally_id){
 		$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".ALLYBOX." WHERE ally_id='".$GLOBALS['DATABASE']->sql_escape($ally_id)."' ORDER BY id DESC LIMIT 5");
 		foreach($result as $Data){
-			$this->help .= "<span style=\"color:red;\">".date("H:i:s",$Data['time'])."</span> <span style=\"color:gold;\">".htmlspecialchars($Data['user'])."</span><br/>".htmlspecialchars($Data['news'])." <br/>";
+			$this->help .= " <span style=\"color:red;\"> ".date("H:i:s",$Data['time'])."</span> <span style=\"color:gold;\">".htmlspecialchars($Data['user'])."</span><br/> &nbsp;".htmlspecialchars($Data['news'])." <br/>";
 		}
 	}
 	

@@ -89,7 +89,7 @@
 					<tr>
 						<td style="background-color:black;color:gold;">
 						{if $is_news}
-						<marquee scrollamount="3" scrolldelay="5">{$news}</marquee>
+						<div id="newsscrollbar" width="100%" align="center"></div>
 						{/if}
 						</td>
 					</tr>
