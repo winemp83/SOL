@@ -760,7 +760,13 @@ class AJAXChat {
 				case '/nick':				
 					$this->insertParsedMessageNick($textParts);
 					break;
-			
+				
+				case '/Botty':
+					require_once('chatbot.php');
+					break;
+				case '/botty':
+					require_once('chatbot.php');
+					break;
 				// Custom or unknown command:
 				default:
 					if(!$this->parseCustomCommands($text, $textParts)) {				
@@ -782,6 +788,7 @@ class AJAXChat {
 			);
 		}
 	}
+
 
 	
 	function insertParsedMessageJoin($textParts) {

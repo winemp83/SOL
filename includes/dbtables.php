@@ -96,3 +96,5 @@ define('FORUM_LOG'			, DB_PREFIX.'forum_log');
 
 //ally Shoutbox
 define('ALLYBOX'			, DB_PREFIX.'ally_shoutbox');
+define('CHATBOT_REPLIES'	, DB_PREFIX.'replies');	
+define('CHATBOT_PENDING'	, DB_PREFIX.'pending');
