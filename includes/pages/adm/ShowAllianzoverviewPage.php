@@ -5,6 +5,7 @@ function ShowAllianzOverview(){
 	$template	= new template();
 	$alliance = array();
 	$members = array();
+	$alli_name = '';
 
 	if(!isset($_POST['menue']) || empty($_POST['menue'])){
 		$menue = 0;
@@ -15,17 +16,35 @@ function ShowAllianzOverview(){
 	
 	switch ($menue){
 		case 1 : 
-				$sql = $GLOBALS->query("SELECT * FROM uni1_users WHERE ally_id='".$_POST['ally_id']."'");
+				$sql = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_users WHERE ally_id='".$_POST['ally_id']."'");
+				$Sql = $GLOBALS['DATABASE']->query("SELECT (ally_name) FROM uni1_alliance WHERE id='".$_POST['ally_id']."'");
+				foreach($Sql as $Data){
+					$alli_name = $Data['ally_name']; 
+				}
 				while($result = $GLOBALS['DATABASE']->fetch_array($sql)){
-					
+					$Result = $GLOBALS['DATABASE']->query("SELECT (total_points) FROM uni1_statpoints WHERE id_owner='".$result['id']."'");
+					foreach($Result as $data){
+						$points 	= $data['total_points'];
+					}
+					$res = $GLOBALS['DATABASE']->query("SELECT (rankName) FROM uni1_alliance_ranks WHERE rankID='".$result['ally_rank_id']."'");
+					foreach($res as $dat){
+						$rank 		= $dat['rankName'];
+					}
 					$members[] = array(
 						'name'			=> $result['username'],
 						'id'			=> $result['id'],
+						'points'		=> $points,
+						'rank'			=> $rank,
 						'last_online'	=> date("d.m.Y H:i:s", $result['onlinetime']),
 						'ally_reg'		=> date("d.m.Y H:i:s", $result['onlinetime']),
 					);
 					
 				}
+				$template->assign_vars(array(
+					'members'		=> $members,
+					'alli'			=> $alli_name,
+					'member_show'	=> 1,
+				));
 				break;
 		default:
 				$sql = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_alliance");
@@ -74,12 +93,11 @@ function ShowAllianzOverview(){
 				$template->assign_vars(array(
 					'list'			=>$alliance,
 					'bonus'			=>$bonus,
-					'member_show'	=> false,
-					'bank_show'		=> false,
+					'member_show'	=> 0,
 				));
-				$template->show('AllianzOverview.tpl');
 				break;
 	}
+	$template->show('AllianzOverview.tpl');
 }
 
 function getData($menue, $owner, $allyID){

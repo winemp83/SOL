@@ -1,8 +1,39 @@
 {include file="overall_header.tpl"}
-{if $member_show == false && $bank_show == false}
 <table style=" background-color: #000000;">
 <tbody>
 <tr>
+{if $member_show == 1}
+{foreach item=member from=$members}
+<td>
+<table style="width:950px;">
+<tbody>
+<tr>
+	<th colspan="5">
+	{$alli_name}
+	</th>
+</tr>
+<table>
+	<table width="90%">
+		<tr>
+			<th width="10%">ID</th>
+			<th width="30%">Name</th>
+			<th width="10%">Rank</th>
+			<th width="20%">Punkte</th>
+			<th width="15%">Letztes Login</th>
+			<th width="15%">Allianz Eintritts Datum</th>
+		</tr>
+		 	<td width="10%">{$member.id}</td>
+			<td width="30%">{$member.name}</td>
+			<td width="10%">{$member.rank}</td>
+			<td width="20%">{$member.points}</td>
+			<td width="15%">{$member.last_online}</th>
+			<td width="15%">{$member.ally_reg}</td>
+		<tr>
+		</tr>
+	</table>
+</table>
+{/foreach}
+{else}
 {foreach item=alli from=$list}
 <td>
 <table style="width:950px;">
@@ -99,14 +130,7 @@
 			 				<input type="submit" name="show_members" value="Allianz Mitglieder anzeigen">
 			 			</form>
 			 			</td>
-			 			<th colspan="2"></th>
-			 			<td colspan="1">
-			 			<form action="" method="post">
-			 				<input type="hidden" name="menue" value="2">
-			 				<input type="hidden" name="ally_id" value="{$alli.a_id}">
-			 				<input type="submit" name="show_members" value="Allianz Bank anzeigen">
-			 			</form>
-			 			</td>
+			 			<th colspan="3"></th>
 			 		</tr>
 			 	</table> 
 			 	</th>
@@ -114,6 +138,7 @@
 		
 		<table>
 {/foreach}
+{/if}
 </table>	
 </table>
 </table>
@@ -127,9 +152,4 @@
 </table>
 <table width="100%">
 </table>
-{/if}
-{if $member_show}
-{/if}
-{if bank_show}
-{/if}
 {include file="overall_footer.tpl"}
