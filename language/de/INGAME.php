@@ -1176,8 +1176,8 @@ $LNG['lo_continue']							= 'Klicken Sie hier, um nicht zu warten';
 
 // Tutorial 1.7
 $LNG['tut_tut']				                = 'Tutorial';
-$LNG['tut_welcome']                         = 'Willkommen im MyPlanets Beginner-Tutorial';
-$LNG['tut_welcom_desc']                     = 'Du bist neu bei MyPlanets und kennst dich nicht aus? Oder willst du dir einfach nur Credits verdienen? Hier wirst du in beiden Fällen fündig!';
+$LNG['tut_welcome']                         = 'Willkommen im Space of Legendes Tutorial';
+$LNG['tut_welcom_desc']                     = 'Du bist neu bei SoL dann wird dir das Tutorial helfen beim Entwickeln';
 $LNG['tut_welcom_desc2']                    = 'Du bekommst während des Spiels Missionen für deren Erfüllung du eine Belohnung erhältst';
 $LNG['tut_welcom_desc3']                    = 'Du kannst die Reihenfolge der Abarbeitung frei wählen, jedoch empfiehlt es sich die Missionen der Reihenfolge nach zu erfüllen';
 $LNG['tut_welcom_desc4']                    = 'Am Ende einer Mission erhältst du weitere Informationen und die Belohnung.';
