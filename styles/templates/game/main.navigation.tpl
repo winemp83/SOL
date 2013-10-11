@@ -4,7 +4,7 @@
 
 		<ul id="extra-m">
 			<li>{if isModulAvalible($smarty.const.MODULE_SUPPORT)}<li style="width:180px;"><a href="game.php?page=ticket">{$LNG.lm_support}</a></li>{/if}</li>
-			{if !empty($hasBoard)}<li style="width:180px;"><a href="game.php?page=board" target="_blank">{$LNG.lm_forums}</a></li>{/if}
+			{if !empty($hasBoard)}<li style="width:180px;"><a href="game.php?page=ForumAll" target="">{$LNG.lm_forums}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_CHAT)}<li style="width:180px;"><a href="game.php?page=chat" target="_blank">{$LNG.lm_chat}</a></li>{/if}
 			<li style="width:180px;"><a href="game.php?page=questions" target="">{$LNG.lm_faq}</a></li>
 			<li style="width:180px;"><a href="http://www.wiki.spaceoflegends.de/doku.php" target="_blank">Wiki</a></li>
@@ -141,7 +141,7 @@
 <ul id="css3menu1" >
 <li class="topfirst"><a href="#" style="width:190px;" id="item-1"><span>{$LNG.lm_overview}</span></a>
 	<ul style="width:180px;  ">
-                        <li style="width:180px;"><a href="game.php?page=overview">{$LNG.lm_overview}</a></li>	
+                        <li style="width:180px;"><a href="game.php?page=overview">Planeten Übersicht</a></li>	
 			{if isModulAvalible($smarty.const.MODULE_IMPERIUM)}<li style="width:180px;"><a href="game.php?page=imperium">{$LNG.lm_empire}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_RESSOURCE_LIST)}<li style="width:180px;"><a href="game.php?page=resources">{$LNG.lm_resources}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_GALAXY)}<li style="width:180px;"><a href="game.php?page=galaxy">{$LNG.lm_mgala2d}</a></li>{/if}	
@@ -158,6 +158,10 @@
 			{if isModulAvalible($smarty.const.MODULE_TRADER)}<li style="width:180px;"><a href="game.php?page=fleetTable">{$LNG.lm_fleet}</a></li>{/if}
 
 	 </ul></li>
+<li class="topmenu"><a href="game.php?page=fleetTable" style="width:190px;"><span>Flotten-Kommando</span></a>
+	<ul style="width:180px;">
+
+	</ul></li>
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_mstats}</span></a>
 	<ul style="width:180px;">
 
@@ -196,7 +200,6 @@
 			{if $authlevel > 0}<li style="width:180px;"><a href="./admin.php" style="color:lime">{$LNG.lm_administration} ({$VERSION})</a></li>{/if}
 	</ul></li>
 	<li style="width:200px;"><a href="game.php?page=Vote">{$LNG.lm_Vote}</a></li>
-	<li style="width:200px;"><a href="game.php?page=ForumAll">FORUM</a></li>
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_voteus}</span></a>
 	<ul style="width:180px;">
 			<li style="width:180px;"><a href="http://www.kostenlos-browsergame.de/" target="_blank">{$LNG.lm_browser1}</a></li>
