@@ -44,10 +44,14 @@
 		{foreach item=answer from=$ans}
 		<tr>
 			<td>
-				{if $answer.ans_adm != 1}
-				<span style="color:silver;"><b>{$answer.ans_text}</b></span>
-				{else}
+				{if $answer.ans_adm == 2}
+				<span style="color:lightblue;"><b>{$answer.ans_text}</b></span>
+				{elseif $answer.ans_adm == 1}
 				<span style="color:gold;"><b>{$answer.ans_text}</b></span>
+				{elseif $answer.ans_adm == 3}
+				<span style="color:deeppink;"><b>{$answer.ans_text}</b></span>
+				{else}
+				<span style="color:silver;"><b>{$answer.ans_text}</b></span>
 				{/if}
 			</td>
 			<td>
@@ -57,12 +61,16 @@
 				{else}
 				Geändert am: {$answer.ans_edit}<br/>
 				{/if}
+				{if $answer.ans_admone || $adm}
 				<form action="" method="post">
-					<input type="hidden" name="menue" value="11">
+					<input type="hidden" name="menue" value="8">
 					<input type="hidden" name="ans_id" value="{$answer.ans_id}">
+					<input type="hidden" name="topic_id" value="{$top_id}">
+					<input type="hidden" name="step" value="1">
 					<input type="hidden" name="text" value="{$answer.ans_text}">
 					<input type="submit" name="edit" Value="Antwort editieren"><br/>
 				</form>
+				{/if}
 				{if $adm}
 				<form action="" method="post">
 					<input type="hidden" name="menue" value="6">

@@ -98,8 +98,8 @@ class ShowForumAllPage extends AbstractPage{
 					break;
 			// DONE
 			case 8 :
-					$this->createAdminAnswer($_POST['topic_id']);
-					$this->logAction('admin answer');
+					$this->editAnswer($_POST['topic_id']);
+					$this->logAction('answer_edit');
 					break;
 			// DONE
 			case 9 :
@@ -137,7 +137,7 @@ class ShowForumAllPage extends AbstractPage{
 	//done
 	protected function getUserMod(){
 		global $USER;
-		if($USER['forum_adm'] != 1){
+		if($USER['forum_adm'] == 0){
 			return false;
 		}
 		else{
@@ -216,9 +216,10 @@ class ShowForumAllPage extends AbstractPage{
 				$this->get_Error(6);
 			}
 			else{
+				
 				$text = $_POST['text'];
 				if(strlen($text) > 5){
-					$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_ANS." SET createtime='".time()."', edit='".time()."', user='".$USER['username']."', topic_id='".$topic_id."', text='".$GLOBALS['DATABASE']->sql_escape($text)."', adm='1'");
+					$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_ANS." SET createtime='".time()."', edit='".time()."', user='".$USER['username']."', topic_id='".$topic_id."', text='".$GLOBALS['DATABASE']->sql_escape($text)."', adm='".$USER['forum_adm']."'");
 					$GLOBALS['DATABASE']->query("UPDATE ".FORUM_TOP." SET lastchange='".time()."' WHERE id='".$topic_id."'");
 					$_POST['menue'] = 0;
 					$this->menue();
@@ -304,6 +305,7 @@ class ShowForumAllPage extends AbstractPage{
 				'top_id'	=> $Data['id'],
 				'top_name'	=> $Data['name'],
 				'adm'		=> $this->getUserMod(),
+				'edit'		=> false,
 			));
 		}
 		if($step == 1){
@@ -326,6 +328,54 @@ class ShowForumAllPage extends AbstractPage{
 				$text = $_POST['text'];
 				if(strlen($text) > 5){
 					$GLOBALS['DATABASE']->query("INSERT INTO ".FORUM_ANS." SET createtime='".time()."', edit='".time()."', user='".$USER['username']."', topic_id='".$topic_id."', text='".$GLOBALS['DATABASE']->sql_escape($text)."'");
+					$GLOBALS['DATABASE']->query("UPDATE ".FORUM_TOP." SET lastchange='".time()."' WHERE id='".$topic_id."'");
+					$_POST['menue'] = 0;
+					$this->menue();
+				}
+				else{
+					$this->get_Error(4);
+				}
+			}
+		}
+		else{
+		$this->showPage(0);	
+		}
+	}
+
+	protected function editAnswer($topic_id){
+		global $USER;
+		$step = $_POST['step'];
+		$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
+		foreach($result as $Data){
+			$this->tplObj->assign_vars(array(
+				'top_id'	=> $Data['id'],
+				'top_name'	=> $Data['name'],
+				'adm'		=> $this->getUserMod(),
+				'edit'		=> true,
+				'text'		=> htmlspecialchars($_POST['text']),
+				'ans_id'	=> $_POST['ans_id'],
+			));
+		}
+		if($step == 1){
+		$this->showPage(4);
+		}
+		elseif($step == 2){
+			$result = $GLOBALS['DATABASE']->query("SELECT (close) FROM ".FORUM_TOP." WHERE id='".$topic_id."'");
+			foreach($result as $Data){
+				if($Data['close'] != 0){
+					$help = true;	
+				}
+				else{
+					$help = false;
+				}
+			}
+			if ($help){
+				$this->get_Error(6);
+			}
+			else{
+				$text = $_POST['text'];
+				if(strlen($text) > 5){
+					$GLOBALS['DATABASE']->query("UPDATE ".FORUM_ANS." SET createtime='".time()."', edit='".time()."', user='".$USER['username']."', topic_id='".$topic_id."', text='".$GLOBALS['DATABASE']->sql_escape($text)."' WHERE id='".$_POST['ans_id']."'");
 					$GLOBALS['DATABASE']->query("UPDATE ".FORUM_TOP." SET lastchange='".time()."' WHERE id='".$topic_id."'");
 					$_POST['menue'] = 0;
 					$this->menue();
@@ -427,6 +477,7 @@ class ShowForumAllPage extends AbstractPage{
 	
 	//done
 	protected function getAnswer($topic_id){
+		global $USER;
 		if($this->getUserMod()){
 			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_ANS." WHERE topic_id='".$topic_id."'");
 		}
@@ -443,6 +494,12 @@ class ShowForumAllPage extends AbstractPage{
 			foreach($RESULT as $DATA){
 				$kat = $DATA['name'];
 			}
+			if($ansRow['user'] == $USER['username']){
+				$first = true;
+			}
+			else{
+				$first = false;
+			}
 			$this->ans[] = array(
 				'ans_text' 		=> htmlspecialchars($ansRow['text']),
 				'ans_id'		=> $ansRow['id'],
@@ -451,8 +508,10 @@ class ShowForumAllPage extends AbstractPage{
 				'ans_edit'		=> date("d.m.Y H:i:s",$ansRow['edit']),
 				'ans_top_id'	=> $ansRow['topic_id'],
 				'ans_adm'		=> $ansRow['adm'],
+				'ans_admone'	=> $first,
 			);
-		}
+		} 
+		
 		$this->tplObj->assign_vars(array(
 				'ans'		=> $this->sabsi($this->ans, 'ans_id'),
 				'top_id'	=> $topic_id,

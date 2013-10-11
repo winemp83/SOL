@@ -34,6 +34,7 @@
 		<form action="" method="post">
 		<input name="menue" value="4" type="hidden">
 		<input name="step" value="2" type="hidden">
+		{if $edit}<input type="hidden" name="ans_id" value="{$ans_id}">{/if}
 		<input name="topic_id" value="{$top_id}" type="hidden">
 		<tr>
 			<th colspan="2">
@@ -45,7 +46,7 @@
 				{$LNG.winemp_Forum_create_formC}
 			</th>
 			<td width="60%">
-				<textarea name="text" cols="50" rows="10"></textarea>
+				<textarea name="text" cols="50" rows="10">{if $edit}{$text}{else}{/if}</textarea>
 			</td>
 		</tr>
 		{if $adm}
