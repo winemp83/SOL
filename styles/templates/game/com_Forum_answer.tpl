@@ -49,7 +49,9 @@
 				{elseif $answer.ans_adm == 1}
 				<span style="color:gold;"><b>{$answer.ans_text}</b></span>
 				{elseif $answer.ans_adm == 3}
-				<span style="color:deeppink;"><b>{$answer.ans_text}</b></span>
+				<span style="color:#FF6600;"><b>{$answer.ans_text}</b></span>
+				{elseif $answer.ans_adm == 4}
+				<span style="color:lightgreen;"><b>{$answer.ans_text}</b></span>
 				{else}
 				<span style="color:silver;"><b>{$answer.ans_text}</b></span>
 				{/if}

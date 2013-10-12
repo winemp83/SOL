@@ -155,7 +155,6 @@
 			{if isModulAvalible($smarty.const.MODULE_SHIPYARD_FLEET)}<li style="width:180px;"><a href="game.php?page=shipyard&amp;mode=fleet">{$LNG.lm_shipshard}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_SHIPYARD_DEFENSIVE)}<li style="width:180px;"><a href="game.php?page=shipyard&amp;mode=defense">{$LNG.lm_defenses}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_RESEARCH)}<li style="width:180px;"><a href="game.php?page=research">{$LNG.lm_research}</a></li>{/if}	
-			{if isModulAvalible($smarty.const.MODULE_TRADER)}<li style="width:180px;"><a href="game.php?page=fleetTable">{$LNG.lm_fleet}</a></li>{/if}
 
 	 </ul></li>
 <li class="topmenu"><a href="game.php?page=fleetTable" style="width:190px;"><span>Flotten-Kommando</span></a>
@@ -216,7 +215,7 @@
 <div style="color:green;width:200px;" align="center">Allianz Shoutbox</div>
 </li>
 <li>
-	<input type="text" id="msg" style="width:190px;">
+	<input type="text" id="msg" style="width:190px;" size="60" maxlength="55">
 </li>
 <li>
 	<div id="test" style="width:200px;"></div>

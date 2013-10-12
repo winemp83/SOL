@@ -44,7 +44,7 @@
 		{$topic.top_name}
 	</td>
 	<td>
-		{$topic.top_name}
+		{$topic.top_user}
 	</td>
 	<td>
 		{$topic.top_last}

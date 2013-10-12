@@ -501,7 +501,7 @@ class ShowForumAllPage extends AbstractPage{
 				$first = false;
 			}
 			$this->ans[] = array(
-				'ans_text' 		=> htmlspecialchars($ansRow['text']),
+				'ans_text' 		=> nl2br(htmlspecialchars($ansRow['text'])),
 				'ans_id'		=> $ansRow['id'],
 				'ans_user'		=> $ansRow['user'],
 				'ans_create'	=> date("d.m.Y H:i:s",$ansRow['createtime']),
