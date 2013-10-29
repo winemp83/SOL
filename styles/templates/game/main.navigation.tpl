@@ -214,12 +214,10 @@
 	</ul></li>
 	{/if}
 
-</div>
-<div style=";background:black;width:200px;">
-</div>
+
 <li class="menu-footer">
 	<div align="center" width="200px"><a style="text-align:center;" href="index.php?page=disclamer" target="_blank">{$LNG.lm_disclamer}</a></div>
-	</li>
+</li>
 	</ul>
-</div>
+
 </div>
