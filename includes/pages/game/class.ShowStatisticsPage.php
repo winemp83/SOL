@@ -165,6 +165,12 @@ ORDER BY `'. $Order .'` ASC LIMIT '. $start .',100;';
 
                 while ($StatRow = $GLOBALS['DATABASE']->fetch_array($query))
                 {
+                	if($StatRow[$Points] == 0 || !isset($StatRow[$Points]) || empty($StatRow[$Points])){
+                		$StatRow[$Points] = 1;
+                	}
+					if($StatRow['ally_members'] == 0 || !isset($StatRow['ally_members']) || empty($StatRow['ally_members'])){
+						$StatRow['ally_members'] = 1;
+					}
                     $RangeList[]	= array(
                         'id'	=> $StatRow['id'],
                         'name'	=> $StatRow['ally_name'],

@@ -12,7 +12,7 @@
 		        {if isModulAvalible($smarty.const.MODULE_SIMULATOR)}<li style="width:180px;"><a href="game.php?page=battleSimulator">{$LNG.lm_msimu}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_TECHTREE)}<li style="width:180px;"><a href="game.php?page=techtree">{$LNG.lm_mtech}</a></li>{/if}
 			{if isModulAvalible($smarty.const.MODULE_TECHTREE)}<li style="width:180px;"><a href="game.php?page=search">Suchen</a></li>{/if}
-
+			<li style="width:180px;"><a href="{$ts_data}">TS³</a></li>
 
 		</ul>	
 	</div>
@@ -196,7 +196,6 @@
 	<ul style="width:180px;">
 			<li style="width:180px;"><a href="game.php?page=settings">{$LNG.lm_options}</a></li>
 			<li style="width:180px;"><a href="game.php?page=logout">{$LNG.lm_logout}</a></li>	
-			{if $authlevel > 0}<li style="width:180px;"><a href="./admin.php" style="color:lime">{$LNG.lm_administration} ({$VERSION})</a></li>{/if}
 	</ul></li>
 	<li style="width:200px;"><a href="game.php?page=Vote">{$LNG.lm_Vote}</a></li>
 	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_voteus}</span></a>
@@ -207,22 +206,16 @@
 			<li style="width:180px;"><a href="http://www.browsergames.info/" target="_blank">{$LNG.lm_browser4}</a></li>
 			<li style="width:180px;"><a href="http://www.gtop100.com/in.php?site=81654&cookie_test=true" target="_blank">{$LNG.lm_browser5}</a></li>
 	</ul></li>
-
+	{if $team == true}
+	<li class="topmenu"><a href="#" style="width:190px;"><span>Team Area</span></a>
+	<ul style="width:180px;">
+			{if $authlevel > 0}<li style="width:180px;"><a href="./admin.php" style="color:lime">{$LNG.lm_administration} ({$VERSION})</a></li>{/if}
+			<li style="width:180px;"><a href="http://space.landoflegends.de/phpBB3/index.php" target="_blank">Team Forum</a></li>
+	</ul></li>
+	{/if}
 
 </div>
 <div style=";background:black;width:200px;">
-<li>
-<div style="color:green;width:200px;" align="center">Allianz Shoutbox</div>
-</li>
-<li>
-	<input type="text" id="msg" style="width:190px;" size="60" maxlength="55">
-</li>
-<li>
-	<div id="test" style="width:200px;"></div>
-</li>
-<li>
-	<button id="ajaxpostlink" style="width:200px;background:gold;color:black;opacity:0.75;">Nachricht abschicken!</button>
-</li>
 </div>
 <li class="menu-footer">
 	<div align="center" width="200px"><a style="text-align:center;" href="index.php?page=disclamer" target="_blank">{$LNG.lm_disclamer}</a></div>

@@ -193,7 +193,7 @@ class ShowFleetStep3Page extends AbstractPage
 		} elseif(!empty($targetPlanetData['id_owner'])) {
 			$targetPlayerData	= $GLOBALS['DATABASE']->getFirstRow("SELECT 
 			user.id, user.onlinetime, user.ally_id, user.urlaubs_modus, user.banaday, user.authattack, user.noob,
-			stat.total_points
+			stat.total_points, user.register_time 
 			FROM ".USERS." as user 
 			LEFT JOIN ".STATPOINTS." as stat ON stat.id_owner = user.id AND stat.stat_type = '1' 
 			WHERE user.id = ".$targetPlanetData['id_owner'].";");
@@ -232,38 +232,8 @@ class ShowFleetStep3Page extends AbstractPage
 		
 			$IsNoobProtec	= CheckNoobProtec($USER, $targetPlayerData, $targetPlayerData);
 			
-			$check_A = 0;
-			$check_B = 0;
-			
-			$sql = $GLOBALS['DATABASE']->query("SELECT (total_points) FROM ".STATPOINTS." WHERE id_owner='".$USER['id']."'");
-			$Sql = $GLOBALS['DATABASE']->query("SELECT (total_points) FROM ".STATPOINTS." WHERE id_owner='".$targetPlanetData['id_owner']."'");
-			$SQL = $GLOBALS['DATABASE']->query("SELECT (noob) FROM ".USERS." WHERE id='".$targetPlanetData['id_owner']."'");
-			foreach($sql as $data){
-				$check_A = $data['total_points'];
-			}
-			foreach($Sql as $Data){
-				$check_B = $Data['total_points'];
-			}
-			
-			if($check_A < 100000 && $check_B >= 100000){
-				$time_a = time() + (60*60*24);
-				$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET noob='0', noob_time='".$time_a."' WHERE id='".$USER['id']."'");
-				$sql = $GLOBALS['DATABASE']->query("SELECT (username) FROM ".USERS." WHERE id='".$targetPlanetData['id_owner']."'");
-				foreach($sql as $target){
-					$target_user = $target['username'];
-				}
-				$From = "System";
-				$Subject = "<span style='color:lightred;'><b>Noobschutz</b></span>";
-				$Message = '<p style="color:gold;">"Commander, durch den Angriff auf den Spieler <span style="color:red;">'.$target_user.'</span> haben Sie ihren Noobschutz für 24 Stunden verloren.<br/>In dieser Zeit sind sie von allen Spielern angreifbar!</p>';
-				SendSimpleMessage($USER['id'], 1, time(), 50, $From, $Subject, $Message);
-			}
-			
-			elseif ($IsNoobProtec['NoobPlayer']) {
+			if ($IsNoobProtec['NoobPlayer']) {
 				$this->printMessage($LNG['fl_player_is_noob']);
-			}
-			
-			elseif ($IsNoobProtec['StrongPlayer']) {
-				$this->printMessage($LNG['fl_player_is_strong']);
 			}
 			
 			

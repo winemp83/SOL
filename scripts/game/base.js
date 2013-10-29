@@ -268,16 +268,6 @@ $(function() {
 });
 $(document).ready(function()
 {
-	window.setInterval(function(){
-		$.post("game.php?page=shoutbox",
-		{			
-				ajaxpost: ""
-		},
-		function(data){
-			$("#test").html(data);
-		}
-		);
-	},5000);
 	
 var i = 1;
 	window.setInterval(function(){
@@ -297,17 +287,4 @@ var i = 1;
 		}
 		);
 	},10000);
-	
-	
-	$("#ajaxpostlink").click(function(){
-		$.post("game.php?page=shoutbox",
-			{
-				ajaxnews: $("#msg").attr('value')
-			},
-			function(data){
-				$("#test").html(data);
-				$("#msg").val("");
-			}
-		);
-	});
 });

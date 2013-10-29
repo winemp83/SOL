@@ -93,7 +93,7 @@ function calculateAttack(&$attackers, &$defenders, $FleetTF, $DefTF)
 			$attackDamage[$fleetID] = 0;
 			$attackShield[$fleetID] = 0;
 			$attackAmount[$fleetID] = 0;
-
+			if($USER['ally_id'] != 0)
 			$attTech	= (1 + (0.1 * $attacker['player']['military_tech']) + $attacker['player']['factor']['Attack']); //attaque
 			$defTech	= (1 + (0.1 * $attacker['player']['defence_tech']) + $attacker['player']['factor']['Defensive']); //bouclier
 			$shieldTech = (1 + (0.1 * $attacker['player']['shield_tech']) + $attacker['player']['factor']['Shield']); //coque

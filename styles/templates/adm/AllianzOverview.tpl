@@ -16,18 +16,25 @@
 	<table width="90%">
 		<tr>
 			<th width="10%">ID</th>
-			<th width="30%">Name</th>
+			<th width="25%">Name</th>
 			<th width="10%">Rank</th>
-			<th width="20%">Punkte</th>
+			<th width="15%">Punkte</th>
 			<th width="15%">Letztes Login</th>
 			<th width="15%">Allianz Eintritts Datum</th>
+			<th width="10%">Zum Leader machen</th>
 		</tr>
 		 	<td width="10%">{$member.id}</td>
-			<td width="30%">{$member.name}</td>
+			<td width="25%">{$member.name}</td>
 			<td width="10%">{$member.rank}</td>
-			<td width="20%">{$member.points}</td>
+			<td width="15%">{$member.points}</td>
 			<td width="15%">{$member.last_online}</th>
 			<td width="15%">{$member.ally_reg}</td>
+			<td width="10%"><form action="" method="post">
+			 				<input type="hidden" name="menue" value="2">
+			 				<input type="hidden" name="id" value="{$member.id}">
+			 				<input type="hidden" name="ally_id" value="{$ally_id}">
+			 				<input type="submit" name="show_members" value="zum Leader ernennen">
+			 			</form></td>
 		<tr>
 		</tr>
 	</table>

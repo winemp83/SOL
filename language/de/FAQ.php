@@ -30,7 +30,7 @@
 $LNG['faq_overview']	= "FAQ";
 
 $LNG['questions']					= array();
-$LNG['questions'][1]['category']	= 'Wo finde ich was?';
+$LNG['questions'][1]['category']	= 'Wo finde ich was?'; 
 $LNG['questions'][1][1]['title']	= 'Wirtschaft';
 $LNG['questions'][1][1]['body']		= <<<BODY
 <p>Hier werden wir alle Menü Punkte beschreiben</p>
@@ -364,5 +364,15 @@ $LNG['questions'][10][1]['body']		= <<<BODY
 <p>Unsere Wiki = <a href="http://www.wiki.spaceoflegends.de"  target="forum">wiki.landoflegends.de</a><br>
 <p>Mantis = <a href="http://bugs.landoflegends.de"  target="forum">bug.landoflegends.de</a><br>
 
+BODY;
+$LNG['questions'][11]['category']	= 'Wichtige Hinweise';
+$LNG['questions'][11][1]['title']	= 'Missionen / Tutorial';
+$LNG['questions'][11][1]['body']		= <<<BODY
+<p>
+Um Missionen erfolgreich zu beenden sind alle bedingungen auf einen Planeten zu erfühlen</br>
+zb.: Baue 10 Transporter</br>
+So müssen die Transporter auf einen Planeten Stationiert sein.</br>
+Desweiteren muss der Planet ausgewählt werden bevor die Mission beendet wird.</br>
+</p>
 BODY;
 

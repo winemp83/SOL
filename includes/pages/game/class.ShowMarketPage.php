@@ -443,7 +443,26 @@ function __construct()
 		$kristallout			= max(0, round(HTTP::_GP('kristalloutt', 0.0)));
 		$deyterout				= max(0, round(HTTP::_GP('deyteroutt', 0.0)));
 		
-		
+		if($metallin >100000 || $kristallin > 100000 || $deyterin > 100000 || $metallout > 400000 || $kristallout > 400000 || $deyterout > 400000){
+			if($metallin > 100000){
+				$metallin = 100000;
+			}
+			if($kristallin > 100000){
+				$kristallin = 100000;
+			}
+			if($deyterin > 100000){
+				$deyterin = 100000;
+			}
+			if($metallout > 400000){
+				$metallout = 400000;
+			}
+			if($kristallout > 400000){
+				$kristallout = 400000;
+			}
+			if($deyterout > 400000){
+				$deyterout = 400000;
+			}
+		}
 		
 		if($metallin < '0'){$this->printMessage($LNG['an_cheat'], 'game.php?page=market');
 		}
@@ -501,6 +520,24 @@ function __construct()
 		}
 	if ($action == 'inally') {
 	
+		if($metallin > 100000){
+				$metallin = 100000;
+			}
+			if($kristallin > 100000){
+				$kristallin = 100000;
+			}
+			if($deyterin > 100000){
+				$deyterin = 100000;
+			}
+			if($metallout > 400000){
+				$metallout = 400000;
+			}
+			if($kristallout > 400000){
+				$kristallout = 400000;
+			}
+			if($deyterout > 400000){
+				$deyterout = 400000;
+			}
         
 		$metallin 				= max(0, round(HTTP::_GP('metallinn', 0.0)));
 		$kristallin				= max(0, round(HTTP::_GP('kristallinn', 0.0)));

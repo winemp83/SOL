@@ -54,12 +54,16 @@
 	</td>
 	<td>
 		{if $topic.top_close}
-			Geschlossen
-		{else}
 			<form action="" method="post">
 				<input type="hidden" name="topic_id" value="{$topic.top_id}">
 				<input type="hidden" name="menue" value="2">
 				<input type="submit" name="get_answer" value="zur Diskussion">
+			</form>
+		{else}
+			<form action="" method="post">
+				<input type="hidden" name="topic_id" value="{$topic.top_id}">
+				<input type="hidden" name="menue" value="2">
+				<input type="submit" name="get_answer" value="Antwort lesen">
 			</form>
 		{/if}
 	</td>
@@ -75,11 +79,15 @@
 	</form>
 	</th>
 	<th>
+	{if $topic.top_close}
 	<form action="" method="post">
 		<input type="hidden" name="menue" value="7">
 		<input type="hidden" name="topic_id" value="{$topic.top_id}">
 		<input type="submit" name="topic_close" value="Thema schliessen">
 	</form>
+	{else}
+	Geschlossen
+	{/if}
 	</th>
 	<th>
 	<form action="" method="post">

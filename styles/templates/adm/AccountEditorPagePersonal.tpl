@@ -25,6 +25,9 @@
 	<td>{$LNG.ad_personal_vacat}</td>
 	<td>{html_options name=vacation options=$Selector}</td>
 </tr><tr>
+	<td>User Rang</td>
+	<td>{html_options name=rang options=$SelectorRang}</td>
+</tr><tr>
 	<td>{$LNG.time_days}</td><td><input name="d" type="text" size="5" maxlength="5"></td>
 </tr><tr>
 	<td>{$LNG.time_hours}</td><td><input name="h" type="text" size="5" maxlength="10"></td>

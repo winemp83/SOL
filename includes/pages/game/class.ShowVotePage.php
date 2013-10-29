@@ -85,13 +85,13 @@ class ShowVotePage extends AbstractPage
 			if($_POST['select'] == 1){
 				$value = 'one';
 			}
-			if($_POST['select'] == 2){
+			elseif($_POST['select'] == 2){
 				$value = 'two';
 			}
-			if($_POST['select'] == 3){
+			elseif($_POST['select'] == 3){
 				$value = 'tree';
 			}
-			if(empty($_POST['select']) || !isset($_POST['select'])){
+			else{
 				$this->error(1);
 			}
 			$USER['has_vote'] = 1;
