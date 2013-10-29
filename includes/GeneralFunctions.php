@@ -426,15 +426,19 @@ function CheckNoobProtec($OwnerPlayer, $TargetPlayer, $Player)
 		Config::get('noobprotection') == 0 
 		|| Config::get('noobprotectiontime') == 0 
 		|| Config::get('noobprotectionmulti') == 0 
-		|| $TargetPlayer['banaday'] > TIMESTAMP
-		|| $TargetPlayer['onlinetime'] < TIMESTAMP - INACTIVE
-		|| $TargetPlayer['register_time'] + (60*60*24*14) < time()
-		|| $TargetPlayer['total_points'] > 1000
+		|| $Player['banaday'] > TIMESTAMP
+		|| $Player['onlinetime'] < TIMESTAMP - INACTIVE
 	) {
 		return array('NoobPlayer' => false, 'StrongPlayer' => false);
 	}
 	else{
-		return array('NoobPlayer' => true, 'StrongPlayer' => false);
+		if($Player['register_time'] + (60*60*24*14) > time()
+		|| $TargetPlayer['total_points'] < 1000){
+			return array('NoobPlayer' => true, 'StrongPlayer' => false);
+		}
+		else{
+			return array('NoobPlayer' => false, 'StrongPlayer' => false);
+		}
 	}
 }
 function CheckName($name)
