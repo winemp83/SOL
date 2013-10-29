@@ -376,7 +376,7 @@ function show()
 		if($USER['combustion_tech'] >=10 && $USER['impulse_motor_tech'] >= 7 && $USER['hyperspace_motor_tech'] >= 5)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_research` = achievements_research+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 2000; //reward
+			$PLANET[$resource[901]]	+= 2000; //reward 
                     $PLANET[$resource[902]]	+= 2000; //reward
                     $PLANET[$resource[903]]	+= 2000; //reward
                     $USER[$resource[921]] += 100; //reward dm
@@ -1613,7 +1613,7 @@ function show()
 	//Statpoints Level 3
 	if($USER['achievements_statpoints'] == 3)
 	{
-		if($USER['total_points'] >= 5000000)
+		if($USER['total_points'] >= 500000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_statpoints` = achievements_statpoints+1 WHERE `id` = ".$USER['id'].";");
 			$PLANET[$resource[901]]	+= 1000000; //reward
@@ -1623,7 +1623,7 @@ function show()
 			$this->printMessage(sprintf($LNG['achievements_success'],$LNG['achievements_typ_statpoints'],$LNG['achievements_statpoints_lvl3'],$LNG['achievements_statpoints_reward_lvl3']),"?page=achievement",4);
 			exit;	
 		}
-		if($USER['total_points'] >= 5000000)
+		if($USER['total_points'] >= 500000)
 			$statpoints_done1 = '<img src="styles/achievements/done.png" >';
 		else
 			$statpoints_done1 = '<img src="styles/achievements/miss.png" >';

@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 
 class ShowBankPage extends AbstractPage 
 {
@@ -118,7 +118,7 @@ function in()
 
 				elseif($bDeut > $PLANET['deuterium']){$this->printMessage($LNG['error_in_3'], 'game.php?page=bank');}
 
-				elseif($freeStorage < $totalRess){$this->printMessage('Brak wystarczającej ilości miejsca.', 'game.php?page=bank');}
+				elseif($freeStorage < $totalRess){$this->printMessage('Es ist nicht Genug Platz.', 'game.php?page=bank');}
 
 				else{
 					if($bMet == 0 || $bMet == 0.0){

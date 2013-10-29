@@ -76,9 +76,9 @@
 	<tr>
     {if !isset($GalaxyRows[$planet])}
 		<td>
-			<a href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=7">{$planet}</a>
-		</td>
-        <td></td>
+			{$planet}
+</td>	
+        <td><a href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=7"><img src="{$dpath}pic/icon_k.jpg" height="22" width="22"></td>
         <td></td>
         <td></td>
         <td></td>
@@ -159,6 +159,7 @@
 			{else}-{/if}
 			{if $currentPlanet.planet.phalanx}<a class="textForBlind" href="#" onclick="OpenPopup('?page=phalanx&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1','',640,510);return false;"><span>{$LNG.gl_phalanx}</span></a>{/if}
 		</td>
+
 	{/if}
 	</tr>
 	{/for}

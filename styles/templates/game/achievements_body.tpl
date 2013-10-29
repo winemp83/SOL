@@ -15,8 +15,8 @@
 			<th class=kategorie colspan=3>{$LNG.achievements_typ_mine} - {$mine_lvl}</th>
 		</tr>
             <tr>
-				<td><a href="game.php?page=buildings"><img src="styles/achievements/mines.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_mine_desc} <p> {$LNG.achievements_require} : {$mine_req_1} {$mine_done1} , {$mine_req_2} {$mine_done2} , {$mine_req_3} {$mine_done3}</td>
+				<td ><a href="game.php?page=buildings"><img src="styles/achievements/mines.png" alt="achievement" width="85" height="85" ></a></td>
+              <td style="width: 100%;">{$LNG.achievements_mine_desc} <p> {$LNG.achievements_require}  {$mine_req_1} {$mine_done1} , {$mine_req_2} {$mine_done2} , {$mine_req_3} {$mine_done3}</td>
             </tr>
 			
 		<tr>
@@ -24,7 +24,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=research"><img src="styles/achievements/research.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_research_desc} <p> {$LNG.achievements_require} : {$research_req_1} {$research_done1} , {$research_req_2} {$research_done2} , {$research_req_3} {$research_done3}</td>
+              <td style="width: 100%;">{$LNG.achievements_research_desc} <p> {$LNG.achievements_require}  {$research_req_1} {$research_done1} , {$research_req_2} {$research_done2} , {$research_req_3} {$research_done3}</td>
             </tr>
 			
 		<tr>
@@ -32,7 +32,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=fleetTable"><img src="styles/achievements/battle.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_battle_desc} <p> {$LNG.achievements_require} : {$battle_req_1} {$battle_done1} , {$battle_req_2} {$battle_done2}</td>
+              <td style="width: 100%;">{$LNG.achievements_battle_desc} <p> {$LNG.achievements_require}  {$battle_req_1} {$battle_done1} , {$battle_req_2} {$battle_done2}</td>
             </tr>
 			
 		<tr>
@@ -40,7 +40,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=shipyard&mode=fleet"><img src="styles/achievements/ship.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_ship_desc} <p> {$LNG.achievements_require} : {$ship_req_1} {$ship_done1}</td>
+              <td style="width: 100%;">{$LNG.achievements_ship_desc} <p> {$LNG.achievements_require}  {$ship_req_1} {$ship_done1}</td>
             </tr>
 			
 		<tr>
@@ -48,7 +48,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=shipyard&mode=defense"><img src="styles/achievements/defense.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_defence_desc} <p> {$LNG.achievements_require} : {$defence_req_1} {$defence_done1}</td>
+              <td style="width: 100%;">{$LNG.achievements_defence_desc} <p> {$LNG.achievements_require}  {$defence_req_1} {$defence_done1}</td>
             </tr>
 			
 		<tr>
@@ -56,7 +56,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=buildings"><img src="styles/achievements/storage.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_storage_desc} <p> {$LNG.achievements_require} : {$storage_req_1} {$storage_done1} , {$storage_req_2} {$storage_done2} {$storage_req_3} {$storage_done3}</td>
+              <td style="width: 100%;">{$LNG.achievements_storage_desc} <p><br> {$LNG.achievements_require}  {$storage_req_1} {$storage_done1} <br> {$storage_req_2} {$storage_done2} <br>{$storage_req_3} {$storage_done3}</td>
             </tr>
 
 		<tr>
@@ -64,7 +64,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=buildings"><img src="styles/achievements/moon.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_moon_desc} <p> {$LNG.achievements_require} : {$moon_req_1} {$moon_done1} , {$moon_req_2} {$moon_done2} {$moon_req_3} {$moon_done3}</td>
+              <td style="width: 100%;">{$LNG.achievements_moon_desc} <p> {$LNG.achievements_require}  {$moon_req_1} {$moon_done1}  {$moon_req_2} {$moon_done2} {$moon_req_3} {$moon_done3}</td>
             </tr>
 			
 		<tr>
@@ -72,7 +72,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=fleetTable"><img src="styles/achievements/colony.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_colony_desc} <p> {$LNG.achievements_require} : {$colony_req_1} {$colony_done1}</td>
+              <td style="width: 100%;">{$LNG.achievements_colony_desc} <p> {$LNG.achievements_require}  {$colony_req_1} {$colony_done1}</td>
             </tr>
 			
 		<tr>
@@ -80,7 +80,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=alliance"><img src="styles/achievements/friend.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_friend_desc} <p> {$LNG.achievements_require} : {$friend_req_1} {$friend_done1}</td>
+              <td style="width: 100%;">{$LNG.achievements_friend_desc} <p> {$LNG.achievements_require}  {$friend_req_1} {$friend_done1}</td>
             </tr>
 
 		<tr>
@@ -88,7 +88,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=statistics"><img src="styles/achievements/statpoints.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_statpoints_desc} <p> {$LNG.achievements_require} : {$statpoints_req_1} {$statpoints_done1}</td>
+              <td style="width: 100%;">{$LNG.achievements_statpoints_desc} <p> {$LNG.achievements_require}  {$statpoints_req_1} {$statpoints_done1}</td>
             </tr>	
 			
 		<tr>
@@ -96,7 +96,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=galaxy"><img src="styles/achievements/destroy.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_destroy_desc} <p> {$LNG.achievements_require} : {$destroy_req_1} {$destroy_done1}</td>
+              <td style="width: 100%;">{$LNG.achievements_destroy_desc} <p> {$LNG.achievements_require}  {$destroy_req_1} {$destroy_done1}</td>
             </tr>
 			
 		<tr>
@@ -104,7 +104,7 @@
 		</tr>
             <tr>
 				<td><a href="game.php?page=galaxy"><img src="styles/achievements/debris.png" alt="achievement" width="85" height="85"></a></td>
-              <td style="width: 100%;">{$LNG.achievements_debris_desc} <p> {$LNG.achievements_require} : {$debris_req_1} {$debris_done1}</td>
+              <td style="width: 100%;">{$LNG.achievements_debris_desc} <p> {$LNG.achievements_require}  {$debris_req_1} {$debris_done1}  {$debris_req_2} {$debris_done2}</td>
             </tr>	
 			
         </tbody>
