@@ -1,6 +1,6 @@
 /**mod by amcat**/
 {block name="title" prepend}{$LNG.lm_galaxy}{/block}
-{block name="content"}<div id="back2"><tr><div id="back"><tr>
+{block name="content"}
 	<form action="?page=galaxy" method="post" id="galaxy_form">
 	<input type="hidden" id="auto" value="dr">
 			<tr>
@@ -11,12 +11,17 @@
 	</tr>
 					<tr>
 						<td><b>{$LNG.gl_galaxy}<input type="button" name="galaxyLeft" value="&lt;-" onclick="galaxy_submit('galaxyLeft')"><input type="text" name="galaxy" value="{$galaxy}" size="5" maxlength="3" tabindex="1"><input type="button" name="galaxyRight" value="-&gt;" onclick="galaxy_submit('galaxyRight')">&nbsp&nbsp{$LNG.gl_solar_system}<input type="button" name="systemLeft" value="&lt;-" onclick="galaxy_submit('systemLeft')"><input type="text" name="system" value="{$system}" size="5" maxlength="3" tabindex="2"><input type="button" name="systemRight" value="-&gt;" onclick="galaxy_submit('systemRight')"><input type="submit" value="{$LNG.gl_show}"></b></td>
-					</tr>
+					<tr>
 				
 			</td>
 		</tr>
 	</table>
 	</form>
+
+
+<div id="back1" ><tr><div id="back" ><tr>
+<table id="sys" 
+<th>
 	{if $action == 'sendMissle'}
     <form action="?page=fleetMissile" method="post">
 	<input type="hidden" name="galaxy" value="{$galaxy}">
@@ -38,9 +43,13 @@
 		</tr>
 	</form>
     {/if}
+</th>
+</table>
+
+
 	{for $planet=1 to $max_planets}
     {if !isset($GalaxyRows[$planet])}
-		<div id="p{$planet}">
+		<div id="p{$planet}" style="width:500px; margin:90px 0px 0px 50px;">
 	<tr><a href="?page=fleetTable&amp;galaxy={$galaxy}&amp;system={$system}&amp;planet={$planet}&amp;planettype=1&amp;target_mission=7"><b>{$planet} [{$galaxy}:{$system}:{$planet}]</b>
 	<img src="{$dpath}planeten/small/desert.gif" height="45" width="45" alt="{$planet}"
 	</a></tr>
@@ -49,7 +58,7 @@
         <td style="white-space: nowrap;">{$LNG.gl_planet_destroyed}</td>
     {else}
 		{$currentPlanet = $GalaxyRows[$planet]} 
-		<div id="p{$planet}">	 
+		<div id="p{$planet}" style="width:500px; margin:90px 0px 0px 50px;">	 
 		{if $currentPlanet.planet.name}  
 		 <b>[{$galaxy}:{$system}:{$planet}]<b><br>{$currentPlanet.user.username}<br>
 			<a class="tooltip_sticky" data-tooltip-content="<tr><th colspan='2'>{$LNG.gl_planet} {$currentPlanet.planet.name}  [{$galaxy}:{$system}:{$planet}]<br>
