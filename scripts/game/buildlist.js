@@ -12,7 +12,7 @@ function Buildlist() {
 		$('#command').remove();
 		document.title	= Ready + ' - ' + Gamename;
 		window.setTimeout(function() {
-			window.location.href = 'game.php?page=buildings';
+			window.location.href = 'game.php?page=overview';
 		}, 1000);
 		return true;
 	}
