@@ -21,12 +21,7 @@
 	</td>
 </tr>
 <tr>
-<th colspan="4">Die letzten 5 Beiträge</th>
-<th><form action="" method=post>
-		<input type="hidden" name="menue" value="10">
-		<input type="submit" name="zum_Forum" value="Beiträge der Letzten 48 Stunden">
-	</form>
-</th>
+<th colspan="5">Die Beiträge der letzen 48 Stunden</th>
 </tr>
 <tr>
 	<td>Ersteller</td>
@@ -48,29 +43,6 @@
 			<input type="submit" name="zum_Forum" value="zur Diskussion">
 		</form>
 	</td>
-</tr>
-{/foreach}
-<tr>
-	<th colspan="5">Kategorie Liste </th>
-</tr>
-{foreach	item=kats	from=$kat}
-<tr>
-	<th colspan="3">
-		<h4>{$kats.kat_name}</h4>
-		{$kats.kat_description}
-	</th>
-	<td>
-		Anzahl an Themen: {$kats.kat_top_anzahl}
-	</td>
-	<th>
-		<div width="100%" align="center">
-		<form action="" method=post>
-			<input type="hidden" name="menue" value="1">
-			<input type="hidden" name="kat_id" value="{$kats.kat_id}">
-			<input type="submit" name="zum_Forum" value="zu den Themen">
-		</form>
-		</div>
-	</th>
 </tr>
 {/foreach}
 

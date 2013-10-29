@@ -230,6 +230,12 @@ abstract class AbstractPage
     	else{
         	$USER['race'] =    'Error in Race, please contact an administrator';}   
             
+		if($USER['forum_adm'] != 0){
+			$team = true;
+		}
+		else{
+			$team = false;
+		}
         $this->tplObj->assign_vars(array(	
               			'is_news'					=> Config::get('OverviewNewsFrame'),
 			'news'						=> makebr(Config::get('OverviewNewsText')),
@@ -251,7 +257,8 @@ abstract class AbstractPage
         		'Scripttime'    	=> json_encode($Scripttime),
         		'is_pmenu'        	=> $USER['settings_planetmenu'],
         		'PlanetSelect'		=> $PlanetSelect,
-      
+      			'ts_data'			=> 'ts3server://spaceoflegends.de?port=9987&nickname='.$USER['username'],
+      			'team'				=> $team,
         		
         		
 		));

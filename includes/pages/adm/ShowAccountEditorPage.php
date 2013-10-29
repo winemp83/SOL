@@ -415,7 +415,8 @@ function ShowAccountEditorPage()
 				$password	= HTTP::_GP('password', '', true);				
 				$email		= HTTP::_GP('email', '');				
 				$email_2	= HTTP::_GP('email_2', '');				
-				$vacation	= HTTP::_GP('vacation', '');				
+				$vacation	= HTTP::_GP('vacation', '');
+				$rang		= HTTP::_GP('rang', '');				
 				
 				$before = $GLOBALS['DATABASE']->getFirstRow("SELECT `username`,`email`,`email_2`,`password`,`urlaubs_modus`,`urlaubs_until` FROM ".USERS." WHERE `id` = '". HTTP::_GP('id', 0) ."';");
 				$after = array();
@@ -452,6 +453,35 @@ function ShowAccountEditorPage()
 					$TimeAns    = TIMESTAMP + $_POST['d'] * 86400 + $_POST['h'] * 3600 + $_POST['m'] * 60 + $_POST['s'];
 					$after['urlaubs_until'] = $TimeAns;
 				}
+				if ($rang != 'Rang...') {
+					if(rang == 'Spieler' || $rang == 0){
+						$rang_change = 0;
+					}
+					elseif($rang == 'Administrator' || $rang == 1){
+						$rang_change = 1;
+					}
+					elseif($rang == 'Supporter' || $rang == 2){
+						$rang_change = 2;
+					}
+					elseif($rang == 'Scripter' || $rang == 3){
+						$rang_change = 3;
+					}
+					elseif($rang == 'Tester' || $rang == 4){
+						$rang_change = 4;
+					}
+					else{
+						$rang_change = 0;
+					}
+					print_r($rang);
+					$after['rang'] = 1;
+					if(HTTP::_GP('id', 0) == 0){
+						$PersonalQuery    .= "`forum_adm` = '".$GLOBALS['DATABASE']->sql_escape($rang_change)."', ";
+					}
+					else{
+					$PersonalQuery    .= "`forum_adm` = '".$GLOBALS['DATABASE']->sql_escape($rang_change)."', ";	
+					}
+				}
+				
 				
 				$PersonalQuery    .=  "`urlaubs_modus` = '".$Answer."', `urlaubs_until` = '".$TimeAns."' ";			
 				$PersonalQuery    .= "WHERE `id` = '".$id."' AND `universe` = '".$_SESSION['adminuni']."'";
@@ -470,6 +500,7 @@ function ShowAccountEditorPage()
 			
 			$template->assign_vars(array(
 				'Selector'				=> array(''	=> $LNG['select_option'], 'yes' => $LNG['one_is_yes'][1], 'no' => $LNG['one_is_yes'][0]),
+				'SelectorRang'			=> array('' => "Rang...", 0 => "Spieler", 1 => "Administrator", 2 => "Supporter", 3 => "Scripter", 4 => 'Tester'),
 			));
 						
 			$template->show('AccountEditorPagePersonal.tpl');

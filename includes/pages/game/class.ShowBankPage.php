@@ -32,7 +32,7 @@ function show()
 
 				'bankd'			=> pretty_number($PLANET['bankd']),
 
-				'transCoast'	=> $transCoasts,
+				'transCoast'	=> '',
 
 				'maxStorage'	=> pretty_number($maxStorage),
 
@@ -118,15 +118,30 @@ function in()
 
 				elseif($bDeut > $PLANET['deuterium']){$this->printMessage($LNG['error_in_3'], 'game.php?page=bank');}
 
-				elseif($transCoasts > $USER['darkmatter']){$this->printMessage($LNG['error_3'], 'game.php?page=bank');}
-
 				elseif($freeStorage < $totalRess){$this->printMessage('Brak wystarczającej ilości miejsca.', 'game.php?page=bank');}
 
 				else{
+					if($bMet == 0 || $bMet == 0.0){
+						$bMet = 0;
+					}
+					else{
+						$bMet = $bMet -$bMet * 0.05;
+					}
+					if($bCrys == 0 || $bCrys == 0.0){
+						$bCrys == 0;
+					}
+					else{
+						$bCrys = $bCrys -$bCrys * 0.05;
+					}
+					if($bDeut == 0 || $bDeut == 0.0){
+						$bDeut == 0;
+					}
+					else{
+						$bDeut = $bDeut - $bDeut * 0.05;
+					}
                     $PLANET[$resource[901]]	-= $bMet;
                     $PLANET[$resource[902]]	-= $bCrys;
                     $PLANET[$resource[903]]	-= $bDeut;
-					$USER[$resource[921]]	-= $transCoasts;
 					$GLOBALS['DATABASE']->query("UPDATE ".PLANETS." SET
                         bankm = bankm + $bMet,
                         bankc = bankc + $bCrys,
@@ -143,7 +158,7 @@ function in()
 
 			$this->tplObj->assign_vars(array(	
 
-				'transCoast'	=> $transCoasts,
+				'transCoast'	=> '',
 
 				'bankm'				=> pretty_number($PLANET['bankm']),
 
@@ -224,13 +239,10 @@ function out()
 
 				elseif($bDeut > $pDeut){$this->printMessage($LNG['error_out_3'], 'game.php?page=bank', 3);}
 
-				elseif($transCoasts > $USER['darkmatter']){$this->printMessage($LNG['error_3'], 'game.php?page=bank', 3);}
-
 				else{
 					 $PLANET[$resource[901]]	+= $bMet;
                     $PLANET[$resource[902]]	+= $bCrys;
                     $PLANET[$resource[903]]	+= $bDeut;
-					$USER[$resource[921]]	-= $transCoasts;
 					$GLOBALS['DATABASE']->query("UPDATE ".PLANETS." SET
                         bankm = bankm - $bMet,
                         bankc = bankc - $bCrys,

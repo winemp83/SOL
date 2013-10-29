@@ -159,7 +159,8 @@ class ShowAlliancePage extends AbstractPage
 			'ally_diplo' 					=> $this->allianceData['ally_diplo'],
 			'ally_request'              	=> !$this->hasAlliance && !$this->hasApply && $this->allianceData['ally_request_notallow'] == 0 && $this->allianceData['ally_max_members'] > $this->allianceData['ally_members'],
 			'ally_request_min_points'		=> $USER['total_points'] >= $this->allianceData['ally_request_min_points'],
-			'ally_request_min_points_info'  => sprintf($LNG['al_requests_min_points'], pretty_number($this->allianceData['ally_request_min_points']))
+			'ally_request_min_points_info'  => sprintf($LNG['al_requests_min_points'], pretty_number($this->allianceData['ally_request_min_points'])),
+			'totalfight'					=> 0
 		));
 		
 		$this->display('page.alliance.info.tpl');

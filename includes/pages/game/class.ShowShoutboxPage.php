@@ -13,6 +13,17 @@ class ShowShoutboxPage extends AbstractPage
 	function show()
 	{
 		global $USER;
+		foreach($GLOBALS['DATABASE']->query("SELECT (lastonline) FROM ".SESSION." WHERE userID='".$USER['id']."'") as $data){
+			$check = $data['lastonline'];
+			$check_a = time()-(60*15);
+			if($check < $check_a){
+				header('Location: http://space.landoflegends.de');
+				die();
+			}
+			else{
+				$GLOBALS['DATABASE']->query("UPDATE ".SESSION." SET lastonline='".time()."' WHERE userID='".$USER['id']."'");
+			}	
+		}
 		if($USER['ally_id'] == 0){
 			echo "Sie müssen in einer Allianz sein!";
 		}

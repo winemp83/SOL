@@ -21,16 +21,16 @@ class ShowShortNewsPage extends AbstractPage
 		}
 		switch ($id){
 			case 1 :
-					echo "<span style=\"color:red;\"><b>Der neue </b><a href=\"http://space.landoflegends.de/index.php?page=SingleNews\" target=\"_blank\">Commanderbericht 12</a><b> ist erschienen</b></span>";
+					echo "<span style=\"color:red;\"><b>Der neue </b><a href=\"http://space.landoflegends.de/index.php?page=SingleNews\" target=\"_blank\">Commanderbericht 13</a><b> ist erschienen</b></span>";
 					break;
 			case 2 :
-					echo "<span style=\"color:gold;\">Meldet euch jetzt als Suporter und helft mit besser zu werden! Meldet euch jetzt via Support Ticket</span>";
+					echo "<span style=\"color:gold;\">Wir suchen Tester und Scripter bei Intresse meldet euch via Support Ticket</span>";
 					break;
 			case 3 :
-					echo "<span style=\"color:green;\">Commander wir haben ein Meteroitenschauer Entdeckt lesen sie mehr im Forum</span>";
+					echo "<span style=\"color:green;\">Commander wir beobachten mehere Piraten die sich im System ansiedeln, machen Sie sich bereit</span>";
 					break;
 			default:
-					echo "<span style=\"color:white;\">Aktuelle Fortschritte vom Code-Audit zeigen wir euch immer im Forum</span>";
+					echo "<span style=\"color:white;\">Wir entschuldigen usn für den kurzfristigen ausfall des Spiels am Sonntag den, 20.10.2013</span>";
 					break;		
 		}
 		

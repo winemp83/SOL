@@ -63,7 +63,7 @@
 				{else}
 				Geändert am: {$answer.ans_edit}<br/>
 				{/if}
-				{if $answer.ans_admone || $adm}
+				{if ($answer.ans_admone && ($close == 0)) || $adm }
 				<form action="" method="post">
 					<input type="hidden" name="menue" value="8">
 					<input type="hidden" name="ans_id" value="{$answer.ans_id}">
@@ -85,18 +85,22 @@
 		{/foreach}
 		<tr>
 			<th>
+			{if $close == 0} 
 			<form action="" method="post">
 				<input type="hidden" name="menue" value="4">
 				<input type="hidden" name="topic_id" value="{$top_id}">
 				<input type="hidden" name="step" value="1">
 				<input type="submit" name="new_answ" value="Antworten">
 			</form>
+			{else}
+			GESCHLOSSEN
+			{/if}
 			</th>
 			<th>
 			<div width="100%" align="right">
 				<form action="" method="post">
-					<input type="hidden" name="menue" value="0">
-					<input type="hidden" name="topic_id" value="{$top_id}">
+					<input type="hidden" name="menue" value="1">
+					<input type="hidden" name="kat_id" value="{$kat_id}">
 					<input type="submit" name="back" value="zurück">
 				</form>
 			</div>

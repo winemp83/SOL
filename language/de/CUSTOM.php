@@ -110,8 +110,8 @@ $LNG['winemp_mod_buy_sender']		 = 'System';
 $LNG['winemp_mod_buy_betreff']		 = 'Gutschein';
 
 $LNG['bank_info']					 = 'Bank';
-$LNG['bank_transCoast']				 = 'Achtung jede Aktion Kostet : ';
-$LNG['bank_tcShort']				 = 'Dunkle Materie';
+$LNG['bank_transCoast']				 = 'Achtung jedes einzahlen Kostet :  5%';
+$LNG['bank_tcShort']				 = 'der jeweiligen Resource';
 $LNG['bank_storage'] 				 = 'gesamt Speicherkapazität / momentaner Verbrauch';
 $LNG['bank_ressm'] 				 	 = 'Metall';
 $LNG['bank_ressc'] 				 	 = 'Kristall';
