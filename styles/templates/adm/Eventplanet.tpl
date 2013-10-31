@@ -143,9 +143,9 @@
           <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
           </th>
 
-        <th style="color:red">Kreuzer | max:<br>
+        <th>Kreuzer | max:<br>
           </th>
-          <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
+          <th><center><input value="0" name="crusher_bis" size="20" type="text"><br>
           </th>
         </tr>
 
@@ -154,9 +154,9 @@
           </th>
           <th><center><input value="0" name="gtrans_bis" size="20" type="text"><br>
           </th>
-           <th style="color:red">Bomber | max:<br>
+           <th>Bomber | max:<br>
           </th>
-          <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
+          <th><center><input value="0" name="bomber_ship_bis" size="20" type="text"><br>
           </th>
 
         </tr>
@@ -165,9 +165,9 @@
           </th>
           <th><center><input value="0" name="ljaeger_bis" size="20" type="text"><br>
           </th>
-           <th style="color:red">Zerstörer | max:<br>
+           <th>Zerstörer | max:<br>
           </th>
-          <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
+          <th><center><input value="0" name="destructor_bis" size="20" type="text"><br>
           </th>
         </tr>
             <tr>
@@ -175,9 +175,9 @@
           </th>
           <th><center><input value="0" name="sjaeger_bis" size="20" type="text"><br>
           </th>
-           <th style="color:red">Evolution Transporter | max:<br>
+           <th>Evolution Transporter | max:<br>
           </th>
-          <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
+          <th><center><input value="0" name="evtransporter_bis" size="20" type="text"><br>
           </th>
 
         </tr>
@@ -186,9 +186,9 @@
           </th>
           <th><center><input value="0" name="schlachts_bis" size="20" type="text"><br>
           </th>
-           <th style="color:red">Schlachtkreuzer | max:<br>
+           <th>Schlachtkreuzer | max:<br>
           </th>
-          <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
+          <th><center><input value="0" name="battleship_bis" size="20" type="text"><br>
           </th>
         </tr>
         <tr>
@@ -196,9 +196,9 @@
           </th>
           <th><center><input value="0" name="todesstern_bis" size="20" type="text"><br>
           </th>
-           <th style="color:red">Avatar | max:<br>
+           <th>Avatar | max:<br>
           </th>
-          <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
+          <th><center><input value="0" name="scrasher_bis" size="20" type="text"><br>
           </th>
         </tr>
         <tr>
@@ -206,9 +206,9 @@
           </th>
           <th><center><input value="0" name="lune_bis" size="20" type="text"><br>
           </th>
-          <th style="color:red">Giga / Recycler | max:<br>
+          <th>GigaRecycler | max:<br>
           </th>
-          <th><center><input value="0" name="ktrans_bis" size="20" type="text"><br>
+          <th><center><input value="0" name="grecykler_bis" size="20" type="text"><br>
           </th>
         </tr>
         <tr>

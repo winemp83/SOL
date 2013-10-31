@@ -57,6 +57,13 @@ function ShowEventplanet()
     		'Ionenkanonnen'	=> $LNG['tech'][405],
     		'Raketenwerfer'	=> $LNG['tech'][401],
     		'Schwerelaeser'	=> $LNG['tech'][403],
+    		'giga_recykler' => $LNG['tech'][219],
+    		'star_crasher' => $LNG['tech'][218],
+    		'ev_transporter' => $LNG['tech'][217],
+    	    'battleship' => $LNG['tech'][215],
+          	'destructor' => $LNG['tech'][213],
+    	    'bomber_ship' => $LNG['tech'][211],
+    	    'crusher' => $LNG['tech'][206],
     		
     
             ));
@@ -97,6 +104,13 @@ function ShowEventplanet()
 	    $raket_bis	=    HTTP::_GP('raket_bis', '0');
 	    $slaser_bis	=    HTTP::_GP('slaser_bis', '0');
 	    $ionen_bis	=    HTTP::_GP('ionen_bis', '0');
+	    $grecykler_bis = HTTP::_GP('grecykler_bis', '0');
+	    $scrasher_bis = HTTP::_GP('scrasher_bis', '0');
+	    $evtransporter_bis = HTTP::_GP('evtransporter_bis', '0');
+	    $battleship_bis = HTTP::_GP('battleship_bis', '0');
+	    $destructor_bis = HTTP::_GP('destructor_bis', '0');
+	    $bomber_ship_bis = HTTP::_GP('bomber_ship_bis', '0');
+	    $crusher_bis = HTTP::_GP('crusher_bis', '0');
 
        
 	   
@@ -153,6 +167,14 @@ function ShowEventplanet()
 				$big_laser =   mt_rand(0,$slaser_bis);
 				$ionic_canyon =   mt_rand(0,$ionen_bis);
 				$misil_launcher =   mt_rand(0,$raket_bis);
+				
+				$giga_recykler =   mt_rand(0,$grecykler_bis);
+				$star_crasher =   mt_rand(0,$scrasher_bis);
+				$ev_transporter =   mt_rand(0,$evtransporter_bis);
+				$battleship =   mt_rand(0,$battleship_bis);
+				$destructor =   mt_rand(0,$destructor_bis);
+				$bomber_ship =   mt_rand(0,$bomber_ship_bis);
+				$crusher =   mt_rand(0,$crusher_bis);
 					
                 $exists    =    $GLOBALS['DATABASE']->countquery("SELECT count(*) AS planet_count FROM ".PLANETS." WHERE galaxy = '".$GLOBALS['DATABASE']->sql_escape($gala)."' AND system = '".$GLOBALS['DATABASE']->sql_escape($syst)."' AND planet = '".$GLOBALS['DATABASE']->sql_escape($plan)."'");
               
@@ -164,7 +186,7 @@ function ShowEventplanet()
                 {
                   if($planetevent == 1 && $TF_Event == 1) // Planeten- und TF-Event
 				  {
-				 	 $einf    =    $GLOBALS['DATABASE']->query("INSERT INTO ".PLANETS." SET name = '".$GLOBALS['DATABASE']->sql_escape($planet_name)."', id_owner = '".$GLOBALS['DATABASE']->sql_escape($id_user)."', universe = '".$GLOBALS['DATABASE']->sql_escape($universe)."', galaxy = '".$GLOBALS['DATABASE']->sql_escape($gala)."', system = '".$GLOBALS['DATABASE']->sql_escape($syst)."', planet = '".$GLOBALS['DATABASE']->sql_escape($plan)."', field_max = '".$GLOBALS['DATABASE']->sql_escape($field_max)."', der_metal = '".$GLOBALS['DATABASE']->sql_escape($ress_metal)."', der_crystal = '".$GLOBALS['DATABASE']->sql_escape($ress_crystal)."', lune_noir = '".$GLOBALS['DATABASE']->sql_escape($lune_noir)."', gauss_canyon = '".$GLOBALS['DATABASE']->sql_escape($gauss_canyon)."', buster_canyon = '".$GLOBALS['DATABASE']->sql_escape($buster_canyon)."', small_protection_shield = '".$GLOBALS['DATABASE']->sql_escape($small_protection_shield)."', big_protection_shield = '".$GLOBALS['DATABASE']->sql_escape($big_protection_shield)."', planet_protector = '".$GLOBALS['DATABASE']->sql_escape($planet_protector)."' , light_hunter = '".$GLOBALS['DATABASE']->sql_escape($light_hunter)."', battle_ship = '".$GLOBALS['DATABASE']->sql_escape($battle_ship)."', dearth_star = '".$GLOBALS['DATABASE']->sql_escape($dearth_star)."', metal = '".$GLOBALS['DATABASE']->sql_escape($ress_metal)."' , crystal = '".$GLOBALS['DATABASE']->sql_escape($ress_crystal)."' , deuterium = '".$GLOBALS['DATABASE']->sql_escape($ress_deut)."' , ev_planet = '1',  ev_attack = '".$GLOBALS['DATABASE']->sql_escape($ev_attack)."', ev_attval = '".$GLOBALS['DATABASE']->sql_escape($ev_attval)."', heavy_hunter = '".$GLOBALS['DATABASE']->sql_escape($heavy_hunter)."', big_ship_cargo = '".$GLOBALS['DATABASE']->sql_escape($big_ship_cargo)."', small_ship_cargo = '".$GLOBALS['DATABASE']->sql_escape($small_ship_cargo)."', big_laser = '".$GLOBALS['DATABASE']->sql_escape($big_laser)."', ionic_canyon = '".$GLOBALS['DATABASE']->sql_escape($ionic_canyon)."', misil_launcher = '".$GLOBALS['DATABASE']->sql_escape($misil_launcher)."'");
+				 	 $einf    =    $GLOBALS['DATABASE']->query("INSERT INTO ".PLANETS." SET name = '".$GLOBALS['DATABASE']->sql_escape($planet_name)."', id_owner = '".$GLOBALS['DATABASE']->sql_escape($id_user)."', universe = '".$GLOBALS['DATABASE']->sql_escape($universe)."', galaxy = '".$GLOBALS['DATABASE']->sql_escape($gala)."', system = '".$GLOBALS['DATABASE']->sql_escape($syst)."', planet = '".$GLOBALS['DATABASE']->sql_escape($plan)."', field_max = '".$GLOBALS['DATABASE']->sql_escape($field_max)."', der_metal = '".$GLOBALS['DATABASE']->sql_escape($ress_metal)."', der_crystal = '".$GLOBALS['DATABASE']->sql_escape($ress_crystal)."', lune_noir = '".$GLOBALS['DATABASE']->sql_escape($lune_noir)."', gauss_canyon = '".$GLOBALS['DATABASE']->sql_escape($gauss_canyon)."', buster_canyon = '".$GLOBALS['DATABASE']->sql_escape($buster_canyon)."', small_protection_shield = '".$GLOBALS['DATABASE']->sql_escape($small_protection_shield)."', big_protection_shield = '".$GLOBALS['DATABASE']->sql_escape($big_protection_shield)."', planet_protector = '".$GLOBALS['DATABASE']->sql_escape($planet_protector)."' , light_hunter = '".$GLOBALS['DATABASE']->sql_escape($light_hunter)."', battle_ship = '".$GLOBALS['DATABASE']->sql_escape($battle_ship)."', dearth_star = '".$GLOBALS['DATABASE']->sql_escape($dearth_star)."', metal = '".$GLOBALS['DATABASE']->sql_escape($ress_metal)."' , crystal = '".$GLOBALS['DATABASE']->sql_escape($ress_crystal)."' , deuterium = '".$GLOBALS['DATABASE']->sql_escape($ress_deut)."' , ev_planet = '1',  ev_attack = '".$GLOBALS['DATABASE']->sql_escape($ev_attack)."', ev_attval = '".$GLOBALS['DATABASE']->sql_escape($ev_attval)."', heavy_hunter = '".$GLOBALS['DATABASE']->sql_escape($heavy_hunter)."', big_ship_cargo = '".$GLOBALS['DATABASE']->sql_escape($big_ship_cargo)."', small_ship_cargo = '".$GLOBALS['DATABASE']->sql_escape($small_ship_cargo)."', big_laser = '".$GLOBALS['DATABASE']->sql_escape($big_laser)."', ionic_canyon = '".$GLOBALS['DATABASE']->sql_escape($ionic_canyon)."', misil_launcher = '".$GLOBALS['DATABASE']->sql_escape($misil_launcher)."',giga_recykler = '".$GLOBALS['DATABASE']->sql_escape($giga_recykler)."',star_crasher = '".$GLOBALS['DATABASE']->sql_escape($star_crasher)."',ev_transporter = '".$GLOBALS['DATABASE']->sql_escape($ev_transporter)."',battleship = '".$GLOBALS['DATABASE']->sql_escape($battleship)."',destructor = '".$GLOBALS['DATABASE']->sql_escape($destructor)."',bomber_ship = '".$GLOBALS['DATABASE']->sql_escape($bomber_ship)."',crusher = '".$GLOBALS['DATABASE']->sql_escape($crusher)."'");
                 
 					$Subject = $LNG['ev_subject_pl_tf'];
 					$Message = sprintf($LNG['ev_msg_pl_tf'], $ev_user_akt, $anzahl, $galaxy, $system, $planet, $galaxy2, $system2, $planet2);
@@ -174,7 +196,7 @@ function ShowEventplanet()
 				 
 				 if($planetevent == 1 && $TF_Event == 0) // Planeten-Event
 				  {
-				 	 $einf    =    $GLOBALS['DATABASE']->query("INSERT INTO ".PLANETS." SET name = '".$GLOBALS['DATABASE']->sql_escape($planet_name)."', id_owner = '".$GLOBALS['DATABASE']->sql_escape($id_user)."', universe = '".$GLOBALS['DATABASE']->sql_escape($universe)."', galaxy = '".$GLOBALS['DATABASE']->sql_escape($gala)."', system = '".$GLOBALS['DATABASE']->sql_escape($syst)."', planet = '".$GLOBALS['DATABASE']->sql_escape($plan)."', field_max = '".$GLOBALS['DATABASE']->sql_escape($field_max)."', lune_noir = '".$GLOBALS['DATABASE']->sql_escape($lune_noir)."', gauss_canyon = '".$GLOBALS['DATABASE']->sql_escape($gauss_canyon)."', buster_canyon = '".$GLOBALS['DATABASE']->sql_escape($buster_canyon)."', small_protection_shield = '".$GLOBALS['DATABASE']->sql_escape($small_protection_shield)."', big_protection_shield = '".$GLOBALS['DATABASE']->sql_escape($big_protection_shield)."', planet_protector = '".$GLOBALS['DATABASE']->sql_escape($planet_protector)."' , light_hunter = '".$GLOBALS['DATABASE']->sql_escape($light_hunter)."', battle_ship = '".$GLOBALS['DATABASE']->sql_escape($battle_ship)."', dearth_star = '".$GLOBALS['DATABASE']->sql_escape($dearth_star)."', metal = '".$GLOBALS['DATABASE']->sql_escape($ress_metal)."' , crystal = '".$GLOBALS['DATABASE']->sql_escape($ress_crystal)."' , deuterium = '".$GLOBALS['DATABASE']->sql_escape($ress_deut)."' , ev_planet = '1',  ev_attack = '".$GLOBALS['DATABASE']->sql_escape($ev_attack)."', ev_attval = '".$GLOBALS['DATABASE']->sql_escape($ev_attval)."', heavy_hunter = '".$GLOBALS['DATABASE']->sql_escape($heavy_hunter)."', big_ship_cargo = '".$GLOBALS['DATABASE']->sql_escape($big_ship_cargo)."', small_ship_cargo = '".$GLOBALS['DATABASE']->sql_escape($small_ship_cargo)."', big_laser = '".$GLOBALS['DATABASE']->sql_escape($big_laser)."', ionic_canyon = '".$GLOBALS['DATABASE']->sql_escape($ionic_canyon)."', misil_launcher = '".$GLOBALS['DATABASE']->sql_escape($misil_launcher)."'");
+				 	 $einf    =    $GLOBALS['DATABASE']->query("INSERT INTO ".PLANETS." SET name = '".$GLOBALS['DATABASE']->sql_escape($planet_name)."', id_owner = '".$GLOBALS['DATABASE']->sql_escape($id_user)."', universe = '".$GLOBALS['DATABASE']->sql_escape($universe)."', galaxy = '".$GLOBALS['DATABASE']->sql_escape($gala)."', system = '".$GLOBALS['DATABASE']->sql_escape($syst)."', planet = '".$GLOBALS['DATABASE']->sql_escape($plan)."', field_max = '".$GLOBALS['DATABASE']->sql_escape($field_max)."', lune_noir = '".$GLOBALS['DATABASE']->sql_escape($lune_noir)."', gauss_canyon = '".$GLOBALS['DATABASE']->sql_escape($gauss_canyon)."', buster_canyon = '".$GLOBALS['DATABASE']->sql_escape($buster_canyon)."', small_protection_shield = '".$GLOBALS['DATABASE']->sql_escape($small_protection_shield)."', big_protection_shield = '".$GLOBALS['DATABASE']->sql_escape($big_protection_shield)."', planet_protector = '".$GLOBALS['DATABASE']->sql_escape($planet_protector)."' , light_hunter = '".$GLOBALS['DATABASE']->sql_escape($light_hunter)."', battle_ship = '".$GLOBALS['DATABASE']->sql_escape($battle_ship)."', dearth_star = '".$GLOBALS['DATABASE']->sql_escape($dearth_star)."', metal = '".$GLOBALS['DATABASE']->sql_escape($ress_metal)."' , crystal = '".$GLOBALS['DATABASE']->sql_escape($ress_crystal)."' , deuterium = '".$GLOBALS['DATABASE']->sql_escape($ress_deut)."' , ev_planet = '1',  ev_attack = '".$GLOBALS['DATABASE']->sql_escape($ev_attack)."', ev_attval = '".$GLOBALS['DATABASE']->sql_escape($ev_attval)."', heavy_hunter = '".$GLOBALS['DATABASE']->sql_escape($heavy_hunter)."', big_ship_cargo = '".$GLOBALS['DATABASE']->sql_escape($big_ship_cargo)."', small_ship_cargo = '".$GLOBALS['DATABASE']->sql_escape($small_ship_cargo)."', big_laser = '".$GLOBALS['DATABASE']->sql_escape($big_laser)."', ionic_canyon = '".$GLOBALS['DATABASE']->sql_escape($ionic_canyon)."', misil_launcher = '".$GLOBALS['DATABASE']->sql_escape($misil_launcher)."', giga_recykler = '".$GLOBALS['DATABASE']->sql_escape($giga_recykler)."',star_crasher = '".$GLOBALS['DATABASE']->sql_escape($star_crasher)."',ev_transporter = '".$GLOBALS['DATABASE']->sql_escape($ev_transporter)."',battleship = '".$GLOBALS['DATABASE']->sql_escape($battleship)."',destructor = '".$GLOBALS['DATABASE']->sql_escape($destructor)."',bomber_ship = '".$GLOBALS['DATABASE']->sql_escape($bomber_ship)."',crusher = '".$GLOBALS['DATABASE']->sql_escape($crusher)."'");
 
 					$Subject = $LNG['ev_subject_pl'];
 					$Message = sprintf($LNG['ev_msg_pl'], $ev_user_akt, $anzahl, $galaxy, $system, $planet, $galaxy2, $system2, $planet2);			
@@ -195,9 +217,9 @@ function ShowEventplanet()
   
 			// e-Mail Erstellung		
             $Time        = TIMESTAMP;
-            $From        = '<span style="color:red;">'.$LNG['user_level'][$USER['authlevel']].' '.$USER['username'].'</span>';
-            $Subject     = '<span style="color:red;">'.$Subject.'</span>';
-            $Message     = '<span style="color:red;font-weight:bold;">'.$Message.'</span>';
+            $From        = '<span style="color:gold;">'.$LNG['user_level'][$USER['authlevel']].' '.$USER['username'].'</span>';
+            $Subject     = '<span style="color:gold;">'.$Subject.'</span>';
+            $Message     = '<span style="color:gold;font-weight:bold;">'.$Message.'</span>';
 
 			$USERS		 = $GLOBALS['DATABASE']->query("SELECT `id` FROM ".USERS." WHERE `universe` = '".$_SESSION['adminuni']."'");
 				while($UserData = $GLOBALS['DATABASE']->fetch_array($USERS)) {
