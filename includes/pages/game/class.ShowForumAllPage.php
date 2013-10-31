@@ -278,7 +278,8 @@ class ShowForumAllPage extends AbstractPage{
 	//done
 	protected function createTopic($kat_id){
 	global $USER;
-		if(empty(HTTP::_GP('step',''))){
+		$help_a = HTTP::_GP('step','');
+		if(empty($help_a)){
 			$step = 1;
 		}
 		else{
