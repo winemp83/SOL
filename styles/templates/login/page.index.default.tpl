@@ -29,10 +29,10 @@
                   <div class="mainMenu">
                      <ul>
                         <li>
-                        <a style="color:#fff;text-decoration:none;"href="index.php?page=News">{$LNG.icey_menu_news}</a>
+                        <a style="color:#fff;text-decoration:none;" href="http://spaceoflegends.de">Startpage</a>
                         </li>
                         <li>
-                        <a style="color:#fff;text-decoration:none;" href="http://space.landoflegends.de/phpBB3">{$LNG.icey_menu_forum}</a>
+              		<a style="color:#fff;text-decoration:none;"href="index.php?page=News">{$LNG.icey_menu_news}</a>
                         </li>
                         <li>
                         <a style="color:#fff;text-decoration:none;"href="index.php?page=banList">{$LNG.icey_menu_pranger}</a>
@@ -119,11 +119,16 @@
 </span><br/>&nbsp;&nbsp;
 <a href="http://www.gtop100.com/in.php?site=81654" title="Gtop100" target="_blank">
 <img src="http://www.gtop100.com/images/votebutton.jpg" border="0" alt="Gtop100"></a>
+&nbsp;
+<a href="http://www.spieletitan.de/" target="_blank"><img src="http://www.spieletitan.de/images/button.gif" alt="Spieletitan" border="0" /></a>
+&nbsp;
+<span style="width:89px; height:30px; display:inline-block; overflow:hidden; background-image:url(http://www.xbrowsergames.de/x/xbgs.png); background-repeat:no-repeat;"><a href="http://www.xbrowsergames.de" style="width:89px; height:30px; text-decoration:none; display:inline-block; font-size:11px; font-weight:bold; color:#ffffff;" title="Browsergames">Bestes Browsergame</a></span>
+&nbsp;
 
-	
+&nbsp;<br/>
 
-
-
+&nbsp;
+<br/>
 </td>
 </table>
 </div>

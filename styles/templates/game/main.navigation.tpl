@@ -198,14 +198,7 @@
 			<li style="width:180px;"><a href="game.php?page=logout">{$LNG.lm_logout}</a></li>	
 	</ul></li>
 	<li style="width:200px;"><a href="game.php?page=Vote">{$LNG.lm_Vote}</a></li>
-	<li class="topmenu"><a href="#" style="width:190px;"><span>{$LNG.lm_voteus}</span></a>
-	<ul style="width:180px;">
-			<li style="width:180px;"><a href="http://www.kostenlos-browsergame.de/" target="_blank">{$LNG.lm_browser1}</a></li>
-			<li style="width:180px;"><a href="http://www.top100arena.com/in.asp?id=82759" target="_blank">{$LNG.lm_browser2}</a></li>	
-			<li style="width:180px;"><a href="http://www.browsergamelist.com/vote.php?gid=49" target="_blank">{$LNG.lm_browser3}</a></li>
-			<li style="width:180px;"><a href="http://www.browsergames.info/" target="_blank">{$LNG.lm_browser4}</a></li>
-			<li style="width:180px;"><a href="http://www.gtop100.com/in.php?site=81654&cookie_test=true" target="_blank">{$LNG.lm_browser5}</a></li>
-	</ul></li>
+
 	{if $team == true}
 	<li class="topmenu"><a href="#" style="width:190px;"><span>Team Area</span></a>
 	<ul style="width:180px;">

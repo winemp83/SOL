@@ -109,11 +109,11 @@ body {
 .mainBody .content .left {
    width                   : 620px;
    float                   : left;
-   padding                 : 0 45px 0 2px;
+   padding                 : 0 47px 0 2px;
 }
 
 .mainBody .content .left .mainMenu {
-   height                  : 37px;
+   height                  : 35px;
    margin-top              : 15px;
    font                    : normal 16px/1.5em "Tahoma", "Arial", sans-serif;
    font-weight             : bold;
@@ -132,6 +132,7 @@ body {
    float                   : left;
    padding                 : 18px 31px 0 30px;
    height                  : 32px;
+
    border-bottom           : 1px solid #979797;
    border-left             : 1px solid #979797;
    background              : url(../../images/login/menu_bg.png) repeat-x;
@@ -155,7 +156,7 @@ body {
 .mainBody .content .left .mainMenu ul li.last {
 
    border-right            : 1px solid #979797;
-   padding                 : 18px 33px 0 32px;
+   padding                 : 18px 30px 0 32px;
 
 
 }
