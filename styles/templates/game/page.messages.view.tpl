@@ -4,7 +4,8 @@
 <input type="hidden" name="ajax" value="1">
 <input type="hidden" name="messcat" value="{$MessID}">
 <input type="hidden" name="side" value="{$page}">
-<table id="messagestable" style="width:760px;">
+<table id="messagestable" style="width:744px; background: black;" >
+
 	<tr>
 		<th colspan="4">{$LNG.mg_message_title}</th>
 	</tr>
@@ -24,6 +25,7 @@
 		</td>
 	</tr>
 	{/if}
+
 	<tr style="height: 20px;">
 		<td class="right" colspan="4">{$LNG.mg_page}: {if $page != 1}<a href="#" onclick="Message.getMessages({$MessID}, {$page - 1});return false;">&laquo;</a>&nbsp;{/if}{for $site=1 to $maxPage}<a href="#" onclick="Message.getMessages({$MessID}, {$site});return false;">{if $site == $page}<b>[{$site}]</b>{else}[{$site}]{/if}</a>{if $site != $maxPage}&nbsp;{/if}{/for}{if $page != $maxPage}&nbsp;<a href="#" onclick="Message.getMessages({$MessID}, {$page + 1});return false;">&raquo;</a>{/if}</td>
 	</tr>
@@ -38,16 +40,16 @@
 		<td style="width:40px;" rowspan="2">
 		{if $MessID != 999}<input name="messageID[{$Message.id}]" value="1" type="checkbox">{/if}
 		</td>
-		<td>{$Message.time}</td>
-		<td>{$Message.from}</td>
-		<td>{$Message.subject}
+		<td style="background: #2E2E2E;">{$Message.time}</td>
+		<td style="background: #2E2E2E;">{$Message.from}</td>
+		<td style="background: #2E2E2E;">{$Message.subject}
 		{if $Message.type == 1 && $MessID != 999}
-		<a href="#" onclick="return Dialog.PM({$Message.sender}, Message.CreateAnswer('{$Message.subject}'));" title="{$LNG.mg_answer_to} {strip_tags($Message.from)}"><img src="{$dpath}img/m.gif" border="0"></a>
+		<a  href="#" onclick="return Dialog.PM({$Message.sender}, Message.CreateAnswer('{$Message.subject}'));" title="{$LNG.mg_answer_to} {strip_tags($Message.from)}"><img src="{$dpath}img/m.gif" border="0"></a>
 		{/if}
 		</td>
 	</tr>
 	<tr class="messages_body">
-		<td colspan="3" class="left">
+		<td colspan="3" class="left" >
 		{$Message.text}
 		</td>
 	</tr>
@@ -71,6 +73,7 @@
 		</td>
 	</tr>
 	{/if}
+
 </table>
 </form>
 {/block}
