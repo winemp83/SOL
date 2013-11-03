@@ -124,6 +124,7 @@
 &nbsp;
 <span style="width:89px; height:30px; display:inline-block; overflow:hidden; background-image:url(http://www.xbrowsergames.de/x/xbgs.png); background-repeat:no-repeat;"><a href="http://www.xbrowsergames.de" style="width:89px; height:30px; text-decoration:none; display:inline-block; font-size:11px; font-weight:bold; color:#ffffff;" title="Browsergames">Bestes Browsergame</a></span>
 &nbsp;
+<a href="http://bg-topliste.dlxg.de/"><img src="http://bg-topliste.dlxg.de/button.php?u=space_one" alt="Browsergame-Topliste - by DLXG" border="0" /></a>
 
 &nbsp;<br/>
 
