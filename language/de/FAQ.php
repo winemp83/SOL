@@ -354,15 +354,50 @@ Dieses Event ist vom Ablauf genau so wie die Möglichkeit 2 <br>
 
 BODY;
 $LNG['questions'][10]['category']	= 'Wichtige Links';
-$LNG['questions'][10][1]['title']	= 'Links';
+$LNG['questions'][10][1]['title']	= 'Unser Links';
 $LNG['questions'][10][1]['body']		= <<<BODY
-<h3>Unsere Wichtigesten Links</h3>
-<p> Momentan nicht aktiv auser die Wiki<br>
-<p>Homepage = <a href="http://www.spaceoflegends.de"  target="forum">landoflegends.de</a><br>
-<p>Game Server = <a href="http://game.spaceoflegends.de"  target="forum" >game.landoflegends.de</a><br>
-<p>Speed Server = <a href="http://speed.spaceoflegends.de"  target="forum">speed.landoflegends.de</a><br>
-<p>Unsere Wiki = <a href="http://www.wiki.spaceoflegends.de"  target="forum">wiki.landoflegends.de</a><br>
-<p>Mantis = <a href="http://bugs.landoflegends.de"  target="forum">bug.landoflegends.de</a><br>
+<h3>Game Links</h3>
+<p>Homepage = <a href="http://www.spaceoflegends.de"  target="forum">Spaceoflegends.de</a><br>
+<p>Game Server = <a href="http://game.spaceoflegends.de"  target="forum" >game.spaceoflegends.de</a><br>
+<p>Speed Server = <a href="http://speed.spaceoflegends.de"  target="forum">speed.spaceoflegends.de</a><br>
+
+<h3>Info Links</h3>
+<p>Unsere Wiki = <a href="http://www.wiki.spaceoflegends.de"  target="forum">www.wiki.spaceoflegends.de</a><br>
+<p>Mantis = <a href="http://mantis.spaceoflegends.de"  target="forum">mantis.spaceoflegends.de</a><br>
+
+<h3>Soziales Netzwerk</h3>
+<p>Facebook = <a href="https://www.facebook.com/LoLSpace"  target="forum">facebook.com/LoLSpace</a><br>
+<p>Google + = <a href="https://plus.google.com/communities/114929726915639497772"  target="forum">google.com</a><br>
+<p>Twitter = <a href="https://twitter.com/SpaceofLegends"  target="forum">Twitter.com</a><br>
+
+<h3>Werbe Links</h3>
+<a href="http://www.kostenlos-browsergame.de/" onmousedown="return hit('http://www.kostenlos-browsergame.de/in.php?id=193')" target="_blank"><img src="http://www.kostenlos-browsergame.de/img/banner-kostenlos-browsergame1.gif" alt="Gute und kostenlose Browsergames" border="0"></a>
+&nbsp;
+<a href='http://www.top100arena.com/mmorpg/' title='MMORPG Games'><img src='http://www.top100arena.com/hit.asp?id=82759&c=mmorpg&t=1' alt='MMORPG Games' width='88px' height='31px' border='0'></a>
+&nbsp;
+<a href="http://www.arena-top100.com/"><img src="http://www.arena-top100.com/button.php?u=winemp83&buttontype=static" alt="Best Private Servers Top 100 Rankings" /></a>
+&nbsp;
+<a href="http://www.browsergamelist.com/vote.php?gid=49" target="_blank"><img src="http://www.browsergamelist.com/media/browsergamelist-vote2.png" alt="Vote now at BrowserGameList" title="Vote now at BrowserGameList" /></a>
+&nbsp;
+<span style="width:88px; height:31px; display:inline-block; overflow:hidden; background-image:url(http://www.kostenlose-browsergames.de/images/bgbutton.gif); background-repeat:no-repeat; text-align:left;">
+<a style="width:87px; height:27px; display:inline-block; margin: 4px 0 0 1px; font-family:Arial,sans-serif; font-size:11px; font-weight:bold; line-height:12px; letter-spacing:0px; color:#ffffff; text-decoration:none;" target="_blank" href="http://www.kostenlose-browsergames.de">kostenlose browsergames</a>
+</span><br/>&nbsp;&nbsp;
+<a href="http://www.gtop100.com/in.php?site=81654" title="Gtop100" target="_blank">
+<img src="http://www.gtop100.com/images/votebutton.jpg" border="0" alt="Gtop100"></a>
+&nbsp;
+<a href="http://www.spieletitan.de/" target="_blank"><img src="http://www.spieletitan.de/images/button.gif" alt="Spieletitan" border="0" /></a>
+&nbsp;
+<span style="width:89px; height:30px; display:inline-block; overflow:hidden; background-image:url(http://www.xbrowsergames.de/x/xbgs.png); background-repeat:no-repeat;"><a href="http://www.xbrowsergames.de" style="width:89px; height:30px; text-decoration:none; display:inline-block; font-size:11px; font-weight:bold; color:#ffffff;" title="Browsergames">Bestes Browsergame</a></span>
+&nbsp;
+
+&nbsp;<br/>
+
+&nbsp;
+
+
+<h3>Weitere Links</h3>
+<p>EntwicklerServer = <a href="http://www.entwicklung.spaceoflegends.de/"  target="forum">Entwickler Server</a><br>
+
 
 BODY;
 $LNG['questions'][11]['category']	= 'Wichtige Hinweise';
