@@ -1,6 +1,27 @@
 {block name="title" prepend}{$LNG.lm_alliance}{/block}
 {block name="content"}
-<table style="width:760px">
+
+<table class="table519" style="background: transparent;">
+<table style="background: transparent" class="table519">
+	<tbody><tr><td>
+
+
+		<div class="domtab">
+		<ul class="domtabs">
+			
+
+			<li><a href="#t1">{$LNG.al_texts}</a></li>
+			<li><a href="#t2">{$LNG.al_manage_alliance}</a></li>
+			<li><a href="#t3">{$LNG.al_manage_options}</a></li>
+			<li><a href="#t4">{$LNG.al_disolve_alliance}</a></li>
+
+		</ul>
+		</div>
+
+		<div style="background: transparent;"> <a name="t2" id="t2"></a>
+		<table style="width: 100%; background: transparent;">						
+
+
 	<tr>
 		<th>{$LNG.al_manage_alliance}</th>
 	</tr>
@@ -18,14 +39,22 @@
 	<tr>
 	 	<td><div align="center" width=100%"><a href="game.php?page=alliance&amp;mode=buyModul" target="_self">{$LNG.winemp_alliBonus_buy}</a></div></td>  
 	</tr>
- <tr>
-        <td><a href="game.php?page=Convidar" style="color:lime;">Einladen von Spielern</a></td>
-    </tr>
-</table>
+ 	<tr>
+        <td><a href="game.php?page=Convidar" style="color:lime;">Einladen von Spielern</a>
+	</td>
+    	</tr>
+
+
+		</table>
+		</div>
+
+		<div style="background: transparent;"> <a name="t1" id="t1"></a>
+		<table style="width: 100%; background: transparent;">
+
 <form action="game.php?page=alliance&mode=admin" method="post">
 <input type="hidden" name="textMode" value="{$textMode}">
 <input type="hidden" name="send" value="1">
-<table style="width:760px">
+
 	<tr>
 		<th colspan="3">{$LNG.al_texts}</th>
 	</tr>
@@ -41,12 +70,17 @@
 	</tr>
 	<tr>
 		<td colspan="3">
-			<input type="reset" value="{$LNG.al_circular_reset}"> 
 			<input type="submit" value="{$LNG.al_save}">
 		</td>
 	</tr>
-</table>
-<table style="width:760px">
+		
+		</table>
+		</div>
+
+		<div style="background: transparent;"> <a name="t3" id="t3"></a>			
+		<table style="width: 100%;">
+		<tbody>
+
 	<tr>
 		<th colspan="2">{$LNG.al_manage_options}</th>
 	</tr>
@@ -107,25 +141,57 @@
 		<td>{$LNG.al_manage_request_min_points}</td>
 		<td><input type="number" min="0" name="request_min_points" value="{$ally_request_min_points}" size="30"></td>
 	</tr>
-	<tr></form>
+	<tr>
+<form action="game.php?page=alliance&mode=admin" method="post">
+<input type="hidden" name="textMode" value="{$textMode}">
+<input type="hidden" name="send" value="1">
+
+
+	<tr>
+		<td colspan="3">
+			<input type="submit" value="{$LNG.al_save}">
+		</td>
+	</tr>
+		</form>
+
+		</tbody>
+		</table>
+		</div>
+
+
+
+
+
+<div style="background: transparent;"> <a name="t4" id="t4"></a>
+
+	<table style="width: 100%; background: transparent;">	
+				
 {if $AllianceOwner}
-<table style="width:760px">
 	<tr>
 		<th>{$LNG.al_disolve_alliance}</th>
 	</tr>
 	<tr>
 		<td><form action="game.php?page=alliance&amp;mode=admin&amp;action=close" method="post"><input type="submit" value="{$LNG.al_continue}" onclick="return confirm('{$LNG.al_close_ally}');"></form></td>
 	</tr>  
-</table>
-<table style="width:760px">
+<form action="game.php?page=alliance&mode=admin" method="post">
+<input type="hidden" name="textMode" value="{$textMode}">
+<input type="hidden" name="send" value="1">
+
+
 	<tr>
-		<th>{$LNG.al_transfer_alliance}</th>
+		<td colspan="3">
+			<input type="submit" value="{$LNG.al_save}">
+		</td>
 	</tr>
-	<tr>
-		<td><form action="game.php?page=alliance&amp;mode=admin&amp;action=transfer" method="post"><input type="submit" value="{$LNG.al_continue}"></form></td>
-	</tr>
-</table>
+		</form>
+		
 {/if}
+</table></div>
+
+
+
+
+
 {/block}
 {block name="script" append}
 <script type="text/javascript" src="scripts/base/tinymce/tiny_mce_gzip.js"></script>
@@ -162,4 +228,16 @@ $(function() {
 	});
 });
 </script>
+
+
+
+
+<script type="text/javascript" src="././././scripts/game/domtab.js"></script>
+
+<script>
+	$(function() {
+		$( "#tabs" ).tabs();
+	});
+	</script>
+
 {/block}
