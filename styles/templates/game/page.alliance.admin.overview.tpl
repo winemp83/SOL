@@ -1,7 +1,6 @@
 {block name="title" prepend}{$LNG.lm_alliance}{/block}
 {block name="content"}
 
-<table class="table519" style="background: transparent;">
 <table style="background: transparent" class="table519">
 	<tbody><tr><td>
 
@@ -17,6 +16,8 @@
 
 		</ul>
 		</div>
+</table>
+		
 
 		<div style="background: transparent;"> <a name="t2" id="t2"></a>
 		<table style="width: 100%; background: transparent;">						
@@ -79,7 +80,7 @@
 
 		<div style="background: transparent;"> <a name="t3" id="t3"></a>			
 		<table style="width: 100%;">
-		<tbody>
+	
 
 	<tr>
 		<th colspan="2">{$LNG.al_manage_options}</th>
@@ -154,7 +155,7 @@
 	</tr>
 		</form>
 
-		</tbody>
+		
 		</table>
 		</div>
 
@@ -163,8 +164,7 @@
 
 
 <div style="background: transparent;"> <a name="t4" id="t4"></a>
-
-	<table style="width: 100%; background: transparent;">	
+<table style="width: 100%; background: transparent;">	
 				
 {if $AllianceOwner}
 	<tr>
@@ -186,9 +186,6 @@
 		</form>
 		
 {/if}
-</table></div>
-
-
 
 
 
