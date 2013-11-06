@@ -172,19 +172,7 @@
 	</tr>
 	<tr>
 		<td><form action="game.php?page=alliance&amp;mode=admin&amp;action=close" method="post"><input type="submit" value="{$LNG.al_continue}" onclick="return confirm('{$LNG.al_close_ally}');"></form></td>
-	</tr>  
-<form action="game.php?page=alliance&mode=admin" method="post">
-<input type="hidden" name="textMode" value="{$textMode}">
-<input type="hidden" name="send" value="1">
-
-
-	<tr>
-		<td colspan="3">
-			<input type="submit" value="{$LNG.al_save}">
-		</td>
-	</tr>
-		</form>
-		
+	</tr>  	
 {/if}
 
 
