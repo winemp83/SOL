@@ -5,7 +5,7 @@
 		<ul id="extra-m">
 			<li>{if isModulAvalible($smarty.const.MODULE_SUPPORT)}<li style="width:180px;"><a href="game.php?page=ticket">{$LNG.lm_support}</a></li>{/if}</li>
 			{if !empty($hasBoard)}<li style="width:180px;"><a href="game.php?page=ForumAll" target="">{$LNG.lm_forums}</a></li>{/if}
-			<a href="./chat/index.php" onclick="window.open('./chat/index.php','displayWindow','w idth=400,height=300');return false;">{$LNG.lm_chat}</a></li>
+			<a href="./chat/index.php" onclick="window.open('./chat/index.php','displayWindow', 'width=800,height=800');return false;">{$LNG.lm_chat}</a></li>
 			<li style="width:180px;"><a href="game.php?page=questions" target="">{$LNG.lm_faq}</a></li>
 			<li style="width:180px;"><a href="http://www.wiki.spaceoflegends.de/doku.php" target="_blank">Wiki</a></li>
 			{if isModulAvalible($smarty.const.MODULE_NOTICE)}<li style="width:180px;"><a href="javascript:OpenPopup('?page=notes', 'notes', 720, 300);">{$LNG.lm_notes}</a></li>{/if}
