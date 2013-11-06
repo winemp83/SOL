@@ -208,6 +208,7 @@
 			{if $authlevel > 0}<li style="width:180px;"><a href="./admin.php" style="color:lime">{$LNG.lm_administration} ({$VERSION})</a></li>{/if}
 <li style="width:180px;"><a href="" target="_blank"></a></li>
 			<li style="width:180px;"><a href="http://team.spaceoflegends.de" target="_blank">Team Forum</a></li>
+			<li style="width:180px;"><a href="game.php?page=chat" target="">Test einbindung</a></li>
 <li style="width:180px;"><a href="" target="_blank"></a></li>
 <li style="width:180px;"><a href="http://mantis.spaceoflegends.de" target="_blank">Mantis-Team</a></li>
 <li style="width:180px;"><a href="http://www.entwicklung.spaceoflegends.de/" target="_blank">Entwickler Server</a></li>
