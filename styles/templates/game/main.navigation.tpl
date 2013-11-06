@@ -5,7 +5,7 @@
 		<ul id="extra-m">
 			<li>{if isModulAvalible($smarty.const.MODULE_SUPPORT)}<li style="width:180px;"><a href="game.php?page=ticket">{$LNG.lm_support}</a></li>{/if}</li>
 			{if !empty($hasBoard)}<li style="width:180px;"><a href="game.php?page=ForumAll" target="">{$LNG.lm_forums}</a></li>{/if}
-			{if isModulAvalible($smarty.const.MODULE_CHAT)}<li style="width:180px;"><a href="game.php?page=chat" target="_blank">{$LNG.lm_chat}</a></li>{/if}
+			<a href="./chat/index.php" onclick="window.open('./chat/index.php','displayWindow','w idth=400,height=300');return false;">{$LNG.lm_chat}</a></li>
 			<li style="width:180px;"><a href="game.php?page=questions" target="">{$LNG.lm_faq}</a></li>
 			<li style="width:180px;"><a href="http://www.wiki.spaceoflegends.de/doku.php" target="_blank">Wiki</a></li>
 			{if isModulAvalible($smarty.const.MODULE_NOTICE)}<li style="width:180px;"><a href="javascript:OpenPopup('?page=notes', 'notes', 720, 300);">{$LNG.lm_notes}</a></li>{/if}
@@ -15,6 +15,7 @@
 			<li style="width:180px;"><a href="{$ts_data}">TS³</a></li>
 			<li><a href="https://www.facebook.com/LoLSpace" target="_blank">Fb</a></li>
 			<li><a href="https://twitter.com/SpaceofLegends" target="_blank">Twitter</a></li>
+
 
 		</ul>	
 	</div>
@@ -205,12 +206,13 @@
 	<li class="topmenu"><a href="#" style="width:190px;"><span>Team Area</span></a>
 	<ul style="width:180px;">
 			{if $authlevel > 0}<li style="width:180px;"><a href="./admin.php" style="color:lime">{$LNG.lm_administration} ({$VERSION})</a></li>{/if}
-			<li style="width:180px;"><a href="http://space.landoflegends.de/phpBB3/index.php" target="_blank">Team Forum</a></li>
 <li style="width:180px;"><a href="" target="_blank"></a></li>
-<li style="width:180px;"><a href="http://mantis.spaceoflegends.de" target="_blank">Mantis</a></li>
-<li style="width:180px;"><a href="http://www.entwicklung.spaceoflegends.de/" target="_blank">Test Server</a></li>
-<li style="width:180px;"><a href="http://www.wiki.spaceoflegends.de/doku.php" target="_blank">Wiki</a></li>
-<li style="width:180px;"><a href="http://winemp83.github.io/SOL/" target="_blank">Git</a></li>
+			<li style="width:180px;"><a href="http://team.spaceoflegends.de" target="_blank">Team Forum</a></li>
+<li style="width:180px;"><a href="" target="_blank"></a></li>
+<li style="width:180px;"><a href="http://mantis.spaceoflegends.de" target="_blank">Mantis-Team</a></li>
+<li style="width:180px;"><a href="http://www.entwicklung.spaceoflegends.de/" target="_blank">Entwickler Server</a></li>
+<li style="width:180px;"><a href="http://www.wiki.spaceoflegends.de/doku.php" target="_blank">Space Wiki</a></li>
+<li style="width:180px;"><a href="http://winemp83.github.io/SOL/" target="_blank">Git Hub</a></li>
 <li style="width:180px;"><a href="https://www.facebook.com/LoLSpace" target="_blank">Facebook</a></li>
 <li style="width:180px;"><a href="https://twitter.com/SpaceofLegends" target="_blank">Twitter</a></li>
 	</ul></li>
