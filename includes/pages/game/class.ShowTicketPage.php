@@ -126,6 +126,11 @@ class ShowTicketPage extends AbstractPage
 		$ticket_status = 'Unknown';
 
 		while($answerRow = $GLOBALS['DATABASE']->fetch_array($answerResult)) {
+			print_r($answerRow);
+			$answeruser = $answerRow['ownerID'];
+			if($answeruser != $USER['id']){
+				$this->printMessage(sprintf($LNG['ti_not_exist'], $ticketID));
+			}
 			$answerRow['time']	= _date($LNG['php_tdformat'], $answerRow['time'], $USER['timezone']);
 			$answerRow['message']	= bbcode($answerRow['message']);
 			$answerList[$answerRow['answerID']]	= $answerRow;
