@@ -119,8 +119,7 @@ $LNG['registerSendComplete']		= 'Vielen Dank für die Registration. Du erhältst
 
 $LNG['registerWelcomePMSenderName']	= 'Administrator';
 $LNG['registerWelcomePMSubject']	= 'Willkommen';
-$LNG['registerWelcomePMText']		= 'Willkommen bei %s! Baue zuerst ein Solarkraftwerk, denn Energie wird für die spätere Rohstoffproduktion benötigt. Um diese zu bauen, klicke links im Menu auf "Gebäude". Danach baue das 4. Gebäude von oben. Da du nun Energie hast, kannst du anfangen Minen zu bauen. Gehe dazu wieder im Menü auf Gebäude und baue eine Metallmine, danach wieder eine Kristallmine. Um Schiffe bauen zu können musst du zuerst eine Raumschiffswerft gebaut haben. Was dafür benötigt wird findest du links im Menüpunkt Technologie. Das Team wünscht dir viel Spaß beim Erkunden des Universums!';
-
+$LNG['registerWelcomePMText']		= '<span style="color:yellow;">Herzlich Willkommen bei %s ein Episches Weltall Abenteuer!<br> Um einen erfolgreichen Start zu haben solltest du als erst dir die FAQ oben anschauen.<br> Dort wie auch in der Wiki werden dir viele nützliche Sachen gezeigt.<br> Fragen kannst du jeder zeit im Support stellen.<br><p> Wiki Link: <a href="http://www.wiki.spaceoflegends.de/doku.php" target="_blank">Klick!</a><br><p> Das Space of Legends Team wünscht dir viel Spaß und Erfolg!</span>';
 //Vertify
 
 $LNG['vertifyNoUserFound']			= 'Ungültige Anfrage!';
