@@ -89,16 +89,11 @@
 						</table>
 					</td>
 					</tr>
-					<tr>
-						<td style="background-color:black;color:gold;">
-						{if $is_news}
-						<div id="newsscrollbar" width="100%" align="center"></div>
-						{/if}
-						</td>
-					</tr>
+				
 
 			</tbody>
 
+		</table>
 {if !$vmode}
 		<script type="text/javascript">
 		var viewShortlyNumber	= {$shortlyNumber|json}
@@ -116,7 +111,6 @@
 		</script>
 		{/if}
 
-		</table>
 	</div>
 
 
