@@ -975,7 +975,7 @@ $LNG['po_add_moon']					= 'Mond Hinzufügen';
 
 $LNG['sp_admin_answer']				= '%s (Admin) schreib am %s<br><br><font color="red">%s</font>';
 $LNG['sp_answer_message_title']		= 'Support Ticket #%d';
-$LNG['sp_answer_message']			= 'Es wurde auf Ihr Ticket #%d eine Antwort geschrieben!';
+$LNG['sp_answer_message']			= 'Es wurde auf Ihr <a href="game.php?page=ticket" style="color:yellow">Ticket #%d</a> eine Antwort geschrieben!';
 $LNG['sp_admin_closed']				= '%s (Admin) hat das Ticket am %s geschlossen!';
 $LNG['sp_admin_open']				= '%s (Admin) hat das Ticket am %s geöffnet!';
 
