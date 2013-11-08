@@ -114,11 +114,21 @@ class ShowTicketPage extends AbstractPage
 		global $USER, $LNG;
 		
 		require_once('includes/functions/BBCode.php');
-		
 		$ticketID			= HTTP::_GP('id', 0);
 		$answerResult		= $GLOBALS['DATABASE']->query("SELECT a.*, t.categoryID, t.status FROM ".TICKETS_ANSWER." a INNER JOIN ".TICKETS." t USING(ticketID) WHERE a.ticketID = ".$ticketID." ORDER BY a.answerID;");
 		$answerList			= array();
-
+		
+		
+		$sql = "SELECT * FROM ".TICKETS_ANSWER." WHERE ticketID='".$ticketID."' LIMIT 1";
+		$result = $GLOBALS['DATABASE']->query($sql);
+		foreach($result as $data){
+			if($data['ownerID'] != $USER['id']){
+				$this->printMessage(sprintf($LNG['ti_not_exist'], $ticketID));
+			}
+		}
+		
+		
+		
 		if($GLOBALS['DATABASE']->numRows($answerResult) == 0) {
 			$this->printMessage(sprintf($LNG['ti_not_exist'], $ticketID));
 		}
@@ -126,11 +136,6 @@ class ShowTicketPage extends AbstractPage
 		$ticket_status = 'Unknown';
 
 		while($answerRow = $GLOBALS['DATABASE']->fetch_array($answerResult)) {
-			print_r($answerRow);
-			$answeruser = $answerRow['ownerID'];
-			if($answeruser != $USER['id']){
-				$this->printMessage(sprintf($LNG['ti_not_exist'], $ticketID));
-			}
 			$answerRow['time']	= _date($LNG['php_tdformat'], $answerRow['time'], $USER['timezone']);
 			$answerRow['message']	= bbcode($answerRow['message']);
 			$answerList[$answerRow['answerID']]	= $answerRow;
