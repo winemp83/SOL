@@ -31,6 +31,69 @@ $LNG['Version']     = 'Version';
 $LNG['Description'] = 'Beschreibung';
 $LNG['changelog']   = array(
 
+		
+'version 0.7.1.1 S.o.L' => 'SoL Team 19.10-09.11.2013
+#Main_Navigation
+( verschiedene Fehler behoben und neue Elementen eingebaut )
+#Admin menü 
+( Erweiterungen für Überwachung eingebaut, neue links )
+#Event 
+( System erweitert nun alle schiffe eingebaut )
+#Tutorial 
+( Textausgabe richtig gestellt und Button richtig gemacht )
+#2D und Old Baumenü
+( Auto links korrekt eingetragen )
+#RaketenSilo
+( Beschreibung nun korrekt )
+#Errungeschafts system 
+( Sprache, Anzeige, Ausgabe, Belohnung überarbeitet )
+#Bank ( Beschreibung geändert, Einzahl und Auszahlung geändert )
+#Galaxie 2D 
+( Style verändert, Button korrekt eingestellt, Raketenabschuß versetzt, Galaxie Blatterfunktion verbessert )
+#Baumenü
+( nach beenden eines Gebäudes springt er nun auf die Overview )
+#TechTree 
+( Sprache überarbeitet )
+#Galaxie Liste
+( Kolo Button nun mit Funktion)
+#Startseite
+( neue Links eingebaut )
+#Startseite
+( neue werbebanner )
+#FAQ
+( überarbeitet und weitergeführt )
+#Nachrichten
+( Style verändert )
+#Allianz Admin Menü
+( Leichte verändert )
+#Chat
+( nun als Popup )
+#2D Gebäude
+( Style Verändert )
+#Regestirungs Willkommens nachricht 
+( komplett überarbeitet )
+#Ticket
+( Auto nachrichten mit einen Link versehen )
+#Noobschutz
+( Neue werte )
+#Java Kampfscript
+( Neue werte )
+-TopNav 
+( wurde entfernt )
+-Allianz Shoutbox 
+( interne Fehler musste abgeschaltet werden )
+-New leiste
+( interne Fehler musste abgeschaltet werden )
+-Fixes:
+Ticket System
+Ingame Forum
+Gebäude 2D/liste
+NoobSchutz
+Java Kampfscript
+Gebäude Beschreibungen
+Tech Beschreibungen
+Und noch viele mehr!
+',
 'version 0.7.1 S.o.L' => 'Space_Ic3y 05.10.2013
 #F.A.Q erweitert
 #Overview überarbeitet
