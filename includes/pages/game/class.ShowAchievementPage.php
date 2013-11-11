@@ -48,6 +48,7 @@ function show()
                     $PLANET[$resource[902]]	+= 1000; //reward
                     $PLANET[$resource[903]]	+= 1000; //reward
                     $USER[$resource[921]] += 0; //reward dm
+            $GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_mine' time='".time()."'");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_geologue` = rpg_geologue+0 WHERE `id` = ".$USER['id'].";");
 			$this->printMessage(sprintf($LNG['achievements_success'],$LNG['achievements_typ_mine'],$LNG['achievements_mine_lvl1'],$LNG['achievements_mine_reward_lvl1']),"?page=achievement",4);
 			exit;	
@@ -87,6 +88,7 @@ function show()
                     $PLANET[$resource[902]]	+= 2000; //reward
                     $PLANET[$resource[903]]	+= 2000; //reward
                     $USER[$resource[921]] += 100; //reward dm
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_mine' time='".time()."'");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_geologue` = rpg_geologue+0 WHERE `id` = ".$USER['id'].";");
 			$this->printMessage(sprintf($LNG['achievements_success'],$LNG['achievements_typ_mine'],$LNG['achievements_mine_lvl2'],$LNG['achievements_mine_reward_lvl2']),"?page=achievement",4);
 			exit;	
@@ -123,7 +125,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_mine` = achievements_mine+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_geologue` = rpg_geologue+0 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 5000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_mine' time='".time()."'");
+					$PLANET[$resource[901]]	+= 5000; //reward
                     $PLANET[$resource[902]]	+= 5000; //reward
                     $PLANET[$resource[903]]	+= 5000; //reward
                     $USER[$resource[921]] += 250; //reward dm
@@ -162,7 +165,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_mine` = achievements_mine+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_geologue` = rpg_geologue+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='4', what='achievements_mine' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000; //reward
                     $PLANET[$resource[902]]	+= 10000; //reward
                     $PLANET[$resource[903]]	+= 10000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -201,7 +205,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_mine` = achievements_mine+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_geologue` = rpg_geologue+2 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 25000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='5', what='achievements_mine' time='".time()."'");
+					$PLANET[$resource[901]]	+= 25000; //reward
                     $PLANET[$resource[902]]	+= 25000; //reward
                     $PLANET[$resource[903]]	+= 25000; //reward
                     $USER[$resource[921]] += 1000; //reward dm
@@ -240,7 +245,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_mine` = achievements_mine+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_geologue` = rpg_geologue+5 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='6', what='achievements_mine' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000000; //reward
                     $PLANET[$resource[902]]	+= 1000000; //reward
                     $PLANET[$resource[903]]	+= 1000000; //reward
                     $USER[$resource[921]] += 2500; //reward dm
@@ -299,7 +305,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_research` = achievements_research+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_ingenieur` = rpg_ingenieur+0 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 0; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_research' time='".time()."'");
+					$PLANET[$resource[901]]	+= 0; //reward
                     $PLANET[$resource[902]]	+= 0; //reward
                     $PLANET[$resource[903]]	+= 0; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -338,7 +345,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_research` = achievements_research+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_scientifique` = rpg_scientifique+0 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 2000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_research' time='".time()."'");
+					$PLANET[$resource[901]]	+= 2000; //reward
                     $PLANET[$resource[902]]	+= 2000; //reward
                     $PLANET[$resource[903]]	+= 2000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -376,7 +384,8 @@ function show()
 		if($USER['combustion_tech'] >=10 && $USER['impulse_motor_tech'] >= 7 && $USER['hyperspace_motor_tech'] >= 5)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_research` = achievements_research+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 2000; //reward 
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_research' time='".time()."'");
+					$PLANET[$resource[901]]	+= 2000; //reward 
                     $PLANET[$resource[902]]	+= 2000; //reward
                     $PLANET[$resource[903]]	+= 2000; //reward
                     $USER[$resource[921]] += 100; //reward dm
@@ -416,7 +425,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_research` = achievements_research+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_geologue` = rpg_geologue+0 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 50000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='4', what='achievements_research' time='".time()."'");
+					$PLANET[$resource[901]]	+= 50000; //reward
                     $PLANET[$resource[902]]	+= 40000; //reward
                     $PLANET[$resource[903]]	+= 30000; //reward
                     $USER[$resource[921]] += 250; //reward dm
@@ -455,7 +465,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_research` = achievements_research+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_amiral` = rpg_amiral+0 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 100000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='5', what='achievements_research' time='".time()."'");
+					$PLANET[$resource[901]]	+= 100000; //reward
                     $PLANET[$resource[902]]	+= 100000; //reward
                     $PLANET[$resource[903]]	+= 100000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -494,7 +505,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_research` = achievements_research+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_scientifique` = rpg_scientifique+2 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='6', what='achievements_research' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000000; //reward
                     $PLANET[$resource[902]]	+= 1000000; //reward
                     $PLANET[$resource[903]]	+= 1000000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -552,7 +564,8 @@ function show()
 		if(($USER['wons']+$USER['loos']+$USER['draws'])>=150 && $USER['wons']>=45)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_battle` = achievements_battle+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_battle' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000; //reward
                     $PLANET[$resource[902]]	+= 10000; //reward
                     $PLANET[$resource[903]]	+= 10000; //reward
                     $USER[$resource[921]] += 250; //reward dm
@@ -585,7 +598,8 @@ function show()
 		if(($USER['wons']+$USER['loos']+$USER['draws'])>=350 && $USER['wons']>=105)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_battle` = achievements_battle+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 15000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_battle' time='".time()."'");
+					$PLANET[$resource[901]]	+= 15000; //reward
                     $PLANET[$resource[902]]	+= 15000; //reward
                     $PLANET[$resource[903]]	+= 15000; //reward
                     $USER[$resource[921]] += 350; //reward dm
@@ -618,7 +632,8 @@ function show()
 		if(($USER['wons']+$USER['loos']+$USER['draws'])>=500 && $USER['wons']>=250)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_battle` = achievements_battle+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 75000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_battle' time='".time()."'");
+					$PLANET[$resource[901]]	+= 75000; //reward
                     $PLANET[$resource[902]]	+= 75000; //reward
                     $PLANET[$resource[903]]	+= 75000; //reward
                     $USER[$resource[921]] += 650; //reward dm
@@ -651,7 +666,8 @@ function show()
 		if(($USER['wons']+$USER['loos']+$USER['draws'])>=850 && $USER['wons']>=500)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_battle` = achievements_battle+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 150000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='4', what='achievements_battle' time='".time()."'");
+					$PLANET[$resource[901]]	+= 150000; //reward
                     $PLANET[$resource[902]]	+= 150000; //reward
                     $PLANET[$resource[903]]	+= 150000; //reward
                     $USER[$resource[921]] += 1000; //reward dm
@@ -684,7 +700,8 @@ function show()
 		if(($USER['wons']+$USER['loos']+$USER['draws'])>=2000 && $USER['wons']>=1500)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_battle` = achievements_battle+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='5', what='achievements_battle' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000000; //reward
                     $PLANET[$resource[902]]	+= 1000000; //reward
                     $PLANET[$resource[903]]	+= 1000000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -717,7 +734,8 @@ function show()
 		if(($USER['wons']+$USER['loos']+$USER['draws'])>=4500 && $USER['wons']>=4500)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_battle` = achievements_battle+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 2000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='6', what='achievements_battle' time='".time()."'");
+					$PLANET[$resource[901]]	+= 2000000; //reward
                     $PLANET[$resource[902]]	+= 2000000; //reward
                     $PLANET[$resource[903]]	+= 2000000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -770,7 +788,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_ship` = achievements_ship+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_amiral` = rpg_amiral+0 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_ship' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000; //reward
                     $PLANET[$resource[902]]	+= 10000; //reward
                     $PLANET[$resource[903]]	+= 10000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -797,7 +816,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_ship` = achievements_ship+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_amiral` = rpg_amiral+0 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_ship' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000; //reward
                     $PLANET[$resource[902]]	+= 10000; //reward
                     $PLANET[$resource[903]]	+= 10000; //reward
                     $USER[$resource[921]] += 250; //reward dm
@@ -824,7 +844,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_ship` = achievements_ship+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_commandant` = rpg_commandant+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_ship' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000000; //reward
                     $PLANET[$resource[902]]	+= 1000000; //reward
                     $PLANET[$resource[903]]	+= 1000000; //reward
                     $USER[$resource[921]] += 1000; //reward dm
@@ -851,7 +872,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_ship` = achievements_ship+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_commandant` = rpg_commandant+2 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 2000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='4', what='achievements_ship' time='".time()."'");
+					$PLANET[$resource[901]]	+= 2000000; //reward
                     $PLANET[$resource[902]]	+= 2000000; //reward
                     $PLANET[$resource[903]]	+= 2000000; //reward
                     $USER[$resource[921]] += 5000; //reward dm
@@ -878,7 +900,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_ship` = achievements_ship+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_general` = rpg_general+5 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='5', what='achievements_ship' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000000; //reward
                     $PLANET[$resource[902]]	+= 10000000; //reward
                     $PLANET[$resource[903]]	+= 10000000; //reward
                     $USER[$resource[921]] += 10000; //reward dm
@@ -923,7 +946,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_defence` = achievements_defence+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_defenseur` = rpg_defenseur+0 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_defence' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000; //reward
                     $PLANET[$resource[902]]	+= 10000; //reward
                     $PLANET[$resource[903]]	+= 10000; //reward
                     $USER[$resource[921]] += 100; //reward dm
@@ -950,7 +974,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_defence` = achievements_defence+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_defenseur` = rpg_defenseur+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 25000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_defence' time='".time()."'");
+					$PLANET[$resource[901]]	+= 25000; //reward
                     $PLANET[$resource[902]]	+= 25000; //reward
                     $PLANET[$resource[903]]	+= 25000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -977,7 +1002,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_defence` = achievements_defence+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_defenseur` = rpg_defenseur+0 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 25000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_defence' time='".time()."'");
+					$PLANET[$resource[901]]	+= 25000; //reward
                     $PLANET[$resource[902]]	+= 25000; //reward
                     $PLANET[$resource[903]]	+= 25000; //reward
                     $USER[$resource[921]] += 1000; //reward dm
@@ -1004,7 +1030,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_defence` = achievements_defence+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_ingenieur` = rpg_ingenieur+2 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='4', what='achievements_defence' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000000; //reward
                     $PLANET[$resource[902]]	+= 1000000; //reward
                     $PLANET[$resource[903]]	+= 1000000; //reward
                     $USER[$resource[921]] += 5000; //reward dm
@@ -1030,7 +1057,8 @@ function show()
 		if($PLANET['orbital_station'] == 1)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_defence` = achievements_defence+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 100000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='5', what='achievements_defence' time='".time()."'");
+					$PLANET[$resource[901]]	+= 100000000; //reward
                     $PLANET[$resource[902]]	+= 100000000; //reward
                     $PLANET[$resource[903]]	+= 100000000; //reward
                     $USER[$resource[921]] += 10000; //reward dm
@@ -1075,7 +1103,8 @@ function show()
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_storage` = achievements_storage+1 WHERE `id` = ".$USER['id'].";");
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `rpg_stockeur` = rpg_stockeur+0 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 100000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_storage' time='".time()."'");
+					$PLANET[$resource[901]]	+= 100000; //reward
                     $PLANET[$resource[902]]	+= 75000; //reward
                     $PLANET[$resource[903]]	+= 50000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1113,7 +1142,8 @@ function show()
 		if($PLANET['metal_store'] >= 16 && $PLANET['crystal_store'] >= 14 && $PLANET['deuterium_store'] >= 12)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_storage` = achievements_storage+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 500000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_storage' time='".time()."'");
+					$PLANET[$resource[901]]	+= 500000; //reward
                     $PLANET[$resource[902]]	+= 250000; //reward
                     $PLANET[$resource[903]]	+= 125000; //reward
                     $USER[$resource[921]] += 1000; //reward dm
@@ -1152,7 +1182,8 @@ function show()
 		if($PLANET['metal_store'] >= 24 && $PLANET['crystal_store'] >= 22 && $PLANET['deuterium_store'] >= 20)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_storage` = achievements_storage+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_storage' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000000; //reward
                     $PLANET[$resource[902]]	+= 500000; //reward
                     $PLANET[$resource[903]]	+= 250000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1212,7 +1243,8 @@ function show()
 		if($PLANET['mondbasis'] >= 1)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_moon` = achievements_moon+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_moon' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000; //reward
                     $PLANET[$resource[902]]	+= 20000; //reward
                     $PLANET[$resource[903]]	+= 10000; //reward
                     $USER[$resource[921]] += 2500; //reward dm
@@ -1242,7 +1274,8 @@ function show()
 		if($PLANET['mondbasis'] >= 3 && $PLANET['phalanx'] >= 1)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_moon` = achievements_moon+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 100000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_moon' time='".time()."'");
+					$PLANET[$resource[901]]	+= 100000; //reward
                     $PLANET[$resource[902]]	+= 200000; //reward
                     $PLANET[$resource[903]]	+= 100000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1276,7 +1309,8 @@ function show()
 		if($PLANET['mondbasis'] >=5  && $PLANET['phalanx'] >= 2 && $PLANET['sprungtor'] >= 1)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_moon` = achievements_moon+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_moon' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000000; //reward
                     $PLANET[$resource[902]]	+= 2000000; //reward
                     $PLANET[$resource[903]]	+= 1000000; //reward
                     $USER[$resource[921]] += 2500; //reward dm
@@ -1337,7 +1371,8 @@ function show()
 		if($planet_count >=3)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_colony` = achievements_colony+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_colony' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000; //reward
                     $PLANET[$resource[902]]	+= 1000; //reward
                     $PLANET[$resource[903]]	+= 1000; //reward
                     $USER[$resource[921]] += 100; //reward dm
@@ -1365,7 +1400,8 @@ function show()
 		if($planet_count >=6)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_colony` = achievements_colony+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_colony' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000; //reward
                     $PLANET[$resource[902]]	+= 10000; //reward
                     $PLANET[$resource[903]]	+= 10000; //reward
                     $USER[$resource[921]] += 1000; //reward dm
@@ -1393,7 +1429,8 @@ function show()
 		if($planet_count >=11)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_colony` = achievements_colony+1 WHERE `id` = ".$USER['id']." AND destruyed='0';");
-			$PLANET[$resource[901]]	+= 50000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_colony' time='".time()."'");
+					$PLANET[$resource[901]]	+= 50000; //reward
                     $PLANET[$resource[902]]	+= 50000; //reward
                     $PLANET[$resource[903]]	+= 50000; //reward
                     $USER[$resource[921]] += 2500; //reward dm
@@ -1421,7 +1458,8 @@ function show()
 		if($planet_count >=16)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_colony` = achievements_colony+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 100000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='4', what='achievements_colony' time='".time()."'");
+					$PLANET[$resource[901]]	+= 100000; //reward
                     $PLANET[$resource[902]]	+= 100000; //reward
                     $PLANET[$resource[903]]	+= 100000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1449,7 +1487,8 @@ function show()
 		if($planet_count >=20)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_colony` = achievements_colony+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='5', what='achievements_colony' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000000; //reward
                     $PLANET[$resource[902]]	+= 1000000; //reward
                     $PLANET[$resource[903]]	+= 1000000; //reward
                     $USER[$resource[921]] += 5000; //reward dm
@@ -1493,7 +1532,8 @@ function show()
 		if($USER['ally_id'] > 0)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_friend` = achievements_friend+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_friend' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000; //reward
                     $PLANET[$resource[902]]	+= 1000; //reward
                     $PLANET[$resource[903]]	+= 1000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1520,7 +1560,8 @@ function show()
 		if($query>1)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_friend` = achievements_friend+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 0; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_friend' time='".time()."'");
+					$PLANET[$resource[901]]	+= 0; //reward
                     $PLANET[$resource[902]]	+= 0; //reward
                     $PLANET[$resource[903]]	+= 0; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1564,7 +1605,8 @@ function show()
 		if($USER['total_points'] >= 25000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_statpoints` = achievements_statpoints+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 0; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_statpoints' time='".time()."'");
+					$PLANET[$resource[901]]	+= 0; //reward
                     $PLANET[$resource[902]]	+= 0; //reward
                     $PLANET[$resource[903]]	+= 0; //reward
                     $USER[$resource[921]] += 1000; //reward dm
@@ -1590,7 +1632,8 @@ function show()
 		if($USER['total_points'] >= 100000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_statpoints` = achievements_statpoints+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 100000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_statpoints' time='".time()."'");
+					$PLANET[$resource[901]]	+= 100000; //reward
                     $PLANET[$resource[902]]	+= 100000; //reward
                     $PLANET[$resource[903]]	+= 100000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1616,7 +1659,8 @@ function show()
 		if($USER['total_points'] >= 500000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_statpoints` = achievements_statpoints+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_statpoints' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000000; //reward
                     $PLANET[$resource[902]]	+= 1000000; //reward
                     $PLANET[$resource[903]]	+= 1000000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1642,7 +1686,8 @@ function show()
 		if($USER['total_points'] >= 1000000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_statpoints` = achievements_statpoints+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 0; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='4', what='achievements_statpoints' time='".time()."'");
+					$PLANET[$resource[901]]	+= 0; //reward
                     $PLANET[$resource[902]]	+= 0; //reward
                     $PLANET[$resource[903]]	+= 0; //reward
                     $USER[$resource[921]] += 5000; //reward dm
@@ -1668,7 +1713,8 @@ function show()
 		if($USER['total_points'] >= 2500000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_statpoints` = achievements_statpoints+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 2000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='5', what='achievements_statpoints' time='".time()."'");
+					$PLANET[$resource[901]]	+= 2000000; //reward
                     $PLANET[$resource[902]]	+= 2000000; //reward
                     $PLANET[$resource[903]]	+= 2000000; //reward
                     $USER[$resource[921]] += 2500; //reward dm
@@ -1694,7 +1740,8 @@ function show()
 		if($USER['total_points'] >= 10000000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_statpoints` = achievements_statpoints+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='6', what='achievements_statpoints' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000000; //reward
                     $PLANET[$resource[902]]	+= 10000000; //reward
                     $PLANET[$resource[903]]	+= 10000000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1738,7 +1785,8 @@ function show()
 		if($USER['desunits'] >= 2000000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_destroy` = achievements_destroy+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_destroy' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000; //reward
                     $PLANET[$resource[902]]	+= 10000; //reward
                     $PLANET[$resource[903]]	+= 10000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1764,7 +1812,8 @@ function show()
 		if($USER['desunits'] >= 7500000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_destroy` = achievements_destroy+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 75000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_destroy' time='".time()."'");
+					$PLANET[$resource[901]]	+= 75000; //reward
                     $PLANET[$resource[902]]	+= 75000; //reward
                     $PLANET[$resource[903]]	+= 75000; //reward
                     $USER[$resource[921]] += 1000; //reward dm
@@ -1790,7 +1839,8 @@ function show()
 		if($USER['desunits'] >= 15000000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_destroy` = achievements_destroy+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 150000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_destroy' time='".time()."'");
+					$PLANET[$resource[901]]	+= 150000; //reward
                     $PLANET[$resource[902]]	+= 150000; //reward
                     $PLANET[$resource[903]]	+= 150000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1816,7 +1866,8 @@ function show()
 		if($USER['desunits'] >= 50000000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_destroy` = achievements_destroy+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='4', what='achievements_destroy' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000000; //reward
                     $PLANET[$resource[902]]	+= 1000000; //reward
                     $PLANET[$resource[903]]	+= 1000000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1842,7 +1893,8 @@ function show()
 		if($USER['desunits'] >= 150000000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_destroy` = achievements_destroy+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 2000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='5', what='achievements_destroy' time='".time()."'");
+					$PLANET[$resource[901]]	+= 2000000; //reward
                     $PLANET[$resource[902]]	+= 2000000; //reward
                     $PLANET[$resource[903]]	+= 2000000; //reward
                     $USER[$resource[921]] += 2500; //reward dm
@@ -1868,7 +1920,8 @@ function show()
 		if($USER['desunits'] >= 1000000000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_destroy` = achievements_destroy+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 5000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='6', what='achievements_destroy' time='".time()."'");
+					$PLANET[$resource[901]]	+= 5000000; //reward
                     $PLANET[$resource[902]]	+= 5000000; //reward
                     $PLANET[$resource[903]]	+= 5000000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1912,7 +1965,8 @@ function show()
 		if($USER['kbmetal'] >= 10000 && $USER['kbcrystal'] >= 10000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_debris` = achievements_debris+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 10000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='1', what='achievements_debris' time='".time()."'");
+					$PLANET[$resource[901]]	+= 10000; //reward
                     $PLANET[$resource[902]]	+= 10000; //reward
                     $PLANET[$resource[903]]	+= 0; //reward
                     $USER[$resource[921]] += 250; //reward dm
@@ -1944,7 +1998,8 @@ function show()
 		if($USER['kbmetal'] + $USER['kbcrystal'] >= 100000 && $USER['kbcrystal'] >= 100000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_debris` = achievements_debris+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 25000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='2', what='achievements_debris' time='".time()."'");
+					$PLANET[$resource[901]]	+= 25000; //reward
                     $PLANET[$resource[902]]	+= 25000; //reward
                     $PLANET[$resource[903]]	+= 25000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -1976,7 +2031,8 @@ function show()
 		if($USER['kbmetal'] >= 1000000 && $USER['kbcrystal'] >= 1000000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_debris` = achievements_debris+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 100000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='3', what='achievements_debris' time='".time()."'");
+					$PLANET[$resource[901]]	+= 100000; //reward
                     $PLANET[$resource[902]]	+= 100000; //reward
                     $PLANET[$resource[903]]	+= 100000; //reward
                     $USER[$resource[921]] += 1000; //reward dm
@@ -2008,7 +2064,8 @@ function show()
 		if($USER['kbmetal'] >= 10000000 && $USER['kbcrystal'] >= 10000000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_debris` = achievements_debris+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 500000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='4', what='achievements_debris' time='".time()."'");
+					$PLANET[$resource[901]]	+= 500000; //reward
                     $PLANET[$resource[902]]	+= 500000; //reward
                     $PLANET[$resource[903]]	+= 500000; //reward
                     $USER[$resource[921]] += 0; //reward dm
@@ -2040,7 +2097,8 @@ function show()
 		if($USER['kbmetal'] >= 75000000 && $USER['kbcrystal'] >= 75000000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_debris` = achievements_debris+1 WHERE `id` = ".$USER['id'].";");
-			$PLANET[$resource[901]]	+= 1000000; //reward
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET `owner`='".$USER['id']."', lvl='5', what='achievements_debris' time='".time()."'");
+					$PLANET[$resource[901]]	+= 1000000; //reward
                     $PLANET[$resource[902]]	+= 1000000; //reward
                     $PLANET[$resource[903]]	+= 1000000; //reward
                     $USER[$resource[921]] += 5000; //reward dm
