@@ -447,7 +447,23 @@ class ShowForumAllPage extends AbstractPage{
 	
 	//done
 	protected function dellAnswer($answer_id){
-		$GLOBALS['DATABASE']->query("DELETE FROM ".FORUM_ANS." WHERE id='".$answer_id."'");
+		$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_ANS." WHERE id='".$answer_id."'");
+		foreach($result as $data){
+			$topic_id = $data['topic_id'];
+		}
+		$result_one = $GLOBALS['DATABASE']->query("SELECT COUNT(*) FROM ".FORUM_ANS." WHERE topic_id='".$topic_id."'");
+		foreach($result_one as $data_one){
+			$result = $data_one['COUNT(*)'];
+		}
+		if($result == 1){
+			$this->closeTopic($topic_id);
+			$GLOBALS['DATABASE']->query("DELETE FROM ".FORUM_ANS." WHERE id='".$answer_id."'");
+			$this->dellTopic($topic_id);
+		}
+		else{
+			$GLOBALS['DATABASE']->query("DELETE FROM ".FORUM_ANS." WHERE id='".$answer_id."'");
+		}
+		
 	}
 	
 	//done
