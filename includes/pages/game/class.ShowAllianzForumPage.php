@@ -248,7 +248,18 @@ class ShowAllianzForumPage extends AbstractPage
 	
 	protected function showForum(){
 		global $USER, $ALLY;
-		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".ALLYTOPIC." WHERE ally_id='".$USER['ally_id']."'");
+		$query = '';
+		$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_diplo");
+		foreach($result as $data){
+			if($data['owner_1'] == $USER['ally_id'] && $data['accept'] == 1 &&($data['level'] == 1 || $data['level'] == 6)){
+				$query .= " OR ally_id='".$USER['ally_id']."'";
+			}
+			elseif($data['owner_2'] == $USER['ally_id'] && $data['accept'] == 1 &&($data['level'] == 1 || $data['level'] == 6)){
+				$query .= " OR ally_id='".$USER['ally_id']."'";
+			}
+		}
+		$query_fin = "ally_id='".$USER['ally_id']."'".$query;
+		$sql = $GLOBALS['DATABASE']->query("SELECT * FROM ".ALLYTOPIC." WHERE ".$query_fin);
 		
 		while ($topicListRow = $GLOBALS['DATABASE']->fetch_array($sql))
 		{

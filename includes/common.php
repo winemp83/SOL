@@ -79,6 +79,7 @@ require('includes/classes/Language.class.php');
 require('includes/classes/HTTP.class.php');
 require('includes/classes/PlayerUtil.class.php');
 
+
 // Say Browsers to Allow ThirdParty Cookies (Thanks to morktadela)
 HTTP::sendHeader('P3P', 'CP="IDC DSP COR ADM DEVi TAIi PSA PSD IVAi IVDi CONi HIS OUR IND CNT"');
 define('AJAX_REQUEST', HTTP::_GP('ajax', 0));

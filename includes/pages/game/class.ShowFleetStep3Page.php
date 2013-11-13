@@ -229,8 +229,44 @@ class ShowFleetStep3Page extends AbstractPage
 			if(Config::get('adm_attack') == 1 && $targetPlayerData['authattack'] > $USER['authlevel']) {
 				$this->printMessage($LNG['fl_admin_attack']);
 			}
+			
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_warDiplo");
+			if(count($result) != 0){
+				foreach($result as $data){
+					if($data['enemy']== $USER['ally_id'] && $data['defens'] == $targetPlanetData['ally_id'] ){
+						if($data['start_time'] > time()){
+							$IsNoobProtec = array('NoobPlayer' => true, 'StrongPlayer' => false);
+						}
+						else{
+							$IsNoobProtec = CheckNoobProtecWar($USER, $targetPlayerData, $targetPlayerData);
+							($IsNoobProtec['NoobPlayer'])? $hit = false: $hit = true;
+							if($hit){
+								$GLOBALS['DB']->query("UPDATE uni1_warDiplo SET
+													  count_enemy 	= count_enemy+1");
+							}
+						}
+					}
+					elseif($data['enemy']== $targetPlanetData['ally_id'] && $data['defens'] == $USER['ally_id']){
+						if($data['start_time'] > time()){
+							$IsNoobProtec = array('NoobPlayer' => true, 'StrongPlayer' => false);
+						}
+						else{
+							$IsNoobProtec = CheckNoobProtecWar($USER, $targetPlayerData, $targetPlayerData);
+							($IsNoobProtec['NoobPlayer'])? $hit = false: $hit = true;
+							$GLOBALS['DB']->query("UPDATE uni1_warDiplo SET
+												  count_defense = count_defense+1");
+						}
+					}
+					else{
+						$IsNoobProtec	= CheckNoobProtec($USER, $targetPlayerData, $targetPlayerData);
+					}
+				}
+			}
+			else{
+				$IsNoobProtec	= CheckNoobProtec($USER, $targetPlayerData, $targetPlayerData);
+			} 
 		
-			$IsNoobProtec	= CheckNoobProtec($USER, $targetPlayerData, $targetPlayerData);
+			
 			
 			if ($IsNoobProtec['NoobPlayer']) {
 				$this->printMessage($LNG['fl_player_is_noob']);

@@ -526,6 +526,11 @@ class ShowForumAllPage extends AbstractPage{
 	
 	//done
 	protected function getAnswer($topic_id){
+		$file = __DIR__;
+		require_once($file.'/../../classes/class.bbCode.php');
+		if(!isset($own_bb)){
+			$own_bb = new Own\BBCODE;
+		}
 		global $USER;
 		if($this->getUserMod()){
 			$result = $GLOBALS['DATABASE']->query("SELECT * FROM ".FORUM_ANS." WHERE topic_id='".$topic_id."'");
@@ -552,13 +557,13 @@ class ShowForumAllPage extends AbstractPage{
 				$first = false;
 			}
 			if ($ansRow['adm'] != 0 ){
-				$ans_text = nl2br($ansRow['text']);
+				$ans_text = $ansRow['text'];
 			}
 			else{
-				$ans_text = nl2br(htmlspecialchars($ansRow['text']));
+				$ans_text = $ansRow['text'];
 			}
 			$this->ans[] = array(
-				'ans_text' 		=> $ans_text,
+				'ans_text' 		=> nl2br($own_bb->parse($ans_text)),
 				'ans_id'		=> $ansRow['id'],
 				'ans_user'		=> $ansRow['user'],
 				'ans_create'	=> date("d.m.Y H:i:s",$ansRow['createtime']),

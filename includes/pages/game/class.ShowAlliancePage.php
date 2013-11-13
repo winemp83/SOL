@@ -506,6 +506,39 @@ class ShowAlliancePage extends AbstractPage
 			$data['act_att'] == 0 ? $deak_6 = false : $deak_6 = true;
 			$data['act_top'] == 0 ? $deak_7 = false : $deak_7 = true;
 		}
+		$result_one = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_diplo");
+		foreach($result_one as $data){
+			if($data['owner_1'] == $USER['ally_id'] && $data['accept'] == 1){
+				if($data['level'] == 1){
+					$sql = "SELECT * FROM ".ALLIBONUS." WHERE id='".$data['owner2']."'";
+					$result = $GLOBALS['DATABASE']->query($sql);
+					foreach($result as $data_1){
+						$one 	+= floor($data_1['slots']*0.1);
+						$two 	+= floor($data_1['produktion']*0.1);
+						$tree 	+= floor($data_1['research']*0.1);
+						$four 	+= floor($data_1['building']*0.1);
+						$five 	+= floor($data_1['defense']*0.1);
+						$six 	+= floor($data_1['attack']*0.1);
+						$seven  += floor($data_1['topics']*0.1);
+					}
+				}
+			}
+			elseif($data['owner_2'] == $USER['ally_id'] && $data['accept'] == 1){
+				if($data['level'] == 1){
+					$sql = "SELECT * FROM ".ALLIBONUS." WHERE id='".$data['owner1']."'";
+					$result = $GLOBALS['DATABASE']->query($sql);
+					foreach($result as $data_1){
+						$one 	+= floor($data_1['slots']*0.1);
+						$two 	+= floor($data_1['produktion']*0.1);
+						$tree 	+= floor($data_1['research']*0.1);
+						$four 	+= floor($data_1['building']*0.1);
+						$five 	+= floor($data_1['defense']*0.1);
+						$six 	+= floor($data_1['attack']*0.1);
+						$seven  += floor($data_1['topics']*0.1);
+					}
+				}
+			}
+		}
 		$alli_maxMember = $this->allianceData['ally_max_members'] + $one; 
 		$this->tplObj->assign_vars(array(
 			'Ally'						=> $Ally,
@@ -1330,7 +1363,43 @@ class ShowAlliancePage extends AbstractPage
 		
 		if($level == 5)
 		{
+			$metall = 0;
+			$kristall = 0;
+			$deuterium = 0;
 			SendSimpleMessage($targetAlliance['ally_owner'], $USER['id'], TIMESTAMP, 1, $LNG['al_circular_alliance'].$this->allianceData['ally_tag'], $LNG['al_diplo_war'], sprintf($LNG['al_diplo_war_mes'], "[".$this->allianceData['ally_tag']."] ".$this->allianceData['ally_name'], "[".$targetAlliance['ally_tag']."] ".$targetAlliance['ally_name'], $LNG['al_diplo_level'][$level], $text));
+			$result = $GLOBALS['DATABASE']->query("SELECT id FROM ".USERS." WHERE ally_id='".$USER['ally_id']."'");
+			foreach($result as $data){
+				$result_one = $GLOBALS['DATABASE']->query("SELECT * FROM ".PLANETS." WHERE id_owner='".$data['id']."'");
+				foreach($result_one as $data_one){
+					$metall += floor($data_one['metal_perhour']*7);
+					$kristall += floor($data_one['crystal_perhour']*7);
+					$deuterium += floor($data_one['deuterium_perhour']*7);
+				}
+			}
+			$GLOBALS['DATABASE']->query("INSERT INO uni1_warDiplo SET  
+										enemy		='".$USER['ally_id']."',
+									    defens		='".$targetAlliance['id']."',
+									    start_time	='".(time()+(60*60*24))."',
+									    end_time	='".(time()+(60*60*24*7))."',
+									    kasse_m		='".$metall."',
+									    kasse_d		='".$kristall."',
+									    kasse_m		='".$deuterium."'
+									    ");
+			
+		}
+		elseif($level == 1){
+			$result = $GLOBALS['DB']->query("SELECT * FROM uni1_warDiplo");
+			foreach($result as $data){
+				if($data['owner_1'] == $USER['ally_id'] && $data['owner_2'] ==  $targetAlliance['id'] && $data['level'] == 1){
+					$this->sendJSON(array(
+						'error'		=> true,
+						'message'	=> "Sie haben bereits einen Wing",
+					));
+				}
+				else{
+					SendSimpleMessage($targetAlliance['ally_owner'], $USER['id'], TIMESTAMP, 1, $LNG['al_circular_alliance'].$this->allianceData['ally_tag'], $LNG['al_diplo_ask'], sprintf($LNG['al_diplo_ask_mes'], $LNG['al_diplo_level'][$level], "[".$this->allianceData['ally_tag']."] ".$this->allianceData['ally_name'], "[".$targetAlliance['ally_tag']."] ".$targetAlliance['ally_name'], $text));
+				}
+			}
 		}
 		else
 		{
