@@ -39,7 +39,7 @@ $LNG['siteTitleLostPassword']		= 'Passwort vergessen?';
 
 // Menu
 $LNG['forum']						= 'Forum';
-$LNG['menu_index']					= 'IndeX';
+$LNG['menu_index']					= 'Index';
 $LNG['menu_news']					= 'News';
 $LNG['menu_rules']					= 'Regeln';
 $LNG['menu_banlist']				= 'Pranger';
@@ -81,7 +81,7 @@ $LNG['registerUsernameDesc']		= 'Der Nickname muss mindestens 3 und darf maximal
 $LNG['registerPassword']			= 'Passwort';
 $LNG['registerPasswordDesc']		= 'Das Passwort muss mindestens 8 Zeichen lang sein.';
 $LNG['registerPasswordReplay']		= 'Passwort wiederholen';
-$LNG['registerPasswordReplayDesc']	= 'Bitte wiederhole zur Sicherheit die Eingabe deines Paswortes!';
+$LNG['registerPasswordReplayDesc']	= 'Bitte wiederhole zur Sicherheit die Eingabe deines Passwortes!';
 $LNG['registerEmail']				= 'E-Mail';
 $LNG['registerEmailDesc']			= 'Bitte geben deine E-Mail-Adresse ein!';
 $LNG['registerEmailReplay']			= 'E-Mail wiederholen';
@@ -140,7 +140,7 @@ $LNG['passwordErrorOnePerDay']		= 'Das Kennwort für dieses Benutzerkonto wurde 
 $LNG['passwordValidMailTitle']		= 'Kennwort vergessen auf der Website: %s';
 $LNG['passwordValidMailSend']		= 'Du erhältst in Kürze eine E-Mail mit weiteren Informationen.';
 
-$LNG['passwordValidInValid']		= 'Ungültiger Anfrage!';
+$LNG['passwordValidInValid']		= 'Ungültige Anfrage!';
 $LNG['passwordChangedMailSend']		= 'Du erhältst in Kürze eine E-Mail mit deinem neuen Kennwort.';
 $LNG['passwordChangedMailTitle']	= 'Neues Kennwort auf der Website: %s';
 
