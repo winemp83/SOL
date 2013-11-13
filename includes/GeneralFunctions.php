@@ -441,6 +441,28 @@ function CheckNoobProtec($OwnerPlayer, $TargetPlayer, $Player)
 		}
 	}
 }
+function CheckNoobProtecWar($OwnerPlayer, $TargetPlayer, $Player)
+{	
+	global $CONF;
+	if(
+		Config::get('noobprotection') == 0 
+		|| Config::get('noobprotectiontime') == 0 
+		|| Config::get('noobprotectionmulti') == 0 
+		|| $Player['banaday'] > TIMESTAMP
+		|| $Player['onlinetime'] < TIMESTAMP - INACTIVE
+	) {
+		return array('NoobPlayer' => false, 'StrongPlayer' => false);
+	}
+	else{
+		if($Player['register_time'] + (60*60*24*7) > time()
+		|| $TargetPlayer['total_points'] < 500){
+			return array('NoobPlayer' => true, 'StrongPlayer' => false);
+		}
+		else{
+			return array('NoobPlayer' => false, 'StrongPlayer' => false);
+		}
+	}
+}
 function CheckName($name)
 {
 	if(UTF8_SUPPORT) {
