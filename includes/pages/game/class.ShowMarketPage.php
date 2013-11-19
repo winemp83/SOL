@@ -275,8 +275,21 @@ function __construct()
 					
 		        }
 		    //////////////////////////////////////////////////////////////////////////////////////////
+				$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_diplo");
+				foreach($result as $data){
+					if($data['owner_1'] == $USER['ally_id'] && $data['accept'] == 1 &&($data['level'] == 1 || $data['level'] == 3));{
+						$allys = "`idally` = ".$USER['ally_id']." OR `idally` = ".$data['owner_2'];
+					}
+					elseif($data['owner_2'] == $USER['ally_id'] && $data['accept'] == 1 &&($data['level'] == 1 || $data['level'] == 3){
+						$allys = "`idally` = ".$USER['ally_id']." OR `idally` = ".$data['owner_1'];
+					}
+					else{
+						$allys = "`idally` = ".$USER['ally_id'];
+					}
+				}
+				
 				$stats_sql	=	'SELECT DISTINCT `id`, `user`, `sender`, `senderplanet`, `type`, `typeres`, `universe`, `galaxie`, `systeme`, `planete`, `metala`, `cristala`, `deuta`, `metals`, `cristals`, `deuts` FROM '.MARKETALLY.'
-				WHERE `idally` = '.$USER['ally_id'].' AND `universe` = '.$UNI.'  ORDER BY '.$Order .' '.$sort.' LIMIT '.$INI .','.$lim.';';
+				WHERE '.$allys.' AND `universe` = '.$UNI.'  ORDER BY '.$Order .' '.$sort.' LIMIT '.$INI .','.$lim.';';
 
                 $query = $GLOBALS['DATABASE']->query($stats_sql);
 
@@ -368,7 +381,8 @@ function __construct()
 						  SendSimpleMessage($NewUser, 1, TIMESTAMP, 1, $LNG['an_anres'], $LNG['an_anres'], $message);
 						 $this->printMessage( ''.$LNG['Metal'].': <font color=lime>'.pretty_number($markbuy['metala']).'</font>  '.$LNG['Crystal'].':  <font color=lime>'.pretty_number($markbuy['cristala']).'</font>  '.$LNG['Deuterium'].':<font color=lime> '.pretty_number($markbuy['deuta']).'</font> ', 'game.php?page=market' );
 					}
-				}
+                }
+				
 				$GLOBALS['DATABASE']->free_result($query);
 				}
 				//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

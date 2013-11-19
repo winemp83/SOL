@@ -37,13 +37,13 @@ $LNG['questions'][1][1]['body']		= <<<BODY
 <h3>Übersicht</h3>
 <p>Hier kommt man wieder auf die Startseite</p>
 <h3>Tutorial</h3>
-<p>Im Tutorial wird erklärt, wie man Anfangen kann. Für das erfolgreiche Lösen dieser Aufgaben bekommt man Dunkle Materie</p>
+<p>Im Tutorial wird erklärt, wie man anfangen kann. Für das erfolgreiche Lösen dieser Aufgaben bekommt man Dunkle Materie.</p>
 <h3>Imperium</h3>
-<p>Hier ist eine Übersicht über alle deiner Planeten und was du darauf gebaut hast. Desweiteren werden hier die Rohstoffe angezeigt, die aktuell auf den Planeten vorhanden sind.</p>
+<p>Hier ist eine Übersicht über alle deine Planeten und was du darauf gebaut hast. Desweiteren werden hier die Rohstoffe angezeigt, die aktuell auf den Planeten vorhanden sind.</p>
 <h3>Forschung</h3>
 <p>Hier kann Wissenschaft betrieben werden. Damit hier geforscht werden kann, muss ein Forschungsinstitut gebaut werden.</p>
 <h3>Gebäude</h3>
-<p>Hier können Gebäude gebaut werden. Verschiedene Gebäude haben unterschiedliche Kosten und Vorraussetzungen</p>
+<p>Hier können Gebäude gebaut werden. Verschiedene Gebäude haben unterschiedliche Kosten und Vorraussetzungen.</p>
 <h3>Schiffswerft</h3>
 <p>Hier werden Raumschiffe gebaut, je weiter du forschst, umso mehr Raumschiffe kannst du bauen. Bis hin zum Kolonieschiff oder Totesstern</p>
 <h3>Verteidigung</h3>
@@ -61,13 +61,13 @@ $LNG['questions'][1][1]['body']		= <<<BODY
 <h3>Rohstoffe</h3>
 <p>Hier erhältst du eine Übersicht darüber, was auf deinem aktuellen Planeten zur Zeit produziert wird.</p>
 <h3>Markt</h3>
-<p>Hier könenn Spieler miteinander Rohstoffe Handeln. Ob ein Preis gut ist, muss jeder Spieler selber entscheiden</p>
+<p>Hier könenn Spieler miteinander Rohstoffe handeln. Ob ein Preis gut ist, muss jeder Spieler selber entscheiden.</p>
 <h3>Gutschein Kaufen</h3>
-<p>Gutscheine sind eine neue Art Lotto zu Spielen, denn du weißt nie was du bekommst bis du den Gutschein einlöst</p>
-<h3>Gutschein Einlösen</h3>
-<p>Hier kannst du deinen Gutschein einlösen und erfährst auch gleich was du dafür tolles bekommen hast.</p>
+<p>Gutscheine sind eine neue Art Lotto zu Spielen, denn du weißt nie was du bekommst bis du den Gutschein einlöst.</p>
+<h3>Gutschein einlösen</h3>
+<p>Hier kannst du deinen Gutschein einlösen und erfährst auch gleich was du dafür Tolles bekommen hast.</p>
 <h3>Bank</h3>
-<p>Solltest du das Bankgebäude gebaut haben kannst du hier sicher deine Ressourcen vor Angreifern verstecken</p>
+<p>Solltest du das Bankgebäude gebaut haben kannst du hier sicher deine Ressourcen vor Angreifern verstecken.</p>
 BODY;
 $LNG['questions'][1][2]['title']	= 'Community';
 $LNG['questions'][1][2]['body']		= <<<BODY
@@ -118,7 +118,7 @@ $LNG['questions'][2][1]['title']	= 'Schritt 1';
 $LNG['questions'][2][1]['body']		= <<<BODY
 <p>In diesem Teil des Tutorials werden die Hauptgebäude beschrieben. Dabei wird erklärt, welche zu Beginn gebaut werden sollten und wofür diese benötigt werden. Um ein erfolgreiches Imperium zu errichten, ist es wichtig die Gebäude in sinniger Reihenfolge zu bauen.</p>
 <h3>Das Solarkraftwerk:</h3>
-<p>Um Ressourcen zu produzieren, die du zum Aufbau deines Imperiums brauchst, ist es notwendig dieses Gebäude gleich als erstes mit aufzubauen. Es liefert die Energie, mit denen deine Minen die Ressourcen Metall, Kristall und Deuterium produzieren. Sobald der Bau abgeschlossen ist, kannst du in der Ressourcen-Leiste sowie unter dem Punkt "Produktion" einsehen, wieviel Energie zur Verfügung steht.</p>
+<p>Um Ressourcen zu produzieren, die du zum Aufbau deines Imperiums brauchst, ist es notwendig dieses Gebäude gleich als Erstes mit aufzubauen. Es liefert die Energie, mit denen deine Minen die Ressourcen Metall, Kristall und Deuterium produzieren. Sobald der Bau abgeschlossen ist, kannst du in der Ressourcen-Leiste sowie unter dem Punkt "Produktion" einsehen, wieviel Energie zur Verfügung steht.</p>
 <h3>Die Metallmine:</h3>
 <p>Metall ist eine der drei Ressourcen, die dir im Spiel zur Verfügung stehen. Metall wird für fast alles gebraucht was man bauen oder forschen kann. Daher ist ein guter Ausbau dieser Mine ratsam. Grade am Anfang ist es wichtig, dass diese Mine um einige Stufen höher betrieben wird, als die anderen.</p>
 <h3>Die Kristallmine und der Deuteriumsynthetisierer:</h3>
@@ -189,7 +189,7 @@ $LNG['questions'][3][2]['body']		= <<<BODY
 <h3>Saven ist die beste Verteidigung</h3>
 <p>Das Saven der Flotte ist einer der wichtigsten Bestandteile von OGame, doch leider beherrschen viele Spieler das Saven nicht. Deswegen hier eine Erklärung: Es gibt viele Möglichkeiten, seine Ressourcen, und seine Flotte mehr oder weniger sicher vor Übergriffen gegnerischer Flotten zu schützen. Dabei sind manche fast zu 100% sicher, andere jedoch sehr unsicher.<br>
 Die erste Methode des Savens ist das „Stationieren-Rückruf“ Saven. Dazu schickt der Spieler seine Flotte auf einen eigenen Planeten in seiner Nähe mit dem Auftrag zu stationieren. Diesen Flug bricht er dann nach einiger Zeit ab, da der Rückflug einer Stationierung nicht in der Phalanx ersichtlich ist. Diese Savemethode ist nicht 100% sicher, aber, wenn man nicht erst im letzten Moment abbricht, sondern schon einige Stunden vorher, nur mit enormer Mühe abzufangen.</p>
-<p>Eine sehr weit verbreitete Methode, die Flotte zu saven ist der Flug von einem Mond zu einem Trümmerfeld. Dieser ist an sich relativ sicher, da er nicht in der Phalanx zu sehen ist. Jedoch gibt es Möglichkeiten, den genauen Zeitpunkt der Rückkehr der Flotte festzustellen, in dem man kontrolliert, wann das Trümmerfeld von den Recyklern der Flotte abgebaut wird. Eine Möglichkeit, diese Saveart sicherer zu machen ist, vor der eigentlichen Flotte so genannte Schattenrecycler zu schicken, die das Trümmerfeld schon eher abbauen, so dass die Zeit ein wenig verschleiert wird. Eine weitere Art, diesen Flug sicher zu machen ist, wenn man an einem Planeten, der vollkommen verteidigungsfrei ist das Trümmerfeld abbaut, da dieses nie in der Galaxieansicht angezeigt wird, weil es leer, aber trotzdem anfliegbar ist.</p>
+<p>Eine sehr weit verbreitete Methode, die Flotte zu saven ist der Flug von einem Mond zu einem Trümmerfeld. Dieser ist an sich relativ sicher, da er nicht in der Phalanx zu sehen ist. Jedoch gibt es Möglichkeiten, den genauen Zeitpunkt der Rückkehr der Flotte festzustellen, in dem man kontrolliert, wann das Trümmerfeld von den Recyclern der Flotte abgebaut wird. Eine Möglichkeit, diese Saveart sicherer zu machen ist, vor der eigentlichen Flotte so genannte Schattenrecycler zu schicken, die das Trümmerfeld schon eher abbauen, so dass die Zeit ein wenig verschleiert wird. Eine weitere Art, diesen Flug sicher zu machen ist, wenn man an einem Planeten, der vollkommen verteidigungsfrei ist das Trümmerfeld abbaut, da dieses nie in der Galaxieansicht angezeigt wird, weil es leer, aber trotzdem anfliegbar ist.</p>
 <p>Die wohl sicherste Methode um die Flotte zu saven, ist das Stationieren von Mond zu Mond. Dieser Flug kann in keiner Phalanx gesehen werden, und auch das Beobachten von TFs ist hierbei sinnlos. Die einzige Möglichkeit, diesen Flug abzufangen, ist, einen der Monde zu zerstören, was durch große Monde fast unmöglich, bzw. sehr unwahrscheinlich/teuer wird.</p>
 BODY;
 $LNG['questions'][3][3]['title']	= 'Monde';
@@ -265,34 +265,34 @@ Wurde die Allianz erfolgreich gegründet, wird es dir auch angezeigt. Klickst du
 "Rundmail": Mit einem Klick auf "Rundmail versenden" kannst du eine Nachricht an die gesamte Allianz oder auch nur an bestimmte Ränge senden.</p>
 <h3>Das Allianzverwaltungsmenü</h3>
 <p>Ganz oben im Allianzverwaltungsmenü gibt es den Link "Rechte einstellen". Hier kannst du die Rechte für die verschiedenen Ränge einstellen, z. B. das Recht, die Allianz aufzulösen oder Rundmails zu verschicken. Darunter findest du den Link "Mitglieder verwalten". Hier kannst du Mitglieder aus der Allianz werfen, ihnen Ränge zuweisen und auch sehen, wieviele Tage sie schon nicht mehr in ihren Accounts eingeloggt waren. Mit den zwei Buttons unter dem "Mitglieder verwalten"-Link kannst du das Allianz-Tag und den Allianz-Namen ändern.<br>
-Unter "Textverwaltung" kannst du die Allianztexte ändern. Den externen Text sieht jeder OGamer, den internen Text nur Mitglieder deiner Allianz. Der Bewerbungstext ist eine Art Vorlage für Leute, die sich für deine Allianz bewerben.<br>
+Unter "Textverwaltung" kannst du die Allianztexte ändern. Den externen Text sieht jeder Spieler, den internen Text nur Mitglieder deiner Allianz. Der Bewerbungstext ist eine Art Vorlage für Leute, die sich für deine Allianz bewerben.<br>
 Bei den Einstellungen kannst du ein Bild verlinken, dass auf der Allianzseite dargestellt wird, sowie einen Link zu einem Allianzforum eingeben, falls du eines hast. Außerdem kannst du festlegen, ob Bewerbungen möglich sind oder nicht, und welchen Rangnamen du als Gründer verwenden willst. Wenn du dort nichts eingibst, ist dein Rangname "Gründer".<br>
 Mit "Allianz auflösen" kannst du logischerweise die Allianz auflösen, und mit "Allianz abtreten/übernehmen" kannst du die Allianz an ein anderes Allianzmitglied übergeben, dieses bekommt dann den Gründerstatus.</p>
 BODY;
 $LNG['questions'][5][2]['title']	= 'Allianz Bank';
 $LNG['questions'][5][2]['body']		= <<<BODY
 <h3>Allianz Bank</h3>
-<p>Die Allianz Bank ist für den Allianz Bonus einkauf gedacht.<br/></p>
-<p>Jeder Spieler der Selben Allianz, kann Res einzahlen, Nicht einmal die Allianz Admins können den res entnehmen, das verhindert das kein Allianz Admin (leader) sich bereichern kann.</p>
+<p>Die Allianz Bank ist für den Allianz Bonuseinkauf gedacht.<br/></p>
+<p>Jeder Spieler derselben Allianz, kann Res einzahlen. Nicht einmal die Allianz Admins können den res entnehmen, das verhindert das kein Allianz Admin (leader) sich bereichern kann.</p>
 
 BODY;
 $LNG['questions'][5][3]['title']	= 'Allianz Bonus';
 $LNG['questions'][5][3]['body']		= <<<BODY
 <h3>Allianz Bonus</h3>
-<p>Der Allianz Bonus ist einen weitere Möglichkeit sich zu Pushen, Das kaufen eines Bonuses ist genau so wie bei den Offizieren, nur er kostet res statt DM.</p>
-<p>Der Vorteil eines Allianz Bonuses ist es das Alle Mitglieder was davon haben!</p>
+<p>Der Allianz Bonus ist einen weitere Möglichkeit sich zu Pushen, Das Kaufen eines Bonuses ist genau so wie bei den Offizieren, nur er kostet res statt DM.</p>
+<p>Der Vorteil eines Allianz Bonuses ist es das alle Mitglieder was davon haben!</p>
 <h3>Bonus Übersicht!</h3>
 Zusätzliche Mitglieder Slots - 0 / 20 <br>
-Zusatz Slots für Mitglieder Ohne Boni hat man nur 5. Pro Stufe bekommt man 1extra.
+Zusatz Slots für Mitglieder ohne Boni hat man nur 5. Pro Stufe bekommt man 1extra.
 <p>
 Produktionssteigerung in % - 0 / 200 <br>
-Jedes Prozent erhöht die minen produktion
+Jedes Prozent erhöht die Minenproduktion
 <p>
 Forschungszeit verkürzung in % - 0 / 100 <br>
-Jedes Prozent verkürzt Die Forschungszeit 
+Jedes Prozent verkürzt die Forschungszeit 
 <p>
 Bauzeit verkürzung in % - 0 / 100<br>
-Jedes Prozent verkürzt Die Bauzeit
+Jedes Prozent verkürzt die Bauzeit
 <p>
 Verteidigungkraft Steigerung in % - 0 / 250<br>
 Jedes Prozent erhöht die Verteidigungskraft
@@ -307,8 +307,8 @@ BODY;
 $LNG['questions'][5][4]['title']	= 'Allianz Forum';
 $LNG['questions'][5][4]['body']		= <<<BODY
 <h3>Allianz Forum</h3>
-<p>Das Forum soll es einfacher machen das Mitglieder sich besser unterhalten können<br>
-Jede Allianz hat ihr eigenes Forum, es kann keiner von auserhalb das Forum sehen.<br>
+<p>Das Forum soll es einfacher machen, dass Mitglieder sich besser unterhalten können<br>
+Jede Allianz hat ihr eigenes Forum, es kann keiner von ausserhalb das Forum sehen.<br>
 
 BODY;
 
@@ -338,18 +338,18 @@ $LNG['questions'][6][1]['title']	= 'Event System';
 $LNG['questions'][6][1]['body']		= <<<BODY
 <h3>Das Event System</h3>
 <p>Es gibt momentan 3 Möglichkeiten ein EventSystem zu erstellen als Admin.<br>
-Events sollen den Spielern mehr spielraum geben um an Res zu kommen und aktiv am Uni leben teil zunehmen<br>
+Events sollen den Spielern mehr Spielraum geben, um an Res zu kommen und aktiv am Uni- Leben teilzunehmen<br>
 Einige Events benötigen Freunde / Allianz Member, das Event ist extra schwerer damit die Leute zusammen spielen<br>
 <p>Möglichkeit 1 Trümmerfeld Event:<br>
-Dieses Ist zum Jagen und Sammeln gedacht, jeder spieler hat die möglichkeiten Recyler zubauen und einfach ihnzufiegen und Res zu erbeuten ohne kampf.<br>
+Dieses ist zum Jagen und Sammeln gedacht, jeder Spieler hat die Möglichkeiten Recyler zubauen und einfach hinzufiegen und Res zu erbeuten ohne Kampf.<br>
 <p>Möglichkeit 2 Planten Event:<br>
 Es werden vom System Planten mit Def / Off erstellt im Universum.<br>
-Diese „Piraten“ haben die möglichkeit zu reagieren, Gegeangriffe, Saveflüge und sogar, Flottenbau.<br>
-Um einen Event Planten zu finden muß man die Galaxie Systeme durchsuchen, Es soll wie ein Echter Spieler behandlet werden.<br>
-So fähig ist der Privat auch.<br>
+Diese „Piraten“ haben die Möglichkeit zu reagieren, Gegenangriffe, Saveflüge und sogar, Flottenbau.<br>
+Um einen Event Planten zu finden, muß man die Galaxie Systeme durchsuchen, Es soll wie ein Echter Spieler behandelt werden.<br>
+So fähig ist der Pirat auch.<br>
 <p>Möglichkeit 3 Planten Event Allianz/Freunde/Bündnispartner:<br>
-Dieses Event ist Extra so schwer das die Spieler nicht alleine klar kommen damit, Gute Spieler werden auch auf die hilfe<br>
-von andern spieler angewisen sein.<br>
+Dieses Event ist Extra so schwer das die Spieler damit nicht alleine klar kommen. Gute Spieler werden auch auf die Hilfe<br>
+von anderen Spielern angewisen sein.<br>
 Dieses Event ist vom Ablauf genau so wie die Möglichkeit 2 <br>
 
 BODY;
@@ -404,9 +404,9 @@ $LNG['questions'][11]['category']	= 'Wichtige Hinweise';
 $LNG['questions'][11][1]['title']	= 'Missionen / Tutorial';
 $LNG['questions'][11][1]['body']		= <<<BODY
 <p>
-Um Missionen erfolgreich zu beenden sind alle bedingungen auf einen Planeten zu erfühlen</br>
+Um Missionen erfolgreich zu beenden, sind alle Bedingungen auf einen Planeten zu erfüllen</br>
 zb.: Baue 10 Transporter</br>
-So müssen die Transporter auf einen Planeten Stationiert sein.</br>
+So müssen die Transporter auf einem Planeten stationiert sein.</br>
 Desweiteren muss der Planet ausgewählt werden bevor die Mission beendet wird.</br>
 </p>
 BODY;

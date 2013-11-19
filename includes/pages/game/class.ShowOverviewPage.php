@@ -134,6 +134,124 @@ class ShowOverviewPage extends AbstractPage
 		$Buildtime		= 0;
 		$ally_id		= 0;
 		
+		$result = $GLOBALS['DATABASE']->query("SELECT id FROM uni1_warDiplo WHERE end_time < '".time()."'");
+		foreach($result as $del){
+			$result_one = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_warDiplo WHERE id='".$del['id']."'");
+			foreach($result_one as $data){
+				if($data['enemy_lose'] > $data['defense_lose']){
+					$GLOBALS['DATABASE']->query("UPDATE uni1_alliance SET 
+												ally_met	= ally_met+".$data['kasse_m']."
+												ally_krist	= ally_krist+".$data['kasse_k']."
+												ally_deut   = ally_deut+".$data['kasse_d']."
+												WHERE id='".$data['enemy']."'");
+					$ally_name = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_alliance WHERE id='".$data['defens']."'");
+					foreach($ally_name as $ally){
+						$defens_name = $ally['ally_name'];
+						$defens_tag	 = $ally['ally_tag'];
+					}
+					$ally_name = $GLOBALS['DATABASE']->query("SELECT ally_name FROM uni1_alliance WHERE id='".$data['enemy']."'");
+					foreach($ally_name as $ally){
+						$enemy_name = $ally['ally_name'];
+						$enemy_tag	= $ally['ally_tag'];
+					}
+					$sql = $GLOBALS['DATABASE']->query("SELECT id FROM uni1_users WHERE ally_id='".$data['defens']."'");
+					foreach($sql as $msg_empf){
+						$NewUser = $msg_empf['id'];	
+						$message = "Sie haben Verloren<br/>".
+									$enemy_name." : ".$data['defense_lose']." geschossene Units<br/>".
+									$defens_name." : ".$data['enemy_lose']." geschossene Units<br/>".
+									"Die Kasse in Höhe von :<br/>".
+									"Metall : ".pretty_number($data['kasse_m'])."<br/>".
+									"Kristall : ".pretty_number($data['kasse_k'])."<br/>".
+									"Deuterium : ".pretty_number($data['kasse_d'])."<br/>".
+									"wurde dem Allianzkonto von ".$enemy_name." gutgeschrieben";
+						SendSimpleMessage($NewUser, 1, TIMESTAMP, 15, 'Kriegsbericht', 'Ergebniss Krieg '.$enemy_tag.' vs '.$defens_tag, $message);
+					}
+					$sql = $GLOBALS['DATABASE']->query("SELECT id FROM uni1_users WHERE ally_id='".$data['enemy']."'");
+					foreach($sql as $msg_empf){
+						$NewUser = $msg_empf['id'];	
+						$message = "Sie haben Gewonnen<br/>".
+									$enemy_name." : ".$data['defense_lose']." geschossene Units<br/>".
+									$defens_name." : ".$data['enemy_lose']." geschossene Units<br/>".
+									"Die Kasse in Höhe von :<br/>".
+									"Metall : ".pretty_number($data['kasse_m'])."<br/>".
+									"Kristall : ".pretty_number($data['kasse_k'])."<br/>".
+									"Deuterium : ".pretty_number($data['kasse_d'])."<br/>".
+									"wurde ihren Allianzkonto gutgeschrieben";
+						SendSimpleMessage($NewUser, 1, TIMESTAMP, 15, 'Kriegsbericht', 'Ergebniss Krieg '.$enemy_tag.' vs '.$defens_tag, $message);
+					}
+				}
+				elseif($data['enemy_lose'] < $data['defense_lose']){
+					$GLOBALS['DATABASE']->query("UPDATE uni1_alliance SET 
+												ally_met	= ally_met+".$data['kasse_m']."
+												ally_krist	= ally_krist+".$data['kasse_k']."
+												ally_deut   = ally_deut+".$data['kasse_d']."
+												WHERE id='".$data['defens']."'");
+					$ally_name = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_alliance WHERE id='".$data['defens']."'");
+					foreach($ally_name as $ally){
+						$defens_name = $ally['ally_name'];
+						$defens_tag	 = $ally['ally_tag'];
+					}
+					$ally_name = $GLOBALS['DATABASE']->query("SELECT ally_name FROM uni1_alliance WHERE id='".$data['enemy']."'");
+					foreach($ally_name as $ally){
+						$enemy_name = $ally['ally_name'];
+						$enemy_tag	= $ally['ally_tag'];
+					}
+					$sql = $GLOBALS['DATABASE']->query("SELECT id FROM uni1_users WHERE ally_id='".$data['defens']."'");
+					foreach($sql as $msg_empf){
+						$NewUser = $msg_empf['id'];	
+						$message = "Sie haben Gewonnen<br/>".
+									$enemy_name." : ".$data['defense_lose']." geschossene Units<br/>".
+									$defens_name." : ".$data['enemy_lose']." geschossene Units<br/>".
+									"Die Kasse in Höhe von :<br/>".
+									"Metall : ".pretty_number($data['kasse_m'])."<br/>".
+									"Kristall : ".pretty_number($data['kasse_k'])."<br/>".
+									"Deuterium : ".pretty_number($data['kasse_d'])."<br/>".
+									"wurde ihren Allianzkonto gutgeschrieben";
+						SendSimpleMessage($NewUser, 1, TIMESTAMP, 15, 'Kriegsbericht', 'Ergebniss Krieg '.$enemy_tag.' vs '.$defens_tag, $message);
+					}
+					$sql = $GLOBALS['DATABASE']->query("SELECT id FROM uni1_users WHERE ally_id='".$data['enemy']."'");
+					foreach($sql as $msg_empf){
+						$NewUser = $msg_empf['id'];	
+						$message = "Sie haben Verloren<br/>".
+									$enemy_name." : ".$data['defense_lose']." geschossene Units<br/>".
+									$defens_name." : ".$data['enemy_lose']." geschossene Units<br/>".
+									"Die Kasse in Höhe von :<br/>".
+									"Metall : ".pretty_number($data['kasse_m'])."<br/>".
+									"Kristall : ".pretty_number($data['kasse_k'])."<br/>".
+									"Deuterium : ".pretty_number($data['kasse_d'])."<br/>".
+									"wurde dem Allianzkonto von ".$defens_name." gutgeschrieben";
+						SendSimpleMessage($NewUser, 1, TIMESTAMP, 15, 'Kriegsbericht', 'Ergebniss Krieg '.$enemy_tag.' vs '.$defens_tag, $message);
+					}
+				}
+				else{
+					$ally_name = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_alliance WHERE id='".$data['defens']."'");
+					foreach($ally_name as $ally){
+						$defens_name = $ally['ally_name'];
+						$defens_tag	 = $ally['ally_tag'];
+					}
+					$ally_name = $GLOBALS['DATABASE']->query("SELECT ally_name FROM uni1_alliance WHERE id='".$data['enemy']."'");
+					foreach($ally_name as $ally){
+						$enemy_name = $ally['ally_name'];
+						$enemy_tag	= $ally['ally_tag'];
+					}
+					$sql = $GLOBALS['DATABASE']->query("SELECT id FROM uni1_users WHERE ally_id='".$data['defens']."' OR ally_id='".$data['enemy']."'");
+					foreach($sql as $msg_empf){
+						$NewUser = $msg_empf['id'];	
+						$message = "Der Krieg ging Unentschieden aus!<br/>".
+									$enemy_name." : ".$data['defense_lose']." geschossene Units<br/>".
+									$defens_name." : ".$data['enemy_lose']." geschossene Units<br/>".
+									"Die Kasse in Höhe von :<br/>".
+									"Metall : ".pretty_number($data['kasse_m'])."<br/>".
+									"Kristall : ".pretty_number($data['kasse_k'])."<br/>".
+									"Deuterium : ".pretty_number($data['kasse_d'])."<br/>".
+									"Ging verloren";
+						SendSimpleMessage($NewUser, 1, TIMESTAMP, 15, 'Kriegsbericht', 'Ergebniss Krieg '.$enemy_tag.' vs '.$defens_tag, $message);
+					}
+				}
+			}
+			$GLOBALS['DATABASE']->query("DELETE * FROM uni1_warDiplo WHERE id='".$del['id']."'");	
+		}
 		foreach($USER['PLANETS'] as $ID => $CPLANET)
 		{		
 			if ($ID == $PLANET['id'] || $CPLANET['planet_type'] == 3)

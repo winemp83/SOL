@@ -175,7 +175,41 @@ class GalaxyRows
 	{
 		global $USER, $LNG;
 
-		$IsNoobProtec		= CheckNoobProtec($USER, $this->galaxyRow, $this->galaxyRow);
+		$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_warDiplo");
+		if(count($result) != 0){
+			foreach($result as $data){
+				if($data['enemy']== $USER['ally_id'] && $data['defens'] == $targetPlanetData['ally_id'] ){
+					if($data['start_time'] > time()){
+						$IsNoobProtec = array('NoobPlayer' => true, 'StrongPlayer' => false);
+					}
+					else{
+						$IsNoobProtec = CheckNoobProtecWar($USER, $targetPlayerData, $targetPlayerData);
+						($IsNoobProtec['NoobPlayer'])? $hit = false: $hit = true;
+						if($hit){
+							$GLOBALS['DB']->query("UPDATE uni1_warDiplo SET
+												  count_enemy 	= count_enemy+1");
+						}
+					}
+				}
+				elseif($data['enemy']== $targetPlanetData['ally_id'] && $data['defens'] == $USER['ally_id']){
+					if($data['start_time'] > time()){
+						$IsNoobProtec = array('NoobPlayer' => true, 'StrongPlayer' => false);
+					}
+					else{
+						$IsNoobProtec = CheckNoobProtecWar($USER, $targetPlayerData, $targetPlayerData);
+						($IsNoobProtec['NoobPlayer'])? $hit = false: $hit = true;
+						$GLOBALS['DB']->query("UPDATE uni1_warDiplo SET
+											  count_defense = count_defense+1");
+					}
+				}
+				else{
+					$IsNoobProtec	= CheckNoobProtec($USER, $targetPlayerData, $targetPlayerData);
+				}
+			}
+		}
+		else{
+			$IsNoobProtec	= CheckNoobProtec($USER, $targetPlayerData, $targetPlayerData);
+		}
 		$Class		 		= array();
 
 		if ($this->galaxyRow['banaday'] > TIMESTAMP && $this->galaxyRow['urlaubs_modus'] == 1)
@@ -242,6 +276,55 @@ class GalaxyRows
 			if($USER['ally_id'] == $this->galaxyRow['ally_id'])
 			{
 				$Class	= array('member');
+			}
+			$result = $GLOBALS['DB']->query("SELECT * FROM uni1_diplo ");
+			if(count($result) != 0){
+				foreach($result as $data){
+					if($data['owner_1'] == $USER['ally_id'] && $data['owner_2'] == $this->galaxyRow['ally_id'] && $data['accept'] == 1){
+						switch ($data['level']){
+							case 1 :
+									$class = array('member');
+									break;
+							case 2 :
+									$class = array('friend');
+									break;
+							case 3 :
+									$Class	= array('enemy');
+									break;
+							case 4 :
+									$Class	= array('friend');
+									break;
+							case 5 :
+									$Class	= array('enemy');
+									break;
+							case 6 :
+									$Class	= array('enemy');
+									break;
+						}
+					}
+					elseif($data['owner_2'] == $USER['ally_id'] && $data['owner_1'] == $this->galaxyRow['ally_id'] && $data['accept'] == 1){
+						switch ($data['level']){
+							case 1 :
+									$class = array('member');
+									break;
+							case 2 :
+									$class = array('friend');
+									break;
+							case 3 :
+									$Class	= array('enemy');
+									break;
+							case 4 :
+									$Class	= array('friend');
+									break;
+							case 5 :
+									$Class	= array('enemy');
+									break;
+							case 6 :
+									$Class	= array('enemy');
+									break;
+						}
+					}
+				}
 			}
 			
 			$this->galaxyData[$this->galaxyRow['planet']]['alliance']	= array(
