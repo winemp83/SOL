@@ -277,10 +277,10 @@ function __construct()
 		    //////////////////////////////////////////////////////////////////////////////////////////
 				$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_diplo");
 				foreach($result as $data){
-					if($data['owner_1'] == $USER['ally_id'] && $data['accept'] == 1 &&($data['level'] == 1 || $data['level'] == 3));{
+					if($data['owner_1'] == $USER['ally_id'] && $data['accept'] == 1 &&($data['level'] == 1 || $data['level'] == 3)){
 						$allys = "`idally` = ".$USER['ally_id']." OR `idally` = ".$data['owner_2'];
 					}
-					elseif($data['owner_2'] == $USER['ally_id'] && $data['accept'] == 1 &&($data['level'] == 1 || $data['level'] == 3){
+					elseif($data['owner_2'] == $USER['ally_id'] && $data['accept'] == 1 &&($data['level'] == 1 || $data['level'] == 3)){
 						$allys = "`idally` = ".$USER['ally_id']." OR `idally` = ".$data['owner_1'];
 					}
 					else{
