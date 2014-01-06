@@ -69,6 +69,51 @@ class ShowPlayerCardPage extends AbstractPage
 			$loosprozent                = 100 / $totalfights * $query['loos'];
 			$drawsprozent               = 100 / $totalfights * $query['draws'];
 		}
+                
+                $archivements = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_users WHERE id= ".$PlayerID.";");
+                
+                $mine       = '';
+                $research   = '';
+                $battle     = '';
+                $ship       = '';
+                $defence    = '';
+                $storage    = '';
+                $moon       = '';
+                $colony     = '';
+                $friend     = '';
+                $statpoints = '';
+                $destroy    = '';
+                $debris     = '';
+                
+                $mine_m       = '5';
+                $research_m   = '5';
+                $battle_m     = '5';
+                $ship_m       = '5';
+                $defence_m    = '5';
+                $storage_m    = '3';
+                $moon_m       = '3';
+                $colony_m     = '5';
+                $friend_m     = '2';
+                $statpoints_m = '7';
+                $destroy_m    = '6';
+                $debris_m     = '5';
+                
+                foreach ($archivements as $erfolg){
+                    $mine       = $erfolg['achievements_mine'];
+                    $research   = $erfolg['achievements_research'];
+                    $battle     = $erfolg['achievements_battle'];
+                    $ship       = $erfolg['achievements_ship'];
+                    $defence    = $erfolg['achievements_defence'];
+                    $storage    = $erfolg['achievements_storage'];
+                    $moon       = $erfolg['achievements_moon'];
+                    $colony     = $erfolg['achievements_colony'];
+                    $friend     = $erfolg['achievements_friend'];
+                    $statpoints = $erfolg['achievements_statpoints'];
+                    $destroy    = $erfolg['achievements_destroy'];
+                    $debris     = $erfolg['achievements_debris'];
+                    
+                    
+                }
 
 		$this->tplObj->assign_vars(array(	
 			'id'			=> $PlayerID,
@@ -79,7 +124,31 @@ class ShowPlayerCardPage extends AbstractPage
 			'system'		=> $query['system'],
 			'planet'		=> $query['planet'],
 			'allyid'		=> $query['ally_id'],
-			'tech_rank'     => pretty_number($query['tech_rank']),
+                        'mine'                  => $mine,
+                        'mine_m'                => $mine_m,
+                        'research'              => $research,
+                        'research_m'            => $research_m,
+                        'battle'                => $battle,
+                        'battle_m'              => $battle_m,
+			'ship'                  => $ship,
+                        'ship_m'                => $ship_m,
+                        'defence'               => $defence,
+                        'defence_m'             => $defence_m,
+                        'storage'               => $storage,
+                        'storage_m'             => $storage_m,
+                        'moon'                  => $moon,
+                        'moon_m'                => $moon_m,
+                        'colony'                => $colony,
+                        'colony_m'              => $colony_m,
+                        'friend'                => $friend,
+                        'friend_m'              => $friend_m,
+                        'statpoints'            => $statpoints,
+                        'statpoints_m'          => $statpoints_m,
+                        'destroy'               => $destroy,
+                        'destroy_m'             => $destroy_m,
+                        'debris'                => $debris,
+                        'debris_m'              => $debris_m,
+                        'tech_rank'     => pretty_number($query['tech_rank']),
 			'tech_points'   => pretty_number($query['tech_points']),
 			'build_rank'    => pretty_number($query['build_rank']),
 			'build_points'  => pretty_number($query['build_points']),

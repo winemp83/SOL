@@ -1998,7 +1998,7 @@ function show()
 		if($USER['kbmetal'] + $USER['kbcrystal'] >= 100000 && $USER['kbcrystal'] >= 100000)
 		{
 			$GLOBALS['DATABASE']->query("UPDATE ".USERS." SET `achievements_debris` = achievements_debris+1 WHERE `id` = ".$USER['id'].";");
-			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET owner='".$USER['id']."', lvl='2', what='achievements_debris' time='".time()."'");
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_erfolge SET owner='".$USER['id']."', lvl='2', what='achievements_debris', time='".time()."'");
 					$PLANET[$resource[901]]	+= 25000; //reward
                     $PLANET[$resource[902]]	+= 25000; //reward
                     $PLANET[$resource[903]]	+= 25000; //reward

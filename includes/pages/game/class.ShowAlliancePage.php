@@ -257,7 +257,7 @@ class ShowAlliancePage extends AbstractPage
 		$text		= HTTP::_GP('text' , '', true);
 		$allianceID	= HTTP::_GP('id', 0);
 			
-		$allianceResult = $GLOBALS['DATABASE']->getFirstRow("SELECT ally_tag, ally_request, ally_request_notallow, ally_members FROM ".ALLIANCE." WHERE id = ".$allianceID." AND ally_universe = ".$UNI.";");
+		$allianceResult = $GLOBALS['DATABASE']->getFirstRow("SELECT ally_tag, ally_request, ally_request_notallow, ally_members, ally_request_min_points FROM ".ALLIANCE." WHERE id = ".$allianceID." AND ally_universe = ".$UNI.";");
 
 		if (!isset($allianceResult)) {
 			$this->redirectToHome();
@@ -275,7 +275,11 @@ class ShowAlliancePage extends AbstractPage
 			$this->printMessage($LNG['al_alliance_max_members']);
 		}
 		
-		
+		$help_A = $GLOBALS['DATABASE']->query('SELECT `total_points` FROM uni1_statpoints WHERE id_owner = `'.$USER["id"].'`');
+                if($help_A <= $allianceResult['ally_request_min_points']){
+                    $this->printMessage($LNG['al_not_points']);
+                }
+                
 		if($allianceResult['ally_request_notallow'] == 1)
 		{
 			$this->printMessage($LNG['al_alliance_closed']);

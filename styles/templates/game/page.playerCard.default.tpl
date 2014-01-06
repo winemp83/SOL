@@ -16,6 +16,58 @@
 		<td>{$LNG.pl_ally}</td>
 		<td colspan="2">{if $allyname}<a href="#" onclick="parent.location = 'game.php?page=alliance&amp;mode=info&amp;id={$allyid}';return false;">{$allyname}</a>{else}-{/if}</td>
 	</tr>
+        <tr>
+            <th>{$LNG['lm_achievements']}</th>
+            <th colspan="2">&nbsp;</th>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_mine']}</td>
+            <td colspan="2">{$mine}/{$mine_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_research']}</td>
+            <td colspan="2">{$research}/{$research_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_battle']}</td>
+            <td colspan="2">{$battle}/{$battle_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_ship']}</td>
+            <td colspan="2">{$ship}/{$ship_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_defence']}</td>
+            <td colspan="2">{$defence}/{$defence_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_storage']}</td>
+            <td colspan="2">{$storage}/{$storage_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_moon']}</td>
+            <td colspan="2">{$moon}/{$moon_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_colony']}</td>
+            <td colspan="2">{$colony}/{$colony_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_friend']}</td>
+            <td colspan="2">{$friend}/{$friend_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_statpoints']}</td>
+            <td colspan="2">{$statpoints}/{$statpoints_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_destroy']}</td>
+            <td colspan="2">{$destroy}/{$destroy_m}</td>
+        </tr>
+        <tr>
+            <td>{$LNG['achievements_typ_debris']}</td>
+            <td colspan="2">{$debris}/{$debris_m}</td>
+        </tr>
 	<tr>
 		<th>&nbsp;</th>
 		<th>{$LNG.pl_points}</th>

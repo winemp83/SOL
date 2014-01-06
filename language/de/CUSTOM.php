@@ -602,3 +602,4 @@ $LNG['winemp_Vote_error_1']      	= 'Sie haben bereits gewählt';
 $LNG['lm_Vote']      				= 'Spieler Abstimmungen';
 
 //neue Vergaben.
+$LNG['al_not_points']                   = 'Sie haben nicht genug Punkte';
