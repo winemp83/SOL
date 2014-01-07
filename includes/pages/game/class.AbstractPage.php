@@ -255,7 +255,6 @@ abstract class AbstractPage
         		'PlanetMenu'   	=> $Planetlist,
         		'show_planetmenu'   => $LNG['show_planetmenu'],
         		'Scripttime'    	=> json_encode($Scripttime),
-        		'is_pmenu'        	=> $USER['settings_planetmenu'],
         		'PlanetSelect'		=> $PlanetSelect,
       			'ts_data'			=> 'ts3server://spaceoflegends.de?port=9987&nickname='.$USER['username'],
       			'team'				=> $team,

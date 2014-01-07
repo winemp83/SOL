@@ -53,14 +53,14 @@ class ShowGalaxyPage extends AbstractPage
 		$type			= HTTP::_GP('type', 1);
 		$current		= HTTP::_GP('current', 0);
 		
-        if (!empty($galaxyLeft))
-            $galaxy	= max($galaxy - 1, 1);
-        elseif (!empty($galaxyRight))
+        if (!empty($galaxyLeft)){
+        $galaxy	= max($galaxy - 1, 1);}
+        elseif (!empty($galaxyRight)){
             $galaxy	= min($galaxy + 1, Config::get('max_galaxy'));
-
-        if (!empty($systemLeft))
-            $system	= max($system - 1, 1);
-        elseif (!empty($systemRight))
+        }
+        if (!empty($systemLeft)){
+        $system	= max($system - 1, 1);}
+        elseif (!empty($systemRight)){
             $system	= min($system + 1, Config::get('max_system'));
 
 		if ($galaxy != $PLANET['galaxy'] || $system != $PLANET['system'])
@@ -73,6 +73,7 @@ class ShowGalaxyPage extends AbstractPage
 				$PLANET['deuterium']	-= Config::get('deuterium_cost_galaxy');
             }
 		}
+        }
 
         $targetDefensive    = $reslist['defense'];
         $targetDefensive[]	= 502;
