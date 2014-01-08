@@ -95,5 +95,6 @@ class Cronjob
 		}
 		
 		$GLOBALS['DATABASE']->multi_query($SQL);
+                print_r(mysql_error());
 	}
 }

@@ -22,51 +22,51 @@
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_mine']}</td>
-            <td colspan="2">{$mine}/{$mine_m}</td>
+            <td colspan="2">{if $mine != $mine_m}{$mine}/{$mine_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_research']}</td>
-            <td colspan="2">{$research}/{$research_m}</td>
+            <td colspan="2">{if $research !=$research_m}{$research}/{$research_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_battle']}</td>
-            <td colspan="2">{$battle}/{$battle_m}</td>
+            <td colspan="2">{if $battle !=$battle_m}{$battle}/{$battle_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_ship']}</td>
-            <td colspan="2">{$ship}/{$ship_m}</td>
+            <td colspan="2">{if $ship !=$ship_m}{$ship}/{$ship_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_defence']}</td>
-            <td colspan="2">{$defence}/{$defence_m}</td>
+            <td colspan="2">{if $defence !=$defence_m}{$defence}/{$defence_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_storage']}</td>
-            <td colspan="2">{$storage}/{$storage_m}</td>
+            <td colspan="2">{if $storage !=$storage_m}{$storage}/{$storage_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_moon']}</td>
-            <td colspan="2">{$moon}/{$moon_m}</td>
+            <td colspan="2">{if $moon !=$moon_m}{$moon}/{$moon_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_colony']}</td>
-            <td colspan="2">{$colony}/{$colony_m}</td>
+            <td colspan="2">{if $colony !=$colony_m}{$colony}/{$colony_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_friend']}</td>
-            <td colspan="2">{$friend}/{$friend_m}</td>
+            <td colspan="2">{if $friend !=$friend_m}{$friend}/{$friend_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_statpoints']}</td>
-            <td colspan="2">{$statpoints}/{$statpoints_m}</td>
+            <td colspan="2">{if $statpoints !=$statpoints_m}{$statpoints}/{$statpoints_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_destroy']}</td>
-            <td colspan="2">{$destroy}/{$destroy_m}</td>
+            <td colspan="2">{if $destroy !=$destroy_m}{$destroy}/{$destroy_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
         <tr>
             <td>{$LNG['achievements_typ_debris']}</td>
-            <td colspan="2">{$debris}/{$debris_m}</td>
+            <td colspan="2">{if $debris !=$debris_m}{$debris}/{$debris_m}{else}<span style="color:greenyellow;">ABGESCHLOSSEN</span>{/if}</td>
         </tr>
 	<tr>
 		<th>&nbsp;</th>

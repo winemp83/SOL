@@ -9,164 +9,132 @@
  */
 
 class MarketCronjob {
- 
     public function run (){
-        $this->setAuctions();
-    }
-    
-    private function getUser(){
-        $user = 0;
-        $result = $GLOBALS['DATABASE']->query("SELECT COUNT(id) FROM uni1_users");
-        foreach($result as $erg){
-            $user = $erg['COUNT(id)'];
+        $i = 5;
+        for($j = 0; $j < $i; $j++){
+            //$this->insertAuction();
+            
+           $this->insertAuction();
         }
-        return $user;
     }
-    
-    private function getMaxAuctions($toleranz = 0){
-       $auc =  \floor($this->getUser() / 10);
-       $aucMin = $auc - $toleranz;
-       $aucMax = $auc + $toleranz;
-       
-       return \rand($aucMin, $aucMax);
+    function insertAuction(){
+        $GLOBALS['DATABASE']->query($this->prepareAuction());
     }
-    
-    private function setAuctionsValue(){
-        $result = $GLOBALS['DATABASE']->query("SELECT AVG(total_points) FROM uni1_statpoints");
-        foreach($result as $erg){$zwischen = $erg['AVG(total_points)'];}
-        if($zwischen < 10000){
-            $toleranz = 1000;}
-        elseif($zwischen > 10000 && $zwischen < 100000){
-            $toleranz = 2500;}
-        else{$toleranz = 0;
-            $zwischen = 100000;
-        }
-        return \rand($toleranz, $zwischen);
+    function prepareAuction(){
+        $query = $this->Statement();
+        return $query;
     }
-    
-    private function setAuctions(){
-       
-        $i = 0;
-        $anz = $this->getMaxAuctions(2);
-        do{
-            $query = "INSERT INTO ".MARKET." SET
-                                `sender` = 1,
-                                `senderplanet` = 1,
-                                `user` = 'Markt Kontrolle',
-                                `type` = '".time(). "',
-				`typeres` = 1,";
-		                
-                                
-            $i++;
-            $query .= $this->whatToDo();
-            $query .= " `universe` = 1,
-			`galaxie`  = 1,
-			`systeme`  = 1,
-			`planete`  = 1;";
-            print_r($query);
-            $this->doItNow($query);
-        }
-        while($anz != $i);
+    function Statement(){
+      $statement =  "INSERT INTO ".MARKET." SET ";
+      $statement .= $this->prepareStatment();
+      return $statement;
     }
-    
-    private function whatToDo(){
-        $what = \mt_rand(1,3);
-        if ($what == 1){
-          return $this->doWhitMetall(\mt_rand(1,2));
+    function prepareStatment(){
+        $statment = "`sender` = '151',
+		    `senderplanet` = '1534',
+		    `user` = 'Markt',
+                    `type` = '".time(). "',
+                    `typeres` = '1',".$this->WhatToDo()."
+		    `universe` ='1',
+                    `galaxie`  ='9',
+                    `systeme`  ='399',
+                    `planete`  ='15';";
+        return $statment;
+    }
+    function auction($a, $b){
+        $c = $this->ressSale();
+        if($a === 1){
+            $statement = "`metala` = 0,
+                          `metals` = '".$c."',";
+            if($b === 1){
+                $statement .= "`cristala` = '". $this->changeRess(1, $c) ."',
+                               `cristals` = '0',
+                               `deuta` = '0',
+                               `deuts` = '0',";
+            }else{
+                $statement .= "`deuta` = '". $this->changeRess(2, $c) ."',
+                               `deuts` = '0'
+                               `cristala` = '0',
+                               `cristals` = '0',";
+            }
+        }elseif($a === 2){
+            $statement = "`cristala` = '0',
+                          `cristals` = '".$c."',";
+            if($b === 1){
+                $statement .= "`metala` = ". $this->changeRess(3, $c) .",
+                               `metals` = '0',
+                               `deuta` = '0',
+                               `deuts` = '0',";
+                
+            }else{
+                $statement .= "`deuta` = '". $this->changeRess(4, $c) ."',
+                               `deuts` = '0',
+                               `metala` = '0',
+                               `metals` = '0',";
+            }
         }else{
-          return $this->doWhitKristall(\mt_rand(1,2));
+            $statement = "`deuta` = '0',
+                          `deuts` = '".$c."',";
+            if($b === 1){
+                $statement .= "`metala` = ". $this->changeRess(5, $c) .",
+                               `metals` = '0',
+                               `cristala` = '0',
+                               `cristals` = '0',";
+            }else{
+                $statement .= "`cristala` = '". $this->changeRess(6, $c) ."',
+                               `cristals` = '0',
+                               `metala` = '0',
+                               `metals` = '0',";
+            }
+        }
+        
+        return $statement;
+    }
+    function ressSale(){
+        $result = $GLOBALS['DATABASE']->query("SELECT AVG(build_points) FROM uni1_statpoints WHERE build_points != 0");
+        foreach($result as $erg){
+            if($erg['AVG(build_points)'] > 100000){
+                $g = rand(1000, 100000);  
+            }
+            else{
+                $g = rand(1000,$erg['AVG(build_points)']);
+            }
+            return $g;
         }
     }
-    
-    private function doWhitMetall($do){
-        if(\mt_rand(1,2) == 1){
-            $deut = true;}else{
-            $deut = false;
-        }if($do == 1){if($deut){
-                $met = $this->setAuctionsValue();
-                $deu = round($met*4);
-                $string = " `metala` = '". $met ."',
-                            `metals` = 0,
-                            `cristala` = 0,
-                            `cristals` = 0,
-                            `deuta` = 0,
-                            `deuts` = '". $deu ."',";
-                return $string;}else{
-                $met = $this->setAuctionsValue();
-                $deu = round($met/4);
-                $string = " `metala` = 0,
-                            `metals` = '".$met."',
-                            `cristala` = 0,
-                            `cristals` = 0,
-                            `deuta` = '". $deu ."',
-                            `deuts` = 0,";
-                return $string;}}else{if($deut){
-                $met = $this->setAuctionsValue();
-                $deu = round($met*2);
-                $string = " `metala` ='". $met ."',
-                            `metals` = 0,
-                            `cristala` = 0,
-                            `cristals` = '". $deu ."',
-                            `deuta` = 0,
-                            `deuts` = 0,";
-                return $string;}else{
-                $met = $this->setAuctionsValue();
-                $deu = round($met/2);
-                $string = " `metala` = 0,
-                            `metals` = '".$met."',
-                            `cristala` = '". $deu ."',
-                            `cristals` = 0,
-                            `deuta` = 0,
-                            `deuts` = 0,";
-                return $string;}}
+    function changeRess($c, $e){
+        switch ($c) {
+            case 1: $d = mt_rand(10, 30);
+                    $d *= 0.1;
+                    $f = $e / $d;
+                    break;
+            case 2: $d = mt_rand(20, 40);
+                    $d *= 0.1;
+                    $f = $e / $d;
+                    break;
+            case 3: $d = mt_rand(20, 40);
+                    $d *= 0.1;
+                    $f = $e * $d;
+                    break;
+            case 4: $d = mt_rand(20, 40);
+                    $d *= 0.1;
+                    $f = $e / $d;
+                    break;
+            case 5: $d = mt_rand(40, 60);
+                    $d *= 0.1;
+                    $f = $e * $d;
+                    break;
+            default: $d = mt_rand(20, 40);
+                     $d *= 0.1;
+                     $f = $e * $d;
+                    break;
+        }
+        $f = round($f);
+        return $f;
     }
-    
-    private function doWhitKristall($do){
-        if(\mt_rand(1,2) == 1){
-            $deut = true;}else{
-            $deut = false;
-        }if($do == 1){if($deut){
-                $met = $this->setAuctionsValue();
-                $deu = round($met*2);
-                $string = " `metala` = `metala` + '0',
-                            `metals` = `metals` + '0',
-                            `cristala` = `cristala` + '". $met ."',
-                            `cristals` = `cristals` + '0',
-                            `deuta` = `deuta` + '0',
-                            `deuts` = `deuts` + '". $deu ."',";
-                return $string;}else{
-                $met = $this->setAuctionsValue();
-                $deu = round($met/2);
-                $string = " `metala` = `metala` + '0',
-                            `metals` = `metals` + '0',
-                            `cristala` = `cristala` + '0',
-                            `cristals` = `cristals` + '".$met."',
-                            `deuta` = `deuta` + '". $deu ."',
-                            `deuts` = `deuts` + '0',";
-                return $string;}}else{if($deut){
-                $met = $this->setAuctionsValue();
-                $deu = round($met/2);
-                $string = " `metala` = `metala` + '". $met ."',
-                            `metals` = `metals` + '0',
-                            `cristala` = `cristala` + '0',
-                            `cristals` = `cristals` + '". $deu ."',
-                            `deuta` = `deuta` + '0',
-                            `deuts` = `deuts` + '0',";
-                return $string;}else{
-                $met = $this->setAuctionsValue();
-                $deu = round($met/4);
-                $string = " `metala` = `metala` + '0',
-                            `metals` = `metals` + '".$met."',
-                            `cristala` = `cristala` + '". $deu ."',
-                            `cristals` = `cristals` + '0',
-                            `deuta` = `deuta` + '0',
-                            `deuts` = `deuts` + '0',";
-                return $string;}}
+    function WhatToDo(){
+        $a = mt_rand(0,3);
+        $b = mt_rand(1,2);
+       return $this->auction($a,$b);
     }
-       
-    private function doItNow($query){
-        echo $query;
-        $GLOBALS['DATABASE']->query($query);
-    }
-    
 }

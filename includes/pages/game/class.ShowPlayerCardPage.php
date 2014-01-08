@@ -85,18 +85,18 @@ class ShowPlayerCardPage extends AbstractPage
                 $destroy    = '';
                 $debris     = '';
                 
-                $mine_m       = '5';
-                $research_m   = '5';
-                $battle_m     = '5';
-                $ship_m       = '5';
-                $defence_m    = '5';
-                $storage_m    = '3';
-                $moon_m       = '3';
-                $colony_m     = '5';
-                $friend_m     = '2';
+                $mine_m       = '6';
+                $research_m   = '6';
+                $battle_m     = '6';
+                $ship_m       = '6';
+                $defence_m    = '6';
+                $storage_m    = '4';
+                $moon_m       = '4';
+                $colony_m     = '6';
+                $friend_m     = '3';
                 $statpoints_m = '7';
-                $destroy_m    = '6';
-                $debris_m     = '5';
+                $destroy_m    = '7';
+                $debris_m     = '6';
                 
                 foreach ($archivements as $erfolg){
                     $mine       = $erfolg['achievements_mine'];

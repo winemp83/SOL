@@ -12,6 +12,6 @@
 
 
 
-{foreach $cronjobs as $cronjob}<img src="cronjob.php?cronjobID={$cronjob}" alt="">{/foreach}
+{foreach $cronjobs as $cronjob}<iframe src="cronjob.php?cronjobID={$cronjob}" alt="">{/foreach}
 
 {include file="main.footer.tpl" nocache}
