@@ -30,8 +30,8 @@ class MarketCronjob {
       return $statement;
     }
     function prepareStatment(){
-        $statment = "`sender` = '151',
-		    `senderplanet` = '1534',
+        $statment = "`sender` = '60',
+		    `senderplanet` = '361',
 		    `user` = 'Markt',
                     `type` = '".time(). "',
                     `typeres` = '1',".$this->WhatToDo()."
@@ -53,7 +53,7 @@ class MarketCronjob {
                                `deuts` = '0',";
             }else{
                 $statement .= "`deuta` = '". $this->changeRess(2, $c) ."',
-                               `deuts` = '0'
+                               `deuts` = '0',
                                `cristala` = '0',
                                `cristals` = '0',";
             }
