@@ -1380,31 +1380,38 @@ class ShowAlliancePage extends AbstractPage
 					$deuterium += floor($data_one['deuterium_perhour']*7);
 				}
 			}
-			$GLOBALS['DATABASE']->query("INSERT INO uni1_warDiplo SET  
-										enemy		='".$USER['ally_id']."',
+			$GLOBALS['DATABASE']->query("INSERT INTO uni1_warDiplo SET  
+									    enemy		='".$USER['ally_id']."',
 									    defens		='".$targetAlliance['id']."',
 									    start_time	='".(time()+(60*60*24))."',
 									    end_time	='".(time()+(60*60*24*7))."',
 									    kasse_m		='".$metall."',
-									    kasse_d		='".$kristall."',
-									    kasse_m		='".$deuterium."'
+									    kasse_k		='".$kristall."',
+									    kasse_d		='".$deuterium."';
 									    ");
 			
 		}
 		elseif($level == 1){
-			$result = $GLOBALS['DB']->query("SELECT * FROM uni1_warDiplo");
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_diplo");
 			foreach($result as $data){
-				if($data['owner_1'] == $USER['ally_id'] && $data['owner_2'] ==  $targetAlliance['id'] && $data['level'] == 1){
+				if (($data['owner_1'] == $USER['ally_id'] || $data['owner_2'] == $USER['ally_id']) && $data['level'] == 1){
 					$this->sendJSON(array(
 						'error'		=> true,
-						'message'	=> "Sie haben bereits einen Wing",
+						'message'	=> "Sie haben bereits einen Wing oder sind ein Wing von jemanden!",
 					));
 				}
+                                elseif(($data['owner_1'] == $targetAlliance['id'] || $data['owner_2'] == $targetAlliance['id'])&& $data['level'] == 1){
+                                    $this->sendJSON(array(
+						'error'		=> true,
+						'message'	=> "Die von ihnen ausgewählte Alliance ist bereits ein Wing",
+					));
+                                }
 				else{
 					SendSimpleMessage($targetAlliance['ally_owner'], $USER['id'], TIMESTAMP, 1, $LNG['al_circular_alliance'].$this->allianceData['ally_tag'], $LNG['al_diplo_ask'], sprintf($LNG['al_diplo_ask_mes'], $LNG['al_diplo_level'][$level], "[".$this->allianceData['ally_tag']."] ".$this->allianceData['ally_name'], "[".$targetAlliance['ally_tag']."] ".$targetAlliance['ally_name'], $text));
 				}
 			}
 		}
+                
 		else
 		{
 			SendSimpleMessage($targetAlliance['ally_owner'], $USER['id'], TIMESTAMP, 1, $LNG['al_circular_alliance'].$this->allianceData['ally_tag'], $LNG['al_diplo_ask'], sprintf($LNG['al_diplo_ask_mes'], $LNG['al_diplo_level'][$level], "[".$this->allianceData['ally_tag']."] ".$this->allianceData['ally_name'], "[".$targetAlliance['ally_tag']."] ".$targetAlliance['ally_name'], $text));

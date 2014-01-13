@@ -105,7 +105,8 @@ class MissionCaseRecycling extends MissionFunctions
 		}
 		
 		$LNG		= $this->getLanguage(NULL, $this->_fleet['fleet_owner']);
-		
+		$total_recycling = $collectedGoods[901]+$collectedGoods[902];
+                $GLOBALS['DATABASE']->query("UPDATE uni1_users SET recycling += '".$total_recycling."'");
 		$Message 	= sprintf($LNG['sys_recy_gotten'], 
 							  pretty_number($collectedGoods[901]), $LNG['tech'][901], 
 							  pretty_number($collectedGoods[902]), $LNG['tech'][902]

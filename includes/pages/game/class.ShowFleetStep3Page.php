@@ -220,8 +220,26 @@ class ShowFleetStep3Page extends AbstractPage
 		}
 		
 		if($targetMission == 1 || $targetMission == 2 || $targetMission == 9) {
-			if(FleetFunctions::CheckBash($targetPlanetData['id'])) {
-				$this->printMessage($LNG['fl_bash_protection']);
+			$result = $GLOBALS['DATABASE']->query("SELECT COUNT(id) FROM uni1_warDiplo WHERE start_time > '".time()."' AND end_time < '".time()."'");
+                        if(count($result != 0)){
+                            foreach($result as $data){
+                                if($data['enemy'] == $USER['ally_id'] && $data['defens'] == $targetPlanetData['ally_id']){
+                                    
+                                }
+                                elseif($data['enemy'] == $targetPlanetData['ally_id'] && $data['defens'] == $USER['ally_id']){
+                                    
+                                }
+                                else{
+                                    if(FleetFunctions::CheckBash($targetPlanetData['id'])) {
+                                        $this->printMessage($LNG['fl_bash_protection']);
+                                    }
+                                }
+                            }
+                        }
+                        else{
+                            if(FleetFunctions::CheckBash($targetPlanetData['id'])) {
+                                    $this->printMessage($LNG['fl_bash_protection']);
+                            }
 			}
 		}
 		
@@ -233,7 +251,7 @@ class ShowFleetStep3Page extends AbstractPage
 			$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_warDiplo");
 			if(count($result) != 0){
 				foreach($result as $data){
-					if($data['enemy']== $USER['ally_id'] && $data['defens'] == $targetPlanetData['ally_id'] ){
+					if($data['enemy']== $USER['ally_id'] && $data['defens'] == $targetPlanetData['ally_id']){
 						if($data['start_time'] > time()){
 							$IsNoobProtec = array('NoobPlayer' => true, 'StrongPlayer' => false);
 						}
@@ -241,7 +259,7 @@ class ShowFleetStep3Page extends AbstractPage
 							$IsNoobProtec = CheckNoobProtecWar($USER, $targetPlayerData, $targetPlayerData);
 							($IsNoobProtec['NoobPlayer'])? $hit = false: $hit = true;
 							if($hit){
-								$GLOBALS['DB']->query("UPDATE uni1_warDiplo SET
+								$GLOBALS['DATABASE']->query("UPDATE uni1_warDiplo SET
 													  count_enemy 	= count_enemy+1");
 							}
 						}
@@ -253,7 +271,7 @@ class ShowFleetStep3Page extends AbstractPage
 						else{
 							$IsNoobProtec = CheckNoobProtecWar($USER, $targetPlayerData, $targetPlayerData);
 							($IsNoobProtec['NoobPlayer'])? $hit = false: $hit = true;
-							$GLOBALS['DB']->query("UPDATE uni1_warDiplo SET
+							$GLOBALS['DATABASE']->query("UPDATE uni1_warDiplo SET
 												  count_defense = count_defense+1");
 						}
 					}
@@ -344,9 +362,9 @@ class ShowFleetStep3Page extends AbstractPage
 		$PLANET[$resource[902]]	-= $fleetRessource[902];
 		$PLANET[$resource[903]]	-= $fleetRessource[903] + $consumption;
 
-		if(connection_aborted())
+		if(connection_aborted()){
 			exit;
-		
+                }
 		$fleetStartTime		= $duration + TIMESTAMP;
 		$timeDifference		= round(max(0, $fleetStartTime - $ACSTime));
 		
