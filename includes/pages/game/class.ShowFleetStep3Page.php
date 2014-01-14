@@ -221,7 +221,7 @@ class ShowFleetStep3Page extends AbstractPage
 		
 		if($targetMission == 1 || $targetMission == 2 || $targetMission == 9) {
 			$result = $GLOBALS['DATABASE']->query("SELECT COUNT(id) FROM uni1_warDiplo WHERE start_time > '".time()."' AND end_time < '".time()."'");
-                        if(count($result != 0)){
+                        if(count($result) != 0){
                             foreach($result as $data){
                                 if($data['enemy'] == $USER['ally_id'] && $data['defens'] == $targetPlanetData['ally_id']){
                                     
