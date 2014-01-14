@@ -7285,3 +7285,125 @@ Stack trace:
 #5 /includes/classes/Cronjob.class.php(53): MarketCronjob-&gt;run()
 #6 /cronjob.php(62): Cronjob::execute(11)
 #7 {main}
+[11-Jan-2014 12:42:34] NOTICE: "Undefined index: "
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(252) : eval()'d code | Line: 439
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=fleetDealer | Version: 1.7.2676
+Stack trace:
+#0 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(252) : eval()'d code(439): errorHandler(8, 'Undefined index...', '/var/www/vhosts...', 439, Array)
+#1 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(252): eval()
+#2 /includes/libs/Smarty/sysplugins/smarty_internal_templatebase.php(374): Smarty_Internal_TemplateBase-&gt;fetch('extends:layout....', NULL, NULL, NULL, true)
+#3 /includes/classes/class.template.php(142): Smarty_Internal_TemplateBase-&gt;display('extends:layout....')
+#4 /includes/pages/game/class.AbstractPage.php(348): template-&gt;display('extends:layout....')
+#5 /includes/pages/game/class.ShowFleetDealerPage.php(93): AbstractPage-&gt;display('page.fleetDeale...')
+#6 /game.php(65): ShowFleetDealerPage-&gt;show()
+#7 {main}
+[13-Jan-2014 09:25:39] NOTICE: "Undefined index: DB"
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/pages/game/class.ShowAlliancePage.php | Line: 1395
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=25&level=1&text=test | Version: 1.7.2676
+Stack trace:
+#0 /includes/pages/game/class.ShowAlliancePage.php(1395): errorHandler(8, 'Undefined index...', '/var/www/vhosts...', 1395, Array)
+#1 /includes/pages/game/class.ShowAlliancePage.php(727): ShowAlliancePage-&gt;adminDiplomacyCreateProcessor()
+#2 /game.php(65): ShowAlliancePage-&gt;admin()
+#3 {main}
+[13-Jan-2014 09:25:45] NOTICE: "Undefined index: DB"
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/pages/game/class.ShowAlliancePage.php | Line: 1395
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=25&level=1&text=test | Version: 1.7.2676
+Stack trace:
+#0 /includes/pages/game/class.ShowAlliancePage.php(1395): errorHandler(8, 'Undefined index...', '/var/www/vhosts...', 1395, Array)
+#1 /includes/pages/game/class.ShowAlliancePage.php(727): ShowAlliancePage-&gt;adminDiplomacyCreateProcessor()
+#2 /game.php(65): ShowAlliancePage-&gt;admin()
+#3 {main}
+[13-Jan-2014 09:25:46] NOTICE: "Undefined index: DB"
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/pages/game/class.ShowAlliancePage.php | Line: 1395
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=25&level=1&text=test | Version: 1.7.2676
+Stack trace:
+#0 /includes/pages/game/class.ShowAlliancePage.php(1395): errorHandler(8, 'Undefined index...', '/var/www/vhosts...', 1395, Array)
+#1 /includes/pages/game/class.ShowAlliancePage.php(727): ShowAlliancePage-&gt;adminDiplomacyCreateProcessor()
+#2 /game.php(65): ShowAlliancePage-&gt;admin()
+#3 {main}
+[13-Jan-2014 09:25:46] NOTICE: "Undefined index: DB"
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/pages/game/class.ShowAlliancePage.php | Line: 1395
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=25&level=1&text=test | Version: 1.7.2676
+Stack trace:
+#0 /includes/pages/game/class.ShowAlliancePage.php(1395): errorHandler(8, 'Undefined index...', '/var/www/vhosts...', 1395, Array)
+#1 /includes/pages/game/class.ShowAlliancePage.php(727): ShowAlliancePage-&gt;adminDiplomacyCreateProcessor()
+#2 /game.php(65): ShowAlliancePage-&gt;admin()
+#3 {main}
+[13-Jan-2014 09:25:47] NOTICE: "Undefined index: DB"
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/pages/game/class.ShowAlliancePage.php | Line: 1395
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=25&level=1&text=test | Version: 1.7.2676
+Stack trace:
+#0 /includes/pages/game/class.ShowAlliancePage.php(1395): errorHandler(8, 'Undefined index...', '/var/www/vhosts...', 1395, Array)
+#1 /includes/pages/game/class.ShowAlliancePage.php(727): ShowAlliancePage-&gt;adminDiplomacyCreateProcessor()
+#2 /game.php(65): ShowAlliancePage-&gt;admin()
+#3 {main}
+[13-Jan-2014 09:25:47] NOTICE: "Undefined index: DB"
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/pages/game/class.ShowAlliancePage.php | Line: 1395
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=25&level=1&text=test | Version: 1.7.2676
+Stack trace:
+#0 /includes/pages/game/class.ShowAlliancePage.php(1395): errorHandler(8, 'Undefined index...', '/var/www/vhosts...', 1395, Array)
+#1 /includes/pages/game/class.ShowAlliancePage.php(727): ShowAlliancePage-&gt;adminDiplomacyCreateProcessor()
+#2 /game.php(65): ShowAlliancePage-&gt;admin()
+#3 {main}
+[13-Jan-2014 09:25:53] NOTICE: "Undefined index: DB"
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/pages/game/class.ShowAlliancePage.php | Line: 1395
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=25&level=1&text=test+mich+jetzt | Version: 1.7.2676
+Stack trace:
+#0 /includes/pages/game/class.ShowAlliancePage.php(1395): errorHandler(8, 'Undefined index...', '/var/www/vhosts...', 1395, Array)
+#1 /includes/pages/game/class.ShowAlliancePage.php(727): ShowAlliancePage-&gt;adminDiplomacyCreateProcessor()
+#2 /game.php(65): ShowAlliancePage-&gt;admin()
+#3 {main}
+[13-Jan-2014 09:41:04] USER ERROR: "SQL Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uni1_warDiplo SET  
+										enemy		='26',
+									    defens		='28',
+					' at line 1Query Code: INSERT INO uni1_warDiplo SET  
+										enemy		='26',
+									    defens		='28',
+									    start_time	='1389688864',
+									    end_time	='1390207264',
+									    kasse_m		='8613072',
+									    kasse_d		='4259470',
+									    kasse_m		='888570'
+									    "
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/classes/class.Database.php | Line: 81
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=28&level=5&text=tata | Version: 1.7.2676
+Stack trace:
+#0 /includes/pages/game/class.ShowAlliancePage.php(1391): Database-&gt;query('INSERT INO uni1...')
+#1 /includes/pages/game/class.ShowAlliancePage.php(727): ShowAlliancePage-&gt;adminDiplomacyCreateProcessor()
+#2 /game.php(65): ShowAlliancePage-&gt;admin()
+#3 {main}
+[13-Jan-2014 09:43:08] USER ERROR: "SQL Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'uni1_warDiplo SET  
+									    enemy		='26',
+									    defens		='28',
+		' at line 1Query Code: INSERT INO uni1_warDiplo SET  
+									    enemy		='26',
+									    defens		='28',
+									    start_time	='1389688988',
+									    end_time	='1390207388',
+									    kasse_m		='8613072',
+									    kasse_d		='4259470',
+									    kasse_m		='888570';
+									    "
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/classes/class.Database.php | Line: 81
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=28&level=5&text=Tata | Version: 1.7.2676
+Stack trace:
+#0 /includes/pages/game/class.ShowAlliancePage.php(1391): Database-&gt;query('INSERT INO uni1...')
+#1 /includes/pages/game/class.ShowAlliancePage.php(727): ShowAlliancePage-&gt;adminDiplomacyCreateProcessor()
+#2 /game.php(65): ShowAlliancePage-&gt;admin()
+#3 {main}
+[13-Jan-2014 09:44:29] USER ERROR: "SQL Error: Column 'kasse_m' specified twiceQuery Code: INSERT INTO uni1_warDiplo SET  
+									    enemy		='26',
+									    defens		='28',
+									    start_time	='1389689069',
+									    end_time	='1390207469',
+									    kasse_m		='8613072',
+									    kasse_d		='4259470',
+									    kasse_m		='888570';
+									    "
+File: /var/www/vhosts/spaceoflegends.de/entwicklung/includes/classes/class.Database.php | Line: 81
+URL: http://www.entwicklung.spaceoflegends.de/game.php?page=alliance&mode=admin&action=diplomacyCreateProcessor&ajax=1&ally_id=28&level=5&text=Tata | Version: 1.7.2676
+Stack trace:
+#0 /includes/pages/game/class.ShowAlliancePage.php(1391): Database-&gt;query('INSERT INTO uni...')
+#1 /includes/pages/game/class.ShowAlliancePage.php(727): ShowAlliancePage-&gt;adminDiplomacyCreateProcessor()
+#2 /game.php(65): ShowAlliancePage-&gt;admin()
+#3 {main}
