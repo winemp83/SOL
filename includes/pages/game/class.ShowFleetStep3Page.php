@@ -220,7 +220,7 @@ class ShowFleetStep3Page extends AbstractPage
 		}
 		
 		if($targetMission == 1 || $targetMission == 2 || $targetMission == 9) {
-			$result = $GLOBALS['DATABASE']->query("SELECT COUNT(id) FROM uni1_warDiplo WHERE start_time > '".time()."' AND end_time < '".time()."'");
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_warDiplo WHERE start_time > '".time()."' AND end_time < '".time()."'");
                         if(count($result) != 0){
                             foreach($result as $data){
                                 if($data['enemy'] == $USER['ally_id'] && $data['defens'] == $targetPlanetData['ally_id']){
@@ -251,7 +251,7 @@ class ShowFleetStep3Page extends AbstractPage
 			$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_warDiplo");
 			if(count($result) != 0){
 				foreach($result as $data){
-					if($data['enemy']== $USER['ally_id'] && $data['defens'] == $targetPlanetData['ally_id']){
+					if($data['enemy']== $USER['ally_id'] && $data['defens'] == $targetPlayerData['ally_id']){
 						if($data['start_time'] > time()){
 							$IsNoobProtec = array('NoobPlayer' => true, 'StrongPlayer' => false);
 						}
@@ -264,7 +264,7 @@ class ShowFleetStep3Page extends AbstractPage
 							}
 						}
 					}
-					elseif($data['enemy']== $targetPlanetData['ally_id'] && $data['defens'] == $USER['ally_id']){
+					elseif($data['enemy']== $targetPlayerData['ally_id'] && $data['defens'] == $USER['ally_id']){
 						if($data['start_time'] > time()){
 							$IsNoobProtec = array('NoobPlayer' => true, 'StrongPlayer' => false);
 						}
