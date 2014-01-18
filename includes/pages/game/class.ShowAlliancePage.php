@@ -514,7 +514,7 @@ class ShowAlliancePage extends AbstractPage
 		foreach($result_one as $data){
 			if($data['owner_1'] == $USER['ally_id'] && $data['accept'] == 1){
 				if($data['level'] == 1){
-					$sql = "SELECT * FROM ".ALLIBONUS." WHERE id='".$data['owner2']."'";
+					$sql = "SELECT * FROM ".ALLIBONUS." WHERE id='".$data['owner_2']."'";
 					$result = $GLOBALS['DATABASE']->query($sql);
 					foreach($result as $data_1){
 						$one 	+= floor($data_1['slots']*0.1);
@@ -529,7 +529,7 @@ class ShowAlliancePage extends AbstractPage
 			}
 			elseif($data['owner_2'] == $USER['ally_id'] && $data['accept'] == 1){
 				if($data['level'] == 1){
-					$sql = "SELECT * FROM ".ALLIBONUS." WHERE id='".$data['owner1']."'";
+					$sql = "SELECT * FROM ".ALLIBONUS." WHERE id='".$data['owner_1']."'";
 					$result = $GLOBALS['DATABASE']->query($sql);
 					foreach($result as $data_1){
 						$one 	+= floor($data_1['slots']*0.1);

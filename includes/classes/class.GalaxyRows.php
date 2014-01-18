@@ -91,12 +91,13 @@ class GalaxyRows
 			
 			$this->getAllowedMissions();
 			
-			$this->getPlayerData();
+			
 			$this->getPlanetData();
 			$this->getAllianceData();
 			$this->getDebrisData();
 			$this->getMoonData();
 			$this->getActionButtons();
+                        $this->getPlayerData();
 		}
 
 		$GLOBALS['DATABASE']->free_result($galaxyResult);
@@ -174,42 +175,8 @@ class GalaxyRows
 	protected function getPlayerData()
 	{
 		global $USER, $LNG;
-
-		$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_warDiplo");
-		if(count($result) != 0){
-			foreach($result as $data){
-				if($data['enemy']== $USER['ally_id'] && $data['defens'] == $targetPlanetData['ally_id'] ){
-					if($data['start_time'] > time()){
-						$IsNoobProtec = array('NoobPlayer' => true, 'StrongPlayer' => false);
-					}
-					else{
-						$IsNoobProtec = CheckNoobProtecWar($USER, $targetPlayerData, $targetPlayerData);
-						($IsNoobProtec['NoobPlayer'])? $hit = false: $hit = true;
-						if($hit){
-							$GLOBALS['DB']->query("UPDATE uni1_warDiplo SET
-												  count_enemy 	= count_enemy+1");
-						}
-					}
-				}
-				elseif($data['enemy']== $targetPlanetData['ally_id'] && $data['defens'] == $USER['ally_id']){
-					if($data['start_time'] > time()){
-						$IsNoobProtec = array('NoobPlayer' => true, 'StrongPlayer' => false);
-					}
-					else{
-						$IsNoobProtec = CheckNoobProtecWar($USER, $targetPlayerData, $targetPlayerData);
-						($IsNoobProtec['NoobPlayer'])? $hit = false: $hit = true;
-						$GLOBALS['DB']->query("UPDATE uni1_warDiplo SET
-											  count_defense = count_defense+1");
-					}
-				}
-				else{
-					$IsNoobProtec	= CheckNoobProtec($USER, $targetPlayerData, $targetPlayerData);
-				}
-			}
-		}
-		else{
-			$IsNoobProtec	= CheckNoobProtec($USER, $targetPlayerData, $targetPlayerData);
-		}
+                
+                $IsNoobProtec	= CheckNoobProtec($USER, $this->galaxyRow, $this->galaxyRow);
 		$Class		 		= array();
 
 		if ($this->galaxyRow['banaday'] > TIMESTAMP && $this->galaxyRow['urlaubs_modus'] == 1)
@@ -277,7 +244,7 @@ class GalaxyRows
 			{
 				$Class	= array('member');
 			}
-			$result = $GLOBALS['DB']->query("SELECT * FROM uni1_diplo ");
+			$result = $GLOBALS['DATABASE']->query("SELECT * FROM uni1_diplo ");
 			if(count($result) != 0){
 				foreach($result as $data){
 					if($data['owner_1'] == $USER['ally_id'] && $data['owner_2'] == $this->galaxyRow['ally_id'] && $data['accept'] == 1){
